@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ServerSideAppConfig(AppConfig):
+class ServersideappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'server_side_app'
+    name = 'ServerSideApp'
