@@ -14,6 +14,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,8 +50,32 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alerts">
+      <HintPath>..\Alerts\bin\Debug\Alerts.dll</HintPath>
+    </Reference>
+    <Reference Include="bubble">
+      <HintPath>..\bubble\bin\Debug\bubble.dll</HintPath>
+    </Reference>
+    <Reference Include="DatabaseSelectStatements">
+      <HintPath>..\DatabaseSelectStatements\bin\Debug\DatabaseSelectStatements.dll</HintPath>
+    </Reference>
+    <Reference Include="Frond-End Design">
+      <HintPath>..\Frond-End Design\bin\Debug\Frond-End Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Functionality">
+      <HintPath>..\Functionality\bin\Debug\Functionality.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.2646.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2646-prerelease\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.2646.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2646-prerelease\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.2646.0, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.WebView2.1.0.2646-prerelease\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -57,8 +83,10 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -79,11 +107,83 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FrmDevelopers.Designer.vb">
+      <DependentUpon>FrmDevelopers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDevelopers.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FrmEnrollment.Designer.vb">
+      <DependentUpon>FrmEnrollment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnrollment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFaculty.Designer.vb">
+      <DependentUpon>FrmFaculty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFaculty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHomepage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHomepage.Designer.vb">
+      <DependentUpon>FrmHomepage.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdmission.Designer.vb">
+      <DependentUpon>FrmAdmission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdmission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBanking.Designer.vb">
+      <DependentUpon>FrmBanking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBanking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExaminations.Designer.vb">
+      <DependentUpon>FrmExaminations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExaminations.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOptions.Designer.vb">
+      <DependentUpon>FrmOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPayment.Designer.vb">
+      <DependentUpon>FrmPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReceipts.Designer.vb">
+      <DependentUpon>FrmReceipts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReceipts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReports.Designer.vb">
+      <DependentUpon>FrmReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectStudent.Designer.vb">
+      <DependentUpon>FrmSelectStudent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTuition.Designer.vb">
+      <DependentUpon>FrmTuition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTuition.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -103,8 +203,44 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FrmDevelopers.resx">
+      <DependentUpon>FrmDevelopers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnrollment.resx">
+      <DependentUpon>FrmEnrollment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFaculty.resx">
+      <DependentUpon>FrmFaculty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHomepage.resx">
+      <DependentUpon>FrmHomepage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdmission.resx">
+      <DependentUpon>FrmAdmission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBanking.resx">
+      <DependentUpon>FrmBanking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExaminations.resx">
+      <DependentUpon>FrmExaminations.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOptions.resx">
+      <DependentUpon>FrmOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPayment.resx">
+      <DependentUpon>FrmPayment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReceipts.resx">
+      <DependentUpon>FrmReceipts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReports.resx">
+      <DependentUpon>FrmReports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectStudent.resx">
+      <DependentUpon>FrmSelectStudent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTuition.resx">
+      <DependentUpon>FrmTuition.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -119,6 +255,53 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Resources\whatsapp.png" />
+    <None Include="Resources\youtube.png" />
+    <None Include="Resources\96.png" />
+    <None Include="Resources\558.png" />
+    <None Include="Resources\9952.png" />
+    <None Include="Resources\264.png" />
+    <None Include="Resources\176.png" />
+    <None Include="Resources\267.png" />
+    <None Include="Resources\244.png" />
+    <None Include="Resources\566.png" />
+    <None Include="Resources\277.png" />
+    <None Include="Resources\573.png" />
+    <None Include="Resources\100.png" />
+    <None Include="Resources\860.png" />
+    <None Include="Resources\businessman.png" />
+    <None Include="Resources\9021.png" />
+    <None Include="Resources\864.png" />
+    <None Include="Resources\108.png" />
+    <None Include="Resources\8691.png" />
+    <None Include="Resources\124.png" />
+    <None Include="Resources\blog.png" />
+    <None Include="Resources\studentask.png" />
+    <None Include="Resources\564.png" />
+    <None Include="Resources\993.png" />
+    <None Include="Resources\992.png" />
+    <None Include="Resources\612.png" />
+    <None Include="Resources\346.png" />
+    <None Include="Resources\3471.png" />
+    <None Include="Resources\4841.png" />
+    <None Include="Resources\3971.png" />
+    <None Include="Resources\1321.png" />
+    <None Include="Resources\8841.png" />
+    <None Include="Resources\applebooks.png" />
+    <None Include="Resources\SchoolCollage1.png" />
+    <None Include="Resources\SchoolCollage.png" />
+    <None Include="Resources\787.png" />
+    <None Include="Resources\995.png" />
+    <None Include="Resources\938.png" />
+    <None Include="Resources\930.png" />
+    <None Include="Resources\539.png" />
+    <None Include="Resources\bookvertical.png" />
+    <None Include="Resources\SubLogo.png" />
+    <None Include="Resources\540.png" />
+    <None Include="Resources\563.png" />
+    <None Include="Resources\553.png" />
+    <None Include="Resources\276.png" />
+    <None Include="Resources\557.png" />
     <None Include="Resources\266.png" />
     <None Include="Resources\UpdatedLogo.png" />
     <None Include="Resources\LogoDesign2.png" />
@@ -140,4 +323,11 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="packages\Microsoft.Web.WebView2.1.0.2646-prerelease\build\Microsoft.Web.WebView2.targets" Condition="Exists('packages\Microsoft.Web.WebView2.1.0.2646-prerelease\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Web.WebView2.1.0.2646-prerelease\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Web.WebView2.1.0.2646-prerelease\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
 </Project>
