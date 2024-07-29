@@ -56,6 +56,8 @@ Partial Class Homepage
         Me.btnHome = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnCloseDatabase = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.lstRecentItems = New System.Windows.Forms.ListBox()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlDockParent.SuspendLayout()
         Me.Options.SuspendLayout()
         Me.pnlTopInfo.SuspendLayout()
@@ -177,6 +179,8 @@ Partial Class Homepage
         'Options
         '
         Me.Options.BackColor = System.Drawing.Color.Transparent
+        Me.Options.Controls.Add(Me.Guna2Button1)
+        Me.Options.Controls.Add(Me.lstRecentItems)
         Me.Options.Controls.Add(Me.pnlOptionsDock)
         Me.Options.Controls.Add(Me.pnlOptionsBorder)
         Me.Options.Controls.Add(Me.btnFlipPageLeft)
@@ -662,6 +666,29 @@ Partial Class Homepage
         Me.Guna2PictureBox1.TabIndex = 15
         Me.Guna2PictureBox1.TabStop = False
         '
+        'lstRecentItems
+        '
+        Me.lstRecentItems.FormattingEnabled = True
+        Me.lstRecentItems.ItemHeight = 17
+        Me.lstRecentItems.Location = New System.Drawing.Point(14, 57)
+        Me.lstRecentItems.Name = "lstRecentItems"
+        Me.lstRecentItems.Size = New System.Drawing.Size(304, 259)
+        Me.lstRecentItems.TabIndex = 13
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Location = New System.Drawing.Point(89, 322)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(180, 45)
+        Me.Guna2Button1.TabIndex = 14
+        Me.Guna2Button1.Text = "Guna2Button1"
+        '
         'Homepage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
@@ -737,4 +764,6 @@ Partial Class Homepage
     Friend WithEvents btnCloseDatabase As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents Guna2DataGridViewStyler1 As Guna.UI2.WinForms.Guna2DataGridViewStyler
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents lstRecentItems As ListBox
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class
