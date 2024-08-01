@@ -21,9 +21,9 @@ Public Class FrmReports
     End Sub
 
     Private Sub ShowReport()
-        Dim datatable As DataTable = selectStatement.GetNamesFromTable()
+        Dim datatable As DataTable = selectStatement.GetStudentProfile()
 
-        Dim reportForm As New FrmStudentReport(datatable, "DTSStudents")
+        Dim reportForm As New FrmStudentReport(datatable, "stdDetails")
         reportForm.Show()
 
     End Sub

@@ -126,7 +126,7 @@ Partial Class FrmEnrollment
         Me.pnlPayments.Controls.Add(Me.lblFees)
         Me.pnlPayments.Controls.Add(Me.btnValidateAndFinalise)
         Me.pnlPayments.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlPayments.Location = New System.Drawing.Point(0, 484)
+        Me.pnlPayments.Location = New System.Drawing.Point(0, 447)
         Me.pnlPayments.Name = "pnlPayments"
         Me.pnlPayments.Size = New System.Drawing.Size(657, 444)
         Me.pnlPayments.TabIndex = 3
@@ -226,9 +226,9 @@ Partial Class FrmEnrollment
         Me.pnlGuardians.Controls.Add(Me.lblGName)
         Me.pnlGuardians.Controls.Add(Me.btnValidateGuardians)
         Me.pnlGuardians.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlGuardians.Location = New System.Drawing.Point(0, 474)
+        Me.pnlGuardians.Location = New System.Drawing.Point(0, 20)
         Me.pnlGuardians.Name = "pnlGuardians"
-        Me.pnlGuardians.Size = New System.Drawing.Size(657, 10)
+        Me.pnlGuardians.Size = New System.Drawing.Size(657, 427)
         Me.pnlGuardians.TabIndex = 2
         '
         'btnCopyAddress
@@ -484,7 +484,7 @@ Partial Class FrmEnrollment
         Me.pnlSubjects.Controls.Add(Me.Guna2HtmlLabel2)
         Me.pnlSubjects.Controls.Add(Me.btnValidateSubjects)
         Me.pnlSubjects.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlSubjects.Location = New System.Drawing.Point(0, 464)
+        Me.pnlSubjects.Location = New System.Drawing.Point(0, 10)
         Me.pnlSubjects.Name = "pnlSubjects"
         Me.pnlSubjects.Size = New System.Drawing.Size(657, 10)
         Me.pnlSubjects.TabIndex = 1
@@ -580,7 +580,7 @@ Partial Class FrmEnrollment
         Me.pnlStudent.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlStudent.Location = New System.Drawing.Point(0, 0)
         Me.pnlStudent.Name = "pnlStudent"
-        Me.pnlStudent.Size = New System.Drawing.Size(657, 464)
+        Me.pnlStudent.Size = New System.Drawing.Size(657, 10)
         Me.pnlStudent.TabIndex = 0
         '
         'btnValidateStudentDetails

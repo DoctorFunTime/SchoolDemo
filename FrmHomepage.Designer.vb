@@ -23,10 +23,14 @@ Partial Class Homepage
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnAboutUs = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnNotifications = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.prgIndicatorBar = New Guna.UI2.WinForms.Guna2ProgressIndicator()
         Me.pnlDockParent = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.DataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.rdoBtnAccounts = New Guna.UI2.WinForms.Guna2CustomRadioButton()
         Me.rdoBtnSettings = New Guna.UI2.WinForms.Guna2CustomRadioButton()
         Me.Options = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -34,14 +38,6 @@ Partial Class Homepage
         Me.pnlOptionsBorder = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnFlipPageLeft = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnFlipPageRight = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.pnlTopInfo = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.picBoxAdditionalPic = New System.Windows.Forms.PictureBox()
-        Me.lblSlogan3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblHeadingOne = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblSlogan2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.pnlGrdEffect = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.picBoxWelcome = New System.Windows.Forms.PictureBox()
-        Me.lblSlogan1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlUnderline = New System.Windows.Forms.Panel()
         Me.notPaint = New Guna.UI2.WinForms.Guna2NotificationPaint(Me.components)
         Me.OpeningTransition = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
@@ -56,15 +52,13 @@ Partial Class Homepage
         Me.btnHome = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnCloseDatabase = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.lstRecentItems = New System.Windows.Forms.ListBox()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.lblConnectedUser = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlDockParent.SuspendLayout()
+        CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Options.SuspendLayout()
-        Me.pnlTopInfo.SuspendLayout()
-        CType(Me.picBoxAdditionalPic, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlGrdEffect.SuspendLayout()
-        CType(Me.picBoxWelcome, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnAboutUs
@@ -84,7 +78,7 @@ Partial Class Homepage
         Me.btnAboutUs.ForeColor = System.Drawing.Color.White
         Me.btnAboutUs.Image = Global.SchoolDemo.My.Resources.Resources._787
         Me.btnAboutUs.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnAboutUs.Location = New System.Drawing.Point(290, 5)
+        Me.btnAboutUs.Location = New System.Drawing.Point(880, 4)
         Me.btnAboutUs.Name = "btnAboutUs"
         Me.btnAboutUs.Size = New System.Drawing.Size(40, 36)
         Me.btnAboutUs.TabIndex = 26
@@ -107,7 +101,7 @@ Partial Class Homepage
         Me.btnNotifications.ForeColor = System.Drawing.Color.White
         Me.btnNotifications.Image = Global.SchoolDemo.My.Resources.Resources._564
         Me.btnNotifications.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnNotifications.Location = New System.Drawing.Point(235, 5)
+        Me.btnNotifications.Location = New System.Drawing.Point(825, 4)
         Me.btnNotifications.Name = "btnNotifications"
         Me.btnNotifications.Size = New System.Drawing.Size(40, 36)
         Me.btnNotifications.TabIndex = 25
@@ -126,10 +120,10 @@ Partial Class Homepage
         'pnlDockParent
         '
         Me.pnlDockParent.BackColor = System.Drawing.Color.White
+        Me.pnlDockParent.Controls.Add(Me.DataGridView)
         Me.pnlDockParent.Controls.Add(Me.rdoBtnAccounts)
         Me.pnlDockParent.Controls.Add(Me.rdoBtnSettings)
         Me.pnlDockParent.Controls.Add(Me.Options)
-        Me.pnlDockParent.Controls.Add(Me.pnlTopInfo)
         Me.pnlDockParent.FillColor = System.Drawing.Color.White
         Me.pnlDockParent.FillColor2 = System.Drawing.Color.White
         Me.pnlDockParent.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal
@@ -140,6 +134,56 @@ Partial Class Homepage
         Me.pnlDockParent.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10, 10, 15, 15)
         Me.pnlDockParent.Size = New System.Drawing.Size(1072, 644)
         Me.pnlDockParent.TabIndex = 22
+        '
+        'DataGridView
+        '
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.DataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView.ColumnHeadersHeight = 4
+        Me.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DataGridView.Location = New System.Drawing.Point(77, 20)
+        Me.DataGridView.Name = "DataGridView"
+        Me.DataGridView.RowHeadersVisible = False
+        Me.DataGridView.Size = New System.Drawing.Size(776, 221)
+        Me.DataGridView.TabIndex = 11
+        Me.DataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.DataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.DataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.DataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.DataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.DataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.DataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.DataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.DataGridView.ThemeStyle.HeaderStyle.Height = 4
+        Me.DataGridView.ThemeStyle.ReadOnly = False
+        Me.DataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.DataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.DataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.DataGridView.ThemeStyle.RowsStyle.Height = 22
+        Me.DataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
         'rdoBtnAccounts
         '
@@ -179,13 +223,11 @@ Partial Class Homepage
         'Options
         '
         Me.Options.BackColor = System.Drawing.Color.Transparent
-        Me.Options.Controls.Add(Me.Guna2Button1)
-        Me.Options.Controls.Add(Me.lstRecentItems)
         Me.Options.Controls.Add(Me.pnlOptionsDock)
         Me.Options.Controls.Add(Me.pnlOptionsBorder)
         Me.Options.Controls.Add(Me.btnFlipPageLeft)
         Me.Options.Controls.Add(Me.btnFlipPageRight)
-        Me.Options.Location = New System.Drawing.Point(0, 254)
+        Me.Options.Location = New System.Drawing.Point(0, 257)
         Me.Options.Name = "Options"
         Me.Options.Size = New System.Drawing.Size(1072, 387)
         Me.Options.TabIndex = 6
@@ -259,105 +301,6 @@ Partial Class Homepage
         Me.btnFlipPageRight.Size = New System.Drawing.Size(18, 36)
         Me.btnFlipPageRight.TabIndex = 10
         Me.btnFlipPageRight.UseTransparentBackground = True
-        '
-        'pnlTopInfo
-        '
-        Me.pnlTopInfo.AutoScroll = True
-        Me.pnlTopInfo.BackColor = System.Drawing.Color.Transparent
-        Me.pnlTopInfo.BorderRadius = 5
-        Me.pnlTopInfo.BorderThickness = 1
-        Me.pnlTopInfo.Controls.Add(Me.picBoxAdditionalPic)
-        Me.pnlTopInfo.Controls.Add(Me.lblSlogan3)
-        Me.pnlTopInfo.Controls.Add(Me.lblHeadingOne)
-        Me.pnlTopInfo.Controls.Add(Me.lblSlogan2)
-        Me.pnlTopInfo.Controls.Add(Me.pnlGrdEffect)
-        Me.pnlTopInfo.Controls.Add(Me.lblSlogan1)
-        Me.pnlTopInfo.FillColor = System.Drawing.Color.White
-        Me.pnlTopInfo.FillColor2 = System.Drawing.Color.White
-        Me.pnlTopInfo.Location = New System.Drawing.Point(0, -1)
-        Me.pnlTopInfo.Name = "pnlTopInfo"
-        Me.pnlTopInfo.ShadowDecoration.BorderRadius = 0
-        Me.pnlTopInfo.ShadowDecoration.Depth = 15
-        Me.pnlTopInfo.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(8)
-        Me.pnlTopInfo.Size = New System.Drawing.Size(1072, 237)
-        Me.pnlTopInfo.TabIndex = 5
-        '
-        'picBoxAdditionalPic
-        '
-        Me.picBoxAdditionalPic.BackColor = System.Drawing.Color.Transparent
-        Me.picBoxAdditionalPic.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.applebooks
-        Me.picBoxAdditionalPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.picBoxAdditionalPic.Location = New System.Drawing.Point(378, 139)
-        Me.picBoxAdditionalPic.Name = "picBoxAdditionalPic"
-        Me.picBoxAdditionalPic.Size = New System.Drawing.Size(91, 75)
-        Me.picBoxAdditionalPic.TabIndex = 3
-        Me.picBoxAdditionalPic.TabStop = False
-        '
-        'lblSlogan3
-        '
-        Me.lblSlogan3.BackColor = System.Drawing.Color.Transparent
-        Me.lblSlogan3.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSlogan3.Location = New System.Drawing.Point(17, 185)
-        Me.lblSlogan3.Name = "lblSlogan3"
-        Me.lblSlogan3.Size = New System.Drawing.Size(118, 24)
-        Me.lblSlogan3.TabIndex = 6
-        Me.lblSlogan3.Text = "User Friendly."
-        Me.lblSlogan3.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblHeadingOne
-        '
-        Me.lblHeadingOne.BackColor = System.Drawing.Color.Transparent
-        Me.lblHeadingOne.Font = New System.Drawing.Font("Century Gothic", 23.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHeadingOne.Location = New System.Drawing.Point(14, 31)
-        Me.lblHeadingOne.Name = "lblHeadingOne"
-        Me.lblHeadingOne.Size = New System.Drawing.Size(486, 39)
-        Me.lblHeadingOne.TabIndex = 4
-        Me.lblHeadingOne.Text = "Intelligent Management System."
-        Me.lblHeadingOne.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblSlogan2
-        '
-        Me.lblSlogan2.BackColor = System.Drawing.Color.Transparent
-        Me.lblSlogan2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSlogan2.Location = New System.Drawing.Point(17, 140)
-        Me.lblSlogan2.Name = "lblSlogan2"
-        Me.lblSlogan2.Size = New System.Drawing.Size(216, 24)
-        Me.lblSlogan2.TabIndex = 5
-        Me.lblSlogan2.Text = "Improves Performance."
-        Me.lblSlogan2.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'pnlGrdEffect
-        '
-        Me.pnlGrdEffect.Controls.Add(Me.picBoxWelcome)
-        Me.pnlGrdEffect.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlGrdEffect.FillColor2 = System.Drawing.Color.DeepSkyBlue
-        Me.pnlGrdEffect.Location = New System.Drawing.Point(502, 0)
-        Me.pnlGrdEffect.Name = "pnlGrdEffect"
-        Me.pnlGrdEffect.Size = New System.Drawing.Size(570, 237)
-        Me.pnlGrdEffect.TabIndex = 3
-        '
-        'picBoxWelcome
-        '
-        Me.picBoxWelcome.BackColor = System.Drawing.Color.Transparent
-        Me.picBoxWelcome.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.SchoolCollage1
-        Me.picBoxWelcome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.picBoxWelcome.Dock = System.Windows.Forms.DockStyle.Right
-        Me.picBoxWelcome.Location = New System.Drawing.Point(0, 0)
-        Me.picBoxWelcome.Name = "picBoxWelcome"
-        Me.picBoxWelcome.Size = New System.Drawing.Size(570, 237)
-        Me.picBoxWelcome.TabIndex = 2
-        Me.picBoxWelcome.TabStop = False
-        '
-        'lblSlogan1
-        '
-        Me.lblSlogan1.BackColor = System.Drawing.Color.Transparent
-        Me.lblSlogan1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSlogan1.Location = New System.Drawing.Point(17, 95)
-        Me.lblSlogan1.Name = "lblSlogan1"
-        Me.lblSlogan1.Size = New System.Drawing.Size(290, 24)
-        Me.lblSlogan1.TabIndex = 3
-        Me.lblSlogan1.Text = "Simplifies School Management."
-        Me.lblSlogan1.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
         '
         'pnlUnderline
         '
@@ -621,7 +564,7 @@ Partial Class Homepage
         Me.btnHome.ForeColor = System.Drawing.Color.White
         Me.btnHome.Image = Global.SchoolDemo.My.Resources.Resources._612
         Me.btnHome.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnHome.Location = New System.Drawing.Point(176, 5)
+        Me.btnHome.Location = New System.Drawing.Point(766, 4)
         Me.btnHome.Name = "btnHome"
         Me.btnHome.Size = New System.Drawing.Size(40, 36)
         Me.btnHome.TabIndex = 29
@@ -666,28 +609,28 @@ Partial Class Homepage
         Me.Guna2PictureBox1.TabIndex = 15
         Me.Guna2PictureBox1.TabStop = False
         '
-        'lstRecentItems
+        'Guna2PictureBox2
         '
-        Me.lstRecentItems.FormattingEnabled = True
-        Me.lstRecentItems.ItemHeight = 17
-        Me.lstRecentItems.Location = New System.Drawing.Point(14, 57)
-        Me.lstRecentItems.Name = "lstRecentItems"
-        Me.lstRecentItems.Size = New System.Drawing.Size(304, 259)
-        Me.lstRecentItems.TabIndex = 13
+        Me.Guna2PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox2.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.businessman
+        Me.Guna2PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Guna2PictureBox2.Image = Global.SchoolDemo.My.Resources.Resources.SubLogo
+        Me.Guna2PictureBox2.ImageRotate = 0!
+        Me.Guna2PictureBox2.Location = New System.Drawing.Point(176, 5)
+        Me.Guna2PictureBox2.Name = "Guna2PictureBox2"
+        Me.Guna2PictureBox2.Size = New System.Drawing.Size(30, 30)
+        Me.Guna2PictureBox2.TabIndex = 31
+        Me.Guna2PictureBox2.TabStop = False
         '
-        'Guna2Button1
+        'lblConnectedUser
         '
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(89, 322)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(180, 45)
-        Me.Guna2Button1.TabIndex = 14
-        Me.Guna2Button1.Text = "Guna2Button1"
+        Me.lblConnectedUser.BackColor = System.Drawing.Color.Transparent
+        Me.lblConnectedUser.Font = New System.Drawing.Font("Century Gothic", 10.5!)
+        Me.lblConnectedUser.Location = New System.Drawing.Point(219, 14)
+        Me.lblConnectedUser.Name = "lblConnectedUser"
+        Me.lblConnectedUser.Size = New System.Drawing.Size(123, 21)
+        Me.lblConnectedUser.TabIndex = 32
+        Me.lblConnectedUser.Text = "Keith Madzamba"
         '
         'Homepage
         '
@@ -695,6 +638,7 @@ Partial Class Homepage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1244, 701)
+        Me.Controls.Add(Me.lblConnectedUser)
         Me.Controls.Add(Me.Guna2PictureBox1)
         Me.Controls.Add(Me.btnCloseDatabase)
         Me.Controls.Add(Me.btnHome)
@@ -711,6 +655,7 @@ Partial Class Homepage
         Me.Controls.Add(Me.btnExams)
         Me.Controls.Add(Me.btnAdmissions)
         Me.Controls.Add(Me.btnControlPanel)
+        Me.Controls.Add(Me.Guna2PictureBox2)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -720,14 +665,12 @@ Partial Class Homepage
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "School Name"
         Me.pnlDockParent.ResumeLayout(False)
+        CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Options.ResumeLayout(False)
-        Me.pnlTopInfo.ResumeLayout(False)
-        Me.pnlTopInfo.PerformLayout()
-        CType(Me.picBoxAdditionalPic, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlGrdEffect.ResumeLayout(False)
-        CType(Me.picBoxWelcome, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnAboutUs As Guna.UI2.WinForms.Guna2GradientButton
@@ -741,14 +684,6 @@ Partial Class Homepage
     Friend WithEvents pnlOptionsBorder As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnFlipPageLeft As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnFlipPageRight As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents pnlTopInfo As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents picBoxAdditionalPic As PictureBox
-    Friend WithEvents lblSlogan3 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents lblHeadingOne As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents lblSlogan2 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents pnlGrdEffect As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents picBoxWelcome As PictureBox
-    Friend WithEvents lblSlogan1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents pnlUnderline As Panel
     Friend WithEvents notPaint As Guna.UI2.WinForms.Guna2NotificationPaint
     Friend WithEvents OpeningTransition As Guna.UI2.WinForms.Guna2BorderlessForm
@@ -764,6 +699,7 @@ Partial Class Homepage
     Friend WithEvents btnCloseDatabase As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents Guna2DataGridViewStyler1 As Guna.UI2.WinForms.Guna2DataGridViewStyler
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents lstRecentItems As ListBox
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblConnectedUser As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents DataGridView As Guna.UI2.WinForms.Guna2DataGridView
 End Class

@@ -13,19 +13,25 @@ Public Class Homepage
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        'add items to dictionary
 
     End Sub
     Private buttonList As New Collection
     Dim toolTip As New Design()
     Dim selectStatement As New SelectStats()
     Private recentItems As New List(Of String)
+    Private design As New Design
+    Private myRecentsDictionary As New Dictionary(Of Integer, MyCustomObject)()
+    Private CurrentKey As Integer = 0
+    Private KeyOrder As New List(Of Integer)
 
     'form load
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        DataGridView.DataSource = selectStatement.GetFeesStatement()
+
         'load recents
-        recentItems = LoadRecentItems()
-        DisplayRecentItems()
+        LoadRecentItems()
 
         'Removing top levels from forms
         TopLevelRemoval()
@@ -52,7 +58,7 @@ Public Class Homepage
         TopLevelRemoval()
 
         'Add buttons to collection 
-        addToButtonCollection()
+        AddToButtonCollection()
 
         'Remove styling on all buttons
         For Each item In buttonList
@@ -94,17 +100,7 @@ Public Class Homepage
                 openForm.OpenForm(FrmBanking, pnlDockParent)
 
             Case "btnControlPanel"
-
-                Dim CustomMessageBox As New Guna2MessageDialog With {
-                    .Text = "Only an administrator has access to the control panel!",
-                    .Parent = Me,
-                    .Buttons = MessageDialogButtons.OK,
-                    .Style = MessageDialogStyle.Dark,
-                    .Icon = MessageDialogIcon.Error,
-                    .Caption = "Restricted Access"
-                }
-
-                CustomMessageBox.Show()
+                design.messagboxError("Restricted Access", "Only as admin can access the control panel.", Me)
 
         End Select
 
@@ -120,7 +116,7 @@ Public Class Homepage
     Private Sub BtnControls_Click(sender As Object, e As EventArgs) Handles btnNotifications.Click, btnAboutUs.Click, btnHome.Click
 
         'Remove the side button styling 
-        addToButtonCollection()
+        AddToButtonCollection()
 
         For Each item In buttonList
             Dim btnStyleRemove As New Design()
@@ -230,7 +226,72 @@ Public Class Homepage
 
     End Sub
 
-    Public Sub SaveRecentItems(recentItems As List(Of String))
+    'Methods to add items to dictionary 
+    Public Sub AddItemToDictionary(name As String, description As String)
+
+        Dim newItem As New MyCustomObject(name, description)
+
+        CurrentKey = GetNextAvailableKey()
+        myRecentsDictionary.Add(CurrentKey, newItem)
+        KeyOrder.Add(CurrentKey)
+
+    End Sub
+    Private Sub DispayItem()
+
+        For Each key In KeyOrder
+            Dim item = myRecentsDictionary(key)
+            MessageBox.Show($"Key : {key}, Name : {item.Name}, Value : {item.Description}")
+        Next
+
+    End Sub
+
+    Private Function GetNextAvailableKey() As Integer
+        'Check if dictionary is empty
+        If myRecentsDictionary.Count = 0 Then
+            Return 1
+        End If
+
+        'get the highest key in the dictionary 
+        Return myRecentsDictionary.Keys.Max() + 1
+    End Function
+
+    Public Function LoadRecentItems() As Dictionary(Of Integer, MyCustomObject)
+
+        'Get the app data path
+        Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+
+        'Definining the Application path
+        Dim appFolderPath As String = Path.Combine(appDataPath, "SchoolDemo")
+
+        'Dim the path for the recent items file
+        Dim recentsFilePath As String = Path.Combine(appFolderPath, "recentItems.txt")
+
+        If File.Exists(recentsFilePath) Then
+            Using reader As New StreamReader(recentsFilePath)
+                While Not reader.EndOfStream
+
+                    Dim Line As String = reader.ReadLine()
+                    Dim parts() As String = Line.Split(","c)
+                    If parts.Length = 3 Then
+
+                        Dim Key As Integer
+                        Dim name As String = parts(1).Trim
+                        Dim Description As String = parts(2).Trim
+
+                        If Integer.TryParse(parts(0).Trim(), Key) Then
+                            AddItemToDictionary(Key, name, Description)
+                        End If
+
+                    End If
+
+                End While
+            End Using
+        End If
+
+        Return myRecentsDictionary
+
+    End Function
+    Public Sub SaveRecentItems()
 
         'Get the app data path
         Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
@@ -248,82 +309,40 @@ Public Class Homepage
 
         'write the recent items to the file
         Using writer As New StreamWriter(recentsFilePath)
-            For Each item In recentItems
-                writer.WriteLine(item)
+            For Each key In KeyOrder
+                Dim item = myRecentsDictionary(key)
+                writer.WriteLine($"{key}, {item.Name}, {item.Description}")
             Next
         End Using
     End Sub
+    Public Sub AddItemToDictionary(Key As Integer, name As String, description As String)
 
-    Public Function LoadRecentItems() As List(Of String)
+        Dim newItem As New MyCustomObject(name, description)
+        myRecentsDictionary.Add(Key, newItem)
+        KeyOrder.Add(Key)
 
-        Dim recentItems As New List(Of String)
+    End Sub
 
-        'Get the app data path
-        Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
 
-        'Definining the Application path
-        Dim appFolderPath As String = Path.Combine(appDataPath, "SchoolDemo")
 
-        'Dim the path for the recent items file
-        Dim recentsFilePath As String = Path.Combine(appFolderPath, "recentItems.txt")
+        Dim popConfirm As New NotificationBubble
 
-        If File.Exists(recentsFilePath) Then
-            Using reader As New StreamReader(recentsFilePath)
-                While Not reader.EndOfStream
-                    recentItems.Add(reader.ReadLine())
-                End While
-            End Using
+        If popConfirm.IsHidden() Then
+            MessageBox.Show("Its not showing")
+        Else
+            MessageBox.Show("Showing")
         End If
 
-        Return recentItems
+    End Sub
+End Class
+Public Class MyCustomObject
+    Public Property Name As String
+    Public Property Description As String
 
-    End Function
-
-    Private Sub OpenFile(filePath As String)
-        'code to open files
-        'Update the recent items list
-
-        UpdateRecentItems(filePath)
-        DisplayRecentItems()
+    Public Sub New(name As String, description As String)
+        Me.Name = name
+        Me.Description = description
     End Sub
 
-    Private Sub UpdateRecentItems(filepath As String)
-
-        'remove items if not already exists in the file 
-        recentItems.Remove(filepath)
-
-        'insert the item at the tp of the list 
-        recentItems.Insert(0, filepath)
-
-        'Limit the list to a maximum of 10 ites
-        If recentItems.Count > 10 Then
-            recentItems.RemoveAt(recentItems.Count - 1)
-        End If
-
-        'save the updated list
-        SaveRecentItems(recentItems)
-
-    End Sub
-
-    Private Sub DisplayRecentItems()
-
-        'clear the existing items in the listBox
-        lstRecentItems.Items.Clear()
-
-        'add the recent items
-        For Each item In recentItems
-            lstRecentItems.Items.Add(item)
-        Next
-
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-
-        OpenFile("All might")
-        Dim datatable As DataTable = selectStatement.GetNamesFromTable()
-
-        Dim reportForm As New Form1(datatable)
-        reportForm.Show()
-
-    End Sub
 End Class

@@ -28,9 +28,15 @@ Partial Class FrmStudentReport
         Me.btnPrint = New Guna.UI2.WinForms.Guna2Button()
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
+        Me.ConStrpExport = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
+        Me.strpPDF = New System.Windows.Forms.ToolStripMenuItem()
+        Me.strpWord = New System.Windows.Forms.ToolStripMenuItem()
+        Me.strpExcel = New System.Windows.Forms.ToolStripMenuItem()
         Me.rv1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.pnlReportControls = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.btnMinimize = New Guna.UI2.WinForms.Guna2Button()
         Me.btnRefresh = New Guna.UI2.WinForms.Guna2Button()
+        Me.ConStrpExport.SuspendLayout()
         Me.pnlReportControls.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -71,13 +77,13 @@ Partial Class FrmStudentReport
         Me.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnPrint.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnPrint.FillColor = System.Drawing.Color.Empty
-        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.btnPrint.ForeColor = System.Drawing.Color.Black
         Me.btnPrint.ImageOffset = New System.Drawing.Point(-2, 0)
         Me.btnPrint.ImageSize = New System.Drawing.Size(15, 15)
         Me.btnPrint.Location = New System.Drawing.Point(0, 0)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(75, 33)
+        Me.btnPrint.Size = New System.Drawing.Size(79, 33)
         Me.btnPrint.TabIndex = 57
         Me.btnPrint.Text = "Print"
         Me.btnPrint.UseTransparentBackground = True
@@ -110,6 +116,7 @@ Partial Class FrmStudentReport
         Me.btnExport.BorderColor = System.Drawing.Color.LightGray
         Me.btnExport.BorderRadius = 5
         Me.btnExport.BorderThickness = 1
+        Me.btnExport.ContextMenuStrip = Me.ConStrpExport
         Me.btnExport.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
@@ -117,16 +124,53 @@ Partial Class FrmStudentReport
         Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnExport.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnExport.FillColor = System.Drawing.Color.Empty
-        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.btnExport.ForeColor = System.Drawing.Color.Black
         Me.btnExport.ImageOffset = New System.Drawing.Point(-2, 0)
         Me.btnExport.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnExport.Location = New System.Drawing.Point(75, 0)
+        Me.btnExport.Location = New System.Drawing.Point(79, 0)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(75, 33)
+        Me.btnExport.Size = New System.Drawing.Size(79, 33)
         Me.btnExport.TabIndex = 58
         Me.btnExport.Text = "Export"
         Me.btnExport.UseTransparentBackground = True
+        '
+        'ConStrpExport
+        '
+        Me.ConStrpExport.BackColor = System.Drawing.Color.PowderBlue
+        Me.ConStrpExport.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConStrpExport.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.strpPDF, Me.strpWord, Me.strpExcel})
+        Me.ConStrpExport.Name = "ConStrpExport"
+        Me.ConStrpExport.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(CType(CType(151, Byte), Integer), CType(CType(143, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ConStrpExport.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
+        Me.ConStrpExport.RenderStyle.ColorTable = Nothing
+        Me.ConStrpExport.RenderStyle.RoundedEdges = True
+        Me.ConStrpExport.RenderStyle.SelectionArrowColor = System.Drawing.Color.White
+        Me.ConStrpExport.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ConStrpExport.RenderStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.ConStrpExport.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro
+        Me.ConStrpExport.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.ConStrpExport.ShowImageMargin = False
+        Me.ConStrpExport.Size = New System.Drawing.Size(139, 70)
+        '
+        'strpPDF
+        '
+        Me.strpPDF.Name = "strpPDF"
+        Me.strpPDF.Size = New System.Drawing.Size(138, 22)
+        Me.strpPDF.Text = "PDF File"
+        Me.strpPDF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'strpWord
+        '
+        Me.strpWord.Name = "strpWord"
+        Me.strpWord.Size = New System.Drawing.Size(138, 22)
+        Me.strpWord.Text = "Word Document"
+        '
+        'strpExcel
+        '
+        Me.strpExcel.Name = "strpExcel"
+        Me.strpExcel.Size = New System.Drawing.Size(138, 22)
+        Me.strpExcel.Text = "Excel File"
         '
         'rv1
         '
@@ -141,6 +185,7 @@ Partial Class FrmStudentReport
         '
         'pnlReportControls
         '
+        Me.pnlReportControls.Controls.Add(Me.btnMinimize)
         Me.pnlReportControls.Controls.Add(Me.btnRefresh)
         Me.pnlReportControls.Controls.Add(Me.btnExport)
         Me.pnlReportControls.Controls.Add(Me.btnPrint)
@@ -152,6 +197,28 @@ Partial Class FrmStudentReport
         Me.pnlReportControls.Name = "pnlReportControls"
         Me.pnlReportControls.Size = New System.Drawing.Size(800, 33)
         Me.pnlReportControls.TabIndex = 60
+        '
+        'btnMinimize
+        '
+        Me.btnMinimize.Animated = True
+        Me.btnMinimize.BackColor = System.Drawing.Color.Transparent
+        Me.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnMinimize.FillColor = System.Drawing.Color.Empty
+        Me.btnMinimize.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnMinimize.ForeColor = System.Drawing.Color.White
+        Me.btnMinimize.Image = Global.SchoolDemo.My.Resources.Resources._9952
+        Me.btnMinimize.ImageOffset = New System.Drawing.Point(0, 1)
+        Me.btnMinimize.ImageSize = New System.Drawing.Size(23, 23)
+        Me.btnMinimize.Location = New System.Drawing.Point(714, 0)
+        Me.btnMinimize.Name = "btnMinimize"
+        Me.btnMinimize.Size = New System.Drawing.Size(43, 33)
+        Me.btnMinimize.TabIndex = 60
+        Me.btnMinimize.UseTransparentBackground = True
         '
         'btnRefresh
         '
@@ -167,13 +234,13 @@ Partial Class FrmStudentReport
         Me.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnRefresh.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnRefresh.FillColor = System.Drawing.Color.Empty
-        Me.btnRefresh.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.btnRefresh.ForeColor = System.Drawing.Color.Black
         Me.btnRefresh.ImageOffset = New System.Drawing.Point(-2, 0)
         Me.btnRefresh.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnRefresh.Location = New System.Drawing.Point(150, 0)
+        Me.btnRefresh.Location = New System.Drawing.Point(158, 0)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(75, 33)
+        Me.btnRefresh.Size = New System.Drawing.Size(79, 33)
         Me.btnRefresh.TabIndex = 59
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseTransparentBackground = True
@@ -192,6 +259,7 @@ Partial Class FrmStudentReport
         Me.Name = "FrmStudentReport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmStudentReport"
+        Me.ConStrpExport.ResumeLayout(False)
         Me.pnlReportControls.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -204,4 +272,9 @@ Partial Class FrmStudentReport
     Friend WithEvents rv1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents pnlReportControls As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnRefresh As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnMinimize As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents ConStrpExport As Guna.UI2.WinForms.Guna2ContextMenuStrip
+    Friend WithEvents strpPDF As ToolStripMenuItem
+    Friend WithEvents strpWord As ToolStripMenuItem
+    Friend WithEvents strpExcel As ToolStripMenuItem
 End Class

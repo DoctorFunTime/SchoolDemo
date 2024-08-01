@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StudentFeesStatement" targetNamespace="http://tempuri.org/StudentFeesStatement.xsd" xmlns:mstns="http://tempuri.org/StudentFeesStatement.xsd" xmlns="http://tempuri.org/StudentFeesStatement.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StudentFeesStatement" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="StudentFeesStatement" msprop:Generator_DataSetName="StudentFeesStatement">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtFeesStatement" msprop:Generator_RowEvHandlerName="dtFeesStatementRowChangeEventHandler" msprop:Generator_RowDeletedName="dtFeesStatementRowDeleted" msprop:Generator_RowDeletingName="dtFeesStatementRowDeleting" msprop:Generator_RowEvArgName="dtFeesStatementRowChangeEvent" msprop:Generator_TablePropName="dtFeesStatement" msprop:Generator_RowChangedName="dtFeesStatementRowChanged" msprop:Generator_RowChangingName="dtFeesStatementRowChanging" msprop:Generator_TableClassName="dtFeesStatementDataTable" msprop:Generator_RowClassName="dtFeesStatementRow" msprop:Generator_TableVarName="tabledtFeesStatement" msprop:Generator_UserTableName="dtFeesStatement">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

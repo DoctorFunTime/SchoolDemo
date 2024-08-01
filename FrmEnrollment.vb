@@ -2,11 +2,13 @@
 Imports Frond_End_Design
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports Guna.UI2.WinForms
+Imports SQLStatements
 
 Public Class FrmEnrollment
 
     Dim design As New Design
     Private buttonList As New Collection
+    Private insert As New SQLLine
 
     'side btn click events
     Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnSubjects.Click, btnStudentDetails.Click, btnPayments.Click, btnGuardian.Click
@@ -117,15 +119,8 @@ Public Class FrmEnrollment
             Case "btnValidateSubjects"
 
                 If cntrlCtrlSelection.Controls.Count < 3 Then
-                    Dim CustomMessageBox As New Guna2MessageDialog With {
-                        .Text = "At least three subjects have to be enlisted!",
-                        .Parent = Me,
-                        .Buttons = MessageDialogButtons.OK,
-                        .Style = MessageDialogStyle.Light,
-                        .Icon = MessageDialogIcon.Information,
-                        .Caption = "No Subjects Found"
-                    }
-                    CustomMessageBox.Show()
+
+                    design.messagboxInfo("No subject(s) found.", "At least three subjects have to be enlisted!", Me)
 
                 Else
                     design.PressedButton(btnSubjects, e, 120, True)
@@ -170,7 +165,10 @@ Public Class FrmEnrollment
 
                     Dim result As DialogResult = CustomMessageBox.Show
                     If result = DialogResult.Yes Then
+
+                        SQLLine.InsertStudentDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text, dtePickerDateOfBirth.Value, txtBirthIDNumber.Text, txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, cmbBoxTitle.Text, txtGName.Text, txtGSurname.Text, txtGAddress.Text, txtGPhoneNumber.Text, txtGEmailAddress.Text)
                         btnClose.PerformClick()
+
                     End If
                 End If
 
