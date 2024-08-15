@@ -313,6 +313,24 @@ Partial Public Class stdDetails
         
         Private columnstd_gdn_email As Global.System.Data.DataColumn
         
+        Private columnmd_allegies As Global.System.Data.DataColumn
+        
+        Private columnmd_required_treatment As Global.System.Data.DataColumn
+        
+        Private columnmd_medications As Global.System.Data.DataColumn
+        
+        Private columnmd_dosage As Global.System.Data.DataColumn
+        
+        Private columnmd_schedule As Global.System.Data.DataColumn
+        
+        Private columnmd_disabilities As Global.System.Data.DataColumn
+        
+        Private columnmd_physician As Global.System.Data.DataColumn
+        
+        Private columnmd_contacts As Global.System.Data.DataColumn
+        
+        Private columnss_subjects As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -469,6 +487,78 @@ Partial Public Class stdDetails
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_allegiesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_allegies
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_required_treatmentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_required_treatment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_medicationsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_medications
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_dosageColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_dosage
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_scheduleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_schedule
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_disabilitiesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_disabilities
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_physicianColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_physician
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property md_contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmd_contacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property ss_subjectsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnss_subjects
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -505,9 +595,33 @@ Partial Public Class stdDetails
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtStdDetailsRow(ByVal std_id As Short, ByVal std_name As String, ByVal std_surname As String, ByVal std_class As String, ByVal std_dob As Date, ByVal std_id_number As String, ByVal std_address As String, ByVal std_phone_number As String, ByVal std_email As String, ByVal std_gdn_title As String, ByVal std_gdn_name As String, ByVal std_gdn_surname As String, ByVal std_gdn_address As String, ByVal std_gdn_phone_number As String, ByVal std_gdn_email As String) As dtStdDetailsRow
+        Public Overloads Function AdddtStdDetailsRow( _
+                    ByVal std_id As Short,  _
+                    ByVal std_name As String,  _
+                    ByVal std_surname As String,  _
+                    ByVal std_class As String,  _
+                    ByVal std_dob As Date,  _
+                    ByVal std_id_number As String,  _
+                    ByVal std_address As String,  _
+                    ByVal std_phone_number As String,  _
+                    ByVal std_email As String,  _
+                    ByVal std_gdn_title As String,  _
+                    ByVal std_gdn_name As String,  _
+                    ByVal std_gdn_surname As String,  _
+                    ByVal std_gdn_address As String,  _
+                    ByVal std_gdn_phone_number As String,  _
+                    ByVal std_gdn_email As String,  _
+                    ByVal md_allegies As String,  _
+                    ByVal md_required_treatment As String,  _
+                    ByVal md_medications As String,  _
+                    ByVal md_dosage As String,  _
+                    ByVal md_schedule As String,  _
+                    ByVal md_disabilities As String,  _
+                    ByVal md_physician As String,  _
+                    ByVal md_contacts As String,  _
+                    ByVal ss_subjects As String) As dtStdDetailsRow
             Dim rowdtStdDetailsRow As dtStdDetailsRow = CType(Me.NewRow,dtStdDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {std_id, std_name, std_surname, std_class, std_dob, std_id_number, std_address, std_phone_number, std_email, std_gdn_title, std_gdn_name, std_gdn_surname, std_gdn_address, std_gdn_phone_number, std_gdn_email}
+            Dim columnValuesArray() As Object = New Object() {std_id, std_name, std_surname, std_class, std_dob, std_id_number, std_address, std_phone_number, std_email, std_gdn_title, std_gdn_name, std_gdn_surname, std_gdn_address, std_gdn_phone_number, std_gdn_email, md_allegies, md_required_treatment, md_medications, md_dosage, md_schedule, md_disabilities, md_physician, md_contacts, ss_subjects}
             rowdtStdDetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtStdDetailsRow)
             Return rowdtStdDetailsRow
@@ -545,6 +659,15 @@ Partial Public Class stdDetails
             Me.columnstd_gdn_address = MyBase.Columns("std_gdn_address")
             Me.columnstd_gdn_phone_number = MyBase.Columns("std_gdn_phone_number")
             Me.columnstd_gdn_email = MyBase.Columns("std_gdn_email")
+            Me.columnmd_allegies = MyBase.Columns("md_allegies")
+            Me.columnmd_required_treatment = MyBase.Columns("md_required_treatment")
+            Me.columnmd_medications = MyBase.Columns("md_medications")
+            Me.columnmd_dosage = MyBase.Columns("md_dosage")
+            Me.columnmd_schedule = MyBase.Columns("md_schedule")
+            Me.columnmd_disabilities = MyBase.Columns("md_disabilities")
+            Me.columnmd_physician = MyBase.Columns("md_physician")
+            Me.columnmd_contacts = MyBase.Columns("md_contacts")
+            Me.columnss_subjects = MyBase.Columns("ss_subjects")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -580,6 +703,24 @@ Partial Public Class stdDetails
             MyBase.Columns.Add(Me.columnstd_gdn_phone_number)
             Me.columnstd_gdn_email = New Global.System.Data.DataColumn("std_gdn_email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstd_gdn_email)
+            Me.columnmd_allegies = New Global.System.Data.DataColumn("md_allegies", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_allegies)
+            Me.columnmd_required_treatment = New Global.System.Data.DataColumn("md_required_treatment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_required_treatment)
+            Me.columnmd_medications = New Global.System.Data.DataColumn("md_medications", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_medications)
+            Me.columnmd_dosage = New Global.System.Data.DataColumn("md_dosage", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_dosage)
+            Me.columnmd_schedule = New Global.System.Data.DataColumn("md_schedule", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_schedule)
+            Me.columnmd_disabilities = New Global.System.Data.DataColumn("md_disabilities", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_disabilities)
+            Me.columnmd_physician = New Global.System.Data.DataColumn("md_physician", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_physician)
+            Me.columnmd_contacts = New Global.System.Data.DataColumn("md_contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmd_contacts)
+            Me.columnss_subjects = New Global.System.Data.DataColumn("ss_subjects", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnss_subjects)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -951,6 +1092,141 @@ Partial Public Class stdDetails
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_allegies() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_allegiesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_allegies' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_allegiesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_required_treatment() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_required_treatmentColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_required_treatment' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_required_treatmentColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_medications() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_medicationsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_medications' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_medicationsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_dosage() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_dosageColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_dosage' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_dosageColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_schedule() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_scheduleColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_schedule' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_scheduleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_disabilities() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_disabilitiesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_disabilities' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_disabilitiesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_physician() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_physicianColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_physician' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_physicianColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property md_contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.md_contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'md_contacts' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.md_contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ss_subjects() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.ss_subjectsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ss_subjects' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.ss_subjectsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Isstd_idNull() As Boolean
             Return Me.IsNull(Me.tabledtStdDetails.std_idColumn)
         End Function
@@ -1127,6 +1403,114 @@ Partial Public Class stdDetails
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setstd_gdn_emailNull()
             Me(Me.tabledtStdDetails.std_gdn_emailColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_allegiesNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_allegiesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_allegiesNull()
+            Me(Me.tabledtStdDetails.md_allegiesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_required_treatmentNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_required_treatmentColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_required_treatmentNull()
+            Me(Me.tabledtStdDetails.md_required_treatmentColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_medicationsNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_medicationsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_medicationsNull()
+            Me(Me.tabledtStdDetails.md_medicationsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_dosageNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_dosageColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_dosageNull()
+            Me(Me.tabledtStdDetails.md_dosageColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_scheduleNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_scheduleColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_scheduleNull()
+            Me(Me.tabledtStdDetails.md_scheduleColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_disabilitiesNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_disabilitiesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_disabilitiesNull()
+            Me(Me.tabledtStdDetails.md_disabilitiesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_physicianNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_physicianColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_physicianNull()
+            Me(Me.tabledtStdDetails.md_physicianColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ismd_contactsNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.md_contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setmd_contactsNull()
+            Me(Me.tabledtStdDetails.md_contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isss_subjectsNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.ss_subjectsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setss_subjectsNull()
+            Me(Me.tabledtStdDetails.ss_subjectsColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

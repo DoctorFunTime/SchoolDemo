@@ -33,8 +33,12 @@ Partial Class FrmReports
         Me.pnlKPIsDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnKPITest = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnKPIExam = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.pnlStudentReportsDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.btnStudentDetailsReport = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnStudentGradeReport = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.flowpnl.SuspendLayout()
         Me.pnlKPIsDrop.SuspendLayout()
+        Me.pnlStudentReportsDrop.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblAddtionalInfoReports
@@ -213,7 +217,7 @@ Partial Class FrmReports
         Me.flowpnl.Controls.Add(Me.btnAttendacy)
         Me.flowpnl.Controls.Add(Me.btnHighAchievers)
         Me.flowpnl.Controls.Add(Me.btnCashBook)
-        Me.flowpnl.Controls.Add(Me.btnStudentReports)
+        Me.flowpnl.Controls.Add(Me.pnlStudentReportsDrop)
         Me.flowpnl.Location = New System.Drawing.Point(12, 20)
         Me.flowpnl.Name = "flowpnl"
         Me.flowpnl.Size = New System.Drawing.Size(776, 343)
@@ -286,6 +290,73 @@ Partial Class FrmReports
         Me.btnKPIExam.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPIExam.TextOffset = New System.Drawing.Point(50, 0)
         '
+        'pnlStudentReportsDrop
+        '
+        Me.pnlStudentReportsDrop.Controls.Add(Me.btnStudentDetailsReport)
+        Me.pnlStudentReportsDrop.Controls.Add(Me.btnStudentGradeReport)
+        Me.pnlStudentReportsDrop.Controls.Add(Me.btnStudentReports)
+        Me.pnlStudentReportsDrop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlStudentReportsDrop.Location = New System.Drawing.Point(0, 0)
+        Me.pnlStudentReportsDrop.Name = "pnlStudentReportsDrop"
+        Me.pnlStudentReportsDrop.Size = New System.Drawing.Size(776, 45)
+        Me.pnlStudentReportsDrop.TabIndex = 38
+        '
+        'btnStudentDetailsReport
+        '
+        Me.btnStudentDetailsReport.Animated = True
+        Me.btnStudentDetailsReport.BorderColor = System.Drawing.Color.LightGray
+        Me.btnStudentDetailsReport.BorderRadius = 10
+        Me.btnStudentDetailsReport.BorderThickness = 1
+        Me.btnStudentDetailsReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnStudentDetailsReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnStudentDetailsReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnStudentDetailsReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnStudentDetailsReport.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnStudentDetailsReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnStudentDetailsReport.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnStudentDetailsReport.FillColor = System.Drawing.Color.Empty
+        Me.btnStudentDetailsReport.FillColor2 = System.Drawing.Color.Empty
+        Me.btnStudentDetailsReport.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStudentDetailsReport.ForeColor = System.Drawing.Color.Black
+        Me.btnStudentDetailsReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnStudentDetailsReport.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnStudentDetailsReport.Location = New System.Drawing.Point(0, 90)
+        Me.btnStudentDetailsReport.Name = "btnStudentDetailsReport"
+        Me.btnStudentDetailsReport.Size = New System.Drawing.Size(776, 45)
+        Me.btnStudentDetailsReport.TabIndex = 27
+        Me.btnStudentDetailsReport.Tag = ""
+        Me.btnStudentDetailsReport.Text = "Student personal details report."
+        Me.btnStudentDetailsReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnStudentDetailsReport.TextOffset = New System.Drawing.Point(50, 0)
+        '
+        'btnStudentGradeReport
+        '
+        Me.btnStudentGradeReport.Animated = True
+        Me.btnStudentGradeReport.BorderColor = System.Drawing.Color.LightGray
+        Me.btnStudentGradeReport.BorderRadius = 10
+        Me.btnStudentGradeReport.BorderThickness = 1
+        Me.btnStudentGradeReport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnStudentGradeReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnStudentGradeReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnStudentGradeReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnStudentGradeReport.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnStudentGradeReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnStudentGradeReport.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnStudentGradeReport.FillColor = System.Drawing.Color.Empty
+        Me.btnStudentGradeReport.FillColor2 = System.Drawing.Color.Empty
+        Me.btnStudentGradeReport.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStudentGradeReport.ForeColor = System.Drawing.Color.Black
+        Me.btnStudentGradeReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnStudentGradeReport.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnStudentGradeReport.Location = New System.Drawing.Point(0, 45)
+        Me.btnStudentGradeReport.Name = "btnStudentGradeReport"
+        Me.btnStudentGradeReport.Size = New System.Drawing.Size(776, 45)
+        Me.btnStudentGradeReport.TabIndex = 26
+        Me.btnStudentGradeReport.Tag = ""
+        Me.btnStudentGradeReport.Text = "Student grades report."
+        Me.btnStudentGradeReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnStudentGradeReport.TextOffset = New System.Drawing.Point(50, 0)
+        '
         'FrmReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -300,6 +371,7 @@ Partial Class FrmReports
         Me.Text = "FrmReports"
         Me.flowpnl.ResumeLayout(False)
         Me.pnlKPIsDrop.ResumeLayout(False)
+        Me.pnlStudentReportsDrop.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -315,4 +387,7 @@ Partial Class FrmReports
     Friend WithEvents pnlKPIsDrop As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnKPITest As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnKPIExam As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents pnlStudentReportsDrop As Guna.UI2.WinForms.Guna2GradientPanel
+    Friend WithEvents btnStudentGradeReport As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnStudentDetailsReport As Guna.UI2.WinForms.Guna2GradientButton
 End Class

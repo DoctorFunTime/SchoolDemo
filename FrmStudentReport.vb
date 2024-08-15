@@ -4,15 +4,18 @@ Imports Frond_End_Design
 Imports bubble
 Imports System.Drawing.Imaging
 Imports System.Drawing.Printing
+Imports Guna.UI2.WinForms
 
 
 Public Class FrmStudentReport
     Private dt As DataTable
     Private datasetName As String
-    Dim design As New Design
+    Private rpName As String
+    Dim design As New Design()
     Dim popUp As New NotificationBubble
 
-    Public Sub New(dataTable As DataTable, dataset As String)
+
+    Public Sub New(dataTable As DataTable, dataset As String, reportName As String)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -20,6 +23,8 @@ Public Class FrmStudentReport
         ' Add any initialization after the InitializeComponent() call.
         dt = dataTable
         datasetName = dataset
+        rpName = reportName
+        TopMost = True
 
     End Sub
 
@@ -29,7 +34,7 @@ Public Class FrmStudentReport
             ' Set the processing mode to local
             rv1.ProcessingMode = ProcessingMode.Local
 
-            Dim relativeReportPath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Reports", "studentDetails.rdlc")
+            Dim relativeReportPath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Reports", $"{rpName}.rdlc")
             rv1.LocalReport.ReportPath = relativeReportPath
 
             ' Check if the report file exists

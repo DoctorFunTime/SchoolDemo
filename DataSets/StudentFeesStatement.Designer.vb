@@ -283,6 +283,26 @@ Partial Public Class StudentFeesStatement
     Partial Public Class dtFeesStatementDataTable
         Inherits Global.System.Data.TypedTableBase(Of dtFeesStatementRow)
         
+        Private columnfs_date As Global.System.Data.DataColumn
+        
+        Private columnfs_description As Global.System.Data.DataColumn
+        
+        Private columnfs_currency_code As Global.System.Data.DataColumn
+        
+        Private columnfs_debit As Global.System.Data.DataColumn
+        
+        Private columnfs_credit As Global.System.Data.DataColumn
+        
+        Private columnfs_adjusted_amount As Global.System.Data.DataColumn
+        
+        Private columnfs_running_balance As Global.System.Data.DataColumn
+        
+        Private columnstd_name As Global.System.Data.DataColumn
+        
+        Private columnstd_surname As Global.System.Data.DataColumn
+        
+        Private columnstd_class As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -317,6 +337,86 @@ Partial Public Class StudentFeesStatement
             MyBase.New(info, context)
             Me.InitVars
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_descriptionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_description
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_currency_codeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_currency_code
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_debitColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_debit
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_creditColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_credit
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_adjusted_amountColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_adjusted_amount
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_running_balanceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_running_balance
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property std_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstd_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property std_surnameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstd_surname
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property std_classColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstd_class
+            End Get
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
@@ -355,9 +455,9 @@ Partial Public Class StudentFeesStatement
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtFeesStatementRow() As dtFeesStatementRow
+        Public Overloads Function AdddtFeesStatementRow(ByVal fs_date As Date, ByVal fs_description As String, ByVal fs_currency_code As String, ByVal fs_debit As Decimal, ByVal fs_credit As Decimal, ByVal fs_adjusted_amount As Decimal, ByVal fs_running_balance As Decimal, ByVal std_name As String, ByVal std_surname As String, ByVal std_class As String) As dtFeesStatementRow
             Dim rowdtFeesStatementRow As dtFeesStatementRow = CType(Me.NewRow,dtFeesStatementRow)
-            Dim columnValuesArray(-1) As Object
+            Dim columnValuesArray() As Object = New Object() {fs_date, fs_description, fs_currency_code, fs_debit, fs_credit, fs_adjusted_amount, fs_running_balance, std_name, std_surname, std_class}
             rowdtFeesStatementRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtFeesStatementRow)
             Return rowdtFeesStatementRow
@@ -380,11 +480,41 @@ Partial Public Class StudentFeesStatement
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnfs_date = MyBase.Columns("fs_date")
+            Me.columnfs_description = MyBase.Columns("fs_description")
+            Me.columnfs_currency_code = MyBase.Columns("fs_currency_code")
+            Me.columnfs_debit = MyBase.Columns("fs_debit")
+            Me.columnfs_credit = MyBase.Columns("fs_credit")
+            Me.columnfs_adjusted_amount = MyBase.Columns("fs_adjusted_amount")
+            Me.columnfs_running_balance = MyBase.Columns("fs_running_balance")
+            Me.columnstd_name = MyBase.Columns("std_name")
+            Me.columnstd_surname = MyBase.Columns("std_surname")
+            Me.columnstd_class = MyBase.Columns("std_class")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnfs_date = New Global.System.Data.DataColumn("fs_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_date)
+            Me.columnfs_description = New Global.System.Data.DataColumn("fs_description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_description)
+            Me.columnfs_currency_code = New Global.System.Data.DataColumn("fs_currency_code", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_currency_code)
+            Me.columnfs_debit = New Global.System.Data.DataColumn("fs_debit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_debit)
+            Me.columnfs_credit = New Global.System.Data.DataColumn("fs_credit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_credit)
+            Me.columnfs_adjusted_amount = New Global.System.Data.DataColumn("fs_adjusted_amount", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_adjusted_amount)
+            Me.columnfs_running_balance = New Global.System.Data.DataColumn("fs_running_balance", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_running_balance)
+            Me.columnstd_name = New Global.System.Data.DataColumn("std_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstd_name)
+            Me.columnstd_surname = New Global.System.Data.DataColumn("std_surname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstd_surname)
+            Me.columnstd_class = New Global.System.Data.DataColumn("std_class", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstd_class)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -527,6 +657,276 @@ Partial Public Class StudentFeesStatement
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
             Me.tabledtFeesStatement = CType(Me.Table,dtFeesStatementDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_date() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_dateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_date' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_description() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_descriptionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_description' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_descriptionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_currency_code() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_currency_codeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_currency_code' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_currency_codeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_debit() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_debitColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_debit' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_debitColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_credit() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_creditColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_credit' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_creditColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_adjusted_amount() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_adjusted_amountColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_adjusted_amount' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_adjusted_amountColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_running_balance() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_running_balanceColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_running_balance' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_running_balanceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property std_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.std_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'std_name' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.std_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property std_surname() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.std_surnameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'std_surname' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.std_surnameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property std_class() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.std_classColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'std_class' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.std_classColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_dateNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_dateNull()
+            Me(Me.tabledtFeesStatement.fs_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_descriptionNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_descriptionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_descriptionNull()
+            Me(Me.tabledtFeesStatement.fs_descriptionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_currency_codeNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_currency_codeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_currency_codeNull()
+            Me(Me.tabledtFeesStatement.fs_currency_codeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_debitNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_debitColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_debitNull()
+            Me(Me.tabledtFeesStatement.fs_debitColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_creditNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_creditColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_creditNull()
+            Me(Me.tabledtFeesStatement.fs_creditColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_adjusted_amountNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_adjusted_amountColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_adjusted_amountNull()
+            Me(Me.tabledtFeesStatement.fs_adjusted_amountColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_running_balanceNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_running_balanceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_running_balanceNull()
+            Me(Me.tabledtFeesStatement.fs_running_balanceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isstd_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.std_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setstd_nameNull()
+            Me(Me.tabledtFeesStatement.std_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isstd_surnameNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.std_surnameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setstd_surnameNull()
+            Me(Me.tabledtFeesStatement.std_surnameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isstd_classNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.std_classColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setstd_classNull()
+            Me(Me.tabledtFeesStatement.std_classColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -1,8 +1,10 @@
 ﻿Imports Frond_End_Design
 Imports Guna.UI2.WinForms
+Imports DatabaseSelectStatements
 Public Class FrmFaculty
 
     Dim design As New Design
+    Dim selectStatement As New SelectStats
     Private buttonList As New Collection
 
     Public Sub New()
@@ -16,30 +18,12 @@ Public Class FrmFaculty
         design.loadPnl(pnlFaculty)
         btnFaculty.PerformClick()
 
-        ' add items to listbox
-        ListBoxSubjects.Items.Add("Mathematics")
-        ListBoxSubjects.Items.Add("English")
-        ListBoxSubjects.Items.Add("Economics")
-        ListBoxSubjects.Items.Add("Chemistry")
-        ListBoxSubjects.Items.Add("Physics")
-        ListBoxSubjects.Items.Add("Biology")
-        ListBoxSubjects.Items.Add("Business Studies")
-        ListBoxSubjects.Items.Add("Divinity")
-        ListBoxSubjects.Items.Add("IT")
-        ListBoxSubjects.Items.Add("Accounting")
-        ListBoxSubjects.Items.Add("combined Sciences")
-        ListBoxSubjects.Items.Add("Food and nutrition")
-        ListBoxSubjects.Items.Add("Shona")
-        ListBoxSubjects.Items.Add("Literature")
-        ListBoxSubjects.Items.Add("Commerce")
-        ListBoxSubjects.Items.Add("Statistics")
-
     End Sub
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
 
-    Private Sub btnValidate_Click(sender As Object, e As EventArgs) Handles btnValidateAndFinalise.Click, btnValidateFaculty.Click
+    Private Sub btnValidate_Click(sender As Object, e As EventArgs) Handles btnValidateRoles.Click, btnValidateFaculty.Click, btnValidateAndFinalise.Click
 
         Dim ValidationProcess As Boolean = False
 
@@ -60,15 +44,27 @@ Public Class FrmFaculty
 
                 End If
 
+            Case "btnValidateRoles"
+
+                ValidationProcess = design.txtboxformats(pnlFaculty)
+
+                If ValidationProcess Then
+
+                    design.PressedButton(btnRoles, e, 120, True)
+                    design.clearPanels(pnlDock)
+                    design.loadPnl(pnlMedicals)
+                    btnMedicals.PerformClick()
+
+                End If
+
             Case "btnValidateAndFinalise"
 
                 Dim verifiedClass As Boolean = design.txtboxformats(cmbBoxClass)
-
                 Dim subjectCheck As Boolean = False
 
-                If cntrlCtrlSelection.Controls.Count < 1 Then
+                If cntrlCtrlSelection.Controls.Count < 1 And Not cmbBoxClass.Text = "n/a" Then
                     Dim CustomMessageBox As New Guna2MessageDialog With {
-                        .Text = "At least one subject have to be enlisted!",
+                        .Text = "At least one subject has to be enlisted!",
                         .Parent = Me,
                         .Buttons = MessageDialogButtons.OK,
                         .Style = MessageDialogStyle.Light,
@@ -79,7 +75,6 @@ Public Class FrmFaculty
                 Else
                     subjectCheck = True
                 End If
-
                 If subjectCheck And verifiedClass Then
                     design.PressedButton(btnRoles, e, 120, True)
                     Close()
@@ -88,7 +83,7 @@ Public Class FrmFaculty
         End Select
     End Sub
 
-    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnRoles.Click, btnFaculty.Click
+    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnRoles.Click, btnFaculty.Click, btnMedicals.Click
 
         'clear opened panels
         design.clearPanels(pnlDock)
@@ -110,6 +105,9 @@ Public Class FrmFaculty
 
             Case "btnRoles"
                 design.loadPnl(pnlRoles)
+
+            Case "btnMedicals"
+                design.loadPnl(pnlMedicals)
 
         End Select
     End Sub
@@ -148,6 +146,64 @@ Public Class FrmFaculty
         'Add new items to the collection
         buttonList.Add(btnFaculty)
         buttonList.Add(btnRoles)
+        buttonList.Add(btnMedicals)
 
     End Sub
+
+    Private Sub FrmFaculty_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'add subjects to listbox
+        Dim subjects As DataTable = selectStatement.GetSubjects()
+        Dim classes As DataTable = selectStatement.GetClasses()
+        Dim OtherRoles As DataTable = selectStatement.GetOtherRoles()
+
+        For Each row In subjects.Rows
+            Dim subject As String = row("s_subject").ToString
+            ListBoxSubjects.Items.Add(subject)
+        Next
+
+        For Each row In classes.Rows
+            Dim sclass As String = row("cl_class").ToString
+            cmbBoxClass.Items.Add(sclass)
+        Next
+
+        For Each row In OtherRoles.Rows
+            Dim otherRole As String = row("or_description").ToString
+            cmbBoxOtherRoles.Items.Add(otherRole)
+        Next
+
+    End Sub
+
+    Private Sub chkBoxRolesNotApplicable_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxRolesNotApplicable.CheckedChanged, chkBoxMedicalsNotApplicable.CheckedChanged, chkBoxFacultyNotApplicable.CheckedChanged
+        Select Case sender.name
+
+            Case "chkBoxRolesNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlRoles.Controls
+                        If TypeOf control Is Guna2TextBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+
+            Case "chkBoxMedicalsNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlMedicals.Controls
+                        If TypeOf control Is Guna2TextBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+
+            Case "chkBoxFacultyNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlFaculty.Controls
+                        If TypeOf control Is Guna2TextBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+
+        End Select
+    End Sub
+
 End Class

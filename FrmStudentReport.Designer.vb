@@ -25,17 +25,17 @@ Partial Class FrmStudentReport
         Me.components = New System.ComponentModel.Container()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.OpeningTransition = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
-        Me.btnPrint = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
         Me.ConStrpExport = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.strpPDF = New System.Windows.Forms.ToolStripMenuItem()
         Me.strpWord = New System.Windows.Forms.ToolStripMenuItem()
         Me.strpExcel = New System.Windows.Forms.ToolStripMenuItem()
         Me.rv1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.pnlReportControls = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.btnMinimize = New Guna.UI2.WinForms.Guna2Button()
         Me.btnRefresh = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnExport = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnPrint = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnMinimize = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.ConStrpExport.SuspendLayout()
         Me.pnlReportControls.SuspendLayout()
         Me.SuspendLayout()
@@ -62,78 +62,6 @@ Partial Class FrmStudentReport
         Me.OpeningTransition.DockIndicatorTransparencyValue = 0.6R
         Me.OpeningTransition.ResizeForm = False
         Me.OpeningTransition.TransparentWhileDrag = True
-        '
-        'btnPrint
-        '
-        Me.btnPrint.Animated = True
-        Me.btnPrint.BackColor = System.Drawing.Color.Transparent
-        Me.btnPrint.BorderColor = System.Drawing.Color.LightGray
-        Me.btnPrint.BorderRadius = 5
-        Me.btnPrint.BorderThickness = 1
-        Me.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnPrint.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnPrint.FillColor = System.Drawing.Color.Empty
-        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 10.0!)
-        Me.btnPrint.ForeColor = System.Drawing.Color.Black
-        Me.btnPrint.ImageOffset = New System.Drawing.Point(-2, 0)
-        Me.btnPrint.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnPrint.Location = New System.Drawing.Point(0, 0)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(79, 33)
-        Me.btnPrint.TabIndex = 57
-        Me.btnPrint.Text = "Print"
-        Me.btnPrint.UseTransparentBackground = True
-        '
-        'btnClose
-        '
-        Me.btnClose.Animated = True
-        Me.btnClose.BackColor = System.Drawing.Color.Transparent
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnClose.FillColor = System.Drawing.Color.Empty
-        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Image = Global.SchoolDemo.My.Resources.Resources._938
-        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(757, 0)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(43, 33)
-        Me.btnClose.TabIndex = 56
-        Me.btnClose.UseTransparentBackground = True
-        '
-        'btnExport
-        '
-        Me.btnExport.Animated = True
-        Me.btnExport.BackColor = System.Drawing.Color.Transparent
-        Me.btnExport.BorderColor = System.Drawing.Color.LightGray
-        Me.btnExport.BorderRadius = 5
-        Me.btnExport.BorderThickness = 1
-        Me.btnExport.ContextMenuStrip = Me.ConStrpExport
-        Me.btnExport.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnExport.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnExport.FillColor = System.Drawing.Color.Empty
-        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 10.0!)
-        Me.btnExport.ForeColor = System.Drawing.Color.Black
-        Me.btnExport.ImageOffset = New System.Drawing.Point(-2, 0)
-        Me.btnExport.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnExport.Location = New System.Drawing.Point(79, 0)
-        Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(79, 33)
-        Me.btnExport.TabIndex = 58
-        Me.btnExport.Text = "Export"
-        Me.btnExport.UseTransparentBackground = True
         '
         'ConStrpExport
         '
@@ -185,10 +113,10 @@ Partial Class FrmStudentReport
         '
         'pnlReportControls
         '
-        Me.pnlReportControls.Controls.Add(Me.btnMinimize)
         Me.pnlReportControls.Controls.Add(Me.btnRefresh)
         Me.pnlReportControls.Controls.Add(Me.btnExport)
         Me.pnlReportControls.Controls.Add(Me.btnPrint)
+        Me.pnlReportControls.Controls.Add(Me.btnMinimize)
         Me.pnlReportControls.Controls.Add(Me.btnClose)
         Me.pnlReportControls.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlReportControls.FillColor = System.Drawing.Color.PowderBlue
@@ -197,6 +125,79 @@ Partial Class FrmStudentReport
         Me.pnlReportControls.Name = "pnlReportControls"
         Me.pnlReportControls.Size = New System.Drawing.Size(800, 33)
         Me.pnlReportControls.TabIndex = 60
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Animated = True
+        Me.btnRefresh.BackColor = System.Drawing.Color.Transparent
+        Me.btnRefresh.BorderColor = System.Drawing.Color.LightGray
+        Me.btnRefresh.BorderRadius = 5
+        Me.btnRefresh.BorderThickness = 1
+        Me.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnRefresh.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnRefresh.FillColor = System.Drawing.Color.Empty
+        Me.btnRefresh.Font = New System.Drawing.Font("Century Gothic", 10.0!)
+        Me.btnRefresh.ForeColor = System.Drawing.Color.Black
+        Me.btnRefresh.Image = Global.SchoolDemo.My.Resources.Resources._959
+        Me.btnRefresh.ImageSize = New System.Drawing.Size(26, 26)
+        Me.btnRefresh.Location = New System.Drawing.Point(110, 0)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(55, 33)
+        Me.btnRefresh.TabIndex = 59
+        Me.btnRefresh.UseTransparentBackground = True
+        '
+        'btnExport
+        '
+        Me.btnExport.Animated = True
+        Me.btnExport.BackColor = System.Drawing.Color.Transparent
+        Me.btnExport.BorderColor = System.Drawing.Color.LightGray
+        Me.btnExport.BorderRadius = 5
+        Me.btnExport.BorderThickness = 1
+        Me.btnExport.ContextMenuStrip = Me.ConStrpExport
+        Me.btnExport.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnExport.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnExport.FillColor = System.Drawing.Color.Empty
+        Me.btnExport.Font = New System.Drawing.Font("Century Gothic", 10.0!)
+        Me.btnExport.ForeColor = System.Drawing.Color.Black
+        Me.btnExport.Image = Global.SchoolDemo.My.Resources.Resources._298
+        Me.btnExport.ImageSize = New System.Drawing.Size(26, 26)
+        Me.btnExport.Location = New System.Drawing.Point(55, 0)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(55, 33)
+        Me.btnExport.TabIndex = 58
+        Me.btnExport.UseTransparentBackground = True
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Animated = True
+        Me.btnPrint.BackColor = System.Drawing.Color.Transparent
+        Me.btnPrint.BorderColor = System.Drawing.Color.LightGray
+        Me.btnPrint.BorderRadius = 5
+        Me.btnPrint.BorderThickness = 1
+        Me.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnPrint.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnPrint.FillColor = System.Drawing.Color.Empty
+        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 10.0!)
+        Me.btnPrint.ForeColor = System.Drawing.Color.Black
+        Me.btnPrint.Image = Global.SchoolDemo.My.Resources.Resources._878
+        Me.btnPrint.ImageSize = New System.Drawing.Size(26, 26)
+        Me.btnPrint.Location = New System.Drawing.Point(0, 0)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(55, 33)
+        Me.btnPrint.TabIndex = 57
+        Me.btnPrint.UseTransparentBackground = True
         '
         'btnMinimize
         '
@@ -220,30 +221,26 @@ Partial Class FrmStudentReport
         Me.btnMinimize.TabIndex = 60
         Me.btnMinimize.UseTransparentBackground = True
         '
-        'btnRefresh
+        'btnClose
         '
-        Me.btnRefresh.Animated = True
-        Me.btnRefresh.BackColor = System.Drawing.Color.Transparent
-        Me.btnRefresh.BorderColor = System.Drawing.Color.LightGray
-        Me.btnRefresh.BorderRadius = 5
-        Me.btnRefresh.BorderThickness = 1
-        Me.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnRefresh.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnRefresh.FillColor = System.Drawing.Color.Empty
-        Me.btnRefresh.Font = New System.Drawing.Font("Century Gothic", 10.0!)
-        Me.btnRefresh.ForeColor = System.Drawing.Color.Black
-        Me.btnRefresh.ImageOffset = New System.Drawing.Point(-2, 0)
-        Me.btnRefresh.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnRefresh.Location = New System.Drawing.Point(158, 0)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(79, 33)
-        Me.btnRefresh.TabIndex = 59
-        Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseTransparentBackground = True
+        Me.btnClose.Animated = True
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnClose.FillColor = System.Drawing.Color.Empty
+        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnClose.ForeColor = System.Drawing.Color.White
+        Me.btnClose.Image = Global.SchoolDemo.My.Resources.Resources._938
+        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Location = New System.Drawing.Point(757, 0)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(43, 33)
+        Me.btnClose.TabIndex = 56
+        Me.btnClose.UseTransparentBackground = True
         '
         'FrmStudentReport
         '

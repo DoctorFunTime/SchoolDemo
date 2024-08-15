@@ -4,6 +4,7 @@ Imports Frond_End_Design
 Imports Guna.UI2.WinForms
 Imports System.IO
 Imports System.Windows.Forms
+Imports ColourSchemes
 
 Public Class Homepage
 
@@ -14,8 +15,11 @@ Public Class Homepage
 
         ' Add any initialization after the InitializeComponent() call.
         'add items to dictionary
+        Dim darkMode As New Themes
 
     End Sub
+
+
     Private buttonList As New Collection
     Dim toolTip As New Design()
     Dim selectStatement As New SelectStats()
@@ -28,7 +32,7 @@ Public Class Homepage
     'form load
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        DataGridView.DataSource = selectStatement.GetFeesStatement()
+        DataGridView.DataSource = selectStatement.GetFeesStatement(1)
 
         'load recents
         LoadRecentItems()

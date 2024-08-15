@@ -66,6 +66,9 @@
     <Reference Include="bubble">
       <HintPath>..\bubble\bin\Debug\bubble.dll</HintPath>
     </Reference>
+    <Reference Include="ColourSchemes">
+      <HintPath>..\ColourSchemes\bin\Debug\ColourSchemes.dll</HintPath>
+    </Reference>
     <Reference Include="DatabaseSelectStatements">
       <HintPath>..\DatabaseSelectStatements\bin\Debug\DatabaseSelectStatements.dll</HintPath>
     </Reference>
@@ -96,6 +99,9 @@
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MyEncapsulation">
+      <HintPath>..\MyEncapsulation\bin\Debug\MyEncapsulation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -192,10 +198,6 @@
     <Compile Include="DataSets\stdDetails.vb">
       <DependentUpon>stdDetails.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="DataSets\StudentFeesStatement.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -206,10 +208,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>stdDetails.xsd</DependentUpon>
     </Compile>
-    <Content Include="Form1.vb">
-      <SubType>Form</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Compile Include="FrmDevelopers.Designer.vb">
       <DependentUpon>FrmDevelopers.vb</DependentUpon>
     </Compile>
@@ -271,10 +269,22 @@
     <Compile Include="FrmReceipts.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmRegister.Designer.vb">
+      <DependentUpon>FrmRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmReports.Designer.vb">
       <DependentUpon>FrmReports.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectClass.Designer.vb">
+      <DependentUpon>FrmSelectClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectClass.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSelectStudent.Designer.vb">
@@ -310,14 +320,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\935.png" />
+    <None Include="Resources\959.png" />
+    <None Include="Resources\298.png" />
+    <None Include="Resources\878.png" />
+    <None Include="Resources\kidmath.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\studentDetails.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Reports\FeesStatement.rdlc" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FrmRegister.resx">
+      <DependentUpon>FrmRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectClass.resx">
+      <DependentUpon>FrmSelectClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FeesStatement.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDevelopers.resx">

@@ -51,13 +51,13 @@ Partial Class Homepage
         Me.btnControlPanel = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnHome = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnCloseDatabase = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.picBoxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.lblConnectedUser = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlDockParent.SuspendLayout()
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Options.SuspendLayout()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -119,7 +119,7 @@ Partial Class Homepage
         '
         'pnlDockParent
         '
-        Me.pnlDockParent.BackColor = System.Drawing.Color.White
+        Me.pnlDockParent.BackColor = System.Drawing.Color.Transparent
         Me.pnlDockParent.Controls.Add(Me.DataGridView)
         Me.pnlDockParent.Controls.Add(Me.rdoBtnAccounts)
         Me.pnlDockParent.Controls.Add(Me.rdoBtnSettings)
@@ -131,7 +131,7 @@ Partial Class Homepage
         Me.pnlDockParent.Name = "pnlDockParent"
         Me.pnlDockParent.ShadowDecoration.Depth = 8
         Me.pnlDockParent.ShadowDecoration.Enabled = True
-        Me.pnlDockParent.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10, 10, 15, 15)
+        Me.pnlDockParent.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(8, 8, 13, 13)
         Me.pnlDockParent.Size = New System.Drawing.Size(1072, 644)
         Me.pnlDockParent.TabIndex = 22
         '
@@ -328,7 +328,6 @@ Partial Class Homepage
         Me.OpeningTransition.ContainerControl = Me
         Me.OpeningTransition.DockIndicatorTransparencyValue = 0.6R
         Me.OpeningTransition.ResizeForm = False
-        Me.OpeningTransition.ShadowColor = System.Drawing.Color.PowderBlue
         Me.OpeningTransition.TransparentWhileDrag = True
         '
         'txtSearch
@@ -597,17 +596,17 @@ Partial Class Homepage
         Me.btnCloseDatabase.Text = "Close"
         Me.btnCloseDatabase.UseTransparentBackground = True
         '
-        'Guna2PictureBox1
+        'picBoxLogo
         '
-        Me.Guna2PictureBox1.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.SubLogo
-        Me.Guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Guna2PictureBox1.Image = Global.SchoolDemo.My.Resources.Resources.SubLogo
-        Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(2, 5)
-        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Me.Guna2PictureBox1.Size = New System.Drawing.Size(138, 103)
-        Me.Guna2PictureBox1.TabIndex = 15
-        Me.Guna2PictureBox1.TabStop = False
+        Me.picBoxLogo.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.SubLogo
+        Me.picBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.picBoxLogo.Image = Global.SchoolDemo.My.Resources.Resources.SubLogo
+        Me.picBoxLogo.ImageRotate = 0!
+        Me.picBoxLogo.Location = New System.Drawing.Point(2, 5)
+        Me.picBoxLogo.Name = "picBoxLogo"
+        Me.picBoxLogo.Size = New System.Drawing.Size(138, 103)
+        Me.picBoxLogo.TabIndex = 15
+        Me.picBoxLogo.TabStop = False
         '
         'Guna2PictureBox2
         '
@@ -639,7 +638,7 @@ Partial Class Homepage
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1244, 701)
         Me.Controls.Add(Me.lblConnectedUser)
-        Me.Controls.Add(Me.Guna2PictureBox1)
+        Me.Controls.Add(Me.picBoxLogo)
         Me.Controls.Add(Me.btnCloseDatabase)
         Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.btnAboutUs)
@@ -667,7 +666,7 @@ Partial Class Homepage
         Me.pnlDockParent.ResumeLayout(False)
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Options.ResumeLayout(False)
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -698,7 +697,7 @@ Partial Class Homepage
     Friend WithEvents btnHome As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnCloseDatabase As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents Guna2DataGridViewStyler1 As Guna.UI2.WinForms.Guna2DataGridViewStyler
-    Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents picBoxLogo As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents lblConnectedUser As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents DataGridView As Guna.UI2.WinForms.Guna2DataGridView

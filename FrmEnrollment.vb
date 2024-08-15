@@ -3,15 +3,34 @@ Imports Frond_End_Design
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports Guna.UI2.WinForms
 Imports SQLStatements
+Imports DatabaseSelectStatements
+Imports MyEncapsulation
+Imports System.Globalization
 
 Public Class FrmEnrollment
-
+    Private selctStatement As New SelectStats
+    Private subjectList As DataTable
+    Private classList As DataTable
+    Public newStdID As Integer
     Dim design As New Design
     Private buttonList As New Collection
+    Private sCosts As New Collection
+    Private cFees As New List(Of Integer)
     Private insert As New SQLLine
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        subjectList = selctStatement.GetSubjects()
+        classList = selctStatement.GetClasses()
+        'newStdID = selctStatement.GetLastStudentID().Compute("MAX(std_id)", String.Empty) + 1
+        dtePickerDateOfBirth.Value = Date.Today
+    End Sub
 
     'side btn click events
-    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnSubjects.Click, btnStudentDetails.Click, btnPayments.Click, btnGuardian.Click
+    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnSubjects.Click, btnStudentDetails.Click, btnPayments.Click, btnGuardian.Click, btnMedicals.Click
 
         'clear opened panels
         design.clearPanels(pnlDock)
@@ -40,34 +59,29 @@ Public Class FrmEnrollment
             Case "btnPayments"
                 design.loadPnl(pnlPayments)
 
+            Case "btnMedicals"
+                design.loadPnl(pnlMedicals)
         End Select
 
     End Sub
 
     Private Sub FrmEnrollment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        addToButtonCollection()
+
         design.loadPnl(pnlStudent)
         btnStudentDetails.PerformClick()
 
         ' add items to listbox
+        For Each row As DataRow In subjectList.Rows
+            Dim subject As String = row("s_subject").ToString
+            ListBoxSubjects.Items.Add(subject)
+        Next
 
-        ListBoxSubjects.Items.Add("Mathematics")
-        ListBoxSubjects.Items.Add("English")
-        ListBoxSubjects.Items.Add("Economics")
-        ListBoxSubjects.Items.Add("Chemistry")
-        ListBoxSubjects.Items.Add("Physics")
-        ListBoxSubjects.Items.Add("Biology")
-        ListBoxSubjects.Items.Add("Business Studies")
-        ListBoxSubjects.Items.Add("Divinity")
-        ListBoxSubjects.Items.Add("IT")
-        ListBoxSubjects.Items.Add("Accounting")
-        ListBoxSubjects.Items.Add("combined Sciences")
-        ListBoxSubjects.Items.Add("Food and nutrition")
-        ListBoxSubjects.Items.Add("Shona")
-        ListBoxSubjects.Items.Add("Literature")
-        ListBoxSubjects.Items.Add("Commerce")
-        ListBoxSubjects.Items.Add("Statistics")
-
+        For Each row As DataRow In classList.Rows
+            Dim sclass As String = row("cl_class").ToString
+            cmbBoxClass.Items.Add(sclass)
+        Next
 
     End Sub
     'creating chips from listbox
@@ -98,16 +112,14 @@ Public Class FrmEnrollment
 
     End Sub
     'validation buttons
-    Private Sub btnValidation_Click(sender As Object, e As EventArgs) Handles btnValidateStudentDetails.Click, btnValidateSubjects.Click, btnValidateGuardians.Click, btnValidateAndFinalise.Click
+    Private Sub btnValidation_Click(sender As Object, e As EventArgs) Handles btnValidateStudentDetails.Click, btnValidateSubjects.Click, btnValidateGuardians.Click, btnValidateMedicals.Click, btnValidateAndFinalise.Click
 
         Select Case sender.name
 
             Case "btnValidateStudentDetails"
 
                 Dim verifiedDate As Boolean = design.txtboxformats(dtePickerDateOfBirth)
-                Dim Validation As Boolean = False
-
-                Validation = design.txtboxformats(pnlStudent)
+                Dim Validation As Boolean = design.txtboxformats(pnlStudent)
 
                 If verifiedDate And Validation Then
                     design.PressedButton(btnStudentDetails, e, 120, True)
@@ -119,9 +131,7 @@ Public Class FrmEnrollment
             Case "btnValidateSubjects"
 
                 If cntrlCtrlSelection.Controls.Count < 3 Then
-
                     design.messagboxInfo("No subject(s) found.", "At least three subjects have to be enlisted!", Me)
-
                 Else
                     design.PressedButton(btnSubjects, e, 120, True)
                     design.clearPanels(pnlDock)
@@ -131,29 +141,60 @@ Public Class FrmEnrollment
 
             Case "btnValidateGuardians"
 
-                Dim verifiedTitle As Boolean = design.txtboxformats(cmbBoxTitle)
-                Dim validation As Boolean = False
+                Dim validation As Boolean = design.txtboxformats(pnlGuardians)
 
-                validation = design.txtboxformats(pnlGuardians)
-
-                If verifiedTitle And validation Then
-
+                If validation Then
                     design.PressedButton(btnGuardian, e, 120, True)
+                    design.clearPanels(pnlDock)
+                    design.loadPnl(pnlMedicals)
+                    btnMedicals.PerformClick()
+                End If
+
+            Case "btnValidateMedicals"
+
+                Dim validation As Boolean = design.txtboxformats(pnlMedicals)
+
+                If validation Then
+                    design.PressedButton(btnMedicals, e, 120, True)
                     design.clearPanels(pnlDock)
                     design.loadPnl(pnlPayments)
                     btnPayments.PerformClick()
-
                 End If
 
             Case "btnValidateAndFinalise"
 
-                Dim verifiedClass As Boolean = design.txtboxformats(cmbBoxClass)
+                For Each item As Guna2GradientButton In buttonList
+                    If Not item.ForeColor = Color.SeaGreen And Not item.Name = "btnPayments" Then
+                        item.PerformClick()
+                        Select Case item.Name
+                            Case "btnStudentDetails"
+                                btnValidateStudentDetails.PerformClick()
+                            Case "btnSubjects"
+                                btnValidateSubjects.PerformClick()
+                            Case "btnGuardian"
+                                btnValidateGuardians.PerformClick()
+                            Case "btnMedicals"
+                                btnValidateMedicals.PerformClick()
+                        End Select
+                        Exit Sub
+                    End If
+                Next
+
                 Dim verifiedAmount As Boolean = design.txtboxformats(pnlPayments)
 
-                If verifiedAmount And verifiedClass Then
+                If String.IsNullOrEmpty(txtMiscellaneous.Text) And Not txtMiscellaneousCost.Text = "0" Then
+                    design.messagboxWarning("Warning", "A miscellaneous cost is detected without a corresponding amount or vice versa!", Me)
+                    Exit Sub
+                ElseIf txtMiscellaneous.Text = "n/a" And Not txtMiscellaneousCost.Text = "0" Then
+                    design.messagboxWarning("Warning", "A miscellaneous cost is detected without a corresponding amount or vice versa!", Me)
+                    Exit Sub
+                ElseIf Not String.IsNullOrEmpty(txtMiscellaneous.Text) And Not txtMiscellaneous.Text = "n/a" And txtMiscellaneousCost.Text = "0" Then
+                    design.messagboxWarning("Warning", "A miscellaneous cost is detected without a corresponding amount or vice versa!", Me)
+                    Exit Sub
+                End If
 
+                If verifiedAmount Then
                     design.PressedButton(btnPayments, e, 120, True)
-
                     Dim CustomMessageBox As New Guna2MessageDialog With {
                         .Text = "Proceed to enroll student?",
                         .Parent = Me,
@@ -162,11 +203,44 @@ Public Class FrmEnrollment
                         .Icon = MessageDialogIcon.Question,
                         .Caption = "Enroll Student?"
                     }
-
                     Dim result As DialogResult = CustomMessageBox.Show
                     If result = DialogResult.Yes Then
 
                         SQLLine.InsertStudentDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text, dtePickerDateOfBirth.Value, txtBirthIDNumber.Text, txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, cmbBoxTitle.Text, txtGName.Text, txtGSurname.Text, txtGAddress.Text, txtGPhoneNumber.Text, txtGEmailAddress.Text)
+
+                        Dim formID As String = "Enrollment"
+                        Dim selectStudent As New FrmSelectStudent(formID)
+                        selectStudent.ShowDialog()
+
+                        SQLLine.InsertStudentMedicals(newStdID, txtAllegies.Text, txtRequiredTreatment.Text, txtMedications.Text, txtDosage.Text, txtSchedule.Text, txtDisabilities.Text, txtPhysician.Text, txtPhysicianContacts.Text)
+
+                        Dim selectedSubjects As New List(Of String)
+
+                        For Each control In cntrlCtrlSelection.Controls
+                            If TypeOf control Is Guna2Chip Then
+                                selectedSubjects.Add(control.text)
+                            End If
+                        Next
+
+                        SQLLine.InsertStudentSubjects(newStdID, selectedSubjects)
+
+                        Dim selection As New List(Of DataSelection)
+                        addCostsToCollection()
+
+                        For Each item In sCosts
+                            If Not item.text = "0" Then
+                                Dim value As Integer
+                                If Integer.TryParse(item.Text.Trim(), value) Then
+
+                                    Dim newselection As New DataSelection(Date.Today, item.tag, value, 0, cmbBoxCurrency.Text, "DR", newStdID)
+                                    selection.Add(newselection)
+
+                                End If
+                            End If
+                        Next
+
+                        SQLLine.InsertStudentPayments(selection)
+
                         btnClose.PerformClick()
 
                     End If
@@ -210,29 +284,6 @@ Public Class FrmEnrollment
 
     End Sub
 
-    Private Sub cmbBoxClass_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBoxClass.SelectedIndexChanged
-        Select Case cmbBoxClass.Text
-            Case "Form 1"
-                txtFees.Text = 30
-
-            Case "Form 2"
-                txtFees.Text = 40
-
-            Case "Form 3"
-                txtFees.Text = 45
-
-            Case "Form 4"
-                txtFees.Text = 50
-
-            Case "Form 5"
-                txtFees.Text = 55
-
-            Case "Form 6"
-                txtFees.Text = 60
-
-        End Select
-    End Sub
-
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
@@ -246,7 +297,205 @@ Public Class FrmEnrollment
         buttonList.Add(btnSubjects)
         buttonList.Add(btnGuardian)
         buttonList.Add(btnPayments)
+        buttonList.Add(btnMedicals)
 
+    End Sub
+
+    Public Sub addCostsToCollection()
+        'Empty Collection
+        sCosts.Clear()
+
+        'Add new items to the collection
+        txtMiscellaneousCost.Tag = txtMiscellaneous.Text
+
+        sCosts.Add(txtClassCost)
+        sCosts.Add(txtTransportCost)
+        sCosts.Add(txtUniformCost)
+        sCosts.Add(txtReportBook)
+        sCosts.Add(txtTextbooksCost)
+        sCosts.Add(txtMiscellaneousCost)
+
+    End Sub
+    Private Sub chkBoxStudentNotApplicable_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxStudentNotApplicable.CheckedChanged, chkBoxGuardiansNotApplicable.CheckedChanged, chkBoxMedicalsNotApplicable.CheckedChanged, chkBoxPaymentsNotApplicable.CheckedChanged
+
+        Select Case sender.name
+
+            Case "chkBoxStudentNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlStudent.Controls
+                        If TypeOf control Is Guna2TextBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+
+            Case "chkBoxGuardiansNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlGuardians.Controls
+                        If TypeOf control Is Guna2TextBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+
+            Case "chkBoxMedicalsNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlMedicals.Controls
+                        If TypeOf control Is Guna2TextBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+
+            Case "chkBoxPaymentsNotApplicable"
+                If sender.Checked Then
+                    For Each control In pnlPayments.Controls
+                        If TypeOf control Is Guna2ComboBox AndAlso String.IsNullOrEmpty(control.text) Then
+                            control.text = "n/a"
+                        End If
+                    Next
+                End If
+        End Select
+    End Sub
+
+    Private Sub totalFees()
+        Dim cCost, tCost, uCost, txCost, rCost, mCost As Integer
+
+        cFees.Clear()
+
+        'Add new items to the collection
+        If Not Integer.TryParse(txtClassCost.Text.Trim(), cCost) Then
+        End If
+
+        If Not Integer.TryParse(txtTransportCost.Text.Trim(), tCost) Then
+        End If
+
+        If Not Integer.TryParse(txtUniformCost.Text.Trim(), uCost) Then
+        End If
+
+        If Not Integer.TryParse(txtTextbooksCost.Text.Trim(), txCost) Then
+        End If
+
+        If Not Integer.TryParse(txtReportBook.Text.Trim(), rCost) Then
+        End If
+
+        If Not Integer.TryParse(txtMiscellaneousCost.Text.Trim(), mCost) Then
+        End If
+
+        cFees.Add(cCost)
+        cFees.Add(tCost)
+        cFees.Add(uCost)
+        cFees.Add(txCost)
+        cFees.Add(rCost)
+        cFees.Add(mCost)
+
+        Dim totalFees As Integer = 0
+
+        For Each item In cFees
+            totalFees = totalFees + item
+        Next
+
+        txtTotalFees.Text = totalFees
+
+    End Sub
+
+    Private Sub CmbBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbUniform.SelectedValueChanged, cmbTextBooks.SelectedValueChanged, cmbBoxTransport.SelectedValueChanged, cmbBoxReportBook.SelectedValueChanged, cmbBoxClass.SelectedValueChanged
+
+        Dim dtCosts As New DataTable
+        dtCosts = selctStatement.GetStudentCosts()
+
+        Dim dtClassCosts As New DataTable
+        dtClassCosts = selctStatement.GetStudentClassCost()
+
+        Select Case sender.name
+
+            Case "cmbUniform"
+                Dim vTest As Boolean = False
+
+                For Each row As DataRow In dtCosts.Rows
+                    Dim description As String = row("sc_description").ToString
+
+                    If description = "Uniform" And Not sender.text = "n/a" Then
+                        txtUniformCost.Text = row("sc_amount")
+                        vTest = True
+                    End If
+                Next
+
+                If Not vTest Then
+                    txtUniformCost.Text = 0
+                End If
+
+
+            Case "cmbTextBooks"
+                Dim vTest As Boolean = False
+
+                For Each row As DataRow In dtCosts.Rows
+                    Dim description As String = row("sc_description").ToString
+
+                    If description = "Textbooks" And Not sender.text = "n/a" Then
+                        txtTextbooksCost.Text = row("sc_amount")
+                        vTest = True
+                    End If
+                Next
+
+                If Not vTest Then
+                    txtTextbooksCost.Text = 0
+                End If
+
+            Case "cmbBoxTransport"
+                Dim vTest As Boolean = False
+
+                For Each row As DataRow In dtCosts.Rows
+                    Dim description As String = row("sc_description").ToString
+
+                    If description = "Transport Service" And Not sender.text = "n/a" Then
+                        txtTransportCost.Text = row("sc_amount")
+                        vTest = True
+                    End If
+                Next
+
+                If Not vTest Then
+                    txtTransportCost.Text = 0
+                End If
+
+            Case "cmbBoxReportBook"
+                Dim vTest As Boolean = False
+
+                For Each row As DataRow In dtCosts.Rows
+                    Dim description As String = row("sc_description").ToString
+
+                    If description = "Report Book" And Not sender.text = "n/a" Then
+                        txtReportBook.Text = row("sc_amount")
+                        vTest = True
+                    End If
+                Next
+
+                If Not vTest Then
+                    txtReportBook.Text = 0
+                End If
+
+            Case "cmbBoxClass"
+                Dim vTest As Boolean = False
+
+                For Each row As DataRow In dtClassCosts.Rows
+                    Dim description As String = row("cl_class").ToString
+
+                    If description = sender.text And Not sender.text = "n/a" Then
+                        txtClassCost.Text = row("cl_fees")
+                        vTest = True
+                    End If
+                Next
+
+                If Not vTest Then
+                    txtClassCost.Text = 0
+                End If
+
+        End Select
+
+    End Sub
+
+    Private Sub txtReportBook_TextChanged(sender As Object, e As EventArgs) Handles txtUniformCost.TextChanged, txtTransportCost.TextChanged, txtTextbooksCost.TextChanged, txtReportBook.TextChanged, txtMiscellaneousCost.TextChanged, txtClassCost.TextChanged
+        totalFees()
     End Sub
 
 End Class

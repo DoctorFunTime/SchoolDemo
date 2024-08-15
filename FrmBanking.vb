@@ -1,4 +1,6 @@
-﻿Public Class FrmBanking
+﻿Imports DatabaseSelectStatements
+Public Class FrmBanking
+    Dim selectStatement As New SelectStats()
     Private Sub btn_MouseHover(sender As Object, e As EventArgs) Handles btnInvoices.MouseHover, btnFeesStatements.MouseHover, btnCashBook.MouseHover
         lblAddtionalInfoBanking.Text = sender.Tag
     End Sub
@@ -10,6 +12,13 @@
                 If pnlCashbookDrop.Height = 237 Then pnlCashbookDrop.Height = 59 Else pnlCashbookDrop.Height = 237
             Case "btnInvoices"
                 If pnlInvoiceDrop.Height = 178 Then pnlInvoiceDrop.Height = 59 Else pnlInvoiceDrop.Height = 178
+            Case "btnFeesStatements"
+
+                Dim formID As String
+                formID = "studentFeesStatement"
+                Dim selectStudent As New FrmSelectStudent(formID)
+                selectStudent.ShowDialog()
+
         End Select
     End Sub
 
