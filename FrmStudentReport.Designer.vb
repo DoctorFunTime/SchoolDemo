@@ -108,7 +108,7 @@ Partial Class FrmStudentReport
         Me.rv1.Name = "rv1"
         Me.rv1.ServerReport.BearerToken = Nothing
         Me.rv1.ShowToolBar = False
-        Me.rv1.Size = New System.Drawing.Size(800, 535)
+        Me.rv1.Size = New System.Drawing.Size(760, 535)
         Me.rv1.TabIndex = 59
         '
         'pnlReportControls
@@ -123,7 +123,7 @@ Partial Class FrmStudentReport
         Me.pnlReportControls.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.pnlReportControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlReportControls.Name = "pnlReportControls"
-        Me.pnlReportControls.Size = New System.Drawing.Size(800, 33)
+        Me.pnlReportControls.Size = New System.Drawing.Size(760, 33)
         Me.pnlReportControls.TabIndex = 60
         '
         'btnRefresh
@@ -215,7 +215,7 @@ Partial Class FrmStudentReport
         Me.btnMinimize.Image = Global.SchoolDemo.My.Resources.Resources._9952
         Me.btnMinimize.ImageOffset = New System.Drawing.Point(0, 1)
         Me.btnMinimize.ImageSize = New System.Drawing.Size(23, 23)
-        Me.btnMinimize.Location = New System.Drawing.Point(714, 0)
+        Me.btnMinimize.Location = New System.Drawing.Point(674, 0)
         Me.btnMinimize.Name = "btnMinimize"
         Me.btnMinimize.Size = New System.Drawing.Size(43, 33)
         Me.btnMinimize.TabIndex = 60
@@ -236,7 +236,7 @@ Partial Class FrmStudentReport
         Me.btnClose.ForeColor = System.Drawing.Color.White
         Me.btnClose.Image = Global.SchoolDemo.My.Resources.Resources._938
         Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(757, 0)
+        Me.btnClose.Location = New System.Drawing.Point(717, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(43, 33)
         Me.btnClose.TabIndex = 56
@@ -248,7 +248,7 @@ Partial Class FrmStudentReport
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(800, 570)
+        Me.ClientSize = New System.Drawing.Size(760, 570)
         Me.Controls.Add(Me.pnlReportControls)
         Me.Controls.Add(Me.rv1)
         Me.DoubleBuffered = True

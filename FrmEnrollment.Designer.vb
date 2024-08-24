@@ -27,6 +27,10 @@ Partial Class FrmEnrollment
         Me.lblHeadingOne = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlDock = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.pnlPayments = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.cmbBoxPaymentType = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.lblPaymentType = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtDocNumber = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblDocNumber = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cmbBoxReportBook = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.txtReportBook = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblReportBook = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -41,7 +45,7 @@ Partial Class FrmEnrollment
         Me.lblTextbooksAndSupplys = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cmbUniform = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.txtUniformCost = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblUniform = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtClassCost = New Guna.UI2.WinForms.Guna2TextBox()
         Me.cmbBoxTransport = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.txtTransportCost = New Guna.UI2.WinForms.Guna2TextBox()
@@ -89,10 +93,10 @@ Partial Class FrmEnrollment
         Me.btnValidateGuardians = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.pnlSubjects = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.cntrlCtrlSelection = New Guna.UI2.WinForms.Guna2ContainerControl()
-        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblSelection = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblAdd = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ListBoxSubjects = New System.Windows.Forms.ListBox()
-        Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblArrow = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnValidateSubjects = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.pnlStudent = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.chkBoxStudentNotApplicable = New Guna.UI2.WinForms.Guna2CheckBox()
@@ -106,7 +110,7 @@ Partial Class FrmEnrollment
         Me.txtBirthIDNumber = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnBirthIDNumber = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.dtePickerDateOfBirth = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblDOB = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtSurname = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblSurname = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtFirstName = New Guna.UI2.WinForms.Guna2TextBox()
@@ -164,6 +168,10 @@ Partial Class FrmEnrollment
         '
         'pnlPayments
         '
+        Me.pnlPayments.Controls.Add(Me.cmbBoxPaymentType)
+        Me.pnlPayments.Controls.Add(Me.lblPaymentType)
+        Me.pnlPayments.Controls.Add(Me.txtDocNumber)
+        Me.pnlPayments.Controls.Add(Me.lblDocNumber)
         Me.pnlPayments.Controls.Add(Me.cmbBoxReportBook)
         Me.pnlPayments.Controls.Add(Me.txtReportBook)
         Me.pnlPayments.Controls.Add(Me.lblReportBook)
@@ -178,7 +186,7 @@ Partial Class FrmEnrollment
         Me.pnlPayments.Controls.Add(Me.lblTextbooksAndSupplys)
         Me.pnlPayments.Controls.Add(Me.cmbUniform)
         Me.pnlPayments.Controls.Add(Me.txtUniformCost)
-        Me.pnlPayments.Controls.Add(Me.Guna2HtmlLabel4)
+        Me.pnlPayments.Controls.Add(Me.lblUniform)
         Me.pnlPayments.Controls.Add(Me.txtClassCost)
         Me.pnlPayments.Controls.Add(Me.cmbBoxTransport)
         Me.pnlPayments.Controls.Add(Me.txtTransportCost)
@@ -189,10 +197,68 @@ Partial Class FrmEnrollment
         Me.pnlPayments.Controls.Add(Me.lblFees)
         Me.pnlPayments.Controls.Add(Me.btnValidateAndFinalise)
         Me.pnlPayments.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlPayments.Location = New System.Drawing.Point(0, 475)
+        Me.pnlPayments.Location = New System.Drawing.Point(0, 40)
         Me.pnlPayments.Name = "pnlPayments"
         Me.pnlPayments.Size = New System.Drawing.Size(657, 435)
         Me.pnlPayments.TabIndex = 3
+        '
+        'cmbBoxPaymentType
+        '
+        Me.cmbBoxPaymentType.BackColor = System.Drawing.Color.Transparent
+        Me.cmbBoxPaymentType.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.cmbBoxPaymentType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbBoxPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbBoxPaymentType.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbBoxPaymentType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbBoxPaymentType.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.cmbBoxPaymentType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbBoxPaymentType.ItemHeight = 30
+        Me.cmbBoxPaymentType.Items.AddRange(New Object() {"Cash", "EFT", "Cheque"})
+        Me.cmbBoxPaymentType.Location = New System.Drawing.Point(230, 292)
+        Me.cmbBoxPaymentType.Name = "cmbBoxPaymentType"
+        Me.cmbBoxPaymentType.Size = New System.Drawing.Size(136, 36)
+        Me.cmbBoxPaymentType.TabIndex = 60
+        '
+        'lblPaymentType
+        '
+        Me.lblPaymentType.BackColor = System.Drawing.Color.Transparent
+        Me.lblPaymentType.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPaymentType.Location = New System.Drawing.Point(29, 300)
+        Me.lblPaymentType.Name = "lblPaymentType"
+        Me.lblPaymentType.Size = New System.Drawing.Size(100, 19)
+        Me.lblPaymentType.TabIndex = 59
+        Me.lblPaymentType.Text = "Payment Type  :"
+        '
+        'txtDocNumber
+        '
+        Me.txtDocNumber.Animated = True
+        Me.txtDocNumber.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtDocNumber.DefaultText = ""
+        Me.txtDocNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtDocNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtDocNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtDocNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtDocNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtDocNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDocNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtDocNumber.Location = New System.Drawing.Point(230, 380)
+        Me.txtDocNumber.Name = "txtDocNumber"
+        Me.txtDocNumber.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtDocNumber.PlaceholderText = ""
+        Me.txtDocNumber.SelectedText = ""
+        Me.txtDocNumber.Size = New System.Drawing.Size(136, 30)
+        Me.txtDocNumber.TabIndex = 58
+        Me.txtDocNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblDocNumber
+        '
+        Me.lblDocNumber.BackColor = System.Drawing.Color.Transparent
+        Me.lblDocNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDocNumber.Location = New System.Drawing.Point(35, 380)
+        Me.lblDocNumber.Name = "lblDocNumber"
+        Me.lblDocNumber.Size = New System.Drawing.Size(94, 19)
+        Me.lblDocNumber.TabIndex = 57
+        Me.lblDocNumber.Text = "Doc Number  :"
         '
         'cmbBoxReportBook
         '
@@ -206,7 +272,7 @@ Partial Class FrmEnrollment
         Me.cmbBoxReportBook.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxReportBook.ItemHeight = 30
         Me.cmbBoxReportBook.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
-        Me.cmbBoxReportBook.Location = New System.Drawing.Point(238, 184)
+        Me.cmbBoxReportBook.Location = New System.Drawing.Point(230, 166)
         Me.cmbBoxReportBook.Name = "cmbBoxReportBook"
         Me.cmbBoxReportBook.Size = New System.Drawing.Size(136, 36)
         Me.cmbBoxReportBook.TabIndex = 56
@@ -224,7 +290,7 @@ Partial Class FrmEnrollment
         Me.txtReportBook.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtReportBook.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtReportBook.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtReportBook.Location = New System.Drawing.Point(414, 187)
+        Me.txtReportBook.Location = New System.Drawing.Point(406, 166)
         Me.txtReportBook.Name = "txtReportBook"
         Me.txtReportBook.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtReportBook.PlaceholderText = ""
@@ -238,7 +304,7 @@ Partial Class FrmEnrollment
         '
         Me.lblReportBook.BackColor = System.Drawing.Color.Transparent
         Me.lblReportBook.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReportBook.Location = New System.Drawing.Point(47, 198)
+        Me.lblReportBook.Location = New System.Drawing.Point(39, 177)
         Me.lblReportBook.Name = "lblReportBook"
         Me.lblReportBook.Size = New System.Drawing.Size(90, 19)
         Me.lblReportBook.TabIndex = 54
@@ -254,7 +320,7 @@ Partial Class FrmEnrollment
         Me.chkBoxPaymentsNotApplicable.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.chkBoxPaymentsNotApplicable.Cursor = System.Windows.Forms.Cursors.Hand
         Me.chkBoxPaymentsNotApplicable.Font = New System.Drawing.Font("Century Gothic", 8.25!)
-        Me.chkBoxPaymentsNotApplicable.Location = New System.Drawing.Point(485, 6)
+        Me.chkBoxPaymentsNotApplicable.Location = New System.Drawing.Point(486, 6)
         Me.chkBoxPaymentsNotApplicable.Name = "chkBoxPaymentsNotApplicable"
         Me.chkBoxPaymentsNotApplicable.Size = New System.Drawing.Size(165, 20)
         Me.chkBoxPaymentsNotApplicable.TabIndex = 53
@@ -276,7 +342,7 @@ Partial Class FrmEnrollment
         Me.cmbBoxCurrency.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxCurrency.ItemHeight = 30
         Me.cmbBoxCurrency.Items.AddRange(New Object() {"USD", "ZIG"})
-        Me.cmbBoxCurrency.Location = New System.Drawing.Point(238, 331)
+        Me.cmbBoxCurrency.Location = New System.Drawing.Point(230, 336)
         Me.cmbBoxCurrency.Name = "cmbBoxCurrency"
         Me.cmbBoxCurrency.Size = New System.Drawing.Size(136, 36)
         Me.cmbBoxCurrency.TabIndex = 52
@@ -286,7 +352,7 @@ Partial Class FrmEnrollment
         '
         Me.lblCurrency.BackColor = System.Drawing.Color.Transparent
         Me.lblCurrency.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrency.Location = New System.Drawing.Point(71, 348)
+        Me.lblCurrency.Location = New System.Drawing.Point(61, 342)
         Me.lblCurrency.Name = "lblCurrency"
         Me.lblCurrency.Size = New System.Drawing.Size(68, 19)
         Me.lblCurrency.TabIndex = 51
@@ -304,7 +370,7 @@ Partial Class FrmEnrollment
         Me.txtMiscellaneous.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtMiscellaneous.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMiscellaneous.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtMiscellaneous.Location = New System.Drawing.Point(238, 286)
+        Me.txtMiscellaneous.Location = New System.Drawing.Point(230, 254)
         Me.txtMiscellaneous.Name = "txtMiscellaneous"
         Me.txtMiscellaneous.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtMiscellaneous.PlaceholderText = ""
@@ -325,7 +391,7 @@ Partial Class FrmEnrollment
         Me.txtMiscellaneousCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtMiscellaneousCost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMiscellaneousCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtMiscellaneousCost.Location = New System.Drawing.Point(414, 287)
+        Me.txtMiscellaneousCost.Location = New System.Drawing.Point(406, 250)
         Me.txtMiscellaneousCost.Name = "txtMiscellaneousCost"
         Me.txtMiscellaneousCost.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtMiscellaneousCost.PlaceholderText = ""
@@ -337,7 +403,7 @@ Partial Class FrmEnrollment
         '
         Me.lblMiscellaneous.BackColor = System.Drawing.Color.Transparent
         Me.lblMiscellaneous.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMiscellaneous.Location = New System.Drawing.Point(38, 298)
+        Me.lblMiscellaneous.Location = New System.Drawing.Point(30, 261)
         Me.lblMiscellaneous.Name = "lblMiscellaneous"
         Me.lblMiscellaneous.Size = New System.Drawing.Size(99, 19)
         Me.lblMiscellaneous.TabIndex = 46
@@ -355,7 +421,7 @@ Partial Class FrmEnrollment
         Me.cmbTextBooks.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbTextBooks.ItemHeight = 30
         Me.cmbTextBooks.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
-        Me.cmbTextBooks.Location = New System.Drawing.Point(238, 235)
+        Me.cmbTextBooks.Location = New System.Drawing.Point(230, 210)
         Me.cmbTextBooks.Name = "cmbTextBooks"
         Me.cmbTextBooks.Size = New System.Drawing.Size(136, 36)
         Me.cmbTextBooks.TabIndex = 45
@@ -373,7 +439,7 @@ Partial Class FrmEnrollment
         Me.txtTextbooksCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtTextbooksCost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTextbooksCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtTextbooksCost.Location = New System.Drawing.Point(414, 237)
+        Me.txtTextbooksCost.Location = New System.Drawing.Point(406, 208)
         Me.txtTextbooksCost.Name = "txtTextbooksCost"
         Me.txtTextbooksCost.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtTextbooksCost.PlaceholderText = ""
@@ -387,7 +453,7 @@ Partial Class FrmEnrollment
         '
         Me.lblTextbooksAndSupplys.BackColor = System.Drawing.Color.Transparent
         Me.lblTextbooksAndSupplys.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTextbooksAndSupplys.Location = New System.Drawing.Point(63, 248)
+        Me.lblTextbooksAndSupplys.Location = New System.Drawing.Point(55, 219)
         Me.lblTextbooksAndSupplys.Name = "lblTextbooksAndSupplys"
         Me.lblTextbooksAndSupplys.Size = New System.Drawing.Size(74, 19)
         Me.lblTextbooksAndSupplys.TabIndex = 43
@@ -405,7 +471,7 @@ Partial Class FrmEnrollment
         Me.cmbUniform.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbUniform.ItemHeight = 30
         Me.cmbUniform.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
-        Me.cmbUniform.Location = New System.Drawing.Point(238, 133)
+        Me.cmbUniform.Location = New System.Drawing.Point(230, 122)
         Me.cmbUniform.Name = "cmbUniform"
         Me.cmbUniform.Size = New System.Drawing.Size(136, 36)
         Me.cmbUniform.TabIndex = 42
@@ -423,7 +489,7 @@ Partial Class FrmEnrollment
         Me.txtUniformCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUniformCost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUniformCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtUniformCost.Location = New System.Drawing.Point(414, 137)
+        Me.txtUniformCost.Location = New System.Drawing.Point(406, 124)
         Me.txtUniformCost.Name = "txtUniformCost"
         Me.txtUniformCost.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtUniformCost.PlaceholderText = ""
@@ -433,15 +499,15 @@ Partial Class FrmEnrollment
         Me.txtUniformCost.TabIndex = 41
         Me.txtUniformCost.Tag = "Uniform Cost"
         '
-        'Guna2HtmlLabel4
+        'lblUniform
         '
-        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(77, 148)
-        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
-        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(60, 19)
-        Me.Guna2HtmlLabel4.TabIndex = 40
-        Me.Guna2HtmlLabel4.Text = "Uniform  :"
+        Me.lblUniform.BackColor = System.Drawing.Color.Transparent
+        Me.lblUniform.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUniform.Location = New System.Drawing.Point(69, 135)
+        Me.lblUniform.Name = "lblUniform"
+        Me.lblUniform.Size = New System.Drawing.Size(60, 19)
+        Me.lblUniform.TabIndex = 40
+        Me.lblUniform.Text = "Uniform  :"
         '
         'txtClassCost
         '
@@ -455,7 +521,7 @@ Partial Class FrmEnrollment
         Me.txtClassCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtClassCost.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.txtClassCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtClassCost.Location = New System.Drawing.Point(414, 37)
+        Me.txtClassCost.Location = New System.Drawing.Point(406, 40)
         Me.txtClassCost.Name = "txtClassCost"
         Me.txtClassCost.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtClassCost.PlaceholderText = ""
@@ -477,7 +543,7 @@ Partial Class FrmEnrollment
         Me.cmbBoxTransport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxTransport.ItemHeight = 30
         Me.cmbBoxTransport.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
-        Me.cmbBoxTransport.Location = New System.Drawing.Point(238, 82)
+        Me.cmbBoxTransport.Location = New System.Drawing.Point(230, 78)
         Me.cmbBoxTransport.Name = "cmbBoxTransport"
         Me.cmbBoxTransport.Size = New System.Drawing.Size(136, 36)
         Me.cmbBoxTransport.TabIndex = 38
@@ -495,7 +561,7 @@ Partial Class FrmEnrollment
         Me.txtTransportCost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtTransportCost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTransportCost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtTransportCost.Location = New System.Drawing.Point(414, 87)
+        Me.txtTransportCost.Location = New System.Drawing.Point(406, 82)
         Me.txtTransportCost.Name = "txtTransportCost"
         Me.txtTransportCost.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtTransportCost.PlaceholderText = ""
@@ -509,7 +575,7 @@ Partial Class FrmEnrollment
         '
         Me.lblTransportCost.BackColor = System.Drawing.Color.Transparent
         Me.lblTransportCost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransportCost.Location = New System.Drawing.Point(19, 98)
+        Me.lblTransportCost.Location = New System.Drawing.Point(11, 93)
         Me.lblTransportCost.Name = "lblTransportCost"
         Me.lblTransportCost.Size = New System.Drawing.Size(118, 19)
         Me.lblTransportCost.TabIndex = 36
@@ -526,7 +592,7 @@ Partial Class FrmEnrollment
         Me.cmbBoxClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbBoxClass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxClass.ItemHeight = 30
-        Me.cmbBoxClass.Location = New System.Drawing.Point(238, 31)
+        Me.cmbBoxClass.Location = New System.Drawing.Point(230, 34)
         Me.cmbBoxClass.Name = "cmbBoxClass"
         Me.cmbBoxClass.Size = New System.Drawing.Size(136, 36)
         Me.cmbBoxClass.TabIndex = 35
@@ -536,7 +602,7 @@ Partial Class FrmEnrollment
         '
         Me.lblClass.BackColor = System.Drawing.Color.Transparent
         Me.lblClass.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClass.Location = New System.Drawing.Point(93, 48)
+        Me.lblClass.Location = New System.Drawing.Point(85, 51)
         Me.lblClass.Name = "lblClass"
         Me.lblClass.Size = New System.Drawing.Size(44, 19)
         Me.lblClass.TabIndex = 34
@@ -554,14 +620,14 @@ Partial Class FrmEnrollment
         Me.txtTotalFees.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtTotalFees.Font = New System.Drawing.Font("Century Gothic", 11.0!, System.Drawing.FontStyle.Bold)
         Me.txtTotalFees.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtTotalFees.Location = New System.Drawing.Point(448, 362)
+        Me.txtTotalFees.Location = New System.Drawing.Point(452, 362)
         Me.txtTotalFees.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTotalFees.Name = "txtTotalFees"
         Me.txtTotalFees.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtTotalFees.PlaceholderText = ""
         Me.txtTotalFees.ReadOnly = True
         Me.txtTotalFees.SelectedText = ""
-        Me.txtTotalFees.Size = New System.Drawing.Size(202, 47)
+        Me.txtTotalFees.Size = New System.Drawing.Size(198, 47)
         Me.txtTotalFees.TabIndex = 33
         Me.txtTotalFees.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -617,7 +683,7 @@ Partial Class FrmEnrollment
         Me.pnlMedicals.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlMedicals.Location = New System.Drawing.Point(0, 30)
         Me.pnlMedicals.Name = "pnlMedicals"
-        Me.pnlMedicals.Size = New System.Drawing.Size(657, 445)
+        Me.pnlMedicals.Size = New System.Drawing.Size(657, 10)
         Me.pnlMedicals.TabIndex = 49
         '
         'txtDisabilities
@@ -1190,10 +1256,10 @@ Partial Class FrmEnrollment
         'pnlSubjects
         '
         Me.pnlSubjects.Controls.Add(Me.cntrlCtrlSelection)
-        Me.pnlSubjects.Controls.Add(Me.Guna2HtmlLabel3)
+        Me.pnlSubjects.Controls.Add(Me.lblSelection)
         Me.pnlSubjects.Controls.Add(Me.lblAdd)
         Me.pnlSubjects.Controls.Add(Me.ListBoxSubjects)
-        Me.pnlSubjects.Controls.Add(Me.Guna2HtmlLabel2)
+        Me.pnlSubjects.Controls.Add(Me.lblArrow)
         Me.pnlSubjects.Controls.Add(Me.btnValidateSubjects)
         Me.pnlSubjects.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlSubjects.Location = New System.Drawing.Point(0, 10)
@@ -1204,24 +1270,25 @@ Partial Class FrmEnrollment
         'cntrlCtrlSelection
         '
         Me.cntrlCtrlSelection.AutoScroll = True
-        Me.cntrlCtrlSelection.BackColor = System.Drawing.Color.PowderBlue
-        Me.cntrlCtrlSelection.FillColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.cntrlCtrlSelection.BackColor = System.Drawing.Color.Transparent
+        Me.cntrlCtrlSelection.FillColor = System.Drawing.Color.Transparent
         Me.cntrlCtrlSelection.Location = New System.Drawing.Point(424, 52)
         Me.cntrlCtrlSelection.Name = "cntrlCtrlSelection"
         Me.cntrlCtrlSelection.Size = New System.Drawing.Size(214, 344)
         Me.cntrlCtrlSelection.TabIndex = 28
-        Me.cntrlCtrlSelection.Text = "Guna2ContainerControl1"
+        Me.cntrlCtrlSelection.Text = "Guna2ContainerControl"
+        Me.cntrlCtrlSelection.UseTransparentBackground = True
         '
-        'Guna2HtmlLabel3
+        'lblSelection
         '
-        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(486, 18)
-        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(97, 26)
-        Me.Guna2HtmlLabel3.TabIndex = 27
-        Me.Guna2HtmlLabel3.Text = "Selection"
-        Me.Guna2HtmlLabel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblSelection.BackColor = System.Drawing.Color.Transparent
+        Me.lblSelection.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSelection.Location = New System.Drawing.Point(486, 18)
+        Me.lblSelection.Name = "lblSelection"
+        Me.lblSelection.Size = New System.Drawing.Size(97, 26)
+        Me.lblSelection.TabIndex = 27
+        Me.lblSelection.Text = "Selection"
+        Me.lblSelection.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblAdd
         '
@@ -1245,15 +1312,15 @@ Partial Class FrmEnrollment
         Me.ListBoxSubjects.Sorted = True
         Me.ListBoxSubjects.TabIndex = 25
         '
-        'Guna2HtmlLabel2
+        'lblArrow
         '
-        Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(319, 203)
-        Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
-        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(41, 41)
-        Me.Guna2HtmlLabel2.TabIndex = 24
-        Me.Guna2HtmlLabel2.Text = "=>"
+        Me.lblArrow.BackColor = System.Drawing.Color.Transparent
+        Me.lblArrow.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblArrow.Location = New System.Drawing.Point(319, 203)
+        Me.lblArrow.Name = "lblArrow"
+        Me.lblArrow.Size = New System.Drawing.Size(41, 41)
+        Me.lblArrow.TabIndex = 24
+        Me.lblArrow.Text = "=>"
         '
         'btnValidateSubjects
         '
@@ -1287,7 +1354,7 @@ Partial Class FrmEnrollment
         Me.pnlStudent.Controls.Add(Me.txtBirthIDNumber)
         Me.pnlStudent.Controls.Add(Me.btnBirthIDNumber)
         Me.pnlStudent.Controls.Add(Me.dtePickerDateOfBirth)
-        Me.pnlStudent.Controls.Add(Me.Guna2HtmlLabel1)
+        Me.pnlStudent.Controls.Add(Me.lblDOB)
         Me.pnlStudent.Controls.Add(Me.txtSurname)
         Me.pnlStudent.Controls.Add(Me.lblSurname)
         Me.pnlStudent.Controls.Add(Me.txtFirstName)
@@ -1461,8 +1528,9 @@ Partial Class FrmEnrollment
         '
         Me.dtePickerDateOfBirth.Checked = True
         Me.dtePickerDateOfBirth.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dtePickerDateOfBirth.FillColor = System.Drawing.Color.White
+        Me.dtePickerDateOfBirth.FillColor = System.Drawing.Color.RoyalBlue
         Me.dtePickerDateOfBirth.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtePickerDateOfBirth.ForeColor = System.Drawing.Color.White
         Me.dtePickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.dtePickerDateOfBirth.Location = New System.Drawing.Point(238, 144)
         Me.dtePickerDateOfBirth.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
@@ -1473,15 +1541,15 @@ Partial Class FrmEnrollment
         Me.dtePickerDateOfBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.dtePickerDateOfBirth.Value = New Date(2024, 7, 21, 0, 0, 0, 0)
         '
-        'Guna2HtmlLabel1
+        'lblDOB
         '
-        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(46, 160)
-        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(91, 19)
-        Me.Guna2HtmlLabel1.TabIndex = 5
-        Me.Guna2HtmlLabel1.Text = "Date of Birth :"
+        Me.lblDOB.BackColor = System.Drawing.Color.Transparent
+        Me.lblDOB.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDOB.Location = New System.Drawing.Point(46, 160)
+        Me.lblDOB.Name = "lblDOB"
+        Me.lblDOB.Size = New System.Drawing.Size(91, 19)
+        Me.lblDOB.TabIndex = 5
+        Me.lblDOB.Text = "Date of Birth :"
         '
         'txtSurname
         '
@@ -1770,7 +1838,7 @@ Partial Class FrmEnrollment
     Friend WithEvents txtFirstName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblName As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents dtePickerDateOfBirth As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblDOB As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtSurname As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btnBirthIDNumber As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtAddress As Guna.UI2.WinForms.Guna2TextBox
@@ -1783,11 +1851,11 @@ Partial Class FrmEnrollment
     Friend WithEvents btnValidateStudentDetails As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents pnlSubjects As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnValidateSubjects As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblArrow As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents ListBoxSubjects As ListBox
     Friend WithEvents lblAdd As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents cntrlCtrlSelection As Guna.UI2.WinForms.Guna2ContainerControl
-    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblSelection As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents pnlGuardians As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnValidateGuardians As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents txtGAddress As Guna.UI2.WinForms.Guna2TextBox
@@ -1815,7 +1883,7 @@ Partial Class FrmEnrollment
     Friend WithEvents lblTransportCost As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents cmbUniform As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents txtUniformCost As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblUniform As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtClassCost As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents cmbBoxTransport As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents cmbTextBooks As Guna.UI2.WinForms.Guna2ComboBox
@@ -1852,4 +1920,8 @@ Partial Class FrmEnrollment
     Friend WithEvents txtReportBook As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblReportBook As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
+    Friend WithEvents txtDocNumber As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblDocNumber As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents cmbBoxPaymentType As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents lblPaymentType As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

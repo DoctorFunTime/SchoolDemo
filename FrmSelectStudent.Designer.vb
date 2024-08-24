@@ -28,14 +28,12 @@ Partial Class FrmSelectStudent
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.btnFilter = New Guna.UI2.WinForms.Guna2Button()
         Me.DataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.pnlControls = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.pnlContainerControls = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.btnFilter = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.cmbBoxClass = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.txtIDNumber = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblName = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblIDNumber = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblClass = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtSurname = New Guna.UI2.WinForms.Guna2TextBox()
@@ -47,30 +45,13 @@ Partial Class FrmSelectStudent
         Me.pnlTopBar = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
+        Me.pnlFillspaceRight = New Guna.UI2.WinForms.Guna2GradientPanel()
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlControls.SuspendLayout()
         Me.pnlContainerControls.SuspendLayout()
         Me.pnlFillSpace.SuspendLayout()
         Me.pnlTopBar.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnFilter
-        '
-        Me.btnFilter.Animated = True
-        Me.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnFilter.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnFilter.FillColor = System.Drawing.Color.SeaGreen
-        Me.btnFilter.Font = New System.Drawing.Font("Century Gothic", 11.0!)
-        Me.btnFilter.ForeColor = System.Drawing.Color.White
-        Me.btnFilter.Location = New System.Drawing.Point(0, 366)
-        Me.btnFilter.Name = "btnFilter"
-        Me.btnFilter.Size = New System.Drawing.Size(0, 43)
-        Me.btnFilter.TabIndex = 18
-        Me.btnFilter.Text = "Search"
         '
         'DataGridView
         '
@@ -105,7 +86,7 @@ Partial Class FrmSelectStudent
         Me.DataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DataGridView.Location = New System.Drawing.Point(30, 41)
+        Me.DataGridView.Location = New System.Drawing.Point(35, 41)
         Me.DataGridView.Name = "DataGridView"
         Me.DataGridView.ReadOnly = True
         Me.DataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -125,7 +106,7 @@ Partial Class FrmSelectStudent
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PowderBlue
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
         Me.DataGridView.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridView.Size = New System.Drawing.Size(546, 409)
+        Me.DataGridView.Size = New System.Drawing.Size(507, 409)
         Me.DataGridView.TabIndex = 17
         Me.DataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.DataGridView.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Century Gothic", 9.0!)
@@ -153,22 +134,20 @@ Partial Class FrmSelectStudent
         '
         Me.pnlControls.BackColor = System.Drawing.Color.Transparent
         Me.pnlControls.Controls.Add(Me.pnlContainerControls)
-        Me.pnlControls.Controls.Add(Me.btnFilter)
         Me.pnlControls.Controls.Add(Me.pnlFillSpace)
         Me.pnlControls.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlControls.FillColor = System.Drawing.Color.PowderBlue
         Me.pnlControls.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal
         Me.pnlControls.Location = New System.Drawing.Point(0, 41)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(30, 409)
+        Me.pnlControls.Size = New System.Drawing.Size(35, 409)
         Me.pnlControls.TabIndex = 19
         '
         'pnlContainerControls
         '
+        Me.pnlContainerControls.Controls.Add(Me.btnFilter)
         Me.pnlContainerControls.Controls.Add(Me.cmbBoxClass)
-        Me.pnlContainerControls.Controls.Add(Me.txtIDNumber)
         Me.pnlContainerControls.Controls.Add(Me.lblName)
-        Me.pnlContainerControls.Controls.Add(Me.lblIDNumber)
         Me.pnlContainerControls.Controls.Add(Me.txtName)
         Me.pnlContainerControls.Controls.Add(Me.lblClass)
         Me.pnlContainerControls.Controls.Add(Me.txtSurname)
@@ -176,8 +155,26 @@ Partial Class FrmSelectStudent
         Me.pnlContainerControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContainerControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlContainerControls.Name = "pnlContainerControls"
-        Me.pnlContainerControls.Size = New System.Drawing.Size(0, 366)
+        Me.pnlContainerControls.Size = New System.Drawing.Size(1, 409)
         Me.pnlContainerControls.TabIndex = 69
+        '
+        'btnFilter
+        '
+        Me.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnFilter.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnFilter.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnFilter.FillColor2 = System.Drawing.Color.SeaGreen
+        Me.btnFilter.Font = New System.Drawing.Font("Century Gothic", 11.0!)
+        Me.btnFilter.ForeColor = System.Drawing.Color.White
+        Me.btnFilter.Location = New System.Drawing.Point(34, 364)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(508, 45)
+        Me.btnFilter.TabIndex = 70
+        Me.btnFilter.Text = "Search"
         '
         'cmbBoxClass
         '
@@ -190,31 +187,11 @@ Partial Class FrmSelectStudent
         Me.cmbBoxClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbBoxClass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxClass.ItemHeight = 30
-        Me.cmbBoxClass.Location = New System.Drawing.Point(172, 185)
+        Me.cmbBoxClass.Location = New System.Drawing.Point(172, 235)
         Me.cmbBoxClass.Name = "cmbBoxClass"
         Me.cmbBoxClass.Size = New System.Drawing.Size(171, 36)
         Me.cmbBoxClass.TabIndex = 69
         Me.cmbBoxClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtIDNumber
-        '
-        Me.txtIDNumber.Animated = True
-        Me.txtIDNumber.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtIDNumber.DefaultText = ""
-        Me.txtIDNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtIDNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtIDNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtIDNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtIDNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtIDNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtIDNumber.Location = New System.Drawing.Point(171, 251)
-        Me.txtIDNumber.Name = "txtIDNumber"
-        Me.txtIDNumber.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtIDNumber.PlaceholderText = ""
-        Me.txtIDNumber.SelectedText = ""
-        Me.txtIDNumber.Size = New System.Drawing.Size(274, 30)
-        Me.txtIDNumber.TabIndex = 68
         '
         'lblName
         '
@@ -226,17 +203,6 @@ Partial Class FrmSelectStudent
         Me.lblName.TabIndex = 59
         Me.lblName.Text = "Name  :"
         Me.lblName.Visible = False
-        '
-        'lblIDNumber
-        '
-        Me.lblIDNumber.BackColor = System.Drawing.Color.Transparent
-        Me.lblIDNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDNumber.Location = New System.Drawing.Point(72, 257)
-        Me.lblIDNumber.Name = "lblIDNumber"
-        Me.lblIDNumber.Size = New System.Drawing.Size(80, 19)
-        Me.lblIDNumber.TabIndex = 67
-        Me.lblIDNumber.Text = "ID Number  :"
-        Me.lblIDNumber.Visible = False
         '
         'txtName
         '
@@ -262,7 +228,7 @@ Partial Class FrmSelectStudent
         '
         Me.lblClass.BackColor = System.Drawing.Color.Transparent
         Me.lblClass.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClass.Location = New System.Drawing.Point(109, 195)
+        Me.lblClass.Location = New System.Drawing.Point(109, 245)
         Me.lblClass.Name = "lblClass"
         Me.lblClass.Size = New System.Drawing.Size(44, 19)
         Me.lblClass.TabIndex = 61
@@ -281,7 +247,7 @@ Partial Class FrmSelectStudent
         Me.txtSurname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtSurname.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSurname.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSurname.Location = New System.Drawing.Point(172, 125)
+        Me.txtSurname.Location = New System.Drawing.Point(172, 150)
         Me.txtSurname.Name = "txtSurname"
         Me.txtSurname.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtSurname.PlaceholderText = ""
@@ -293,7 +259,7 @@ Partial Class FrmSelectStudent
         '
         Me.lblSurname.BackColor = System.Drawing.Color.Transparent
         Me.lblSurname.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSurname.Location = New System.Drawing.Point(86, 133)
+        Me.lblSurname.Location = New System.Drawing.Point(86, 158)
         Me.lblSurname.Name = "lblSurname"
         Me.lblSurname.Size = New System.Drawing.Size(67, 19)
         Me.lblSurname.TabIndex = 63
@@ -302,10 +268,10 @@ Partial Class FrmSelectStudent
         '
         'pnlFillSpace
         '
-        Me.pnlFillSpace.Controls.Add(Me.pnlFillSpaceInSpace)
         Me.pnlFillSpace.Controls.Add(Me.btnToggleFilter)
+        Me.pnlFillSpace.Controls.Add(Me.pnlFillSpaceInSpace)
         Me.pnlFillSpace.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlFillSpace.Location = New System.Drawing.Point(-4, 0)
+        Me.pnlFillSpace.Location = New System.Drawing.Point(1, 0)
         Me.pnlFillSpace.Name = "pnlFillSpace"
         Me.pnlFillSpace.Size = New System.Drawing.Size(34, 409)
         Me.pnlFillSpace.TabIndex = 69
@@ -314,9 +280,9 @@ Partial Class FrmSelectStudent
         '
         Me.pnlFillSpaceInSpace.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlFillSpaceInSpace.FillColor2 = System.Drawing.Color.White
-        Me.pnlFillSpaceInSpace.Location = New System.Drawing.Point(0, 33)
+        Me.pnlFillSpaceInSpace.Location = New System.Drawing.Point(0, 0)
         Me.pnlFillSpaceInSpace.Name = "pnlFillSpaceInSpace"
-        Me.pnlFillSpaceInSpace.Size = New System.Drawing.Size(34, 376)
+        Me.pnlFillSpaceInSpace.Size = New System.Drawing.Size(34, 409)
         Me.pnlFillSpaceInSpace.TabIndex = 0
         '
         'btnToggleFilter
@@ -392,6 +358,14 @@ Partial Class FrmSelectStudent
         Me.btnClose.Size = New System.Drawing.Size(41, 41)
         Me.btnClose.TabIndex = 55
         '
+        'pnlFillspaceRight
+        '
+        Me.pnlFillspaceRight.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnlFillspaceRight.Location = New System.Drawing.Point(542, 41)
+        Me.pnlFillspaceRight.Name = "pnlFillspaceRight"
+        Me.pnlFillspaceRight.Size = New System.Drawing.Size(34, 409)
+        Me.pnlFillspaceRight.TabIndex = 59
+        '
         'FrmSelectStudent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -400,6 +374,7 @@ Partial Class FrmSelectStudent
         Me.ClientSize = New System.Drawing.Size(576, 450)
         Me.Controls.Add(Me.DataGridView)
         Me.Controls.Add(Me.pnlControls)
+        Me.Controls.Add(Me.pnlFillspaceRight)
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -416,8 +391,6 @@ Partial Class FrmSelectStudent
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents btnFilter As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents DataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents pnlControls As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents openingTranstionReceipts As Guna.UI2.WinForms.Guna2BorderlessForm
@@ -428,12 +401,12 @@ Partial Class FrmSelectStudent
     Friend WithEvents pnlFillSpace As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents pnlFillSpaceInSpace As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents pnlContainerControls As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents txtIDNumber As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblName As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents lblIDNumber As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblClass As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtSurname As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblSurname As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents cmbBoxClass As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents btnFilter As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents pnlFillspaceRight As Guna.UI2.WinForms.Guna2GradientPanel
 End Class

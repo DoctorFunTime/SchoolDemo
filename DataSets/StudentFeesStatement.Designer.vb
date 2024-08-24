@@ -303,6 +303,8 @@ Partial Public Class StudentFeesStatement
         
         Private columnstd_class As Global.System.Data.DataColumn
         
+        Private columnfs_doc_number As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -419,6 +421,14 @@ Partial Public Class StudentFeesStatement
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property fs_doc_numberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnfs_doc_number
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -455,9 +465,9 @@ Partial Public Class StudentFeesStatement
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtFeesStatementRow(ByVal fs_date As Date, ByVal fs_description As String, ByVal fs_currency_code As String, ByVal fs_debit As Decimal, ByVal fs_credit As Decimal, ByVal fs_adjusted_amount As Decimal, ByVal fs_running_balance As Decimal, ByVal std_name As String, ByVal std_surname As String, ByVal std_class As String) As dtFeesStatementRow
+        Public Overloads Function AdddtFeesStatementRow(ByVal fs_date As Date, ByVal fs_description As String, ByVal fs_currency_code As String, ByVal fs_debit As Decimal, ByVal fs_credit As Decimal, ByVal fs_adjusted_amount As Decimal, ByVal fs_running_balance As Decimal, ByVal std_name As String, ByVal std_surname As String, ByVal std_class As String, ByVal fs_doc_number As String) As dtFeesStatementRow
             Dim rowdtFeesStatementRow As dtFeesStatementRow = CType(Me.NewRow,dtFeesStatementRow)
-            Dim columnValuesArray() As Object = New Object() {fs_date, fs_description, fs_currency_code, fs_debit, fs_credit, fs_adjusted_amount, fs_running_balance, std_name, std_surname, std_class}
+            Dim columnValuesArray() As Object = New Object() {fs_date, fs_description, fs_currency_code, fs_debit, fs_credit, fs_adjusted_amount, fs_running_balance, std_name, std_surname, std_class, fs_doc_number}
             rowdtFeesStatementRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtFeesStatementRow)
             Return rowdtFeesStatementRow
@@ -490,6 +500,7 @@ Partial Public Class StudentFeesStatement
             Me.columnstd_name = MyBase.Columns("std_name")
             Me.columnstd_surname = MyBase.Columns("std_surname")
             Me.columnstd_class = MyBase.Columns("std_class")
+            Me.columnfs_doc_number = MyBase.Columns("fs_doc_number")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -515,6 +526,8 @@ Partial Public Class StudentFeesStatement
             MyBase.Columns.Add(Me.columnstd_surname)
             Me.columnstd_class = New Global.System.Data.DataColumn("std_class", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstd_class)
+            Me.columnfs_doc_number = New Global.System.Data.DataColumn("fs_doc_number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfs_doc_number)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -811,6 +824,21 @@ Partial Public Class StudentFeesStatement
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property fs_doc_number() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.fs_doc_numberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fs_doc_number' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.fs_doc_numberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Isfs_dateNull() As Boolean
             Return Me.IsNull(Me.tabledtFeesStatement.fs_dateColumn)
         End Function
@@ -927,6 +955,18 @@ Partial Public Class StudentFeesStatement
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setstd_classNull()
             Me(Me.tabledtFeesStatement.std_classColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isfs_doc_numberNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.fs_doc_numberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setfs_doc_numberNull()
+            Me(Me.tabledtFeesStatement.fs_doc_numberColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

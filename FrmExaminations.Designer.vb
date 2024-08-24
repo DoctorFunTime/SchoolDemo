@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmExaminations
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,18 @@ Partial Class FrmExaminations
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlDragExams = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnExaminationsAdd = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.lblAddtionalInfoAdmissions = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblAddtionalInfoExaminations = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.btnUploadMarks = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.flowpnl = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.pnlExamDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.Guna2GradientButton1 = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnUploadExam = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnViewExams = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnManageMarks = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnUploadMarks = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.pnlDragExams.SuspendLayout()
         Me.flowpnl.SuspendLayout()
-        Me.pnlExamDrop.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlDragExams
@@ -46,7 +44,7 @@ Partial Class FrmExaminations
         Me.pnlDragExams.Controls.Add(Me.btnExaminationsAdd)
         Me.pnlDragExams.Controls.Add(Me.lblAddtionalInfoAdmissions)
         Me.pnlDragExams.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlDragExams.Location = New System.Drawing.Point(245, 29)
+        Me.pnlDragExams.Location = New System.Drawing.Point(245, 12)
         Me.pnlDragExams.Name = "pnlDragExams"
         Me.pnlDragExams.Size = New System.Drawing.Size(296, 196)
         Me.pnlDragExams.TabIndex = 0
@@ -89,13 +87,76 @@ Partial Class FrmExaminations
         'lblAddtionalInfoExaminations
         '
         Me.lblAddtionalInfoExaminations.BackColor = System.Drawing.Color.Transparent
-        Me.lblAddtionalInfoExaminations.Font = New System.Drawing.Font("Century Gothic", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAddtionalInfoExaminations.Location = New System.Drawing.Point(12, 466)
+        Me.lblAddtionalInfoExaminations.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Italic)
+        Me.lblAddtionalInfoExaminations.Location = New System.Drawing.Point(12, 433)
         Me.lblAddtionalInfoExaminations.Name = "lblAddtionalInfoExaminations"
-        Me.lblAddtionalInfoExaminations.Size = New System.Drawing.Size(313, 23)
+        Me.lblAddtionalInfoExaminations.Size = New System.Drawing.Size(339, 25)
         Me.lblAddtionalInfoExaminations.TabIndex = 19
-        Me.lblAddtionalInfoExaminations.Text = "Hover over button for further information."
+        Me.lblAddtionalInfoExaminations.Text = "Hover over a button for further information."
         Me.lblAddtionalInfoExaminations.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'flowpnl
+        '
+        Me.flowpnl.AutoScroll = True
+        Me.flowpnl.Controls.Add(Me.btnViewExams)
+        Me.flowpnl.Controls.Add(Me.btnManageMarks)
+        Me.flowpnl.Controls.Add(Me.btnUploadMarks)
+        Me.flowpnl.Location = New System.Drawing.Point(12, 239)
+        Me.flowpnl.Name = "flowpnl"
+        Me.flowpnl.Size = New System.Drawing.Size(776, 188)
+        Me.flowpnl.TabIndex = 22
+        '
+        'btnViewExams
+        '
+        Me.btnViewExams.Animated = True
+        Me.btnViewExams.BorderRadius = 10
+        Me.btnViewExams.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnViewExams.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnViewExams.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnViewExams.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnViewExams.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnViewExams.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnViewExams.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnViewExams.FillColor = System.Drawing.Color.PowderBlue
+        Me.btnViewExams.FillColor2 = System.Drawing.Color.LightGray
+        Me.btnViewExams.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.btnViewExams.ForeColor = System.Drawing.Color.Black
+        Me.btnViewExams.Image = Global.SchoolDemo.My.Resources.Resources._557
+        Me.btnViewExams.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnViewExams.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnViewExams.Location = New System.Drawing.Point(0, 90)
+        Me.btnViewExams.Name = "btnViewExams"
+        Me.btnViewExams.Size = New System.Drawing.Size(776, 45)
+        Me.btnViewExams.TabIndex = 23
+        Me.btnViewExams.Tag = "View exam/test/assignment."
+        Me.btnViewExams.Text = "View"
+        Me.btnViewExams.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'btnManageMarks
+        '
+        Me.btnManageMarks.Animated = True
+        Me.btnManageMarks.BorderRadius = 10
+        Me.btnManageMarks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnManageMarks.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnManageMarks.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnManageMarks.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnManageMarks.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnManageMarks.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnManageMarks.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnManageMarks.FillColor = System.Drawing.Color.PowderBlue
+        Me.btnManageMarks.FillColor2 = System.Drawing.Color.LightGray
+        Me.btnManageMarks.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.btnManageMarks.ForeColor = System.Drawing.Color.Black
+        Me.btnManageMarks.Image = Global.SchoolDemo.My.Resources.Resources._316
+        Me.btnManageMarks.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnManageMarks.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnManageMarks.Location = New System.Drawing.Point(0, 45)
+        Me.btnManageMarks.Name = "btnManageMarks"
+        Me.btnManageMarks.Size = New System.Drawing.Size(776, 45)
+        Me.btnManageMarks.TabIndex = 22
+        Me.btnManageMarks.Tag = "Manage the student's marks."
+        Me.btnManageMarks.Text = "Manage Marks"
+        Me.btnManageMarks.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'btnUploadMarks
         '
@@ -123,87 +184,11 @@ Partial Class FrmExaminations
         Me.btnUploadMarks.Text = "Upload Marks"
         Me.btnUploadMarks.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
-        'flowpnl
-        '
-        Me.flowpnl.AutoScroll = True
-        Me.flowpnl.Controls.Add(Me.pnlExamDrop)
-        Me.flowpnl.Location = New System.Drawing.Point(12, 239)
-        Me.flowpnl.Name = "flowpnl"
-        Me.flowpnl.Size = New System.Drawing.Size(776, 198)
-        Me.flowpnl.TabIndex = 22
-        '
-        'pnlExamDrop
-        '
-        Me.pnlExamDrop.Controls.Add(Me.Guna2GradientButton1)
-        Me.pnlExamDrop.Controls.Add(Me.btnUploadExam)
-        Me.pnlExamDrop.Controls.Add(Me.btnUploadMarks)
-        Me.pnlExamDrop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlExamDrop.Location = New System.Drawing.Point(0, 0)
-        Me.pnlExamDrop.Name = "pnlExamDrop"
-        Me.pnlExamDrop.Size = New System.Drawing.Size(776, 172)
-        Me.pnlExamDrop.TabIndex = 23
-        '
-        'Guna2GradientButton1
-        '
-        Me.Guna2GradientButton1.Animated = True
-        Me.Guna2GradientButton1.BorderColor = System.Drawing.Color.LightGray
-        Me.Guna2GradientButton1.BorderRadius = 10
-        Me.Guna2GradientButton1.BorderThickness = 1
-        Me.Guna2GradientButton1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2GradientButton1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2GradientButton1.FillColor = System.Drawing.Color.Empty
-        Me.Guna2GradientButton1.FillColor2 = System.Drawing.Color.Empty
-        Me.Guna2GradientButton1.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2GradientButton1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.Guna2GradientButton1.ImageSize = New System.Drawing.Size(35, 35)
-        Me.Guna2GradientButton1.Location = New System.Drawing.Point(0, 90)
-        Me.Guna2GradientButton1.Name = "Guna2GradientButton1"
-        Me.Guna2GradientButton1.Size = New System.Drawing.Size(776, 45)
-        Me.Guna2GradientButton1.TabIndex = 24
-        Me.Guna2GradientButton1.Tag = ""
-        Me.Guna2GradientButton1.Text = "Upload students test marks."
-        Me.Guna2GradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.Guna2GradientButton1.TextOffset = New System.Drawing.Point(50, 0)
-        '
-        'btnUploadExam
-        '
-        Me.btnUploadExam.Animated = True
-        Me.btnUploadExam.BorderColor = System.Drawing.Color.LightGray
-        Me.btnUploadExam.BorderRadius = 10
-        Me.btnUploadExam.BorderThickness = 1
-        Me.btnUploadExam.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnUploadExam.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnUploadExam.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnUploadExam.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnUploadExam.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnUploadExam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnUploadExam.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnUploadExam.FillColor = System.Drawing.Color.Empty
-        Me.btnUploadExam.FillColor2 = System.Drawing.Color.Empty
-        Me.btnUploadExam.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUploadExam.ForeColor = System.Drawing.Color.Black
-        Me.btnUploadExam.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnUploadExam.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnUploadExam.Location = New System.Drawing.Point(0, 45)
-        Me.btnUploadExam.Name = "btnUploadExam"
-        Me.btnUploadExam.Size = New System.Drawing.Size(776, 45)
-        Me.btnUploadExam.TabIndex = 23
-        Me.btnUploadExam.Tag = ""
-        Me.btnUploadExam.Text = "Upload students exam marks."
-        Me.btnUploadExam.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnUploadExam.TextOffset = New System.Drawing.Point(50, 0)
-        '
         'FrmExaminations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 490)
         Me.Controls.Add(Me.flowpnl)
         Me.Controls.Add(Me.lblAddtionalInfoExaminations)
@@ -215,7 +200,6 @@ Partial Class FrmExaminations
         Me.pnlDragExams.ResumeLayout(False)
         Me.pnlDragExams.PerformLayout()
         Me.flowpnl.ResumeLayout(False)
-        Me.pnlExamDrop.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -227,7 +211,6 @@ Partial Class FrmExaminations
     Friend WithEvents lblAddtionalInfoExaminations As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnUploadMarks As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents flowpnl As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents pnlExamDrop As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents Guna2GradientButton1 As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents btnUploadExam As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnManageMarks As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnViewExams As Guna.UI2.WinForms.Guna2GradientButton
 End Class

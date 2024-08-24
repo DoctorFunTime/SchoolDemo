@@ -109,6 +109,9 @@
     <Reference Include="SQLStatements">
       <HintPath>..\SQLStatements\bin\Debug\SQLStatements.dll</HintPath>
     </Reference>
+    <Reference Include="SQLUpdateStatements">
+      <HintPath>..\SQLUpdateStatements\bin\Debug\SQLUpdateStatements.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -172,6 +175,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="UpdateEncapsulation">
+      <HintPath>..\UpdateEncapsulation\bin\Debug\UpdateEncapsulation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -187,13 +193,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSets\DTSStudents.Designer.vb">
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="DataSets\Cashbook.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DTSStudents.xsd</DependentUpon>
+      <DependentUpon>Cashbook.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="DataSets\DTSStudents.vb">
-      <DependentUpon>DTSStudents.xsd</DependentUpon>
+    <Compile Include="DataSets\Cashbook.vb">
+      <DependentUpon>Cashbook.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DataSets\AttendacyRecords.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttendacyRecords.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataSets\stdDetails.vb">
       <DependentUpon>stdDetails.xsd</DependentUpon>
@@ -207,6 +222,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>stdDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControlPanel.Designer.vb">
+      <DependentUpon>FrmControlPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControlPanel.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDevelopers.Designer.vb">
       <DependentUpon>FrmDevelopers.vb</DependentUpon>
@@ -293,6 +314,12 @@
     <Compile Include="FrmSelectStudent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSplashScreen.Designer.vb">
+      <DependentUpon>FrmSplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmStudentReport.Designer.vb">
       <DependentUpon>FrmStudentReport.vb</DependentUpon>
     </Compile>
@@ -305,10 +332,17 @@
     <Compile Include="FrmTuition.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmUploadExam.Designer.vb">
+      <DependentUpon>FrmUploadExam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUploadExam.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -320,16 +354,132 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="DataSets\Standing.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Standing.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DataSets\StudentGrades.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentGrades.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DataSets\StudentGrades.vb">
+      <DependentUpon>StudentGrades.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <None Include="DataSets\Cashbook.xsc">
+      <DependentUpon>Cashbook.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\Cashbook.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cashbook.Designer.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\Cashbook.xss">
+      <DependentUpon>Cashbook.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\AttendacyRecords.xsc">
+      <DependentUpon>AttendacyRecords.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\AttendacyRecords.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AttendacyRecords.Designer.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\AttendacyRecords.xss">
+      <DependentUpon>AttendacyRecords.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\935.png" />
     <None Include="Resources\959.png" />
     <None Include="Resources\298.png" />
     <None Include="Resources\878.png" />
     <None Include="Resources\kidmath.png" />
+    <None Include="DataSets\Standing.xsc">
+      <DependentUpon>Standing.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\Standing.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Standing.Designer.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\Standing.xss">
+      <DependentUpon>Standing.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\StudentGrades.xsc">
+      <DependentUpon>StudentGrades.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\StudentGrades.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentGrades.Designer.vb</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="DataSets\StudentGrades.xss">
+      <DependentUpon>StudentGrades.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\studentDetails.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\mailoutlined.png" />
+    <None Include="Resources\github.png" />
+    <None Include="Resources\twitter.png" />
+    <None Include="Resources\instagramoutlined.png" />
+    <None Include="Resources\facebookround.png" />
+    <None Include="Resources\facebook.png" />
+    <None Include="Resources\android.png" />
+    <None Include="Resources\weboutlined.png" />
+    <None Include="Resources\316.png" />
+    <None Include="Resources\walletcard.png" />
+    <None Include="Resources\desklight.png" />
+    <None Include="Resources\booksopen.png" />
+    <None Include="Resources\cardpayment.png" />
+    <None Include="Resources\dollaract.png" />
+    <None Include="Resources\studentmale.png" />
+    <None Include="Resources\dollarplant.png" />
+    <None Include="Resources\exchange.png" />
+    <None Include="Resources\bookstudy.png" />
+    <None Include="Resources\leftload.png" />
+    <None Include="Resources\114.png" />
+    <None Include="Resources\wifioff.png" />
+    <EmbeddedResource Include="FrmControlPanel.resx">
+      <DependentUpon>FrmControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StudentGrades.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\588.png" />
+    <EmbeddedResource Include="FrmUploadExam.resx">
+      <DependentUpon>FrmUploadExam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Standing.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\129.png" />
+    <EmbeddedResource Include="Reports\Cashbook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AttendacyRecords.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.vb</DependentUpon>
     </EmbeddedResource>
@@ -387,7 +537,6 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\StudentReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -396,17 +545,6 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Resources\234.png" />
-    <None Include="DataSets\DTSStudents.xsc">
-      <DependentUpon>DTSStudents.xsd</DependentUpon>
-    </None>
-    <None Include="DataSets\DTSStudents.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DTSStudents.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="DataSets\DTSStudents.xss">
-      <DependentUpon>DTSStudents.xsd</DependentUpon>
-    </None>
     <None Include="Resources\whatsapp.png" />
     <None Include="Resources\youtube.png" />
     <None Include="Resources\96.png" />

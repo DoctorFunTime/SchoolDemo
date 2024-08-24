@@ -28,6 +28,7 @@ Partial Class FrmSelectClass
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlFlwClasses = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cmbBoxClass = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.pnlTopBar.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,6 +43,7 @@ Partial Class FrmSelectClass
         '
         'pnlTopBar
         '
+        Me.pnlTopBar.Controls.Add(Me.cmbBoxClass)
         Me.pnlTopBar.Controls.Add(Me.lblHeading)
         Me.pnlTopBar.Controls.Add(Me.btnClose)
         Me.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top
@@ -56,7 +58,7 @@ Partial Class FrmSelectClass
         '
         Me.lblHeading.BackColor = System.Drawing.Color.Transparent
         Me.lblHeading.Font = New System.Drawing.Font("Century Gothic", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblHeading.Location = New System.Drawing.Point(205, 9)
+        Me.lblHeading.Location = New System.Drawing.Point(8, 9)
         Me.lblHeading.Name = "lblHeading"
         Me.lblHeading.Size = New System.Drawing.Size(142, 25)
         Me.lblHeading.TabIndex = 56
@@ -92,6 +94,24 @@ Partial Class FrmSelectClass
         Me.pnlFlwClasses.Size = New System.Drawing.Size(576, 409)
         Me.pnlFlwClasses.TabIndex = 60
         '
+        'cmbBoxClass
+        '
+        Me.cmbBoxClass.BackColor = System.Drawing.Color.Transparent
+        Me.cmbBoxClass.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.cmbBoxClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbBoxClass.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbBoxClass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbBoxClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.cmbBoxClass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbBoxClass.ItemHeight = 30
+        Me.cmbBoxClass.Location = New System.Drawing.Point(393, 2)
+        Me.cmbBoxClass.Name = "cmbBoxClass"
+        Me.cmbBoxClass.Size = New System.Drawing.Size(136, 36)
+        Me.cmbBoxClass.TabIndex = 57
+        Me.cmbBoxClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.cmbBoxClass.Visible = False
+        '
         'FrmSelectClass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -115,4 +135,5 @@ Partial Class FrmSelectClass
     Friend WithEvents lblHeading As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlFlwClasses As FlowLayoutPanel
+    Friend WithEvents cmbBoxClass As Guna.UI2.WinForms.Guna2ComboBox
 End Class

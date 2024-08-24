@@ -28,7 +28,6 @@ Partial Class FrmReports
         Me.btnAttendacy = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnStudentReports = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnKPI = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnCashBook = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.flowpnl = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.pnlKPIsDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnKPITest = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -44,12 +43,12 @@ Partial Class FrmReports
         'lblAddtionalInfoReports
         '
         Me.lblAddtionalInfoReports.BackColor = System.Drawing.Color.Transparent
-        Me.lblAddtionalInfoReports.Font = New System.Drawing.Font("Century Gothic", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAddtionalInfoReports.Location = New System.Drawing.Point(12, 466)
+        Me.lblAddtionalInfoReports.Font = New System.Drawing.Font("Comic Sans MS", 12.0!, System.Drawing.FontStyle.Italic)
+        Me.lblAddtionalInfoReports.Location = New System.Drawing.Point(12, 433)
         Me.lblAddtionalInfoReports.Name = "lblAddtionalInfoReports"
-        Me.lblAddtionalInfoReports.Size = New System.Drawing.Size(313, 23)
+        Me.lblAddtionalInfoReports.Size = New System.Drawing.Size(339, 25)
         Me.lblAddtionalInfoReports.TabIndex = 27
-        Me.lblAddtionalInfoReports.Text = "Hover over button for further information."
+        Me.lblAddtionalInfoReports.Text = "Hover over a button for further information."
         Me.lblAddtionalInfoReports.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
         '
         'btnHighAchievers
@@ -70,7 +69,7 @@ Partial Class FrmReports
         Me.btnHighAchievers.Image = Global.SchoolDemo.My.Resources.Resources._264
         Me.btnHighAchievers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnHighAchievers.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnHighAchievers.Location = New System.Drawing.Point(0, 90)
+        Me.btnHighAchievers.Location = New System.Drawing.Point(0, 45)
         Me.btnHighAchievers.Name = "btnHighAchievers"
         Me.btnHighAchievers.Size = New System.Drawing.Size(776, 45)
         Me.btnHighAchievers.TabIndex = 35
@@ -96,7 +95,7 @@ Partial Class FrmReports
         Me.btnAreasOfConcern.Image = Global.SchoolDemo.My.Resources.Resources._176
         Me.btnAreasOfConcern.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAreasOfConcern.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnAreasOfConcern.Location = New System.Drawing.Point(0, 225)
+        Me.btnAreasOfConcern.Location = New System.Drawing.Point(0, 180)
         Me.btnAreasOfConcern.Name = "btnAreasOfConcern"
         Me.btnAreasOfConcern.Size = New System.Drawing.Size(776, 45)
         Me.btnAreasOfConcern.TabIndex = 31
@@ -122,7 +121,7 @@ Partial Class FrmReports
         Me.btnAttendacy.Image = Global.SchoolDemo.My.Resources.Resources._573
         Me.btnAttendacy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAttendacy.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnAttendacy.Location = New System.Drawing.Point(0, 135)
+        Me.btnAttendacy.Location = New System.Drawing.Point(0, 90)
         Me.btnAttendacy.Name = "btnAttendacy"
         Me.btnAttendacy.Size = New System.Drawing.Size(776, 45)
         Me.btnAttendacy.TabIndex = 26
@@ -183,32 +182,6 @@ Partial Class FrmReports
         Me.btnKPI.Text = "Student's Key Performance Indicators"
         Me.btnKPI.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
-        'btnCashBook
-        '
-        Me.btnCashBook.Animated = True
-        Me.btnCashBook.BorderRadius = 10
-        Me.btnCashBook.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCashBook.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnCashBook.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnCashBook.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnCashBook.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnCashBook.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnCashBook.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnCashBook.FillColor = System.Drawing.Color.PowderBlue
-        Me.btnCashBook.FillColor2 = System.Drawing.Color.LightGray
-        Me.btnCashBook.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnCashBook.ForeColor = System.Drawing.Color.Black
-        Me.btnCashBook.Image = Global.SchoolDemo.My.Resources.Resources._566
-        Me.btnCashBook.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnCashBook.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnCashBook.Location = New System.Drawing.Point(0, 45)
-        Me.btnCashBook.Name = "btnCashBook"
-        Me.btnCashBook.Size = New System.Drawing.Size(776, 45)
-        Me.btnCashBook.TabIndex = 23
-        Me.btnCashBook.Tag = "View the schools cashbook."
-        Me.btnCashBook.Text = "Cashbook"
-        Me.btnCashBook.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
         'flowpnl
         '
         Me.flowpnl.AutoScroll = True
@@ -216,7 +189,6 @@ Partial Class FrmReports
         Me.flowpnl.Controls.Add(Me.pnlKPIsDrop)
         Me.flowpnl.Controls.Add(Me.btnAttendacy)
         Me.flowpnl.Controls.Add(Me.btnHighAchievers)
-        Me.flowpnl.Controls.Add(Me.btnCashBook)
         Me.flowpnl.Controls.Add(Me.pnlStudentReportsDrop)
         Me.flowpnl.Location = New System.Drawing.Point(12, 20)
         Me.flowpnl.Name = "flowpnl"
@@ -229,7 +201,7 @@ Partial Class FrmReports
         Me.pnlKPIsDrop.Controls.Add(Me.btnKPIExam)
         Me.pnlKPIsDrop.Controls.Add(Me.btnKPI)
         Me.pnlKPIsDrop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlKPIsDrop.Location = New System.Drawing.Point(0, 180)
+        Me.pnlKPIsDrop.Location = New System.Drawing.Point(0, 135)
         Me.pnlKPIsDrop.Name = "pnlKPIsDrop"
         Me.pnlKPIsDrop.Size = New System.Drawing.Size(776, 45)
         Me.pnlKPIsDrop.TabIndex = 37
@@ -237,7 +209,7 @@ Partial Class FrmReports
         'btnKPITest
         '
         Me.btnKPITest.Animated = True
-        Me.btnKPITest.BorderColor = System.Drawing.Color.LightGray
+        Me.btnKPITest.BorderColor = System.Drawing.Color.Empty
         Me.btnKPITest.BorderRadius = 10
         Me.btnKPITest.BorderThickness = 1
         Me.btnKPITest.Cursor = System.Windows.Forms.Cursors.Hand
@@ -247,10 +219,10 @@ Partial Class FrmReports
         Me.btnKPITest.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnKPITest.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnKPITest.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnKPITest.FillColor = System.Drawing.Color.Empty
-        Me.btnKPITest.FillColor2 = System.Drawing.Color.Empty
-        Me.btnKPITest.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnKPITest.ForeColor = System.Drawing.Color.Black
+        Me.btnKPITest.FillColor = System.Drawing.Color.RoyalBlue
+        Me.btnKPITest.FillColor2 = System.Drawing.Color.LightSteelBlue
+        Me.btnKPITest.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.btnKPITest.ForeColor = System.Drawing.Color.White
         Me.btnKPITest.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPITest.ImageSize = New System.Drawing.Size(35, 35)
         Me.btnKPITest.Location = New System.Drawing.Point(0, 90)
@@ -265,7 +237,7 @@ Partial Class FrmReports
         'btnKPIExam
         '
         Me.btnKPIExam.Animated = True
-        Me.btnKPIExam.BorderColor = System.Drawing.Color.LightGray
+        Me.btnKPIExam.BorderColor = System.Drawing.Color.Empty
         Me.btnKPIExam.BorderRadius = 10
         Me.btnKPIExam.BorderThickness = 1
         Me.btnKPIExam.Cursor = System.Windows.Forms.Cursors.Hand
@@ -275,10 +247,10 @@ Partial Class FrmReports
         Me.btnKPIExam.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnKPIExam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnKPIExam.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnKPIExam.FillColor = System.Drawing.Color.Empty
-        Me.btnKPIExam.FillColor2 = System.Drawing.Color.Empty
-        Me.btnKPIExam.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnKPIExam.ForeColor = System.Drawing.Color.Black
+        Me.btnKPIExam.FillColor = System.Drawing.Color.RoyalBlue
+        Me.btnKPIExam.FillColor2 = System.Drawing.Color.LightSteelBlue
+        Me.btnKPIExam.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.btnKPIExam.ForeColor = System.Drawing.Color.White
         Me.btnKPIExam.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPIExam.ImageSize = New System.Drawing.Size(35, 35)
         Me.btnKPIExam.Location = New System.Drawing.Point(0, 45)
@@ -304,7 +276,7 @@ Partial Class FrmReports
         'btnStudentDetailsReport
         '
         Me.btnStudentDetailsReport.Animated = True
-        Me.btnStudentDetailsReport.BorderColor = System.Drawing.Color.LightGray
+        Me.btnStudentDetailsReport.BorderColor = System.Drawing.Color.Empty
         Me.btnStudentDetailsReport.BorderRadius = 10
         Me.btnStudentDetailsReport.BorderThickness = 1
         Me.btnStudentDetailsReport.Cursor = System.Windows.Forms.Cursors.Hand
@@ -314,10 +286,10 @@ Partial Class FrmReports
         Me.btnStudentDetailsReport.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnStudentDetailsReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnStudentDetailsReport.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnStudentDetailsReport.FillColor = System.Drawing.Color.Empty
-        Me.btnStudentDetailsReport.FillColor2 = System.Drawing.Color.Empty
-        Me.btnStudentDetailsReport.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStudentDetailsReport.ForeColor = System.Drawing.Color.Black
+        Me.btnStudentDetailsReport.FillColor = System.Drawing.Color.RoyalBlue
+        Me.btnStudentDetailsReport.FillColor2 = System.Drawing.Color.LightSteelBlue
+        Me.btnStudentDetailsReport.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.btnStudentDetailsReport.ForeColor = System.Drawing.Color.White
         Me.btnStudentDetailsReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnStudentDetailsReport.ImageSize = New System.Drawing.Size(35, 35)
         Me.btnStudentDetailsReport.Location = New System.Drawing.Point(0, 90)
@@ -332,7 +304,7 @@ Partial Class FrmReports
         'btnStudentGradeReport
         '
         Me.btnStudentGradeReport.Animated = True
-        Me.btnStudentGradeReport.BorderColor = System.Drawing.Color.LightGray
+        Me.btnStudentGradeReport.BorderColor = System.Drawing.Color.Empty
         Me.btnStudentGradeReport.BorderRadius = 10
         Me.btnStudentGradeReport.BorderThickness = 1
         Me.btnStudentGradeReport.Cursor = System.Windows.Forms.Cursors.Hand
@@ -342,10 +314,10 @@ Partial Class FrmReports
         Me.btnStudentGradeReport.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnStudentGradeReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.btnStudentGradeReport.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnStudentGradeReport.FillColor = System.Drawing.Color.Empty
-        Me.btnStudentGradeReport.FillColor2 = System.Drawing.Color.Empty
-        Me.btnStudentGradeReport.Font = New System.Drawing.Font("Century Gothic", 9.5!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStudentGradeReport.ForeColor = System.Drawing.Color.Black
+        Me.btnStudentGradeReport.FillColor = System.Drawing.Color.RoyalBlue
+        Me.btnStudentGradeReport.FillColor2 = System.Drawing.Color.LightSteelBlue
+        Me.btnStudentGradeReport.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.btnStudentGradeReport.ForeColor = System.Drawing.Color.White
         Me.btnStudentGradeReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnStudentGradeReport.ImageSize = New System.Drawing.Size(35, 35)
         Me.btnStudentGradeReport.Location = New System.Drawing.Point(0, 45)
@@ -361,7 +333,7 @@ Partial Class FrmReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 490)
         Me.Controls.Add(Me.flowpnl)
         Me.Controls.Add(Me.lblAddtionalInfoReports)
@@ -380,7 +352,6 @@ Partial Class FrmReports
     Friend WithEvents btnAttendacy As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnStudentReports As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnKPI As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents btnCashBook As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnAreasOfConcern As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnHighAchievers As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents flowpnl As Guna.UI2.WinForms.Guna2GradientPanel

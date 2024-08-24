@@ -11,11 +11,12 @@ Public Class FrmStudentReport
     Private dt As DataTable
     Private datasetName As String
     Private rpName As String
-    Dim design As New Design()
-    Dim popUp As New NotificationBubble
+    Private design As New Design()
+    Private popUp As New NotificationBubble
+    Private _darkmode As Boolean
 
 
-    Public Sub New(dataTable As DataTable, dataset As String, reportName As String)
+    Public Sub New(dataTable As DataTable, dataset As String, reportName As String, darkmode As Boolean)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -25,9 +26,9 @@ Public Class FrmStudentReport
         datasetName = dataset
         rpName = reportName
         TopMost = True
-
+        _darkmode = darkmode
+        If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
-
     Private Sub FrmStudentReport_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         Try
@@ -58,7 +59,6 @@ Public Class FrmStudentReport
         End Try
 
     End Sub
-
     Private Sub BtnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click, btnExport.Click, btnClose.Click, btnRefresh.Click, btnMinimize.Click
         Select Case sender.name
 
@@ -80,7 +80,6 @@ Public Class FrmStudentReport
 
         End Select
     End Sub
-
     Private Sub ExportReport(format As String)
         Dim extension As String
         Dim filter As String
@@ -127,7 +126,7 @@ Public Class FrmStudentReport
                 End Using
 
                 Dim popUp As New NotificationBubble
-                popUp.ShowNotification("Ok", "Successful", $"Report was exported successfully to {outputPath}.")
+                popUp.ShowNotification("Ok", "Successful", $"Report was exported successfully to {outputPath}.", Me)
 
             Catch ex As Exception
                 design.messagboxError("Report error", "An error occurred : " & ex.Message, Me)
@@ -135,7 +134,6 @@ Public Class FrmStudentReport
         End If
 
     End Sub
-
     Private Sub PrintReport()
         Dim emfPages As List(Of Metafile) = RenderReportToEMF()
 
@@ -194,8 +192,6 @@ Public Class FrmStudentReport
 
         Return emfPages
     End Function
-
-
     Private Sub StrpPDF_Click(sender As Object, e As EventArgs) Handles strpPDF.Click, strpWord.Click, strpExcel.Click
         Select Case sender.name
             Case "strpPDF"
@@ -206,4 +202,46 @@ Public Class FrmStudentReport
                 ExportReport("excel")
         End Select
     End Sub
+    Private Function DKMsideButtons() As List(Of Guna2GradientButton)
+
+        Dim sidebarButtons As New List(Of Guna2GradientButton)
+        Return sidebarButtons
+    End Function
+    Private Function DKMparentButtons() As List(Of Guna2GradientButton)
+
+        Dim pagebuttons As New List(Of Guna2GradientButton)
+        Return pagebuttons
+    End Function
+    Private Function DKMpanels() As List(Of Guna2GradientPanel)
+
+        Dim topPanels As New List(Of Guna2GradientPanel) From {
+            pnlReportControls
+        }
+        Return topPanels
+    End Function
+    Private Function DKMlabels() As List(Of Guna2HtmlLabel)
+
+        Dim labels As New List(Of Guna2HtmlLabel)
+        Return labels
+    End Function
+    Private Function DKMFormButtons() As List(Of Guna2GradientButton)
+
+        Dim pagebuttons As New List(Of Guna2GradientButton)
+        Return pagebuttons
+    End Function
+    Private Function DKMEmptyText() As List(Of Guna2TextBox)
+
+        Dim placeholder As New List(Of Guna2TextBox)
+        Return placeholder
+    End Function
+    Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
+
+        Dim placeholder As New List(Of Guna2ComboBox)
+        Return placeholder
+    End Function
+    Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
+
+        Dim placeholder As New List(Of Guna2CheckBox)
+        Return placeholder
+    End Function
 End Class

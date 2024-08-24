@@ -6,18 +6,22 @@ Imports SQLStatements
 Imports DatabaseSelectStatements
 Imports MyEncapsulation
 Imports System.Globalization
+Imports bubble
 
 Public Class FrmEnrollment
     Private selctStatement As New SelectStats
+    Private popUp As New NotificationBubble
     Private subjectList As DataTable
     Private classList As DataTable
     Public newStdID As Integer
-    Dim design As New Design
+    Private design As New Design
     Private buttonList As New Collection
     Private sCosts As New Collection
     Private cFees As New List(Of Integer)
     Private insert As New SQLLine
-    Public Sub New()
+    Private _docNumber As Integer
+    Private _darkmode As Boolean
+    Public Sub New(darkmode As Boolean)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -25,8 +29,11 @@ Public Class FrmEnrollment
         ' Add any initialization after the InitializeComponent() call.
         subjectList = selctStatement.GetSubjects()
         classList = selctStatement.GetClasses()
-        'newStdID = selctStatement.GetLastStudentID().Compute("MAX(std_id)", String.Empty) + 1
+        _docNumber = selctStatement.GetDocNumber("Invoice").Compute("MAX(dc_number)", String.Empty) + 1
+        _darkmode = darkmode
+        If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
         dtePickerDateOfBirth.Value = Date.Today
+
     End Sub
 
     'side btn click events
@@ -43,7 +50,7 @@ Public Class FrmEnrollment
             design.unPressedButton(item, e, 120)
         Next item
 
-        design.PressedButton(sender, e, 135, False)
+        design.PressedButton(sender, e, 135, False, _darkmode)
 
         Select Case sender.name
 
@@ -67,6 +74,7 @@ Public Class FrmEnrollment
 
     Private Sub FrmEnrollment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        txtDocNumber.Text = $"INV00{_docNumber}"
         addToButtonCollection()
 
         design.loadPnl(pnlStudent)
@@ -122,7 +130,7 @@ Public Class FrmEnrollment
                 Dim Validation As Boolean = design.txtboxformats(pnlStudent)
 
                 If verifiedDate And Validation Then
-                    design.PressedButton(btnStudentDetails, e, 120, True)
+                    design.PressedButton(btnStudentDetails, e, 120, True, _darkmode)
                     design.clearPanels(pnlDock)
                     design.loadPnl(pnlSubjects)
                     btnSubjects.PerformClick()
@@ -133,7 +141,7 @@ Public Class FrmEnrollment
                 If cntrlCtrlSelection.Controls.Count < 3 Then
                     design.messagboxInfo("No subject(s) found.", "At least three subjects have to be enlisted!", Me)
                 Else
-                    design.PressedButton(btnSubjects, e, 120, True)
+                    design.PressedButton(btnSubjects, e, 120, True, _darkmode)
                     design.clearPanels(pnlDock)
                     design.loadPnl(pnlGuardians)
                     btnGuardian.PerformClick()
@@ -144,7 +152,7 @@ Public Class FrmEnrollment
                 Dim validation As Boolean = design.txtboxformats(pnlGuardians)
 
                 If validation Then
-                    design.PressedButton(btnGuardian, e, 120, True)
+                    design.PressedButton(btnGuardian, e, 120, True, _darkmode)
                     design.clearPanels(pnlDock)
                     design.loadPnl(pnlMedicals)
                     btnMedicals.PerformClick()
@@ -155,7 +163,7 @@ Public Class FrmEnrollment
                 Dim validation As Boolean = design.txtboxformats(pnlMedicals)
 
                 If validation Then
-                    design.PressedButton(btnMedicals, e, 120, True)
+                    design.PressedButton(btnMedicals, e, 120, True, _darkmode)
                     design.clearPanels(pnlDock)
                     design.loadPnl(pnlPayments)
                     btnPayments.PerformClick()
@@ -194,7 +202,8 @@ Public Class FrmEnrollment
                 End If
 
                 If verifiedAmount Then
-                    design.PressedButton(btnPayments, e, 120, True)
+
+                    design.PressedButton(btnPayments, e, 120, True, _darkmode)
                     Dim CustomMessageBox As New Guna2MessageDialog With {
                         .Text = "Proceed to enroll student?",
                         .Parent = Me,
@@ -206,10 +215,10 @@ Public Class FrmEnrollment
                     Dim result As DialogResult = CustomMessageBox.Show
                     If result = DialogResult.Yes Then
 
-                        SQLLine.InsertStudentDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text, dtePickerDateOfBirth.Value, txtBirthIDNumber.Text, txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, cmbBoxTitle.Text, txtGName.Text, txtGSurname.Text, txtGAddress.Text, txtGPhoneNumber.Text, txtGEmailAddress.Text)
+                        SQLLine.InsertStudentDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text, dtePickerDateOfBirth.Value, txtBirthIDNumber.Text, txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, cmbBoxTitle.Text, txtGName.Text, txtGSurname.Text, txtGAddress.Text, txtGPhoneNumber.Text, txtGEmailAddress.Text, Date.Today)
 
                         Dim formID As String = "Enrollment"
-                        Dim selectStudent As New FrmSelectStudent(formID)
+                        Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me)
                         selectStudent.ShowDialog()
 
                         SQLLine.InsertStudentMedicals(newStdID, txtAllegies.Text, txtRequiredTreatment.Text, txtMedications.Text, txtDosage.Text, txtSchedule.Text, txtDisabilities.Text, txtPhysician.Text, txtPhysicianContacts.Text)
@@ -232,7 +241,7 @@ Public Class FrmEnrollment
                                 Dim value As Integer
                                 If Integer.TryParse(item.Text.Trim(), value) Then
 
-                                    Dim newselection As New DataSelection(Date.Today, item.tag, value, 0, cmbBoxCurrency.Text, "DR", newStdID)
+                                    Dim newselection As New DataSelection(Date.Today, item.tag, value, 0, cmbBoxCurrency.Text, "DR", cmbBoxPaymentType.Text, newStdID, txtDocNumber.Text)
                                     selection.Add(newselection)
 
                                 End If
@@ -240,7 +249,10 @@ Public Class FrmEnrollment
                         Next
 
                         SQLLine.InsertStudentPayments(selection)
+                        SQLLine.InsertDocNumber(_docNumber, "Invoice")
 
+                        Dim frm As New FrmTuition(txtFirstName.Text, newStdID, _darkmode)
+                        popUp.ShowNotification("Make Payment", "Successful", "Student was enrolled successfully. Click the button below to make a payment.", frm)
                         btnClose.PerformClick()
 
                     End If
@@ -273,7 +285,7 @@ Public Class FrmEnrollment
         toolTip.SetToolTip(sender, "Click to update with student details.")
     End Sub
 
-    Private Sub btnCopySurname_Click(sender As Object, e As EventArgs) Handles btnCopySurname.Click, btnCopyAddress.Click
+    Private Sub btnCopySurname_Click(sender As Object, e As EventArgs) Handles btnCopyAddress.Click, btnCopySurname.Click
 
         Select Case sender.name
             Case "btnCopySurname"
@@ -497,5 +509,150 @@ Public Class FrmEnrollment
     Private Sub txtReportBook_TextChanged(sender As Object, e As EventArgs) Handles txtUniformCost.TextChanged, txtTransportCost.TextChanged, txtTextbooksCost.TextChanged, txtReportBook.TextChanged, txtMiscellaneousCost.TextChanged, txtClassCost.TextChanged
         totalFees()
     End Sub
+
+    Private Sub pnlPayments_Paint(sender As Object, e As PaintEventArgs) Handles pnlPayments.Paint
+
+    End Sub
+
+    Private Function DKMsideButtons() As List(Of Guna2GradientButton)
+
+        Dim sidebarButtons As New List(Of Guna2GradientButton) From {
+            btnSubjects,
+            btnStudentDetails,
+            btnPayments,
+            btnGuardian,
+            btnMedicals
+        }
+        Return sidebarButtons
+    End Function
+    Private Function DKMparentButtons() As List(Of Guna2GradientButton)
+
+        Dim pagebuttons As New List(Of Guna2GradientButton)
+        Return pagebuttons
+    End Function
+    Private Function DKMpanels() As List(Of Guna2GradientPanel)
+
+        Dim topPanels As New List(Of Guna2GradientPanel) From {
+            pnlSubjects,
+            pnlStudent,
+            pnlPayments,
+            pnlMedicals,
+            pnlGuardians,
+            pnlDock
+        }
+        Return topPanels
+    End Function
+    Private Function DKMlabels() As List(Of Guna2HtmlLabel)
+
+        Dim labels As New List(Of Guna2HtmlLabel) From {
+            lblPhoneNumber,
+            lblSurname,
+            lblDOB,
+            btnBirthIDNumber,
+            lblAddress,
+            lblAdd,
+            lblSelection,
+            lblArrow,
+            lblGTitle,
+            lblGSurname,
+            lblGPhoneNumber,
+            lblGName,
+            lblGEmailAdress,
+            lblGAddress,
+            lblSchedule,
+            lblRequiredTreament,
+            lblPhysicianContacts,
+            lblPhysician,
+            lblMedications,
+            lblDosage,
+            lblDisabilities,
+            lblAllegies,
+            lblTransportCost,
+            lblTextbooksAndSupplys,
+            lblReportBook,
+            lblPaymentType,
+            lblMiscellaneous,
+            lblDocNumber,
+            lblCurrency,
+            lblClass,
+            lblUniform,
+            lblHeadingOne,
+            lblFees,
+            lblName,
+            lblEmailAddress
+        }
+        Return labels
+    End Function
+    Private Function DKMFormButtons() As List(Of Guna2GradientButton)
+
+        Dim pagebuttons As New List(Of Guna2GradientButton) From {
+            btnValidateStudentDetails,
+            btnValidateSubjects,
+            btnValidateGuardians,
+            btnValidateMedicals,
+            btnValidateAndFinalise,
+            btnCopySurname,
+            btnCopyAddress
+        }
+        Return pagebuttons
+    End Function
+    Private Function DKMEmptyText() As List(Of Guna2TextBox)
+
+        Dim placeholder As New List(Of Guna2TextBox) From {
+            txtUniformCost,
+            txtTransportCost,
+            txtTotalFees,
+            txtTextbooksCost,
+            txtReportBook,
+            txtMiscellaneousCost,
+            txtMiscellaneous,
+            txtDocNumber,
+            txtClassCost,
+            txtSchedule,
+            txtRequiredTreatment,
+            txtPhysicianContacts,
+            txtPhysician,
+            txtMedications,
+            txtDosage,
+            txtDisabilities,
+            txtAllegies,
+            txtGSurname,
+            txtGPhoneNumber,
+            txtGName,
+            txtGEmailAddress,
+            txtGAddress,
+            txtSurname,
+            txtPhoneNumber,
+            txtFirstName,
+            txtEmailAddress,
+            txtBirthIDNumber,
+            txtAddress
+        }
+        Return placeholder
+    End Function
+    Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
+
+        Dim placeholder As New List(Of Guna2ComboBox) From {
+            cmbBoxTitle,
+            cmbUniform,
+            cmbTextBooks,
+            cmbBoxTransport,
+            cmbBoxReportBook,
+            cmbBoxPaymentType,
+            cmbBoxCurrency,
+            cmbBoxClass
+        }
+        Return placeholder
+    End Function
+    Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
+
+        Dim placeholder As New List(Of Guna2CheckBox) From {
+            chkBoxStudentNotApplicable,
+            chkBoxPaymentsNotApplicable,
+            chkBoxMedicalsNotApplicable,
+            chkBoxGuardiansNotApplicable
+            }
+        Return placeholder
+    End Function
 
 End Class

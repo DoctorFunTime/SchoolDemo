@@ -1,0 +1,1659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix2">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.8in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.8in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.76854in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.8in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.30021in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Date</Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox31">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Doc Number</Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox31</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Description</Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox71">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Currency </Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox71</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Amount Owing</Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox37">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox37</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox41">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox41</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox72">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox72</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox42">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>'$'0.00;('$'0.00)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="fs_date">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fs_date.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>dd/MM/yyyy</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fs_date</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="fs_doc_number">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fs_doc_number.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fs_doc_number</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="fs_description">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fs_description.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fs_description</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="fs_currency_code">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fs_currency_code.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fs_currency_code</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="fs_adjusted_amount1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fs_adjusted_amount.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <Format>'$'0.00;('$'0.00)</Format>
+                                <Color>=IIF(Fields!fs_adjusted_amount.Value &gt; 0 , "Red" , "RoyalBlue")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fs_adjusted_amount1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox65">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Total</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox65</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox67">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox67</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox69">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox69</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox74">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox74</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox70">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!fs_adjusted_amount.Value)</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontWeight>Heavy</FontWeight>
+                                <Format>'$'0.00;('$'0.00)</Format>
+                                <Color>=IIF(Sum(Fields!fs_adjusted_amount.Value) &gt; 0 , "Red" , "RoyalBlue")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox70</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                        </BottomBorder>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox45">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox45</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox46">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox46</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox49">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox49</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox75">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox75</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox57">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox57</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <TablixHeader>
+                <Size>0.81752in</Size>
+                <CellContents>
+                  <Textbox Name="Textbox33">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Class</Value>
+                            <Style>
+                              <FontFamily>Century Gothic</FontFamily>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox33</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <BackgroundColor>PowderBlue</BackgroundColor>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>1in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox52">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Name</Value>
+                                <Style>
+                                  <FontFamily>Century Gothic</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox52</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>PowderBlue</BackgroundColor>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="std_class">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!std_class.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!std_class.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixHeader>
+                <Size>0.81752in</Size>
+                <CellContents>
+                  <Textbox Name="std_class1">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!std_class.Value</Value>
+                            <Style>
+                              <FontFamily>century Gothic</FontFamily>
+                              <FontSize>12pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>Gray</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>std_class1</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>None</Style>
+                      </Border>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>8pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>1in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox59">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
+                                <Style>
+                                  <FontFamily>century Gothic</FontFamily>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox59</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>None</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="std_name">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!std_name.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!std_name.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>1in</Size>
+                    <CellContents>
+                      <Textbox Name="std_name1">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!std_name.Value</Value>
+                                <Style>
+                                  <FontFamily>century Gothic</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>Gray</Color>
+                                </Style>
+                              </TextRun>
+                              <TextRun>
+                                <Value xml:space="preserve"> </Value>
+                                <Style>
+                                  <FontFamily>century Gothic</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>Gray</Color>
+                                </Style>
+                              </TextRun>
+                              <TextRun>
+                                <Value>=Fields!std_surname.Value</Value>
+                                <Style>
+                                  <FontFamily>century Gothic</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>Gray</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>std_name1</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>None</Style>
+                          </Border>
+                          <TopBorder>
+                            <Style>Solid</Style>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="fs_adjusted_amount">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!fs_adjusted_amount.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!fs_date.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="Details" />
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                    <TablixMember>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>1in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox76">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
+                                <Style>
+                                  <FontFamily>century Gothic</FontFamily>
+                                  <FontSize>8pt</FontSize>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox76</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>None</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Standing</DataSetName>
+        <Top>1.85292in</Top>
+        <Left>0.2126in</Left>
+        <Height>1.25in</Height>
+        <Width>7.28627in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <FontFamily>Century gothic</FontFamily>
+        </Style>
+      </Tablix>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>fees</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.0625in</Top>
+        <Left>0.15198in</Left>
+        <Height>1.18056in</Height>
+        <Width>1.05556in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>School name</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.41667in</Top>
+        <Left>1.27698in</Left>
+        <Height>0.27083in</Height>
+        <Width>2.64583in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Student Fees Standings</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.75694in</Top>
+        <Left>1.27698in</Left>
+        <Height>0.36111in</Height>
+        <Width>2.64583in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Date.Today()</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>D</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.97223in</Top>
+        <Left>4.32719in</Left>
+        <Height>0.27083in</Height>
+        <Width>3.26041in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Transactions</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontFamily>century Gothic</FontFamily>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>1.63765in</Top>
+        <Left>0.2126in</Left>
+        <Height>0.21875in</Height>
+        <Width>2.64583in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>4.625in</Height>
+    <Style />
+  </Body>
+  <Width>7.68531in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.41667in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="Line3">
+          <Top>0.01389in</Top>
+          <Left>0.02698in</Left>
+          <Height>0in</Height>
+          <Width>7.56062in</Width>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Powered by Four Tear Developers 2024</Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <Color>Gray</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.08333in</Top>
+          <Height>0.25in</Height>
+          <Width>2.53125in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Print date : </Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Now()</Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.08333in</Top>
+          <Left>5.0876in</Left>
+          <Height>0.25in</Height>
+          <Width>2.46875in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.25in</TopMargin>
+    <BottomMargin>0.25in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Cashbook">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>9e639bc7-4abd-419c-91e1-aea66c7cf1bb</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="Standing">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>53acd021-1867-4041-b528-b7b5768d4c19</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Standing">
+      <Query>
+        <DataSourceName>Standing</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="fs_date">
+          <DataField>fs_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="fs_description">
+          <DataField>fs_description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fs_currency_code">
+          <DataField>fs_currency_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fs_debit">
+          <DataField>fs_debit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="fs_credit">
+          <DataField>fs_credit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="fs_adjusted_amount">
+          <DataField>fs_adjusted_amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="fs_running_balance">
+          <DataField>fs_running_balance</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="std_name">
+          <DataField>std_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="std_surname">
+          <DataField>std_surname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="std_class">
+          <DataField>std_class</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fs_doc_number">
+          <DataField>fs_doc_number</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Standing</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ASUS\source\repos\SchoolDemo\DataSets\Standing.xsd</rd:SchemaPath>
+        <rd:TableName>dtStanding</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="studentfemale">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="fees">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>dfaba915-50a7-43e9-81f6-8d4d67386b21</rd:ReportID>
+</Report>

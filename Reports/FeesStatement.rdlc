@@ -2,17 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Line Name="Line2">
-        <Top>1.375in</Top>
-        <Left>0.03031in</Left>
-        <Height>0in</Height>
-        <Width>7.56062in</Width>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
       <Textbox Name="Textbox17">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -23,7 +12,7 @@
                 <Value>School name</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontSize>14pt</FontSize>
+                  <FontSize>16pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -33,11 +22,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.28125in</Top>
+        <Top>0.49653in</Top>
         <Left>1.18656in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -58,6 +46,7 @@
                 <Value>Student fees statement</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -68,11 +57,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.62152in</Top>
+        <Top>0.8368in</Top>
         <Left>1.18656in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -124,7 +113,7 @@
         <Left>4.9451in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -160,7 +149,7 @@
         <Left>4.9451in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -194,10 +183,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
         <Top>0.8368in</Top>
-        <Left>4.9451in</Left>
+        <Left>4.43468in</Left>
         <Height>0.27083in</Height>
-        <Width>2.64583in</Width>
-        <ZIndex>5</ZIndex>
+        <Width>3.15625in</Width>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -212,25 +201,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.83854in</Width>
+              <Width>0.7in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.22208in</Width>
+              <Width>0.7in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.10937in</Width>
+              <Width>1.7001in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98438in</Width>
+              <Width>0.7in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.9in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.9in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.9in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.13542in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.14677in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -257,6 +249,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Doc Number</Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -427,7 +454,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Adjusted Amount</Value>
+                              <Value>Adj USD</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -509,7 +536,7 @@
                               <Value>=Fields!fs_date.Value</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <Format>d</Format>
                               </Style>
                             </TextRun>
@@ -535,6 +562,41 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="fs_doc_number">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!fs_doc_number.Value</Value>
+                              <Style>
+                                <FontFamily>Century Gothic</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>fs_doc_number</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="fs_description">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -545,7 +607,7 @@
                               <Value>=Fields!fs_description.Value</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -580,7 +642,7 @@
                               <Value>=Fields!fs_currency_code.Value</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -615,7 +677,7 @@
                               <Value>=Fields!fs_debit.Value</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <Format>'$'0.00;('$'0.00)</Format>
                               </Style>
                             </TextRun>
@@ -652,7 +714,7 @@
                               <Value>=Fields!fs_credit.Value</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <Format>'$'0.00;('$'0.00)</Format>
                               </Style>
                             </TextRun>
@@ -689,8 +751,10 @@
                               <Value>=Fields!fs_adjusted_amount.Value</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>'$'0.00;('$'0.00)</Format>
+                                <Color>=IIF(Fields!fs_adjusted_amount.Value &lt; 0 , "Red" , "Black")</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -728,7 +792,7 @@
                                 <FontFamily>Century Gothic</FontFamily>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>'$'0.00;('$'0.00)</Format>
-                                <Color>=IIF(Fields!fs_running_balance.Value &gt; 0 , "Red" , "DarkBlue")</Color>
+                                <Color>=IIF(Fields!fs_running_balance.Value &gt; 0 , "Red" , "RoyalBlue")</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -743,6 +807,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -765,6 +830,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -778,26 +844,27 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>StudentFeesStatement</DataSetName>
-        <Top>1.61333in</Top>
-        <Left>0.15437in</Left>
+        <Top>1.50916in</Top>
+        <Left>0.0625in</Left>
         <Height>0.45834in</Height>
-        <Width>7.43656in</Width>
-        <ZIndex>6</ZIndex>
+        <Width>7.5001in</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
+            <Color>LightGrey</Color>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
       <Image Name="Image1">
         <Source>Embedded</Source>
-        <Value>studentfemale</Value>
+        <Value>ceuroonversation</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.15625in</Top>
-        <Left>0.18656in</Left>
-        <Height>0.95138in</Height>
-        <Width>0.87814in</Width>
-        <ZIndex>7</ZIndex>
+        <Top>0.28125in</Top>
+        <Left>0.06156in</Left>
+        <Height>1.05555in</Height>
+        <Width>1in</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -808,7 +875,7 @@
     <Height>6.45833in</Height>
     <Style />
   </Body>
-  <Width>7.71781in</Width>
+  <Width>7.68364in</Width>
   <Page>
     <PageFooter>
       <Height>0.4375in</Height>
@@ -836,7 +903,6 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.09896in</Top>
-          <Left>0.0625in</Left>
           <Height>0.25in</Height>
           <Width>2.53125in</Width>
           <Style>
@@ -879,7 +945,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.09896in</Top>
-          <Left>5.15437in</Left>
+          <Left>5.02937in</Left>
           <Height>0.25in</Height>
           <Width>2.46875in</Width>
           <ZIndex>1</ZIndex>
@@ -982,6 +1048,10 @@
           <DataField>std_class</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="fs_doc_number">
+          <DataField>fs_doc_number</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>StudentFeesStatement</rd:DataSetName>
@@ -1001,6 +1071,14 @@
 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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="ceuroonversation">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

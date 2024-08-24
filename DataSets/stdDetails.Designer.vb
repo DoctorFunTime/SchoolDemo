@@ -331,6 +331,8 @@ Partial Public Class stdDetails
         
         Private columnss_subjects As Global.System.Data.DataColumn
         
+        Private columnstd_join_date As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -559,6 +561,14 @@ Partial Public Class stdDetails
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property std_join_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstd_join_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -619,9 +629,10 @@ Partial Public Class stdDetails
                     ByVal md_disabilities As String,  _
                     ByVal md_physician As String,  _
                     ByVal md_contacts As String,  _
-                    ByVal ss_subjects As String) As dtStdDetailsRow
+                    ByVal ss_subjects As String,  _
+                    ByVal std_join_date As String) As dtStdDetailsRow
             Dim rowdtStdDetailsRow As dtStdDetailsRow = CType(Me.NewRow,dtStdDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {std_id, std_name, std_surname, std_class, std_dob, std_id_number, std_address, std_phone_number, std_email, std_gdn_title, std_gdn_name, std_gdn_surname, std_gdn_address, std_gdn_phone_number, std_gdn_email, md_allegies, md_required_treatment, md_medications, md_dosage, md_schedule, md_disabilities, md_physician, md_contacts, ss_subjects}
+            Dim columnValuesArray() As Object = New Object() {std_id, std_name, std_surname, std_class, std_dob, std_id_number, std_address, std_phone_number, std_email, std_gdn_title, std_gdn_name, std_gdn_surname, std_gdn_address, std_gdn_phone_number, std_gdn_email, md_allegies, md_required_treatment, md_medications, md_dosage, md_schedule, md_disabilities, md_physician, md_contacts, ss_subjects, std_join_date}
             rowdtStdDetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtStdDetailsRow)
             Return rowdtStdDetailsRow
@@ -668,6 +679,7 @@ Partial Public Class stdDetails
             Me.columnmd_physician = MyBase.Columns("md_physician")
             Me.columnmd_contacts = MyBase.Columns("md_contacts")
             Me.columnss_subjects = MyBase.Columns("ss_subjects")
+            Me.columnstd_join_date = MyBase.Columns("std_join_date")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -721,6 +733,8 @@ Partial Public Class stdDetails
             MyBase.Columns.Add(Me.columnmd_contacts)
             Me.columnss_subjects = New Global.System.Data.DataColumn("ss_subjects", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnss_subjects)
+            Me.columnstd_join_date = New Global.System.Data.DataColumn("std_join_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstd_join_date)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1227,6 +1241,21 @@ Partial Public Class stdDetails
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property std_join_date() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtStdDetails.std_join_dateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'std_join_date' in table 'dtStdDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtStdDetails.std_join_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Isstd_idNull() As Boolean
             Return Me.IsNull(Me.tabledtStdDetails.std_idColumn)
         End Function
@@ -1511,6 +1540,18 @@ Partial Public Class stdDetails
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setss_subjectsNull()
             Me(Me.tabledtStdDetails.ss_subjectsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isstd_join_dateNull() As Boolean
+            Return Me.IsNull(Me.tabledtStdDetails.std_join_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setstd_join_dateNull()
+            Me(Me.tabledtStdDetails.std_join_dateColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>School name</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.47917in</Top>
+        <Left>1.11552in</Left>
+        <Height>0.27083in</Height>
+        <Width>2.64583in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox19">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Student Grades</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.81944in</Top>
+        <Left>1.11552in</Left>
+        <Height>0.27083in</Height>
+        <Width>2.64583in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!std_name.Value</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">  </Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!std_surname.Value</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.13889in</Top>
+        <Left>4.87406in</Left>
+        <Height>0.27083in</Height>
+        <Width>2.64583in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!std_class.Value</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.47917in</Top>
+        <Left>4.87406in</Left>
+        <Height>0.27083in</Height>
+        <Width>2.64583in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Date.Today()</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>D</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.81944in</Top>
+        <Left>4.36364in</Left>
+        <Height>0.27083in</Height>
+        <Width>3.15625in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>doc</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.26389in</Top>
+        <Left>0.125in</Left>
+        <Height>1.10763in</Height>
+        <Width>1.09375in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.61458in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.61458in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.64583in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Subject</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Mark</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>PowderBlue</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.64583in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="e_subject">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!e_subject.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>e_subject</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="e_result">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!mark.Value</Value>
+                              <Style>
+                                <FontFamily>century Gothic</FontFamily>
+                                <Format>0;(0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>e_result</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>StudentGrades</DataSetName>
+        <Top>2.36333in</Top>
+        <Left>2.10292in</Left>
+        <Height>1.29166in</Height>
+        <Width>3.22916in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Textbox Name="e_term">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!e_term.Value, "StudentGrades")</Value>
+                <Style>
+                  <FontFamily>Century Gothic</FontFamily>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>e_term</rd:DefaultName>
+        <Top>1.94667in</Top>
+        <Left>0.63417in</Left>
+        <Height>0.33333in</Height>
+        <Width>1.39583in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>5.19792in</Height>
+    <Style />
+  </Body>
+  <Width>7.56062in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.48958in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="Line3">
+          <Top>0.01389in</Top>
+          <Height>0in</Height>
+          <Width>7.56062in</Width>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Powered by Four Tear Developers 2024</Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <Color>Gray</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.125in</Top>
+          <Height>0.25in</Height>
+          <Width>2.53125in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Print date : </Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Now()</Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Century Gothic</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.125in</Top>
+          <Left>5.08192in</Left>
+          <Height>0.25in</Height>
+          <Width>2.46875in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.25in</TopMargin>
+    <BottomMargin>0.25in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="StudentGrades">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>06a65723-379a-442d-b451-cfc6eb6d1dce</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="StudentGrades">
+      <Query>
+        <DataSourceName>StudentGrades</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="e_subject">
+          <DataField>e_subject</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="mark">
+          <DataField>mark</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="std_name">
+          <DataField>std_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="std_surname">
+          <DataField>std_surname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="std_class">
+          <DataField>std_class</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="e_term">
+          <DataField>e_term</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>StudentGrades</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ASUS\source\repos\SchoolDemo\DataSets\StudentGrades.xsd</rd:SchemaPath>
+        <rd:TableName>dtStudentGrades</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="ceuroonversation">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="doc">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>39bbc2ae-8d27-43d5-be95-848dae64c421</rd:ReportID>
+</Report>

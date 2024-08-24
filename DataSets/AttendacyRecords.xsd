@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AttendacyRecords" targetNamespace="http://tempuri.org/AttendacyRecords.xsd" xmlns:mstns="http://tempuri.org/AttendacyRecords.xsd" xmlns="http://tempuri.org/AttendacyRecords.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AttendacyRecords" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="AttendacyRecords" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AttendacyRecords">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AttendacyRecords" msprop:Generator_RowEvHandlerName="AttendacyRecordsRowChangeEventHandler" msprop:Generator_RowDeletedName="AttendacyRecordsRowDeleted" msprop:Generator_RowDeletingName="AttendacyRecordsRowDeleting" msprop:Generator_RowEvArgName="AttendacyRecordsRowChangeEvent" msprop:Generator_TablePropName="_AttendacyRecords" msprop:Generator_RowChangedName="AttendacyRecordsRowChanged" msprop:Generator_UserTableName="AttendacyRecords" msprop:Generator_RowChangingName="AttendacyRecordsRowChanging" msprop:Generator_RowClassName="AttendacyRecordsRow" msprop:Generator_TableClassName="AttendacyRecordsDataTable" msprop:Generator_TableVarName="tableAttendacyRecords">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cr_date" msprop:Generator_ColumnPropNameInTable="cr_dateColumn" msprop:Generator_ColumnPropNameInRow="cr_date" msprop:Generator_UserColumnName="cr_date" msprop:Generator_ColumnVarNameInTable="columncr_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="student_class" msprop:Generator_ColumnPropNameInTable="student_classColumn" msprop:Generator_ColumnPropNameInRow="student_class" msprop:Generator_UserColumnName="student_class" msprop:Generator_ColumnVarNameInTable="columnstudent_class" type="xs:string" minOccurs="0" />
+              <xs:element name="student_name" msprop:Generator_ColumnPropNameInTable="student_nameColumn" msprop:Generator_ColumnPropNameInRow="student_name" msprop:Generator_UserColumnName="student_name" msprop:Generator_ColumnVarNameInTable="columnstudent_name" type="xs:string" minOccurs="0" />
+              <xs:element name="student_surname" msprop:Generator_ColumnPropNameInTable="student_surnameColumn" msprop:Generator_ColumnPropNameInRow="student_surname" msprop:Generator_UserColumnName="student_surname" msprop:Generator_ColumnVarNameInTable="columnstudent_surname" type="xs:string" minOccurs="0" />
+              <xs:element name="student_present" msprop:Generator_ColumnPropNameInTable="student_presentColumn" msprop:Generator_ColumnPropNameInRow="student_present" msprop:Generator_UserColumnName="student_present" msprop:Generator_ColumnVarNameInTable="columnstudent_present" type="xs:boolean" minOccurs="0" />
+              <xs:element name="cr_term" msprop:Generator_UserColumnName="cr_term" msprop:Generator_ColumnPropNameInTable="cr_termColumn" msprop:Generator_ColumnPropNameInRow="cr_term" msprop:Generator_ColumnVarNameInTable="columncr_term" type="xs:string" minOccurs="0" />
+              <xs:element name="cr_ispresent" msprop:Generator_ColumnPropNameInRow="cr_ispresent" msprop:Generator_ColumnPropNameInTable="cr_ispresentColumn" msprop:Generator_ColumnVarNameInTable="columncr_ispresent" msprop:Generator_UserColumnName="cr_ispresent" type="xs:string" minOccurs="0" />
+              <xs:element name="cr_isabsent" msprop:Generator_ColumnPropNameInRow="cr_isabsent" msprop:Generator_ColumnPropNameInTable="cr_isabsentColumn" msprop:Generator_ColumnVarNameInTable="columncr_isabsent" msprop:Generator_UserColumnName="cr_isabsent" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -23,7 +23,6 @@ Partial Class FrmFaculty
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.lblHeadingOne = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnRoles = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnFaculty = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -72,7 +71,7 @@ Partial Class FrmFaculty
         Me.txtAddress = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblAddress = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtBirthIDNumber = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.btnBirthIDNumber = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblBirthIDNumber = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.dtePickerDateOfBirth = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.lblDOB = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtSurname = New Guna.UI2.WinForms.Guna2TextBox()
@@ -80,30 +79,12 @@ Partial Class FrmFaculty
         Me.txtFirstName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblName = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnMedicals = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlDock.SuspendLayout()
         Me.pnlMedicals.SuspendLayout()
         Me.pnlRoles.SuspendLayout()
         Me.pnlFaculty.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnClose
-        '
-        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Animated = True
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnClose.FillColor = System.Drawing.Color.Empty
-        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Image = Global.SchoolDemo.My.Resources.Resources._938
-        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
-        Me.btnClose.Location = New System.Drawing.Point(759, 0)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(41, 39)
-        Me.btnClose.TabIndex = 28
         '
         'lblHeadingOne
         '
@@ -134,7 +115,7 @@ Partial Class FrmFaculty
         Me.btnRoles.ForeColor = System.Drawing.Color.Black
         Me.btnRoles.ImageOffset = New System.Drawing.Point(-11, 0)
         Me.btnRoles.ImageSize = New System.Drawing.Size(28, 28)
-        Me.btnRoles.Location = New System.Drawing.Point(9, 184)
+        Me.btnRoles.Location = New System.Drawing.Point(7, 181)
         Me.btnRoles.Name = "btnRoles"
         Me.btnRoles.ShadowDecoration.BorderRadius = 10
         Me.btnRoles.ShadowDecoration.Depth = 8
@@ -163,7 +144,7 @@ Partial Class FrmFaculty
         Me.btnFaculty.ForeColor = System.Drawing.Color.Black
         Me.btnFaculty.ImageOffset = New System.Drawing.Point(-11, 0)
         Me.btnFaculty.ImageSize = New System.Drawing.Size(28, 28)
-        Me.btnFaculty.Location = New System.Drawing.Point(9, 117)
+        Me.btnFaculty.Location = New System.Drawing.Point(7, 117)
         Me.btnFaculty.Name = "btnFaculty"
         Me.btnFaculty.ShadowDecoration.BorderRadius = 10
         Me.btnFaculty.ShadowDecoration.Depth = 8
@@ -218,9 +199,9 @@ Partial Class FrmFaculty
         Me.pnlMedicals.Controls.Add(Me.txtAllegies)
         Me.pnlMedicals.Controls.Add(Me.lblAllegies)
         Me.pnlMedicals.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlMedicals.Location = New System.Drawing.Point(0, 474)
+        Me.pnlMedicals.Location = New System.Drawing.Point(0, 20)
         Me.pnlMedicals.Name = "pnlMedicals"
-        Me.pnlMedicals.Size = New System.Drawing.Size(657, 447)
+        Me.pnlMedicals.Size = New System.Drawing.Size(657, 458)
         Me.pnlMedicals.TabIndex = 4
         '
         'txtDisabilities
@@ -518,7 +499,7 @@ Partial Class FrmFaculty
         Me.pnlRoles.Controls.Add(Me.lblClass)
         Me.pnlRoles.Controls.Add(Me.btnValidateRoles)
         Me.pnlRoles.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlRoles.Location = New System.Drawing.Point(0, 464)
+        Me.pnlRoles.Location = New System.Drawing.Point(0, 10)
         Me.pnlRoles.Name = "pnlRoles"
         Me.pnlRoles.Size = New System.Drawing.Size(657, 10)
         Me.pnlRoles.TabIndex = 3
@@ -558,9 +539,9 @@ Partial Class FrmFaculty
         Me.txtFrequency.Location = New System.Drawing.Point(238, 133)
         Me.txtFrequency.Name = "txtFrequency"
         Me.txtFrequency.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtFrequency.PlaceholderText = ""
+        Me.txtFrequency.PlaceholderText = "Once a week......"
         Me.txtFrequency.SelectedText = ""
-        Me.txtFrequency.Size = New System.Drawing.Size(180, 30)
+        Me.txtFrequency.Size = New System.Drawing.Size(247, 30)
         Me.txtFrequency.TabIndex = 3
         '
         'lblFrequency
@@ -592,8 +573,8 @@ Partial Class FrmFaculty
         'cntrlCtrlSelection
         '
         Me.cntrlCtrlSelection.AutoScroll = True
-        Me.cntrlCtrlSelection.BackColor = System.Drawing.Color.White
-        Me.cntrlCtrlSelection.FillColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.cntrlCtrlSelection.BackColor = System.Drawing.Color.Transparent
+        Me.cntrlCtrlSelection.FillColor = System.Drawing.Color.Transparent
         Me.cntrlCtrlSelection.Location = New System.Drawing.Point(436, 229)
         Me.cntrlCtrlSelection.Name = "cntrlCtrlSelection"
         Me.cntrlCtrlSelection.Size = New System.Drawing.Size(214, 179)
@@ -709,7 +690,7 @@ Partial Class FrmFaculty
         Me.pnlFaculty.Controls.Add(Me.txtAddress)
         Me.pnlFaculty.Controls.Add(Me.lblAddress)
         Me.pnlFaculty.Controls.Add(Me.txtBirthIDNumber)
-        Me.pnlFaculty.Controls.Add(Me.btnBirthIDNumber)
+        Me.pnlFaculty.Controls.Add(Me.lblBirthIDNumber)
         Me.pnlFaculty.Controls.Add(Me.dtePickerDateOfBirth)
         Me.pnlFaculty.Controls.Add(Me.lblDOB)
         Me.pnlFaculty.Controls.Add(Me.txtSurname)
@@ -719,7 +700,7 @@ Partial Class FrmFaculty
         Me.pnlFaculty.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlFaculty.Location = New System.Drawing.Point(0, 0)
         Me.pnlFaculty.Name = "pnlFaculty"
-        Me.pnlFaculty.Size = New System.Drawing.Size(657, 464)
+        Me.pnlFaculty.Size = New System.Drawing.Size(657, 10)
         Me.pnlFaculty.TabIndex = 0
         '
         'chkBoxFacultyNotApplicable
@@ -871,22 +852,23 @@ Partial Class FrmFaculty
         Me.txtBirthIDNumber.Size = New System.Drawing.Size(180, 30)
         Me.txtBirthIDNumber.TabIndex = 8
         '
-        'btnBirthIDNumber
+        'lblBirthIDNumber
         '
-        Me.btnBirthIDNumber.BackColor = System.Drawing.Color.Transparent
-        Me.btnBirthIDNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBirthIDNumber.Location = New System.Drawing.Point(18, 217)
-        Me.btnBirthIDNumber.Name = "btnBirthIDNumber"
-        Me.btnBirthIDNumber.Size = New System.Drawing.Size(121, 19)
-        Me.btnBirthIDNumber.TabIndex = 7
-        Me.btnBirthIDNumber.Text = "Birth / ID Number :"
+        Me.lblBirthIDNumber.BackColor = System.Drawing.Color.Transparent
+        Me.lblBirthIDNumber.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBirthIDNumber.Location = New System.Drawing.Point(18, 217)
+        Me.lblBirthIDNumber.Name = "lblBirthIDNumber"
+        Me.lblBirthIDNumber.Size = New System.Drawing.Size(121, 19)
+        Me.lblBirthIDNumber.TabIndex = 7
+        Me.lblBirthIDNumber.Text = "Birth / ID Number :"
         '
         'dtePickerDateOfBirth
         '
         Me.dtePickerDateOfBirth.Checked = True
         Me.dtePickerDateOfBirth.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dtePickerDateOfBirth.FillColor = System.Drawing.Color.White
+        Me.dtePickerDateOfBirth.FillColor = System.Drawing.Color.RoyalBlue
         Me.dtePickerDateOfBirth.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtePickerDateOfBirth.ForeColor = System.Drawing.Color.White
         Me.dtePickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.dtePickerDateOfBirth.Location = New System.Drawing.Point(238, 144)
         Me.dtePickerDateOfBirth.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
@@ -985,7 +967,7 @@ Partial Class FrmFaculty
         Me.btnMedicals.ForeColor = System.Drawing.Color.Black
         Me.btnMedicals.ImageOffset = New System.Drawing.Point(-11, 0)
         Me.btnMedicals.ImageSize = New System.Drawing.Size(28, 28)
-        Me.btnMedicals.Location = New System.Drawing.Point(8, 246)
+        Me.btnMedicals.Location = New System.Drawing.Point(6, 245)
         Me.btnMedicals.Name = "btnMedicals"
         Me.btnMedicals.ShadowDecoration.BorderRadius = 10
         Me.btnMedicals.ShadowDecoration.Depth = 8
@@ -995,6 +977,25 @@ Partial Class FrmFaculty
         Me.btnMedicals.Text = "Medicals"
         Me.btnMedicals.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnMedicals.UseTransparentBackground = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.Animated = True
+        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnClose.FillColor = System.Drawing.Color.Empty
+        Me.btnClose.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnClose.ForeColor = System.Drawing.Color.White
+        Me.btnClose.Image = Global.SchoolDemo.My.Resources.Resources._938
+        Me.btnClose.ImageSize = New System.Drawing.Size(15, 15)
+        Me.btnClose.Location = New System.Drawing.Point(759, 0)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(41, 39)
+        Me.btnClose.TabIndex = 28
         '
         'FrmFaculty
         '
@@ -1006,8 +1007,8 @@ Partial Class FrmFaculty
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblHeadingOne)
         Me.Controls.Add(Me.btnRoles)
-        Me.Controls.Add(Me.btnFaculty)
         Me.Controls.Add(Me.btnMedicals)
+        Me.Controls.Add(Me.btnFaculty)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmFaculty"
@@ -1044,7 +1045,7 @@ Partial Class FrmFaculty
     Friend WithEvents txtAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblAddress As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtBirthIDNumber As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents btnBirthIDNumber As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblBirthIDNumber As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents dtePickerDateOfBirth As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents lblDOB As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtSurname As Guna.UI2.WinForms.Guna2TextBox

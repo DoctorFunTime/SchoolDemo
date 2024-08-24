@@ -20,12 +20,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("DTSStudents"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("Cashbook"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class DTSStudents
+Partial Public Class Cashbook
     Inherits Global.System.Data.DataSet
     
-    Private tabledtStudents As dtStudentsDataTable
+    Private tabledtCashbook As dtCashbookDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DTSStudents
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("dtStudents")) Is Nothing) Then
-                MyBase.Tables.Add(New dtStudentsDataTable(ds.Tables("dtStudents")))
+            If (Not (ds.Tables("dtCashbook")) Is Nothing) Then
+                MyBase.Tables.Add(New dtCashbookDataTable(ds.Tables("dtCashbook")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DTSStudents
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property dtStudents() As dtStudentsDataTable
+    Public ReadOnly Property dtCashbook() As dtCashbookDataTable
         Get
-            Return Me.tabledtStudents
+            Return Me.tabledtCashbook
         End Get
     End Property
     
@@ -128,7 +128,7 @@ Partial Public Class DTSStudents
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As DTSStudents = CType(MyBase.Clone,DTSStudents)
+        Dim cln As Cashbook = CType(MyBase.Clone,Cashbook)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -153,8 +153,8 @@ Partial Public Class DTSStudents
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("dtStudents")) Is Nothing) Then
-                MyBase.Tables.Add(New dtStudentsDataTable(ds.Tables("dtStudents")))
+            If (Not (ds.Tables("dtCashbook")) Is Nothing) Then
+                MyBase.Tables.Add(New dtCashbookDataTable(ds.Tables("dtCashbook")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DTSStudents
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tabledtStudents = CType(MyBase.Tables("dtStudents"),dtStudentsDataTable)
+        Me.tabledtCashbook = CType(MyBase.Tables("dtCashbook"),dtCashbookDataTable)
         If (initTable = true) Then
-            If (Not (Me.tabledtStudents) Is Nothing) Then
-                Me.tabledtStudents.InitVars
+            If (Not (Me.tabledtCashbook) Is Nothing) Then
+                Me.tabledtCashbook.InitVars
             End If
         End If
     End Sub
@@ -199,18 +199,18 @@ Partial Public Class DTSStudents
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "DTSStudents"
+        Me.DataSetName = "Cashbook"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/DTSStudents.xsd"
+        Me.Namespace = "http://tempuri.org/Cashbook.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabledtStudents = New dtStudentsDataTable()
-        MyBase.Tables.Add(Me.tabledtStudents)
+        Me.tabledtCashbook = New dtCashbookDataTable()
+        MyBase.Tables.Add(Me.tabledtCashbook)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializedtStudents() As Boolean
+    Private Function ShouldSerializedtCashbook() As Boolean
         Return false
     End Function
     
@@ -225,7 +225,7 @@ Partial Public Class DTSStudents
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As DTSStudents = New DTSStudents()
+        Dim ds As Cashbook = New Cashbook()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -273,29 +273,41 @@ Partial Public Class DTSStudents
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub dtStudentsRowChangeEventHandler(ByVal sender As Object, ByVal e As dtStudentsRowChangeEvent)
+    Public Delegate Sub dtCashbookRowChangeEventHandler(ByVal sender As Object, ByVal e As dtCashbookRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class dtStudentsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of dtStudentsRow)
+    Partial Public Class dtCashbookDataTable
+        Inherits Global.System.Data.TypedTableBase(Of dtCashbookRow)
         
-        Private columnid As Global.System.Data.DataColumn
+        Private columncb_date As Global.System.Data.DataColumn
         
-        Private columnname As Global.System.Data.DataColumn
+        Private columncb_description As Global.System.Data.DataColumn
         
-        Private columnamount As Global.System.Data.DataColumn
+        Private columncb_currency_code As Global.System.Data.DataColumn
         
-        Private columnbalance As Global.System.Data.DataColumn
+        Private columncb_debit As Global.System.Data.DataColumn
+        
+        Private columncb_credit As Global.System.Data.DataColumn
+        
+        Private columncb_adjusted_amount As Global.System.Data.DataColumn
+        
+        Private columncb_running_balance As Global.System.Data.DataColumn
+        
+        Private columncb_doc_number As Global.System.Data.DataColumn
+        
+        Private columncb_usd_amount As Global.System.Data.DataColumn
+        
+        Private columncb_zig_amount As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "dtStudents"
+            Me.TableName = "dtCashbook"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -328,33 +340,81 @@ Partial Public Class DTSStudents
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cb_dateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnid
+                Return Me.columncb_date
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property nameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cb_descriptionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnname
+                Return Me.columncb_description
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property amountColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cb_currency_codeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnamount
+                Return Me.columncb_currency_code
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property balanceColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cb_debitColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnbalance
+                Return Me.columncb_debit
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cb_creditColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncb_credit
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cb_adjusted_amountColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncb_adjusted_amount
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cb_running_balanceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncb_running_balance
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cb_doc_numberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncb_doc_number
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cb_usd_amountColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncb_usd_amount
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property cb_zig_amountColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncb_zig_amount
             End Get
         End Property
         
@@ -369,44 +429,44 @@ Partial Public Class DTSStudents
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As dtStudentsRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As dtCashbookRow
             Get
-                Return CType(Me.Rows(index),dtStudentsRow)
+                Return CType(Me.Rows(index),dtCashbookRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentsRowChanging As dtStudentsRowChangeEventHandler
+        Public Event dtCashbookRowChanging As dtCashbookRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentsRowChanged As dtStudentsRowChangeEventHandler
+        Public Event dtCashbookRowChanged As dtCashbookRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentsRowDeleting As dtStudentsRowChangeEventHandler
+        Public Event dtCashbookRowDeleting As dtCashbookRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentsRowDeleted As dtStudentsRowChangeEventHandler
+        Public Event dtCashbookRowDeleted As dtCashbookRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AdddtStudentsRow(ByVal row As dtStudentsRow)
+        Public Overloads Sub AdddtCashbookRow(ByVal row As dtCashbookRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtStudentsRow(ByVal id As String, ByVal name As String, ByVal amount As Short, ByVal balance As Short) As dtStudentsRow
-            Dim rowdtStudentsRow As dtStudentsRow = CType(Me.NewRow,dtStudentsRow)
-            Dim columnValuesArray() As Object = New Object() {id, name, amount, balance}
-            rowdtStudentsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowdtStudentsRow)
-            Return rowdtStudentsRow
+        Public Overloads Function AdddtCashbookRow(ByVal cb_date As Date, ByVal cb_description As String, ByVal cb_currency_code As String, ByVal cb_debit As Decimal, ByVal cb_credit As Decimal, ByVal cb_adjusted_amount As Decimal, ByVal cb_running_balance As Decimal, ByVal cb_doc_number As String, ByVal cb_usd_amount As String, ByVal cb_zig_amount As String) As dtCashbookRow
+            Dim rowdtCashbookRow As dtCashbookRow = CType(Me.NewRow,dtCashbookRow)
+            Dim columnValuesArray() As Object = New Object() {cb_date, cb_description, cb_currency_code, cb_debit, cb_credit, cb_adjusted_amount, cb_running_balance, cb_doc_number, cb_usd_amount, cb_zig_amount}
+            rowdtCashbookRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowdtCashbookRow)
+            Return rowdtCashbookRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As dtStudentsDataTable = CType(MyBase.Clone,dtStudentsDataTable)
+            Dim cln As dtCashbookDataTable = CType(MyBase.Clone,dtCashbookDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -414,55 +474,81 @@ Partial Public Class DTSStudents
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New dtStudentsDataTable()
+            Return New dtCashbookDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("id")
-            Me.columnname = MyBase.Columns("name")
-            Me.columnamount = MyBase.Columns("amount")
-            Me.columnbalance = MyBase.Columns("balance")
+            Me.columncb_date = MyBase.Columns("cb_date")
+            Me.columncb_description = MyBase.Columns("cb_description")
+            Me.columncb_currency_code = MyBase.Columns("cb_currency_code")
+            Me.columncb_debit = MyBase.Columns("cb_debit")
+            Me.columncb_credit = MyBase.Columns("cb_credit")
+            Me.columncb_adjusted_amount = MyBase.Columns("cb_adjusted_amount")
+            Me.columncb_running_balance = MyBase.Columns("cb_running_balance")
+            Me.columncb_doc_number = MyBase.Columns("cb_doc_number")
+            Me.columncb_usd_amount = MyBase.Columns("cb_usd_amount")
+            Me.columncb_zig_amount = MyBase.Columns("cb_zig_amount")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid)
-            Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnname)
-            Me.columnamount = New Global.System.Data.DataColumn("amount", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnamount)
-            Me.columnbalance = New Global.System.Data.DataColumn("balance", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnbalance)
+            Me.columncb_date = New Global.System.Data.DataColumn("cb_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_date)
+            Me.columncb_description = New Global.System.Data.DataColumn("cb_description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_description)
+            Me.columncb_currency_code = New Global.System.Data.DataColumn("cb_currency_code", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_currency_code)
+            Me.columncb_debit = New Global.System.Data.DataColumn("cb_debit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_debit)
+            Me.columncb_credit = New Global.System.Data.DataColumn("cb_credit", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_credit)
+            Me.columncb_adjusted_amount = New Global.System.Data.DataColumn("cb_adjusted_amount", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_adjusted_amount)
+            Me.columncb_running_balance = New Global.System.Data.DataColumn("cb_running_balance", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_running_balance)
+            Me.columncb_doc_number = New Global.System.Data.DataColumn("cb_doc_number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_doc_number)
+            Me.columncb_usd_amount = New Global.System.Data.DataColumn("cb_usd_amount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_usd_amount)
+            Me.columncb_zig_amount = New Global.System.Data.DataColumn("cb_zig_amount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncb_zig_amount)
+            Me.columncb_date.Caption = "fs_date"
+            Me.columncb_description.Caption = "fs_description"
+            Me.columncb_currency_code.Caption = "fs_currency_code"
+            Me.columncb_debit.Caption = "fs_debit"
+            Me.columncb_credit.Caption = "fs_credit"
+            Me.columncb_adjusted_amount.Caption = "fs_adjusted_amount"
+            Me.columncb_running_balance.Caption = "fs_running_balance"
+            Me.columncb_doc_number.Caption = "fs_doc_number"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewdtStudentsRow() As dtStudentsRow
-            Return CType(Me.NewRow,dtStudentsRow)
+        Public Function NewdtCashbookRow() As dtCashbookRow
+            Return CType(Me.NewRow,dtCashbookRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New dtStudentsRow(builder)
+            Return New dtCashbookRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(dtStudentsRow)
+            Return GetType(dtCashbookRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.dtStudentsRowChangedEvent) Is Nothing) Then
-                RaiseEvent dtStudentsRowChanged(Me, New dtStudentsRowChangeEvent(CType(e.Row,dtStudentsRow), e.Action))
+            If (Not (Me.dtCashbookRowChangedEvent) Is Nothing) Then
+                RaiseEvent dtCashbookRowChanged(Me, New dtCashbookRowChangeEvent(CType(e.Row,dtCashbookRow), e.Action))
             End If
         End Sub
         
@@ -470,8 +556,8 @@ Partial Public Class DTSStudents
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.dtStudentsRowChangingEvent) Is Nothing) Then
-                RaiseEvent dtStudentsRowChanging(Me, New dtStudentsRowChangeEvent(CType(e.Row,dtStudentsRow), e.Action))
+            If (Not (Me.dtCashbookRowChangingEvent) Is Nothing) Then
+                RaiseEvent dtCashbookRowChanging(Me, New dtCashbookRowChangeEvent(CType(e.Row,dtCashbookRow), e.Action))
             End If
         End Sub
         
@@ -479,8 +565,8 @@ Partial Public Class DTSStudents
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.dtStudentsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent dtStudentsRowDeleted(Me, New dtStudentsRowChangeEvent(CType(e.Row,dtStudentsRow), e.Action))
+            If (Not (Me.dtCashbookRowDeletedEvent) Is Nothing) Then
+                RaiseEvent dtCashbookRowDeleted(Me, New dtCashbookRowChangeEvent(CType(e.Row,dtCashbookRow), e.Action))
             End If
         End Sub
         
@@ -488,14 +574,14 @@ Partial Public Class DTSStudents
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.dtStudentsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent dtStudentsRowDeleting(Me, New dtStudentsRowChangeEvent(CType(e.Row,dtStudentsRow), e.Action))
+            If (Not (Me.dtCashbookRowDeletingEvent) Is Nothing) Then
+                RaiseEvent dtCashbookRowDeleting(Me, New dtCashbookRowChangeEvent(CType(e.Row,dtCashbookRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemovedtStudentsRow(ByVal row As dtStudentsRow)
+        Public Sub RemovedtCashbookRow(ByVal row As dtCashbookRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -504,7 +590,7 @@ Partial Public Class DTSStudents
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DTSStudents = New DTSStudents()
+            Dim ds As Cashbook = New Cashbook()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -522,7 +608,7 @@ Partial Public Class DTSStudents
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "dtStudentsDataTable"
+            attribute2.FixedValue = "dtCashbookDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -569,124 +655,286 @@ Partial Public Class DTSStudents
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class dtStudentsRow
+    Partial Public Class dtCashbookRow
         Inherits Global.System.Data.DataRow
         
-        Private tabledtStudents As dtStudentsDataTable
+        Private tabledtCashbook As dtCashbookDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tabledtStudents = CType(Me.Table,dtStudentsDataTable)
+            Me.tabledtCashbook = CType(Me.Table,dtCashbookDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property id() As String
+        Public Property cb_date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudents.idColumn),String)
+                    Return CType(Me(Me.tabledtCashbook.cb_dateColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'id' in table 'dtStudents' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_date' in table 'dtCashbook' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudents.idColumn) = value
+                Me(Me.tabledtCashbook.cb_dateColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property name() As String
+        Public Property cb_description() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudents.nameColumn),String)
+                    Return CType(Me(Me.tabledtCashbook.cb_descriptionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'name' in table 'dtStudents' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_description' in table 'dtCashbook' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudents.nameColumn) = value
+                Me(Me.tabledtCashbook.cb_descriptionColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property amount() As Short
+        Public Property cb_currency_code() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudents.amountColumn),Short)
+                    Return CType(Me(Me.tabledtCashbook.cb_currency_codeColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'amount' in table 'dtStudents' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_currency_code' in table 'dtCashbook' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudents.amountColumn) = value
+                Me(Me.tabledtCashbook.cb_currency_codeColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property balance() As Short
+        Public Property cb_debit() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudents.balanceColumn),Short)
+                    Return CType(Me(Me.tabledtCashbook.cb_debitColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'balance' in table 'dtStudents' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_debit' in table 'dtCashbook' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudents.balanceColumn) = value
+                Me(Me.tabledtCashbook.cb_debitColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsidNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudents.idColumn)
+        Public Property cb_credit() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.cb_creditColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_credit' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.cb_creditColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property cb_adjusted_amount() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.cb_adjusted_amountColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_adjusted_amount' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.cb_adjusted_amountColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property cb_running_balance() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.cb_running_balanceColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_running_balance' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.cb_running_balanceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property cb_doc_number() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.cb_doc_numberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_doc_number' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.cb_doc_numberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property cb_usd_amount() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.cb_usd_amountColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_usd_amount' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.cb_usd_amountColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property cb_zig_amount() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.cb_zig_amountColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cb_zig_amount' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.cb_zig_amountColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_dateNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_dateColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetidNull()
-            Me(Me.tabledtStudents.idColumn) = Global.System.Convert.DBNull
+        Public Sub Setcb_dateNull()
+            Me(Me.tabledtCashbook.cb_dateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsnameNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudents.nameColumn)
+        Public Function Iscb_descriptionNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_descriptionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetnameNull()
-            Me(Me.tabledtStudents.nameColumn) = Global.System.Convert.DBNull
+        Public Sub Setcb_descriptionNull()
+            Me(Me.tabledtCashbook.cb_descriptionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsamountNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudents.amountColumn)
+        Public Function Iscb_currency_codeNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_currency_codeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetamountNull()
-            Me(Me.tabledtStudents.amountColumn) = Global.System.Convert.DBNull
+        Public Sub Setcb_currency_codeNull()
+            Me(Me.tabledtCashbook.cb_currency_codeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsbalanceNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudents.balanceColumn)
+        Public Function Iscb_debitNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_debitColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetbalanceNull()
-            Me(Me.tabledtStudents.balanceColumn) = Global.System.Convert.DBNull
+        Public Sub Setcb_debitNull()
+            Me(Me.tabledtCashbook.cb_debitColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_creditNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_creditColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcb_creditNull()
+            Me(Me.tabledtCashbook.cb_creditColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_adjusted_amountNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_adjusted_amountColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcb_adjusted_amountNull()
+            Me(Me.tabledtCashbook.cb_adjusted_amountColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_running_balanceNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_running_balanceColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcb_running_balanceNull()
+            Me(Me.tabledtCashbook.cb_running_balanceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_doc_numberNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_doc_numberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcb_doc_numberNull()
+            Me(Me.tabledtCashbook.cb_doc_numberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_usd_amountNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_usd_amountColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcb_usd_amountNull()
+            Me(Me.tabledtCashbook.cb_usd_amountColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iscb_zig_amountNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.cb_zig_amountColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setcb_zig_amountNull()
+            Me(Me.tabledtCashbook.cb_zig_amountColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -694,16 +942,16 @@ Partial Public Class DTSStudents
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class dtStudentsRowChangeEvent
+    Public Class dtCashbookRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As dtStudentsRow
+        Private eventRow As dtCashbookRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As dtStudentsRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As dtCashbookRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -711,7 +959,7 @@ Partial Public Class DTSStudents
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As dtStudentsRow
+        Public ReadOnly Property Row() As dtCashbookRow
             Get
                 Return Me.eventRow
             End Get
