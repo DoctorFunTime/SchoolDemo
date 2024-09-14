@@ -2,6 +2,7 @@
 Imports DatabaseSelectStatements
 Imports Guna.UI2.WinForms
 Imports Frond_End_Design
+Imports MyEncapsulation
 
 Public Class FrmSelectClass
     Private selctStatement As New SelectStats
@@ -11,13 +12,18 @@ Public Class FrmSelectClass
     Private _message As String
     Private _term As String
     Private _darkmode As Boolean
-    Public Sub New(message As String, darkmode As Boolean)
+    Private _conn As String
+    Private _frm As Homepage
+    Public notifications As New List(Of Notifications)
+    Public Sub New(message As String, darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        classList = selctStatement.GetClasses()
+        _frm = frm
+        _conn = conn
+        classList = selctStatement.GetClasses(_conn)
         _message = message
         _darkmode = darkmode
         design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
@@ -40,6 +46,11 @@ Public Class FrmSelectClass
                 cmbBoxClass.Items.Add(sclass)
             Next
 
+        ElseIf _message = "Notifications" Then
+            lblHeading.Text = "Notifications"
+            For Each notif In notifications
+                classButton(notif.text, notif.buttonName)
+            Next
         Else
             For Each row In classList.Rows
                 Dim sclass As String = row("cl_class").ToString
@@ -47,7 +58,7 @@ Public Class FrmSelectClass
             Next
         End If
 
-        Dim activeTerm As DataTable = selctStatement.GetTerm()
+        Dim activeTerm As DataTable = selctStatement.GetTerm(_conn)
         For Each row In activeTerm.Rows
             Dim term As String = row("at_term").ToString
             _term = term
@@ -63,12 +74,13 @@ Public Class FrmSelectClass
         Dim bordercolor As Color
 
         If _darkmode Then
-            color1 = Color.FromArgb(40, 30, 120)
-            color2 = Color.FromArgb(40, 30, 120)
+            color1 = Color.FromArgb(40, 30, 100)
+            color2 = Color.FromArgb(60, 40, 120)
             forecolor = Color.White
             bordercolor = Color.FromArgb(40, 30, 90)
             pnlFlwClasses.BackColor = Color.FromArgb(40, 30, 90)
         Else
+
             color1 = Color.PowderBlue
             color2 = Color.LightGray
             forecolor = Color.Black
@@ -89,6 +101,7 @@ Public Class FrmSelectClass
             .BorderColor = bordercolor,
             .FillColor = color1,
             .FillColor2 = color2,
+            .GradientMode = Drawing2D.LinearGradientMode.ForwardDiagonal,
             .Dock = DockStyle.Top
         }
 
@@ -105,8 +118,8 @@ Public Class FrmSelectClass
         Dim bordercolor As Color
 
         If _darkmode Then
-            color1 = Color.FromArgb(40, 30, 120)
-            color2 = Color.FromArgb(40, 30, 120)
+            color1 = Color.FromArgb(40, 30, 100)
+            color2 = Color.FromArgb(60, 40, 120)
             forecolor = Color.White
             bordercolor = Color.FromArgb(40, 30, 90)
             pnlFlwClasses.BackColor = Color.FromArgb(40, 30, 90)
@@ -141,6 +154,7 @@ Public Class FrmSelectClass
             .BorderColor = bordercolor,
             .FillColor = color1,
             .FillColor2 = color2,
+            .GradientMode = Drawing2D.LinearGradientMode.ForwardDiagonal,
             .Tag = subjectName,
             .Dock = DockStyle.Top
         }
@@ -169,25 +183,49 @@ Public Class FrmSelectClass
 
             Case "Class Register"
 
-                Dim register As New FrmRegister($"{sender.text}", _term, _darkmode)
-                register.Show()
+                Dim register As New FrmRegister($"{sender.text}", "", Date.Today, _term, _term, _darkmode, _frm, _conn)
+                register.ShowDialog()
 
             Case "Upload Exam"
-                Dim frm As New FrmUploadExam($"{sender.text}", _term, $"{sender.tag}", _message, _darkmode)
-                frm.Show()
+                Dim frm As New FrmUploadExam($"{sender.text}", _term, $"{sender.tag}", _message, _darkmode, _frm, _conn)
+                frm.ShowDialog()
 
             Case "Manage Exams"
 
-                Dim frm As New FrmUploadExam($"{sender.tag}", _term, $"{sender.text}", _message, _darkmode)
-                frm.Show()
+                Dim frm As New FrmUploadExam($"{sender.tag}", _term, $"{sender.text}", _message, _darkmode, _frm, _conn)
+                frm.ShowDialog()
+
+            Case "Notifications"
+
+                Select Case sender.text
+                    Case "Complete Registers"
+                        Dim FormID As String = "Class Register"
+                        Dim frm As New FrmSelectClass(FormID, _darkmode, _frm, _conn)
+                        frm.ShowDialog()
+
+                    Case "Activation Key"
+                        _frm.btnActivateKey.PerformClick()
+                        _frm.notifications.Clear()
+                        _frm.notificationUpdate()
+
+                    Case "Incoming Events (Next 7 Days)"
+                        Dim frm As New FrmEventsPlanner(_darkmode, _frm, _conn)
+                        frm.ShowDialog()
+
+                    Case "Students Not Invoiced"
+                        Dim formID As String = "Invoice Students"
+                        Dim selectStudent As New FrmRegisterSelection(_darkmode, formID, _term, _frm, _conn)
+                        selectStudent.ShowDialog()
 
 
+                End Select
+                Close()
         End Select
 
     End Sub
 
     Private Sub cmbBoxClass_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbBoxClass.SelectedValueChanged
-        examList = selctStatement.GetStudentGradesSubjectSelection(sender.text, _term)
+        examList = selctStatement.GetStudentGradesSubjectSelection(sender.text, _term, _conn)
 
         pnlFlwClasses.Controls.Clear()
 

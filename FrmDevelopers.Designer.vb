@@ -33,6 +33,10 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton2 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.Guna2GradientButton1 = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnWhatsApp = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.lblLastMessage = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblMessage = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.picBoxCompLogo = New Guna.UI2.WinForms.Guna2PictureBox()
+        CType(Me.picBoxCompLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'openingTransitionDevelopers
@@ -48,7 +52,7 @@ Partial Class FrmDevelopers
         '
         Me.lblHeadingOne.BackColor = System.Drawing.Color.Transparent
         Me.lblHeadingOne.Font = New System.Drawing.Font("Century Gothic", 23.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHeadingOne.Location = New System.Drawing.Point(12, 12)
+        Me.lblHeadingOne.Location = New System.Drawing.Point(254, 12)
         Me.lblHeadingOne.Name = "lblHeadingOne"
         Me.lblHeadingOne.Size = New System.Drawing.Size(309, 39)
         Me.lblHeadingOne.TabIndex = 26
@@ -74,7 +78,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton7.Image = Global.SchoolDemo.My.Resources.Resources.mailoutlined
         Me.Guna2GradientButton7.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton7.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton7.Location = New System.Drawing.Point(26, 376)
+        Me.Guna2GradientButton7.Location = New System.Drawing.Point(26, 359)
         Me.Guna2GradientButton7.Name = "Guna2GradientButton7"
         Me.Guna2GradientButton7.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton7.TabIndex = 33
@@ -100,7 +104,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton6.Image = Global.SchoolDemo.My.Resources.Resources.github
         Me.Guna2GradientButton6.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton6.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton6.Location = New System.Drawing.Point(564, 262)
+        Me.Guna2GradientButton6.Location = New System.Drawing.Point(537, 218)
         Me.Guna2GradientButton6.Name = "Guna2GradientButton6"
         Me.Guna2GradientButton6.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton6.TabIndex = 32
@@ -126,7 +130,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton5.Image = Global.SchoolDemo.My.Resources.Resources.twitter
         Me.Guna2GradientButton5.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton5.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton5.Location = New System.Drawing.Point(347, 218)
+        Me.Guna2GradientButton5.Location = New System.Drawing.Point(363, 218)
         Me.Guna2GradientButton5.Name = "Guna2GradientButton5"
         Me.Guna2GradientButton5.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton5.TabIndex = 31
@@ -152,7 +156,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton4.Image = Global.SchoolDemo.My.Resources.Resources.instagramoutlined
         Me.Guna2GradientButton4.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton4.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton4.Location = New System.Drawing.Point(170, 218)
+        Me.Guna2GradientButton4.Location = New System.Drawing.Point(188, 218)
         Me.Guna2GradientButton4.Name = "Guna2GradientButton4"
         Me.Guna2GradientButton4.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton4.TabIndex = 30
@@ -178,7 +182,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton3.Image = Global.SchoolDemo.My.Resources.Resources.facebookround
         Me.Guna2GradientButton3.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton3.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton3.Location = New System.Drawing.Point(12, 218)
+        Me.Guna2GradientButton3.Location = New System.Drawing.Point(26, 218)
         Me.Guna2GradientButton3.Name = "Guna2GradientButton3"
         Me.Guna2GradientButton3.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton3.TabIndex = 29
@@ -204,7 +208,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton2.Image = Global.SchoolDemo.My.Resources.Resources.android
         Me.Guna2GradientButton2.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton2.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton2.Location = New System.Drawing.Point(550, 79)
+        Me.Guna2GradientButton2.Location = New System.Drawing.Point(707, 218)
         Me.Guna2GradientButton2.Name = "Guna2GradientButton2"
         Me.Guna2GradientButton2.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton2.TabIndex = 28
@@ -230,7 +234,7 @@ Partial Class FrmDevelopers
         Me.Guna2GradientButton1.Image = Global.SchoolDemo.My.Resources.Resources.weboutlined
         Me.Guna2GradientButton1.ImageOffset = New System.Drawing.Point(22, -15)
         Me.Guna2GradientButton1.ImageSize = New System.Drawing.Size(70, 70)
-        Me.Guna2GradientButton1.Location = New System.Drawing.Point(188, 79)
+        Me.Guna2GradientButton1.Location = New System.Drawing.Point(735, 79)
         Me.Guna2GradientButton1.Name = "Guna2GradientButton1"
         Me.Guna2GradientButton1.Size = New System.Drawing.Size(133, 120)
         Me.Guna2GradientButton1.TabIndex = 27
@@ -256,19 +260,62 @@ Partial Class FrmDevelopers
         Me.btnWhatsApp.Image = Global.SchoolDemo.My.Resources.Resources.whatsapp
         Me.btnWhatsApp.ImageOffset = New System.Drawing.Point(22, -15)
         Me.btnWhatsApp.ImageSize = New System.Drawing.Size(70, 70)
-        Me.btnWhatsApp.Location = New System.Drawing.Point(26, 79)
+        Me.btnWhatsApp.Location = New System.Drawing.Point(569, 79)
         Me.btnWhatsApp.Name = "btnWhatsApp"
         Me.btnWhatsApp.Size = New System.Drawing.Size(133, 120)
         Me.btnWhatsApp.TabIndex = 1
         Me.btnWhatsApp.Text = "WhatsApp"
         Me.btnWhatsApp.TextOffset = New System.Drawing.Point(-17, 40)
         '
+        'lblLastMessage
+        '
+        Me.lblLastMessage.AutoSize = False
+        Me.lblLastMessage.AutoSizeHeightOnly = True
+        Me.lblLastMessage.BackColor = System.Drawing.Color.Transparent
+        Me.lblLastMessage.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLastMessage.ForeColor = System.Drawing.Color.Black
+        Me.lblLastMessage.Location = New System.Drawing.Point(481, 539)
+        Me.lblLastMessage.Name = "lblLastMessage"
+        Me.lblLastMessage.Size = New System.Drawing.Size(307, 19)
+        Me.lblLastMessage.TabIndex = 38
+        Me.lblLastMessage.Text = "Thank you for choosing us to drive your success." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'lblMessage
+        '
+        Me.lblMessage.AutoSize = False
+        Me.lblMessage.AutoSizeHeightOnly = True
+        Me.lblMessage.BackColor = System.Drawing.Color.Transparent
+        Me.lblMessage.Font = New System.Drawing.Font("Comic Sans MS", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMessage.ForeColor = System.Drawing.Color.Black
+        Me.lblMessage.Location = New System.Drawing.Point(255, 387)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(495, 73)
+        Me.lblMessage.TabIndex = 37
+        Me.lblMessage.Text = "We turn ideas into innovative, high quality software using our four-tier approach" &
+    " ensuring every project is meticulously developed." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'picBoxCompLogo
+        '
+        Me.picBoxCompLogo.BackColor = System.Drawing.Color.Transparent
+        Me.picBoxCompLogo.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.LogoDesign21
+        Me.picBoxCompLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.picBoxCompLogo.FillColor = System.Drawing.Color.Transparent
+        Me.picBoxCompLogo.ImageRotate = 0!
+        Me.picBoxCompLogo.Location = New System.Drawing.Point(12, -54)
+        Me.picBoxCompLogo.Name = "picBoxCompLogo"
+        Me.picBoxCompLogo.Size = New System.Drawing.Size(263, 200)
+        Me.picBoxCompLogo.TabIndex = 35
+        Me.picBoxCompLogo.TabStop = False
+        '
         'FrmDevelopers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.PowderBlue
-        Me.ClientSize = New System.Drawing.Size(800, 570)
+        Me.ClientSize = New System.Drawing.Size(903, 651)
+        Me.Controls.Add(Me.lblLastMessage)
+        Me.Controls.Add(Me.lblMessage)
+        Me.Controls.Add(Me.picBoxCompLogo)
         Me.Controls.Add(Me.Guna2GradientButton7)
         Me.Controls.Add(Me.Guna2GradientButton6)
         Me.Controls.Add(Me.Guna2GradientButton5)
@@ -283,6 +330,7 @@ Partial Class FrmDevelopers
         Me.Name = "FrmDevelopers"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmDevelopers"
+        CType(Me.picBoxCompLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -298,4 +346,7 @@ Partial Class FrmDevelopers
     Friend WithEvents Guna2GradientButton5 As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents Guna2GradientButton6 As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents Guna2GradientButton7 As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents lblLastMessage As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblMessage As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents picBoxCompLogo As Guna.UI2.WinForms.Guna2PictureBox
 End Class

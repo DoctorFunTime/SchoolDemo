@@ -23,11 +23,12 @@ Partial Class FrmAdmission
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblAddtionalInfoAdmissions = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.flowpnl = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.pnlFlowMain = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnEvents = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnFacultyMembers = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnEnrollment = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnAttendance = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.flowpnl.SuspendLayout()
+        Me.pnlFlowMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblAddtionalInfoAdmissions
@@ -41,17 +42,44 @@ Partial Class FrmAdmission
         Me.lblAddtionalInfoAdmissions.Text = "Hover over a button for further information."
         Me.lblAddtionalInfoAdmissions.TextAlignment = System.Drawing.ContentAlignment.MiddleRight
         '
-        'flowpnl
+        'pnlFlowMain
         '
-        Me.flowpnl.AutoScroll = True
-        Me.flowpnl.BorderColor = System.Drawing.Color.Gray
-        Me.flowpnl.Controls.Add(Me.btnFacultyMembers)
-        Me.flowpnl.Controls.Add(Me.btnEnrollment)
-        Me.flowpnl.Controls.Add(Me.btnAttendance)
-        Me.flowpnl.Location = New System.Drawing.Point(12, 20)
-        Me.flowpnl.Name = "flowpnl"
-        Me.flowpnl.Size = New System.Drawing.Size(776, 400)
-        Me.flowpnl.TabIndex = 19
+        Me.pnlFlowMain.AutoScroll = True
+        Me.pnlFlowMain.Controls.Add(Me.btnEvents)
+        Me.pnlFlowMain.Controls.Add(Me.btnFacultyMembers)
+        Me.pnlFlowMain.Controls.Add(Me.btnEnrollment)
+        Me.pnlFlowMain.Controls.Add(Me.btnAttendance)
+        Me.pnlFlowMain.Location = New System.Drawing.Point(12, 20)
+        Me.pnlFlowMain.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlFlowMain.Name = "pnlFlowMain"
+        Me.pnlFlowMain.Size = New System.Drawing.Size(776, 400)
+        Me.pnlFlowMain.TabIndex = 19
+        '
+        'btnEvents
+        '
+        Me.btnEvents.Animated = True
+        Me.btnEvents.BorderRadius = 10
+        Me.btnEvents.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEvents.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnEvents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnEvents.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnEvents.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnEvents.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnEvents.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnEvents.FillColor = System.Drawing.Color.PowderBlue
+        Me.btnEvents.FillColor2 = System.Drawing.Color.LightGray
+        Me.btnEvents.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEvents.ForeColor = System.Drawing.Color.Black
+        Me.btnEvents.Image = Global.SchoolDemo.My.Resources.Resources._89
+        Me.btnEvents.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnEvents.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnEvents.Location = New System.Drawing.Point(3, 3)
+        Me.btnEvents.Name = "btnEvents"
+        Me.btnEvents.Size = New System.Drawing.Size(753, 45)
+        Me.btnEvents.TabIndex = 22
+        Me.btnEvents.Tag = "Plan and budget for future events."
+        Me.btnEvents.Text = "Events"
+        Me.btnEvents.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'btnFacultyMembers
         '
@@ -71,10 +99,10 @@ Partial Class FrmAdmission
         Me.btnFacultyMembers.Image = Global.SchoolDemo.My.Resources.Resources._100
         Me.btnFacultyMembers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnFacultyMembers.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnFacultyMembers.Location = New System.Drawing.Point(0, 90)
+        Me.btnFacultyMembers.Location = New System.Drawing.Point(3, 54)
         Me.btnFacultyMembers.Name = "btnFacultyMembers"
-        Me.btnFacultyMembers.Size = New System.Drawing.Size(776, 45)
-        Me.btnFacultyMembers.TabIndex = 17
+        Me.btnFacultyMembers.Size = New System.Drawing.Size(753, 45)
+        Me.btnFacultyMembers.TabIndex = 21
         Me.btnFacultyMembers.Tag = "Add a new faculty member."
         Me.btnFacultyMembers.Text = "Faculty Member"
         Me.btnFacultyMembers.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -97,10 +125,10 @@ Partial Class FrmAdmission
         Me.btnEnrollment.Image = Global.SchoolDemo.My.Resources.Resources._742
         Me.btnEnrollment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnEnrollment.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnEnrollment.Location = New System.Drawing.Point(0, 45)
+        Me.btnEnrollment.Location = New System.Drawing.Point(3, 105)
         Me.btnEnrollment.Name = "btnEnrollment"
-        Me.btnEnrollment.Size = New System.Drawing.Size(776, 45)
-        Me.btnEnrollment.TabIndex = 12
+        Me.btnEnrollment.Size = New System.Drawing.Size(753, 45)
+        Me.btnEnrollment.TabIndex = 19
         Me.btnEnrollment.Tag = "Enroll a new student."
         Me.btnEnrollment.Text = "Enrollment"
         Me.btnEnrollment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -123,10 +151,10 @@ Partial Class FrmAdmission
         Me.btnAttendance.Image = Global.SchoolDemo.My.Resources.Resources._573
         Me.btnAttendance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAttendance.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnAttendance.Location = New System.Drawing.Point(0, 0)
+        Me.btnAttendance.Location = New System.Drawing.Point(3, 156)
         Me.btnAttendance.Name = "btnAttendance"
-        Me.btnAttendance.Size = New System.Drawing.Size(776, 45)
-        Me.btnAttendance.TabIndex = 13
+        Me.btnAttendance.Size = New System.Drawing.Size(753, 45)
+        Me.btnAttendance.TabIndex = 20
         Me.btnAttendance.Tag = "Mark the day's attendancy register."
         Me.btnAttendance.Text = "Register"
         Me.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -138,21 +166,22 @@ Partial Class FrmAdmission
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 490)
-        Me.Controls.Add(Me.flowpnl)
+        Me.Controls.Add(Me.pnlFlowMain)
         Me.Controls.Add(Me.lblAddtionalInfoAdmissions)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FrmAdmission"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Admission"
-        Me.flowpnl.ResumeLayout(False)
+        Me.pnlFlowMain.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+    Friend WithEvents lblAddtionalInfoAdmissions As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents pnlFlowMain As FlowLayoutPanel
+    Friend WithEvents btnEvents As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnFacultyMembers As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnEnrollment As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnAttendance As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents btnFacultyMembers As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents lblAddtionalInfoAdmissions As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents flowpnl As Guna.UI2.WinForms.Guna2GradientPanel
 End Class

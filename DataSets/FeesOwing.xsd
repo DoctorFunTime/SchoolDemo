@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FeesOwing" targetNamespace="http://tempuri.org/FeesOwing.xsd" xmlns:mstns="http://tempuri.org/FeesOwing.xsd" xmlns="http://tempuri.org/FeesOwing.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FeesOwing" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="FeesOwing" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FeesOwing">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtFeesOwing" msprop:Generator_RowEvHandlerName="dtFeesOwingRowChangeEventHandler" msprop:Generator_RowDeletedName="dtFeesOwingRowDeleted" msprop:Generator_RowDeletingName="dtFeesOwingRowDeleting" msprop:Generator_RowEvArgName="dtFeesOwingRowChangeEvent" msprop:Generator_TablePropName="dtFeesOwing" msprop:Generator_RowChangedName="dtFeesOwingRowChanged" msprop:Generator_UserTableName="dtFeesOwing" msprop:Generator_RowChangingName="dtFeesOwingRowChanging" msprop:Generator_RowClassName="dtFeesOwingRow" msprop:Generator_TableClassName="dtFeesOwingDataTable" msprop:Generator_TableVarName="tabledtFeesOwing">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fs_std_id" msprop:Generator_ColumnPropNameInTable="fs_std_idColumn" msprop:Generator_ColumnPropNameInRow="fs_std_id" msprop:Generator_UserColumnName="fs_std_id" msprop:Generator_ColumnVarNameInTable="columnfs_std_id" type="xs:string" minOccurs="0" />
+              <xs:element name="std_name" msprop:Generator_ColumnPropNameInTable="std_nameColumn" msprop:Generator_ColumnPropNameInRow="std_name" msprop:Generator_UserColumnName="std_name" msprop:Generator_ColumnVarNameInTable="columnstd_name" type="xs:string" minOccurs="0" />
+              <xs:element name="std_surname" msprop:Generator_ColumnPropNameInTable="std_surnameColumn" msprop:Generator_ColumnPropNameInRow="std_surname" msprop:Generator_UserColumnName="std_surname" msprop:Generator_ColumnVarNameInTable="columnstd_surname" type="xs:string" minOccurs="0" />
+              <xs:element name="std_class" msprop:Generator_ColumnPropNameInTable="std_classColumn" msprop:Generator_ColumnPropNameInRow="std_class" msprop:Generator_UserColumnName="std_class" msprop:Generator_ColumnVarNameInTable="columnstd_class" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_adjusted_amount" msprop:Generator_ColumnPropNameInTable="fs_adjusted_amountColumn" msprop:Generator_ColumnPropNameInRow="fs_adjusted_amount" msprop:Generator_UserColumnName="fs_adjusted_amount" msprop:Generator_ColumnVarNameInTable="columnfs_adjusted_amount" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

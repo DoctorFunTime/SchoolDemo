@@ -20,7 +20,7 @@
               <xs:element name="std_name" msprop:Generator_ColumnPropNameInTable="std_nameColumn" msprop:Generator_ColumnPropNameInRow="std_name" msprop:Generator_UserColumnName="std_name" msprop:Generator_ColumnVarNameInTable="columnstd_name" type="xs:string" minOccurs="0" />
               <xs:element name="std_surname" msprop:Generator_ColumnPropNameInTable="std_surnameColumn" msprop:Generator_ColumnPropNameInRow="std_surname" msprop:Generator_UserColumnName="std_surname" msprop:Generator_ColumnVarNameInTable="columnstd_surname" type="xs:string" minOccurs="0" />
               <xs:element name="std_class" msprop:Generator_ColumnPropNameInTable="std_classColumn" msprop:Generator_ColumnPropNameInRow="std_class" msprop:Generator_UserColumnName="std_class" msprop:Generator_ColumnVarNameInTable="columnstd_class" type="xs:string" minOccurs="0" />
-              <xs:element name="e_term" msprop:Generator_ColumnPropNameInRow="e_term" msprop:Generator_ColumnPropNameInTable="e_termColumn" msprop:Generator_ColumnVarNameInTable="columne_term" msprop:Generator_UserColumnName="e_term" type="xs:string" minOccurs="0" />
+              <xs:element name="e_term" msprop:Generator_ColumnPropNameInTable="e_termColumn" msprop:Generator_ColumnPropNameInRow="e_term" msprop:Generator_UserColumnName="e_term" msprop:Generator_ColumnVarNameInTable="columne_term" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

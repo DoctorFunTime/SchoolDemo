@@ -2,6 +2,7 @@
 Imports Guna.UI2.WinForms
 Imports Frond_End_Design
 Imports System.Web.Security
+Imports SQLDeleteStatements
 
 Public Class FrmSelectStudent
 
@@ -17,9 +18,12 @@ Public Class FrmSelectStudent
     Private _darkmode As Boolean
     Private facultyForm As FrmFaculty
     Private enrolForm As FrmEnrollment
+    Private _conn As String
+    Private _term As String
+    Public _frm As Homepage
 
 
-    Public Sub New(targetForm As String, darkmode As Boolean, openForm As Form)
+    Public Sub New(targetForm As String, darkmode As Boolean, openForm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -29,11 +33,13 @@ Public Class FrmSelectStudent
                 facultyForm = openForm
             Case "FrmEnrollment"
                 enrolForm = openForm
+            Case "Homepage"
+                _frm = openForm
         End Select
-
+        _conn = conn
         ' initialization after the InitializeComponent() call.
         _targetForm = targetForm
-        classList = selectStatement.GetClasses()
+        classList = selectStatement.GetClasses(_conn)
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
@@ -66,18 +72,20 @@ Public Class FrmSelectStudent
 
         DKMgrid()
 
-        If _targetForm = "New Faculty" Then
+        If _targetForm = "New Faculty" Or _targetForm = "Faculty Details" Or _targetForm = "Faculty Personal Details" Or _targetForm = "Faculty Subjects" Or _targetForm = "Remove Faculty" Then
 
-            Dim fRoles As DataTable = selectStatement.GetOtherRoles()
-            Dim datatable As DataTable = selectStatement.GetFacultyFromTable()
+            Dim classes As DataTable = selectStatement.GetClasses(_conn)
+            Dim datatable As DataTable = selectStatement.GetFacultyFromTable(_conn)
             DataGridView.DataSource = datatable
 
-            For Each row As DataRow In fRoles.Rows
-                Dim roles As String = row("or_description").ToString
-                cmbBoxClass.Items.Add(roles)
+            For Each row As DataRow In classes.Rows
+                Dim sclass As String = row("cl_class").ToString
+                cmbBoxClass.Items.Add(sclass)
             Next
+
+            lblHeading.Text = "Faculty Selection"
         Else
-            Dim datatable As DataTable = selectStatement.GetNamesFromTable()
+            Dim datatable As DataTable = selectStatement.GetNamesFromTable(_conn)
             DataGridView.DataSource = datatable
 
             For Each row As DataRow In classList.Rows
@@ -86,21 +94,62 @@ Public Class FrmSelectStudent
             Next
         End If
 
+        Dim dt As DataTable = selectStatement.GetTerm(_conn)
+        For Each row In dt.Rows
+            _term = row("at_term")
+        Next
+
     End Sub
     Private Sub DataGridView_DoubleClick(sender As Object, e As EventArgs) Handles DataGridView.DoubleClick
 
         Dim selectedRow As DataGridViewRow = DataGridView.SelectedRows(0)
 
-        If _targetForm = "New Faculty" Then
+        If _targetForm = "New Faculty" Or _targetForm = "Faculty Details" Or _targetForm = "Faculty Personal Details" Or _targetForm = "Faculty Subjects" Or _targetForm = "Remove Faculty" Then
             FMID = selectedRow.Cells("faculty_id").Value
             stName = selectedRow.Cells("name").Value
             stSurname = selectedRow.Cells("surname").Value
-            stClass = selectedRow.Cells("role").Value
 
             Select Case _targetForm
-                Case "New Faculty"
 
+                Case "New Faculty"
                     facultyForm.newFmID = FMID
+
+                Case "Faculty Details"
+                    Dim datatable As DataTable = selectStatement.GetFacultyProfile(FMID, _conn)
+
+                    Dim reportForm As New FrmStudentReport(datatable, "FacultyDetails", "FacultyDetails", _darkmode)
+                    reportForm.ShowDialog()
+
+                Case "Faculty Personal Details"
+                    Dim frm As New FrmAdjustments(_targetForm, _darkmode, _conn, _frm, 0) With {
+                        ._FMID = FMID
+                    }
+
+                    frm.ShowDialog()
+
+                Case "Faculty Subjects"
+                    Dim frm As New FrmAdjustments(_targetForm, _darkmode, _conn, _frm, 0) With {
+                        ._FMID = FMID
+                    }
+                    frm.ShowDialog()
+
+                Case "Remove Faculty"
+
+                    Dim CustomMessageBox As New Guna2MessageDialog With {
+                        .Text = "*You are about to remove a Faculty member and all associated records from the system." & vbCrLf & "*Please note this process cannot be reversed." & vbCrLf & vbCrLf & "Proceed?",
+                        .Parent = Me,
+                        .Buttons = MessageDialogButtons.YesNo,
+                        .Style = MessageDialogStyle.Dark,
+                        .Icon = MessageDialogIcon.Warning,
+                        .Caption = "Warning!"
+                    }
+
+                    Dim result As DialogResult = CustomMessageBox.Show
+                    If result = DialogResult.Yes Then
+                        DeleteStatement.DeleteFaculty(FMID, _frm.lblConnectedUser.Text, _conn)
+                    Else
+                        Close()
+                    End If
 
             End Select
 
@@ -114,37 +163,94 @@ Public Class FrmSelectStudent
             Select Case _targetForm
 
                 Case "FrmTuition"
-                    Dim frm As New FrmTuition(stName & " " & stSurname, stID, _darkmode)
+                    Dim frm As New FrmTuition(stName & " " & stSurname, stID, _darkmode, _frm, _conn)
                     frm.ShowDialog()
 
                 Case "Student Details"
-                    Dim datatable As DataTable = selectStatement.GetStudentProfile(stID)
+                    Dim datatable As DataTable = selectStatement.GetStudentProfile(stID, _conn)
 
                     Dim reportForm As New FrmStudentReport(datatable, "stdDetails", "studentDetails", _darkmode)
-                    reportForm.Show()
+                    reportForm.ShowDialog()
 
                 Case "studentFeesStatement"
-                    Dim datatable As DataTable = selectStatement.GetFeesStatement(stID, Date.Today)
+                    Dim datatable As DataTable = selectStatement.GetFeesStatement(stID, _conn)
 
                     Dim reportForm As New FrmStudentReport(datatable, "StudentFeesStatement", "FeesStatement", _darkmode)
-                    reportForm.Show()
+                    reportForm.ShowDialog()
 
                 Case "Enrollment"
 
                     enrolForm.newStdID = stID
 
                 Case "Attendacy record"
-                    Dim dt As DataTable = selectStatement.GetIndividualAttendacyRecords(stID)
+                    Dim dt As DataTable = selectStatement.GetIndividualAttendacyRecords(stID, _conn)
 
                     Dim reportForm As New FrmStudentReport(dt, "AttendacyRecords", "AttendacyRecords", _darkmode)
-                    reportForm.Show()
+                    reportForm.ShowDialog()
 
                 Case "Student Grades"
-                    Dim dt As DataTable = selectStatement.GetStudentGrades(stID, "Term 3")
+                    Dim dt As DataTable = selectStatement.GetStudentGrades(stID, _term, _conn)
 
                     Dim reportForm As New FrmStudentReport(dt, "StudentGrades", "StudentGrades", _darkmode)
-                    reportForm.Show()
+                    reportForm.ShowDialog()
 
+                Case "Exam Growth"
+
+                    Dim datatable As DataTable = selectStatement.GetStudentExamGrowth(stID, _term, _conn)
+
+                    Dim reportForm As New FrmStudentReport(datatable, "ExamGrowth", "ExamGrowth", _darkmode)
+                    reportForm.ShowDialog()
+
+                Case "Student Personal Details"
+
+                    Dim frm As New FrmAdjustments(_targetForm, _darkmode, _conn, _frm, stID)
+                    frm.Show()
+
+                Case "Student Guardian Details"
+
+                    Dim frm As New FrmAdjustments(_targetForm, _darkmode, _conn, _frm, stID)
+                    frm.Show()
+
+                Case "Student Medical Details"
+
+                    Dim frm As New FrmAdjustments(_targetForm, _darkmode, _conn, _frm, stID)
+                    frm.Show()
+
+                Case "Student Subject Details"
+
+                    Dim CustomMessageBox As New Guna2MessageDialog With {
+                    .Text = "*Please note that changing a student's subjects will result in the deletion of their previously recorded grades." & vbCrLf & vbCrLf & "Proceed?",
+                    .Parent = Me,
+                    .Buttons = MessageDialogButtons.YesNo,
+                    .Style = MessageDialogStyle.Dark,
+                    .Icon = MessageDialogIcon.Warning,
+                    .Caption = "Warning!"
+                    }
+
+                    Dim result As DialogResult = CustomMessageBox.Show
+                    If result = DialogResult.Yes Then
+                        Dim frm As New FrmAdjustments(_targetForm, _darkmode, _conn, _frm, stID)
+                        frm.Show()
+                    Else
+                        Close()
+                    End If
+
+                Case "Remove Student"
+                    Dim CustomMessageBox As New Guna2MessageDialog With {
+                    .Text = "*You are about to remove a student and all associated records from the system." & vbCrLf & "*Please note this process cannot be reversed." & vbCrLf & vbCrLf & "Proceed?",
+                    .Parent = Me,
+                    .Buttons = MessageDialogButtons.YesNo,
+                    .Style = MessageDialogStyle.Dark,
+                    .Icon = MessageDialogIcon.Warning,
+                    .Caption = "Warning!"
+                    }
+
+                    Dim result As DialogResult = CustomMessageBox.Show
+                    If result = DialogResult.Yes Then
+                        DeleteStatement.DeleteStudent(stID, _frm.lblConnectedUser.Text, _conn)
+                    Else
+                        Close()
+                    End If
 
             End Select
         End If
@@ -160,7 +266,7 @@ Public Class FrmSelectStudent
 
         If _targetForm = "New Faculty" Then
 
-            Dim datatable As DataTable = selectStatement.GetFacultyFromTable()
+            Dim datatable As DataTable = selectStatement.GetFacultyFromTable(_conn)
             If String.IsNullOrEmpty(dgName) And String.IsNullOrEmpty(dgClass) And String.IsNullOrEmpty(dgSurname) Then
                 DataGridView.DataSource = datatable
             Else
@@ -173,7 +279,7 @@ Public Class FrmSelectStudent
 
         Else
 
-            Dim datatable As DataTable = selectStatement.GetNamesFromTable()
+            Dim datatable As DataTable = selectStatement.GetNamesFromTable(_conn)
             If String.IsNullOrEmpty(dgName) And String.IsNullOrEmpty(dgClass) And String.IsNullOrEmpty(dgSurname) Then
                 DataGridView.DataSource = datatable
             Else
@@ -264,4 +370,5 @@ Public Class FrmSelectStudent
             DataGridView.GridColor = Color.FromArgb(231, 229, 255)
         End If
     End Sub
+
 End Class

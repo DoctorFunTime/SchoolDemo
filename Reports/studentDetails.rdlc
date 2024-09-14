@@ -1297,6 +1297,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
+                <Value>Joined : </Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>D</Format>
+                </Style>
+              </TextRun>
+              <TextRun>
                 <Value>=Fields!std_join_date.Value</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>

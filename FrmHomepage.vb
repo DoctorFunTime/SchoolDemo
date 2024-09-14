@@ -7,34 +7,51 @@ Imports Frond_End_Design
 Imports Guna.UI2.WinForms
 Imports UpdateEncapsulation
 Imports SQLUpdateStatements
+Imports MyEncapsulation
+Imports System.Security.Cryptography
+Imports System.Text
+Imports System.Net.Sockets
+Imports SQLStatements
 
 Public Class Homepage
     Private buttonList As New Collection
     Private design As New Design()
-
     Private selectStatement As New SelectStats()
     Private recentItems As New List(Of String)
-    Private myRecentsDictionary As New Dictionary(Of Integer, MyCustomObject)()
+    Public notifications As New List(Of Notifications)
     Private CurrentKey As Integer = 0
     Private KeyOrder As New List(Of Integer)
     Private pnlUnderline As New Guna2GradientPanel
+    Private markedRegisters As Integer
+    Private allRegisters As Integer
     Private WithEvents studentCountTimer As Windows.Forms.Timer
     Private WithEvents FacultyCountTimer As Windows.Forms.Timer
+    Private WithEvents circlePrgBar As Windows.Forms.Timer
+    Private WithEvents prgAbsentTimer As Windows.Forms.Timer
+    Private WithEvents prgPresntTimer As Windows.Forms.Timer
     Private UserSettings As DataTable
     Public _darkMode As Boolean
-    Public Sub New()
+    Private _conn As String
+    Private _UserType As String
+    Private _LogOut As Boolean
+    Private _frmLogin As FrmLogin
+    Public Sub New(conn As String, userType As String, username As String, loginForm As Form)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        'add items to dictionary
-        Dim darkMode As New Themes
+
         lblStudentCount.Text = String.Empty
         lblFacultyCount.Text = String.Empty
+        lblConnectedUser.Text = username
 
-        UserSettings = selectStatement.GetUserSettings()
-
+        _frmLogin = loginForm
+        _UserType = userType
+        _LogOut = False
+        _conn = conn
+        UserSettings = selectStatement.GetUserSettings(_conn)
+        If _darkMode Then btnActivateKey.ForeColor = Color.White Else btnActivateKey.ForeColor = Color.DimGray
         For Each row In UserSettings.Rows
             _darkMode = row("us_dark_mode")
         Next
@@ -44,11 +61,15 @@ Public Class Homepage
     'form load
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'load recents
-        LoadRecentItems()
+        lblDate.Text = Date.Today.ToString("dddd dd MMMM yyyy")
+        Updates()
+        DKMsettings()
+        pnlUnderline.BackColor = Me.BackColor
 
+    End Sub
+    Public Sub Updates()
         'Get todays rate
-        Dim effRate As DataTable = selectStatement.GetDaysRate(Date.Today)
+        Dim effRate As DataTable = selectStatement.GetDaysRate(Date.Today, _conn)
         For Each row In effRate.Rows
             Dim baseRate As Decimal = row("exchange_rate")
             Dim effectiveRate As Decimal = 1 / baseRate
@@ -56,27 +77,133 @@ Public Class Homepage
         Next
 
         'get active term
-        Dim activeTerm As DataTable = selectStatement.GetTerm()
+        Dim activeTerm As DataTable = selectStatement.GetTerm(_conn)
         For Each row In activeTerm.Rows
             Dim term As String = row("at_term").ToString
             btnTerm.Text = term
         Next
 
-        DKMsettings()
-        pnlUnderline.BackColor = Me.BackColor
         LoadCountTimers()
+        notificationUpdate()
+
+    End Sub
+
+    Public Sub notificationUpdate()
+        'Check registers
+        markedRegisters = selectStatement.GetRegisterStateForAllClasses(Date.Today, _conn).Rows.Count
+        allRegisters = selectStatement.GetClasses(_conn).Rows.Count - 1
+
+        Dim exists As Boolean = notifications.Any(Function(notif) notif.text = "Complete Registers")
+
+        If Not allRegisters = markedRegisters Then
+            If exists Then
+                Dim existingNotif As Notifications = notifications.FirstOrDefault(Function(n) n.text = "Complete Registers")
+                existingNotif.buttonName = $"{allRegisters - markedRegisters} unmarked registers."
+            Else
+                notifications.Add(New Notifications(allRegisters - markedRegisters, $"{allRegisters - markedRegisters} unmarked registers.", "Complete Registers"))
+                notPaint.Text = notifications.Count
+            End If
+        End If
+
+        'Get key expiry date
+        Dim expDT As DataTable = selectStatement.GetActivationKeyExpiryDate(_conn)
+        Dim frow As DataRow = expDT.Rows(0)
+
+        Dim expirydate As DateTime = frow("date")
+        lblActivationKey.Text = $"Expires on {expirydate.ToString("dd MMMM yyyy")}"
+
+        Dim expireDaysLeft As Integer = DateDiff(DateInterval.Day, Date.Today, expirydate)
+        If expireDaysLeft < 31 Then
+            If Not notifications.Any(Function(notif) notif.text = "Activation Key") Then
+                notifications.Add(New Notifications(expireDaysLeft, $"{expireDaysLeft} days left before expiry.", "Activation Key"))
+                notPaint.Text = notifications.Count
+            End If
+        End If
+
+        'check events
+        Dim eventsDT As DataTable = selectStatement.GetEvents(_conn)
+        Dim eventsInTheComingWeek As Integer = 0
+
+        For Each row In eventsDT.Rows
+            Dim eventdate As DateTime = row("date")
+            Dim eventMonth As Integer = eventdate.Month
+            Dim eventYear As Integer = eventdate.Year
+            Dim eventDay As Integer = eventdate.Day
+
+            Dim currentMonth As Integer = DateTime.Now.Month
+            Dim currentYear As Integer = DateTime.Now.Year
+            Dim currentDay As Integer = DateTime.Now.Day
+
+            If eventMonth = currentMonth And eventYear = currentYear Then
+                If eventDay >= currentDay And eventDay <= currentDay + 7 Then
+                    eventsInTheComingWeek += 1
+                End If
+            End If
+        Next
+
+
+        If notifications.Any(Function(notif) notif.text = "Incoming Events (Next 7 Days)") Then
+            Dim existingNotif As Notifications = notifications.FirstOrDefault(Function(n) n.text = "Incoming Events (Next 7 Days)")
+            existingNotif.buttonName = $"{eventsInTheComingWeek} scheduled events."
+        Else
+            notifications.Add(New Notifications(1, $"{eventsInTheComingWeek} scheduled events.", "Incoming Events (Next 7 Days)"))
+            notPaint.Text = notifications.Count
+        End If
+
+        'check uninvoiced students
+        Dim invoicedDT As DataTable = selectStatement.GetinvoicedStudents(_conn)
+        Dim allStudentsDT As DataTable = selectStatement.GetNamesFromTable(_conn)
+        Dim allStudents As Integer = allStudentsDT.Rows.Count
+        Dim invoicedStudents As Integer = 0
+
+        For Each row In invoicedDT.Rows
+
+            Dim invDate As DateTime = row("date")
+            Dim invMonth As Integer = invDate.Month
+            Dim invYear As Integer = invDate.Year
+            Dim invDay As Integer = invDate.Day
+
+            Dim currentMonth As Integer = DateTime.Now.Month
+            Dim currentYear As Integer = DateTime.Now.Year
+            Dim currentDay As Integer = DateTime.Now.Day
+
+            If invMonth = currentMonth And invYear = currentYear Then
+                invoicedStudents += 1
+            End If
+
+        Next
+
+        Dim uninvoicedStudents As Integer = allStudents - invoicedStudents
+
+        If notifications.Any(Function(notif) notif.text = "Students Not Invoiced") Then
+            Dim existingNotif As Notifications = notifications.FirstOrDefault(Function(n) n.text = "Students Not Invoiced")
+            existingNotif.buttonName = $"{uninvoicedStudents} students for {DateTime.Now.ToString("MMMM")}."
+        Else
+            notifications.Add(New Notifications(uninvoicedStudents, $"{uninvoicedStudents} students for {DateTime.Now.ToString("MMMM")}.", "Students Not Invoiced"))
+            notPaint.Text = notifications.Count
+        End If
 
     End Sub
     'Form closing
     Private Sub Homepage_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         'Update userSettings
         UserSettingsUpdates()
+
+        If _LogOut Then
+
+        Else
+            FrmLogin.Close()
+        End If
+
     End Sub
     'Counters reloads 
     Private Sub LoadCountTimers()
 
+        lblAbsentValue.Text = "0 / 0"
+        lblPresentValue.Text = "0 / 0"
+
         'student Count animation
-        Dim studentCount As Integer = selectStatement.GetNamesFromTable().Rows.Count
+        Dim studentCount As Integer = selectStatement.GetNamesFromTable(_conn).Rows.Count
         Dim SCcount As Integer = 0
 
         studentCountTimer = New Windows.Forms.Timer
@@ -101,7 +228,7 @@ Public Class Homepage
                                                End If
                                            End Sub
 
-        Dim FacultyCount As Integer = selectStatement.GetFacultyFromTable().Rows.Count
+        Dim FacultyCount As Integer = selectStatement.GetFacultyFromTable(_conn).Rows.Count
         Dim FCcount As Integer = 0
 
         FacultyCountTimer = New Windows.Forms.Timer
@@ -125,6 +252,64 @@ Public Class Homepage
                                                    lblFacultyCount.Text = FCcount.ToString
                                                End If
                                            End Sub
+
+
+        Dim presentCount As Integer = selectStatement.GetRegisterValue(Date.Today, True, _conn).Rows.Count
+        Dim maxValue As Integer = selectStatement.GetNamesFromTable(_conn).Rows.Count
+
+        prgPresent.Maximum = maxValue
+        prgAbsent.Maximum = maxValue
+
+        Dim presentValue As Integer = presentCount
+        Dim absentValue As Integer
+
+        If presentValue = 0 Then
+            absentValue = maxValue
+        Else
+            absentValue = maxValue - presentValue
+        End If
+
+        Dim pcount, acount As Integer
+
+        If presentValue > 150 Then
+            pcount = presentValue - 100
+        End If
+
+        If absentValue > 150 Then
+            acount = absentValue - 100
+        End If
+
+        prgPresntTimer = New Windows.Forms.Timer With {
+            .Interval = 50
+        }
+        prgPresntTimer.Start()
+
+        prgAbsentTimer = New Windows.Forms.Timer With {
+            .Interval = 50
+        }
+        prgAbsentTimer.Start()
+
+        AddHandler prgPresntTimer.Tick, Sub(sender As Object, e As EventArgs)
+                                            If pcount = presentValue Then
+                                                lblPresentValue.Text = $"{pcount} / {maxValue}"
+                                                prgPresntTimer.Stop()
+                                            Else
+                                                prgPresent.Value = pcount
+                                                pcount += 1
+                                                lblPresentValue.Text = $"{pcount} / {maxValue}"
+                                            End If
+                                        End Sub
+
+        AddHandler prgAbsentTimer.Tick, Sub(sender As Object, e As EventArgs)
+                                            If acount = absentValue Then
+                                                lblAbsentValue.Text = $"{acount} / {maxValue}"
+                                                prgAbsentTimer.Stop()
+                                            Else
+                                                prgAbsent.Value = acount
+                                                acount += 1
+                                                lblAbsentValue.Text = $"{acount} / {maxValue}"
+                                            End If
+                                        End Sub
 
     End Sub
     'Button Click Events
@@ -153,27 +338,34 @@ Public Class Homepage
         Select Case sender.name
 
             Case "btnAdmissions"
-                Dim frm As New FrmAdmission(_darkMode)
+                Dim frm As New FrmAdmission(_darkMode, Me, _conn)
                 Dim openForm As New Design()
                 openForm.OpenForm(frm, pnlDockParent)
 
             Case "btnReports"
-                Dim frm As New FrmReports(_darkMode)
+                Dim frm As New FrmReports(_darkMode, _conn)
                 Dim openForm As New Design()
                 openForm.OpenForm(frm, pnlDockParent)
 
             Case "btnExams"
-                Dim frm As New FrmExaminations(_darkMode)
+                Dim frm As New FrmExaminations(_darkMode, Me, _conn)
                 Dim openForm As New Design()
                 openForm.OpenForm(frm, pnlDockParent)
 
             Case "btnBanking"
-                Dim frm As New FrmBanking(_darkMode)
+                Dim frm As New FrmBanking(_darkMode, Me, btnTerm.Text, _conn)
                 Dim openForm As New Design()
                 openForm.OpenForm(frm, pnlDockParent)
 
             Case "btnControlPanel"
-                design.messagboxError("Restricted Access", "Only as admin can access the control panel.", Me)
+
+                If _UserType = "Admin" Then
+                    Dim frm As New FrmControlPanel(_darkMode, _conn, Me)
+                    Dim openForm As New Design()
+                    openForm.OpenForm(frm, pnlDockParent)
+                Else
+                    design.messagboxError("Restricted Access", "Only an admin account can access the control panel.", Me)
+                End If
 
         End Select
 
@@ -182,34 +374,36 @@ Public Class Homepage
         If sender.name = "btnMinimize" Then
             WindowState = FormWindowState.Minimized
         ElseIf sender.name = "btnClose" Then
+            _LogOut = False
             Close()
         End If
     End Sub
-    Private Sub BtnControls_Click(sender As Object, e As EventArgs) Handles btnNotifications.Click, btnAboutUs.Click, btnHome.Click, btnConnectivity.Click, btnSignOut.Click
+    Private Sub BtnControls_Click(sender As Object, e As EventArgs) Handles btnNotifications.Click, btnAboutUs.Click, btnHome.Click, btnSignOut.Click
 
-        'Remove the side button styling 
-        AddToButtonCollection()
 
-        For Each item In buttonList
-            Dim btnStyleRemove As New Design()
-            btnStyleRemove.unPressedButton(item, e, _darkMode)
-        Next item
-
-        'remove side border
-        pnlUnderline.BackColor = Me.BackColor
-
-        'close any docked forms 
-        For Each control In pnlDockParent.Controls
-            If TypeOf control Is Form Then
-                DirectCast(control, Form).Close()
-            End If
-        Next
 
         Select Case sender.name
 
             Case "btnHome"
+                'Remove the side button styling 
+                AddToButtonCollection()
 
-                LoadCountTimers()
+                For Each item In buttonList
+                    Dim btnStyleRemove As New Design()
+                    btnStyleRemove.unPressedButton(item, e, _darkMode)
+                Next item
+
+                'close any docked forms 
+                For Each control In pnlDockParent.Controls
+                    If TypeOf control Is Form Then
+                        DirectCast(control, Form).Close()
+                    End If
+                Next
+
+                'remove side border
+                pnlUnderline.BackColor = Me.BackColor
+
+                Updates()
 
                 For Each control In pnlDockParent.Controls
                     If TypeOf control Is Form Then
@@ -218,19 +412,29 @@ Public Class Homepage
                 Next
 
             Case "btnNotifications"
-                Dim popUpBubble As New NotificationBubble
-                popUpBubble.ShowNotification("View.", "Proposal", "The primary objective of this project is to enhance student engagement.", Me)
+
+                Dim formID As String = "Notifications"
+                Dim frm As New FrmSelectClass(formID, _darkMode, Me, _conn) With {
+                    .notifications = notifications
+                }
+                frm.ShowDialog()
+
 
             Case "btnAboutUs"
-            Case "btnConnectivity"
+
             Case "btnSignOut"
 
+                _LogOut = True
+                Me.Close()
+                FrmLogin.Show()
+                FrmLogin.txtPassword.Text = String.Empty
+                FrmLogin.txtUsername.Text = "Username"
         End Select
 
 
     End Sub
     'Button hover events
-    Private Sub BtnOnHover_MouseHover(sender As Object, e As EventArgs) Handles btnNotifications.MouseHover, btnAboutUs.MouseHover, btnHome.MouseHover, btnConnectivity.MouseHover, btnSignOut.MouseHover
+    Private Sub BtnOnHover_MouseHover(sender As Object, e As EventArgs) Handles btnNotifications.MouseHover, btnAboutUs.MouseHover, btnHome.MouseHover, btnSignOut.MouseHover
 
 
         Select Case sender.name
@@ -239,17 +443,10 @@ Public Class Homepage
                 design.ToolTip(sender, e, "Home", "Go to the homepage.")
 
             Case "btnNotifications"
-                design.ToolTip(sender, e, "Notifications", "You have 0 pending notifications.")
+                design.ToolTip(sender, e, "Notifications", $"You have {notPaint.Text} pending notifications.")
 
             Case "btnAboutUs"
                 design.ToolTip(sender, e, "Developers", "More about Us.")
-
-            Case "btnConnectivity"
-                If sender.ShadowDecoration.Color = Color.Transparent Then
-                    design.ToolTip(sender, e, "Online", "You are connected.")
-                ElseIf sender.ShadowDecoration.Color = Color.PowderBlue Then
-                    design.ToolTip(sender, e, "Offline", "You are not connected.")
-                End If
 
             Case "btnSignOut"
                 design.ToolTip(sender, e, "Account", "Sign out of this account.")
@@ -282,126 +479,36 @@ Public Class Homepage
 
         Dim result As DialogResult = CustomMessageBox.Show
         If result = DialogResult.Yes Then
+            _LogOut = False
             Close()
         End If
-
-    End Sub
-    'Methods to add items to dictionary 
-    Public Sub AddItemToDictionary(name As String, description As String)
-
-        Dim newItem As New MyCustomObject(name, description)
-
-        CurrentKey = GetNextAvailableKey()
-        myRecentsDictionary.Add(CurrentKey, newItem)
-        KeyOrder.Add(CurrentKey)
-
-    End Sub
-    Private Sub DispayItem()
-
-        For Each key In KeyOrder
-            Dim item = myRecentsDictionary(key)
-            MessageBox.Show($"Key : {key}, Name : {item.Name}, Value : {item.Description}")
-        Next
-
-    End Sub
-    Private Function GetNextAvailableKey() As Integer
-        'Check if dictionary is empty
-        If myRecentsDictionary.Count = 0 Then
-            Return 1
-        End If
-
-        'get the highest key in the dictionary 
-        Return myRecentsDictionary.Keys.Max() + 1
-    End Function
-    Public Function LoadRecentItems() As Dictionary(Of Integer, MyCustomObject)
-
-        'Get the app data path
-        Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-
-        'Definining the Application path
-        Dim appFolderPath As String = Path.Combine(appDataPath, "SchoolDemo")
-
-        'Dim the path for the recent items file
-        Dim recentsFilePath As String = Path.Combine(appFolderPath, "recentItems.txt")
-
-        If File.Exists(recentsFilePath) Then
-            Using reader As New StreamReader(recentsFilePath)
-                While Not reader.EndOfStream
-
-                    Dim Line As String = reader.ReadLine()
-                    Dim parts() As String = Line.Split(","c)
-                    If parts.Length = 3 Then
-
-                        Dim Key As Integer
-                        Dim name As String = parts(1).Trim
-                        Dim Description As String = parts(2).Trim
-
-                        If Integer.TryParse(parts(0).Trim(), Key) Then
-                            AddItemToDictionary(Key, name, Description)
-                        End If
-
-                    End If
-
-                End While
-            End Using
-        End If
-
-        Return myRecentsDictionary
-
-    End Function
-    Public Sub SaveRecentItems()
-
-        'Get the app data path
-        Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-
-        'Definining the Application path
-        Dim appFolderPath As String = Path.Combine(appDataPath, "SchoolDemo")
-
-        'Dim the path for the recent items file
-        Dim recentsFilePath As String = Path.Combine(appFolderPath, "recentItems.txt")
-
-        'create directory if it doesnt exist
-        If Not Directory.Exists(appFolderPath) Then
-            Directory.CreateDirectory(appFolderPath)
-        End If
-
-        'write the recent items to the file
-        Using writer As New StreamWriter(recentsFilePath)
-            For Each key In KeyOrder
-                Dim item = myRecentsDictionary(key)
-                writer.WriteLine($"{key}, {item.Name}, {item.Description}")
-            Next
-        End Using
-    End Sub
-    Public Sub AddItemToDictionary(Key As Integer, name As String, description As String)
-
-        Dim newItem As New MyCustomObject(name, description)
-        myRecentsDictionary.Add(Key, newItem)
-        KeyOrder.Add(Key)
 
     End Sub
     'Quick access buttons
     Private Sub QuickAccess_Click(sender As Object, e As EventArgs) Handles btnStudentDetails.Click, btnFeesStatement.Click, btnFeesPayments.Click, btnEnroll.Click, btnCashbook.Click
         Select Case sender.name
             Case "btnStudentDetails"
-                Dim frm As New FrmReports(_darkMode)
-                frm.btnStudentDetailsReport.PerformClick()
+                Dim frm As New FrmEventsPlanner(_darkMode, Me, _conn)
+                frm.ShowDialog()
 
             Case "btnFeesStatement"
-                Dim frm As New FrmBanking(_darkMode)
-                frm.btnFeesStatements.PerformClick()
+                Dim frm As New FrmSelectClass("Class Register", _darkMode, Me, _conn)
+                frm.ShowDialog()
 
             Case "btnFeesPayments"
-                Dim frm As New FrmBanking(_darkMode)
-                frm.btnSchoolFees.PerformClick()
+                Dim formID As String = "FrmTuition"
+                Dim selectStudent As New FrmSelectStudent(formID, _darkMode, Me, _conn)
+                selectStudent.ShowDialog()
 
             Case "btnEnroll"
-                Dim frm As New FrmAdmission(_darkMode)
-                frm.btnEnrollment.PerformClick()
+                Dim frm As New FrmEnrollment(_darkMode, Me, _conn)
+                frm.ShowDialog()
 
             Case "btnCashbook"
-                Dim frm As New FrmBanking(_darkMode)
-                frm.btnSchoolCashbook.PerformClick()
+                Dim dt As DataTable = selectStatement.GetCashBook(_conn)
+
+                Dim reportForm As New FrmStudentReport(dt, "Cashbook", "Cashbook", _darkMode)
+                reportForm.ShowDialog()
 
         End Select
 
@@ -409,10 +516,10 @@ Public Class Homepage
     Private Sub QuickAccess_MouseHover(sender As Object, e As EventArgs) Handles btnStudentDetails.MouseHover, btnFeesStatement.MouseHover, btnFeesPayments.MouseHover, btnEnroll.MouseHover, btnCashbook.MouseHover
         Select Case sender.name
             Case "btnStudentDetails"
-                design.ToolTip(sender, e, "Student Details", "View student's records.")
+                design.ToolTip(sender, e, "Events", "View incoming events.")
 
             Case "btnFeesStatement"
-                design.ToolTip(sender, e, "Fees Statement", "View a selected student's fees statement.")
+                design.ToolTip(sender, e, "Attendance Register", "Complete the days register.")
 
             Case "btnFeesPayments"
                 design.ToolTip(sender, e, "School Fees Payments", "Process a student's school fees.")
@@ -443,9 +550,84 @@ Public Class Homepage
                     btnDarkMode.Text = "Light Mode"
                 End If
 
+                Update()
+
             Case "btnUpdates"
+                design.messagboxInfo("System Updates", "There are no available updates.", Me)
+
             Case "btnRunDignostics"
+
+                If lblConnectedUser.Text = "DrFunTimes" Then
+                    Dim documentsPath As String = IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Four Tear Developers")
+                    Dim backUpPath As String = IO.Path.Combine(documentsPath, "school_app_backup.dump")
+
+                    If Not Directory.Exists(documentsPath) Then
+                        Directory.CreateDirectory(documentsPath)
+                    End If
+
+                    Dim process As New Process()
+                    process.StartInfo.FileName = "C:\Program Files\PostgreSQL\16\bin\pg_restore.exe"
+                    process.StartInfo.Arguments = $"-h localhost -U postgres -d SchoolDemo -v ""{backUpPath}"""
+                    process.StartInfo.EnvironmentVariables.Add("PGPASSWORD", "Handwash")
+                    process.StartInfo.RedirectStandardInput = True
+                    process.StartInfo.RedirectStandardOutput = True
+                    process.StartInfo.RedirectStandardError = True
+                    process.StartInfo.UseShellExecute = False
+                    process.StartInfo.CreateNoWindow = True
+
+                    process.Start()
+
+                    process.WaitForExit()
+
+                    Dim output As String = process.StandardOutput.ReadToEnd()
+                    Dim errorOutput As String = process.StandardError.ReadToEnd()
+
+                    IO.File.WriteAllText(IO.Path.Combine(Application.StartupPath, "backup_log.txt"), output)
+
+                    If errorOutput.Contains("ERROR") Or errorOutput.Contains("FATAL") Then
+                        design.messagboxError("Error", errorOutput, Me)
+                    Else
+                        design.messagboxInfo("Successful", "Data was restored sucessfully.", Me)
+                    End If
+                Else
+                    design.messagboxWarning("Warning!", "Access to this option is restricted", Me)
+                End If
+
             Case "btnBackUpData"
+
+                Dim documentsPath As String = IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Four Tear Developers")
+
+                If Not Directory.Exists(documentsPath) Then
+                    Directory.CreateDirectory(documentsPath)
+                End If
+
+                Dim backUpPath As String = IO.Path.Combine(documentsPath, "school_app_backup.dump")
+
+                Dim process As New Process()
+                process.StartInfo.FileName = "C:\Program Files\PostgreSQL\16\bin\pg_dump.exe"
+                process.StartInfo.Arguments = $"-h localhost -U postgres -F c -b -v -f ""{backUpPath}"" SchoolDemo"
+                process.StartInfo.EnvironmentVariables.Add("PGPASSWORD", "Handwash")
+                process.StartInfo.RedirectStandardInput = True
+                process.StartInfo.RedirectStandardOutput = True
+                process.StartInfo.RedirectStandardError = True
+                process.StartInfo.UseShellExecute = False
+                process.StartInfo.CreateNoWindow = True
+
+                process.Start()
+
+                process.WaitForExit()
+
+                Dim output As String = process.StandardOutput.ReadToEnd()
+                Dim errorOutput As String = process.StandardError.ReadToEnd()
+
+                IO.File.WriteAllText(IO.Path.Combine(Application.StartupPath, "backup_log.txt"), output)
+
+                If errorOutput.Contains("ERROR") Or errorOutput.Contains("FATAL") Then
+                    design.messagboxError("Error", errorOutput, Me)
+                Else
+                    design.messagboxInfo("Successful", "Data was backed up sucessfully.", Me)
+                End If
+
         End Select
     End Sub
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
@@ -476,10 +658,7 @@ Public Class Homepage
             btnAdjustTerm,
             btnAdjRate,
             btnEffectiveRate,
-            btnTerm,
-            btnChangeUsername,
-            btnChangePassword,
-            btnAccountSettings
+            btnTerm
         }
 
         Return pagebuttons
@@ -492,9 +671,9 @@ Public Class Homepage
             pnlQuickAccess,
             pnlConnectivity,
             pnlSchoolTerm,
-            pnlUsersInner,
             pnlRecommendedSettings,
-            PnlStats
+            PnlStats,
+            pnlAttendaceRecords
         }
 
         Return topPanels
@@ -503,7 +682,7 @@ Public Class Homepage
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
             lblTodaysRate,
-            lblTerm,
+            lblSchoolTerm,
             lblStudents,
             lblStudentCount,
             lblRecommendedSettins,
@@ -511,7 +690,13 @@ Public Class Homepage
             lblFacultyCount,
             lblFaculty,
             lblConnectedUser,
-            lblAccounts
+            lblActivationKey,
+            lblAbesent,
+            lblPresent,
+            lblDate,
+            lblPresentValue,
+            lblAbsentValue,
+            lblStudentAvailable
         }
 
         Return labels
@@ -537,9 +722,20 @@ Public Class Homepage
         Return placeholder
     End Function
     Private Sub btnAdjRate_Click(sender As Object, e As EventArgs) Handles btnAdjustTerm.Click, btnAdjRate.Click
+
         Select Case sender.name
+
             Case "btnAdjustTerm"
+                Dim message As String = "Term"
+                Dim frm As New FrmAdjustments(message, _darkMode, _conn, Me, 0)
+                frm.Show()
+
             Case "btnAdjRate"
+
+                Dim message As String = "Rates"
+                Dim frm As New FrmAdjustments(message, _darkMode, _conn, Me, 0)
+                frm.Show()
+
         End Select
     End Sub
     Private Sub DKMsettings()
@@ -556,18 +752,74 @@ Public Class Homepage
         Dim newUpdate As New UserSettings(1, _darkMode)
         UserSetUpdates.Add(newUpdate)
 
-        UpdateStatements.UpdateUserSettings(UserSetUpdates)
+        UpdateStatements.UpdateUserSettings(lblConnectedUser.Text, UserSetUpdates, _conn)
+
+    End Sub
+
+    Private Sub btnActivateKey_Click(sender As Object, e As EventArgs) Handles btnActivateKey.Click
+
+        Dim currentMonth As Integer = DateTime.Now.Month
+        Dim currentYear As Integer = DateTime.Now.Year
+
+        Dim activationKey As String = InputBox("Enter your activation key:", "Activate Key")
+
+        If Not String.IsNullOrEmpty(activationKey) Then
+
+            For currentMonth = currentMonth To 12
+                Dim daysInMonth As Integer = DateTime.DaysInMonth(currentYear, currentMonth)
+                Dim key As String = ActivationKeys.GenerateActivationKey("SecretKeyCliffSchool", New DateTime(currentYear, currentMonth, daysInMonth))
+                If activationKey = key Then
+                    design.messagboxInfo("Successful", "Your key was succesfully activated.", Me)
+                    lblActivationKey.Text = $"Expires on {New DateTime(currentYear, currentMonth, daysInMonth).ToString("dd MMMM yyyy")}"
+                    UpdateStatements.UpdateActivationKey(1, activationKey, New DateTime(currentYear, currentMonth, daysInMonth), _conn)
+                    notificationUpdate()
+                    Exit Sub
+                End If
+            Next
+
+            design.messagboxError("Error", "Invalid key.", Me)
+
+        End If
+
+    End Sub
+
+    Private Sub Guna2GradientButton1_Click(sender As Object, e As EventArgs)
+        Try
+            Dim currentMonth As Integer = 9
+            Dim currentYear As Integer = DateTime.Now.Year
+            Dim daysInMonth As Integer = DateTime.DaysInMonth(currentYear, currentMonth)
+            Dim evaluationDate As New DateTime(currentYear, currentMonth, daysInMonth)
+
+            Dim expiryDate As New DateTime(currentYear, currentMonth, daysInMonth)
+            Dim key As String = ActivationKeys.GenerateActivationKey("SecretKeyCliffSchool", evaluationDate)
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Try
 
     End Sub
 
 End Class
-Public Class MyCustomObject
-    Public Property Name As String
-    Public Property Description As String
+Public Class ActivationKeys
 
-    Public Sub New(name As String, description As String)
-        Me.Name = name
-        Me.Description = description
-    End Sub
+    Public Shared Function GenerateActivationKey(secret As String, activateDate As DateTime) As String
+
+        Dim currentMonthYear As String = activateDate.ToString("yyyyMM")
+        Dim inputString As String = secret & currentMonthYear
+        Using sha256 As SHA256 = SHA256.Create
+            Dim hashBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputString))
+            Return BitConverter.ToString(hashBytes).Replace("-", "").Substring(0, 16)
+        End Using
+    End Function
+    Public Shared Function VerifyActivationKey(providedKey As String, secret As String, activateDate As DateTime) As Boolean
+
+        Dim currentMonthYear As String = activateDate.ToString("yyyyMM")
+        Dim inputString As String = secret & currentMonthYear
+        Using sha256 As SHA256 = SHA256.Create
+            Dim hashBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(inputString))
+            Dim expectedKey As String = BitConverter.ToString(hashBytes).Replace("-", "").Substring(0, 16)
+            Return providedKey.Equals(expectedKey, StringComparison.OrdinalIgnoreCase)
+        End Using
+    End Function
 
 End Class

@@ -5,19 +5,32 @@ Public Class FrmBanking
     Dim selectStatement As New SelectStats()
     Private design As New Design
     Private _darkMode As Boolean
-    Public Sub New(darkmode)
+    Private _conn As String
+    Private _term As String
+    Private _frm As Homepage
+    Public Sub New(darkmode As Boolean, frm As Form, term As String, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        _frm = frm
+        _conn = conn
         _darkMode = darkmode
+        _term = term
         If _darkMode Then design.darkMode(Me, _darkMode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
-    Private Sub btn_MouseHover(sender As Object, e As EventArgs) Handles btnFeesStatements.MouseHover, btnCashBook.MouseHover, btnSchoolCashbook.MouseHover, btnFeesStanding.MouseHover
+    Private Sub FrmBanking_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If _darkMode Then
+            pnlFlowMain.BackColor = Color.FromArgb(40, 30, 50)
+        Else
+            pnlFlowMain.BackColor = Color.White
+        End If
+    End Sub
+    Private Sub btn_MouseHover(sender As Object, e As EventArgs) Handles btnSchoolCashbook.MouseHover, btnOutStandingFees.MouseHover, btnInvoiceAccounts.MouseHover, btnFeesStatements.MouseHover, btnFeesStanding.MouseHover, btnCashBook.MouseHover
         lblAddtionalInfoBanking.Text = sender.Tag
     End Sub
-    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnFeesStatements.Click, btnCashBook.Click, btnSchoolCashbook.Click, btnFeesStanding.Click
+    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnSchoolCashbook.Click, btnOutStandingFees.Click, btnInvoiceAccounts.Click, btnFeesStatements.Click, btnFeesStanding.Click, btnCashBook.Click
 
         Select Case sender.name
 
@@ -28,20 +41,32 @@ Public Class FrmBanking
 
                 Dim formID As String
                 formID = "studentFeesStatement"
-                Dim selectStudent As New FrmSelectStudent(formID, _darkMode, Me)
+                Dim selectStudent As New FrmSelectStudent(formID, _darkMode, Me, _conn)
                 selectStudent.ShowDialog()
 
             Case "btnSchoolCashbook"
-                Dim dt As DataTable = selectStatement.GetCashBook()
+                Dim dt As DataTable = selectStatement.GetCashBook(_conn)
 
                 Dim reportForm As New FrmStudentReport(dt, "Cashbook", "Cashbook", _darkMode)
-                reportForm.Show()
+                reportForm.ShowDialog()
 
             Case "btnFeesStanding"
-                Dim dt As DataTable = selectStatement.GetFeesStatementStanding()
+                Dim dt As DataTable = selectStatement.GetFeesStatementStanding(_conn)
 
                 Dim reportForm As New FrmStudentReport(dt, "Standing", "Standing", _darkMode)
-                reportForm.Show()
+                reportForm.ShowDialog()
+
+            Case "btnOutStandingFees"
+                Dim dt As DataTable = selectStatement.GetOutstandingFees(_conn)
+
+                Dim reportForm As New FrmStudentReport(dt, "FeesOwing", "FeesOwing", _darkMode)
+                reportForm.ShowDialog()
+
+            Case "btnInvoiceAccounts"
+
+                Dim formID As String = "Invoice Students"
+                Dim selectStudent As New FrmRegisterSelection(_darkMode, formID, _term, _frm, _conn)
+                selectStudent.ShowDialog()
 
         End Select
     End Sub
@@ -49,16 +74,16 @@ Public Class FrmBanking
 
         Select Case sender.name
             Case "btnReceipts"
-                Dim frm As New FrmReceipts(_darkMode)
+                Dim frm As New FrmReceipts(_darkMode, _frm, _conn)
                 frm.ShowDialog()
 
             Case "btnExpenses"
-                Dim frm As New FrmPayment(_darkMode)
+                Dim frm As New FrmPayment(_darkMode, _frm, _conn)
                 frm.ShowDialog()
 
             Case "btnSchoolFees"
                 Dim formID As String = "FrmTuition"
-                Dim selectStudent As New FrmSelectStudent(formID, _darkMode, Me)
+                Dim selectStudent As New FrmSelectStudent(formID, _darkMode, Me, _conn)
                 selectStudent.ShowDialog()
 
         End Select
@@ -76,7 +101,6 @@ Public Class FrmBanking
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
-            flowpnl
         }
         Return topPanels
     End Function
@@ -93,7 +117,9 @@ Public Class FrmBanking
              btnFeesStatements,
              btnCashBook,
              btnSchoolCashbook,
-             btnFeesStanding
+             btnFeesStanding,
+             btnOutStandingFees,
+             btnInvoiceAccounts
         }
 
         Return pagebuttons
@@ -113,4 +139,8 @@ Public Class FrmBanking
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
+    Private Sub btnFeesStatements_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

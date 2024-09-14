@@ -21,15 +21,19 @@ Public Class FrmEnrollment
     Private insert As New SQLLine
     Private _docNumber As Integer
     Private _darkmode As Boolean
-    Public Sub New(darkmode As Boolean)
+    Private _conn As String
+    Private _frm As Homepage
+    Public Sub New(darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        subjectList = selctStatement.GetSubjects()
-        classList = selctStatement.GetClasses()
-        _docNumber = selctStatement.GetDocNumber("Invoice").Compute("MAX(dc_number)", String.Empty) + 1
+        _conn = conn
+        _frm = frm
+        subjectList = selctStatement.GetSubjects(_conn)
+        classList = selctStatement.GetClasses(_conn)
+        _docNumber = selctStatement.GetDocNumber("Invoice", _conn).Compute("MAX(dc_number)", String.Empty) + 1
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
         dtePickerDateOfBirth.Value = Date.Today
@@ -215,13 +219,16 @@ Public Class FrmEnrollment
                     Dim result As DialogResult = CustomMessageBox.Show
                     If result = DialogResult.Yes Then
 
-                        SQLLine.InsertStudentDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text, dtePickerDateOfBirth.Value, txtBirthIDNumber.Text, txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, cmbBoxTitle.Text, txtGName.Text, txtGSurname.Text, txtGAddress.Text, txtGPhoneNumber.Text, txtGEmailAddress.Text, Date.Today)
+                        SQLLine.InsertStudentDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text, dtePickerDateOfBirth.Value, txtBirthIDNumber.Text, txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, cmbBoxTitle.Text, txtGName.Text, txtGSurname.Text, txtGAddress.Text, txtGPhoneNumber.Text, txtGEmailAddress.Text, Date.Today, _frm.lblConnectedUser.Text, _conn)
 
                         Dim formID As String = "Enrollment"
-                        Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me)
+                        Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me, _conn) With {
+                            ._frm = _frm
+                        }
+
                         selectStudent.ShowDialog()
 
-                        SQLLine.InsertStudentMedicals(newStdID, txtAllegies.Text, txtRequiredTreatment.Text, txtMedications.Text, txtDosage.Text, txtSchedule.Text, txtDisabilities.Text, txtPhysician.Text, txtPhysicianContacts.Text)
+                        SQLLine.InsertStudentMedicals(newStdID, txtAllegies.Text, txtRequiredTreatment.Text, txtMedications.Text, txtDosage.Text, txtSchedule.Text, txtDisabilities.Text, txtPhysician.Text, txtPhysicianContacts.Text, _frm.lblConnectedUser.Text, _conn)
 
                         Dim selectedSubjects As New List(Of String)
 
@@ -231,7 +238,7 @@ Public Class FrmEnrollment
                             End If
                         Next
 
-                        SQLLine.InsertStudentSubjects(newStdID, selectedSubjects)
+                        SQLLine.InsertStudentSubjects(newStdID, _frm.lblConnectedUser.Text, selectedSubjects, _conn)
 
                         Dim selection As New List(Of DataSelection)
                         addCostsToCollection()
@@ -248,13 +255,13 @@ Public Class FrmEnrollment
                             End If
                         Next
 
-                        SQLLine.InsertStudentPayments(selection)
-                        SQLLine.InsertDocNumber(_docNumber, "Invoice")
+                        SQLLine.InsertStudentPayments(_frm.lblConnectedUser.Text, selection, _conn)
+                        SQLLine.InsertDocNumber(_docNumber, "Invoice", _conn)
 
-                        Dim frm As New FrmTuition(txtFirstName.Text, newStdID, _darkmode)
+                        Dim frm As New FrmTuition(txtFirstName.Text, newStdID, _darkmode, _frm, _conn)
                         popUp.ShowNotification("Make Payment", "Successful", "Student was enrolled successfully. Click the button below to make a payment.", frm)
                         btnClose.PerformClick()
-
+                        _frm.Updates()
                     End If
                 End If
 
@@ -414,10 +421,10 @@ Public Class FrmEnrollment
     Private Sub CmbBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbUniform.SelectedValueChanged, cmbTextBooks.SelectedValueChanged, cmbBoxTransport.SelectedValueChanged, cmbBoxReportBook.SelectedValueChanged, cmbBoxClass.SelectedValueChanged
 
         Dim dtCosts As New DataTable
-        dtCosts = selctStatement.GetStudentCosts()
+        dtCosts = selctStatement.GetStudentCosts(_conn)
 
         Dim dtClassCosts As New DataTable
-        dtClassCosts = selctStatement.GetStudentClassCost()
+        dtClassCosts = selctStatement.GetStudentClassCost(_conn)
 
         Select Case sender.name
 
@@ -655,4 +662,7 @@ Public Class FrmEnrollment
         Return placeholder
     End Function
 
+    Private Sub FrmEnrollment_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
+        _frm.Updates()
+    End Sub
 End Class

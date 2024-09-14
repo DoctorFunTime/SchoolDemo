@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ExamGrowth" targetNamespace="http://tempuri.org/ExamGrowth.xsd" xmlns:mstns="http://tempuri.org/ExamGrowth.xsd" xmlns="http://tempuri.org/ExamGrowth.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ExamGrowth" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ExamGrowth" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ExamGrowth">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtExamGrowth" msprop:Generator_RowEvHandlerName="dtExamGrowthRowChangeEventHandler" msprop:Generator_RowDeletedName="dtExamGrowthRowDeleted" msprop:Generator_RowDeletingName="dtExamGrowthRowDeleting" msprop:Generator_RowEvArgName="dtExamGrowthRowChangeEvent" msprop:Generator_TablePropName="dtExamGrowth" msprop:Generator_RowChangedName="dtExamGrowthRowChanged" msprop:Generator_UserTableName="dtExamGrowth" msprop:Generator_RowChangingName="dtExamGrowthRowChanging" msprop:Generator_RowClassName="dtExamGrowthRow" msprop:Generator_TableClassName="dtExamGrowthDataTable" msprop:Generator_TableVarName="tabledtExamGrowth">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="subject" msprop:Generator_ColumnPropNameInTable="subjectColumn" msprop:Generator_ColumnPropNameInRow="subject" msprop:Generator_UserColumnName="subject" msprop:Generator_ColumnVarNameInTable="columnsubject" type="xs:string" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" type="xs:string" minOccurs="0" />
+              <xs:element name="surname" msprop:Generator_ColumnPropNameInTable="surnameColumn" msprop:Generator_ColumnPropNameInRow="surname" msprop:Generator_UserColumnName="surname" msprop:Generator_ColumnVarNameInTable="columnsurname" type="xs:string" minOccurs="0" />
+              <xs:element name="class" msprop:Generator_ColumnPropNameInTable="classColumn" msprop:Generator_ColumnPropNameInRow="_class" msprop:Generator_UserColumnName="class" msprop:Generator_ColumnVarNameInTable="columnclass" type="xs:string" minOccurs="0" />
+              <xs:element name="mark" msprop:Generator_ColumnPropNameInTable="markColumn" msprop:Generator_ColumnPropNameInRow="mark" msprop:Generator_UserColumnName="mark" msprop:Generator_ColumnVarNameInTable="columnmark" type="xs:decimal" minOccurs="0" />
+              <xs:element name="previous_mark" msprop:Generator_ColumnPropNameInTable="previous_markColumn" msprop:Generator_ColumnPropNameInRow="previous_mark" msprop:Generator_UserColumnName="previous_mark" msprop:Generator_ColumnVarNameInTable="columnprevious_mark" type="xs:decimal" minOccurs="0" />
+              <xs:element name="growth" msprop:Generator_ColumnPropNameInTable="growthColumn" msprop:Generator_ColumnPropNameInRow="growth" msprop:Generator_UserColumnName="growth" msprop:Generator_ColumnVarNameInTable="columngrowth" type="xs:decimal" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnVarNameInTable="columndate" type="xs:string" minOccurs="0" />
+              <xs:element name="exam_name" msprop:Generator_ColumnPropNameInRow="exam_name" msprop:Generator_ColumnPropNameInTable="exam_nameColumn" msprop:Generator_ColumnVarNameInTable="columnexam_name" msprop:Generator_UserColumnName="exam_name" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -5,21 +5,32 @@ Imports Guna.UI2.WinForms
 Public Class FrmExaminations
     Private design As New Design
     Private _darkmode As Boolean
+    Private _conn As String
+    Private _frm As Homepage
 
-    Public Sub New(darkmode)
+    Public Sub New(darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        _frm = frm
+        _conn = conn
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
-    Private Sub btnUploadMarks_MouseHover(sender As Object, e As EventArgs) Handles btnUploadMarks.MouseHover, pnlDragExams.MouseHover, btnManageMarks.MouseHover, btnViewExams.MouseHover
+    Private Sub FrmExaminations_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If _darkmode Then
+            pnlFlowMain.BackColor = Color.FromArgb(40, 30, 50)
+        Else
+            pnlFlowMain.BackColor = Color.White
+        End If
+    End Sub
+    Private Sub btnUploadMarks_MouseHover(sender As Object, e As EventArgs) Handles btnUploadMarks.MouseHover, btnManageMarks.MouseHover
         lblAddtionalInfoExaminations.Text = sender.Tag
     End Sub
     'Button clicks
-    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnUploadMarks.Click, btnExaminationsAdd.Click, btnManageMarks.Click
+    Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnUploadMarks.Click, btnManageMarks.Click
 
         Select Case sender.name
 
@@ -39,36 +50,14 @@ Public Class FrmExaminations
                 End If
 
             Case "btnUploadMarks"
-                Dim frm As New FrmSelectClass("Upload Exam", _darkmode)
+                Dim frm As New FrmSelectClass("Upload Exam", _darkmode, _frm, _conn)
                 frm.ShowDialog()
 
             Case "btnManageMarks"
-                Dim frm As New FrmSelectClass("Manage Exams", _darkmode)
+                Dim frm As New FrmSelectClass("Manage Exams", _darkmode, _frm, _conn)
                 frm.ShowDialog()
 
         End Select
-    End Sub
-
-    Private Sub PnlDragExams_DragEnter(sender As Object, e As DragEventArgs) Handles pnlDragExams.DragEnter
-
-        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            e.Effect = DragDropEffects.Copy
-        Else
-            e.Effect = DragDropEffects.None
-        End If
-
-    End Sub
-
-    Private Sub PnlDragExamsDrop_DragEnter(sender As Object, e As DragEventArgs) Handles pnlDragExams.DragDrop
-
-        Dim files As String() = CType(e.Data.GetData(DataFormats.FileDrop), String())
-
-        If files IsNot Nothing AndAlso files.Length > 0 Then
-
-            Dim filepath As String = files(0)
-            MessageBox.Show(filepath)
-
-        End If
     End Sub
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
@@ -86,15 +75,12 @@ Public Class FrmExaminations
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
-            flowpnl,
-            pnlDragExams
         }
         Return topPanels
     End Function
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
-            lblAddtionalInfoAdmissions,
             lblAddtionalInfoExaminations
         }
         Return labels
@@ -103,9 +89,7 @@ Public Class FrmExaminations
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
            btnUploadMarks,
-           btnExaminationsAdd,
-           btnManageMarks,
-           btnViewExams
+           btnManageMarks
         }
 
         Return pagebuttons
@@ -125,4 +109,6 @@ Public Class FrmExaminations
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
+
 End Class

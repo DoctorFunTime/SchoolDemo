@@ -48,12 +48,7 @@ Partial Class FrmFaculty
         Me.txtAllegies = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblAllegies = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlRoles = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.chkBoxRolesNotApplicable = New Guna.UI2.WinForms.Guna2CheckBox()
-        Me.txtFrequency = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblFrequency = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.cmbBoxOtherRoles = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.cntrlCtrlSelection = New Guna.UI2.WinForms.Guna2ContainerControl()
-        Me.lblOtherRoles = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblSelection = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.lblAdd = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ListBoxSubjects = New System.Windows.Forms.ListBox()
@@ -485,12 +480,7 @@ Partial Class FrmFaculty
         '
         'pnlRoles
         '
-        Me.pnlRoles.Controls.Add(Me.chkBoxRolesNotApplicable)
-        Me.pnlRoles.Controls.Add(Me.txtFrequency)
-        Me.pnlRoles.Controls.Add(Me.lblFrequency)
-        Me.pnlRoles.Controls.Add(Me.cmbBoxOtherRoles)
         Me.pnlRoles.Controls.Add(Me.cntrlCtrlSelection)
-        Me.pnlRoles.Controls.Add(Me.lblOtherRoles)
         Me.pnlRoles.Controls.Add(Me.lblSelection)
         Me.pnlRoles.Controls.Add(Me.lblAdd)
         Me.pnlRoles.Controls.Add(Me.ListBoxSubjects)
@@ -504,98 +494,22 @@ Partial Class FrmFaculty
         Me.pnlRoles.Size = New System.Drawing.Size(657, 10)
         Me.pnlRoles.TabIndex = 3
         '
-        'chkBoxRolesNotApplicable
-        '
-        Me.chkBoxRolesNotApplicable.Animated = True
-        Me.chkBoxRolesNotApplicable.AutoSize = True
-        Me.chkBoxRolesNotApplicable.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.chkBoxRolesNotApplicable.CheckedState.BorderRadius = 0
-        Me.chkBoxRolesNotApplicable.CheckedState.BorderThickness = 0
-        Me.chkBoxRolesNotApplicable.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.chkBoxRolesNotApplicable.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.chkBoxRolesNotApplicable.Font = New System.Drawing.Font("Century Gothic", 8.25!)
-        Me.chkBoxRolesNotApplicable.Location = New System.Drawing.Point(481, 10)
-        Me.chkBoxRolesNotApplicable.Name = "chkBoxRolesNotApplicable"
-        Me.chkBoxRolesNotApplicable.Size = New System.Drawing.Size(165, 20)
-        Me.chkBoxRolesNotApplicable.TabIndex = 74
-        Me.chkBoxRolesNotApplicable.Text = "Mark empty fields as n/a?"
-        Me.chkBoxRolesNotApplicable.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.chkBoxRolesNotApplicable.UncheckedState.BorderRadius = 0
-        Me.chkBoxRolesNotApplicable.UncheckedState.BorderThickness = 0
-        Me.chkBoxRolesNotApplicable.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        '
-        'txtFrequency
-        '
-        Me.txtFrequency.Animated = True
-        Me.txtFrequency.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtFrequency.DefaultText = ""
-        Me.txtFrequency.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtFrequency.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtFrequency.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtFrequency.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtFrequency.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtFrequency.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFrequency.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtFrequency.Location = New System.Drawing.Point(238, 133)
-        Me.txtFrequency.Name = "txtFrequency"
-        Me.txtFrequency.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtFrequency.PlaceholderText = "Once a week......"
-        Me.txtFrequency.SelectedText = ""
-        Me.txtFrequency.Size = New System.Drawing.Size(247, 30)
-        Me.txtFrequency.TabIndex = 3
-        '
-        'lblFrequency
-        '
-        Me.lblFrequency.BackColor = System.Drawing.Color.Transparent
-        Me.lblFrequency.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFrequency.Location = New System.Drawing.Point(62, 144)
-        Me.lblFrequency.Name = "lblFrequency"
-        Me.lblFrequency.Size = New System.Drawing.Size(76, 19)
-        Me.lblFrequency.TabIndex = 2
-        Me.lblFrequency.Text = "Frequency  :"
-        '
-        'cmbBoxOtherRoles
-        '
-        Me.cmbBoxOtherRoles.BackColor = System.Drawing.Color.Transparent
-        Me.cmbBoxOtherRoles.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.cmbBoxOtherRoles.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbBoxOtherRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbBoxOtherRoles.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbBoxOtherRoles.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbBoxOtherRoles.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.cmbBoxOtherRoles.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.cmbBoxOtherRoles.ItemHeight = 30
-        Me.cmbBoxOtherRoles.Location = New System.Drawing.Point(238, 77)
-        Me.cmbBoxOtherRoles.Name = "cmbBoxOtherRoles"
-        Me.cmbBoxOtherRoles.Size = New System.Drawing.Size(136, 36)
-        Me.cmbBoxOtherRoles.TabIndex = 37
-        '
         'cntrlCtrlSelection
         '
         Me.cntrlCtrlSelection.AutoScroll = True
         Me.cntrlCtrlSelection.BackColor = System.Drawing.Color.Transparent
         Me.cntrlCtrlSelection.FillColor = System.Drawing.Color.Transparent
-        Me.cntrlCtrlSelection.Location = New System.Drawing.Point(436, 229)
+        Me.cntrlCtrlSelection.Location = New System.Drawing.Point(436, 114)
         Me.cntrlCtrlSelection.Name = "cntrlCtrlSelection"
-        Me.cntrlCtrlSelection.Size = New System.Drawing.Size(214, 179)
+        Me.cntrlCtrlSelection.Size = New System.Drawing.Size(214, 294)
         Me.cntrlCtrlSelection.TabIndex = 40
         Me.cntrlCtrlSelection.Text = "Guna2ContainerControl1"
-        '
-        'lblOtherRoles
-        '
-        Me.lblOtherRoles.BackColor = System.Drawing.Color.Transparent
-        Me.lblOtherRoles.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOtherRoles.Location = New System.Drawing.Point(55, 90)
-        Me.lblOtherRoles.Name = "lblOtherRoles"
-        Me.lblOtherRoles.Size = New System.Drawing.Size(84, 19)
-        Me.lblOtherRoles.TabIndex = 36
-        Me.lblOtherRoles.Text = "Other Roles :"
         '
         'lblSelection
         '
         Me.lblSelection.BackColor = System.Drawing.Color.Transparent
         Me.lblSelection.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSelection.Location = New System.Drawing.Point(500, 195)
+        Me.lblSelection.Location = New System.Drawing.Point(500, 82)
         Me.lblSelection.Name = "lblSelection"
         Me.lblSelection.Size = New System.Drawing.Size(97, 26)
         Me.lblSelection.TabIndex = 39
@@ -606,7 +520,7 @@ Partial Class FrmFaculty
         '
         Me.lblAdd.BackColor = System.Drawing.Color.Transparent
         Me.lblAdd.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAdd.Location = New System.Drawing.Point(18, 195)
+        Me.lblAdd.Location = New System.Drawing.Point(18, 82)
         Me.lblAdd.Name = "lblAdd"
         Me.lblAdd.Size = New System.Drawing.Size(211, 26)
         Me.lblAdd.TabIndex = 38
@@ -618,9 +532,9 @@ Partial Class FrmFaculty
         Me.ListBoxSubjects.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.ListBoxSubjects.FormattingEnabled = True
         Me.ListBoxSubjects.ItemHeight = 17
-        Me.ListBoxSubjects.Location = New System.Drawing.Point(18, 229)
+        Me.ListBoxSubjects.Location = New System.Drawing.Point(18, 114)
         Me.ListBoxSubjects.Name = "ListBoxSubjects"
-        Me.ListBoxSubjects.Size = New System.Drawing.Size(230, 174)
+        Me.ListBoxSubjects.Size = New System.Drawing.Size(230, 293)
         Me.ListBoxSubjects.Sorted = True
         Me.ListBoxSubjects.TabIndex = 37
         '
@@ -628,7 +542,7 @@ Partial Class FrmFaculty
         '
         Me.lblArrow.BackColor = System.Drawing.Color.Transparent
         Me.lblArrow.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblArrow.Location = New System.Drawing.Point(321, 293)
+        Me.lblArrow.Location = New System.Drawing.Point(321, 240)
         Me.lblArrow.Name = "lblArrow"
         Me.lblArrow.Size = New System.Drawing.Size(41, 41)
         Me.lblArrow.TabIndex = 36
@@ -1059,8 +973,6 @@ Partial Class FrmFaculty
     Friend WithEvents lblArrow As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnMedicals As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents pnlMedicals As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents txtFrequency As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lblFrequency As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtDisabilities As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblDisabilities As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnValidateAndFinalise As Guna.UI2.WinForms.Guna2GradientButton
@@ -1079,8 +991,5 @@ Partial Class FrmFaculty
     Friend WithEvents lblRequiredTreament As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtAllegies As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblAllegies As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents cmbBoxOtherRoles As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents lblOtherRoles As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents chkBoxRolesNotApplicable As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents chkBoxFacultyNotApplicable As Guna.UI2.WinForms.Guna2CheckBox
 End Class

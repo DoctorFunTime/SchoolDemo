@@ -271,7 +271,7 @@ Partial Class FrmEnrollment
         Me.cmbBoxReportBook.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbBoxReportBook.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxReportBook.ItemHeight = 30
-        Me.cmbBoxReportBook.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
+        Me.cmbBoxReportBook.Items.AddRange(New Object() {"Include", "n/a"})
         Me.cmbBoxReportBook.Location = New System.Drawing.Point(230, 166)
         Me.cmbBoxReportBook.Name = "cmbBoxReportBook"
         Me.cmbBoxReportBook.Size = New System.Drawing.Size(136, 36)
@@ -420,7 +420,7 @@ Partial Class FrmEnrollment
         Me.cmbTextBooks.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbTextBooks.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbTextBooks.ItemHeight = 30
-        Me.cmbTextBooks.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
+        Me.cmbTextBooks.Items.AddRange(New Object() {"Include", "n/a"})
         Me.cmbTextBooks.Location = New System.Drawing.Point(230, 210)
         Me.cmbTextBooks.Name = "cmbTextBooks"
         Me.cmbTextBooks.Size = New System.Drawing.Size(136, 36)
@@ -470,7 +470,7 @@ Partial Class FrmEnrollment
         Me.cmbUniform.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbUniform.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbUniform.ItemHeight = 30
-        Me.cmbUniform.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
+        Me.cmbUniform.Items.AddRange(New Object() {"Include", "n/a"})
         Me.cmbUniform.Location = New System.Drawing.Point(230, 122)
         Me.cmbUniform.Name = "cmbUniform"
         Me.cmbUniform.Size = New System.Drawing.Size(136, 36)
@@ -542,7 +542,7 @@ Partial Class FrmEnrollment
         Me.cmbBoxTransport.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbBoxTransport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxTransport.ItemHeight = 30
-        Me.cmbBoxTransport.Items.AddRange(New Object() {"Once off", "Per month", "Per term", "Per year", "n/a"})
+        Me.cmbBoxTransport.Items.AddRange(New Object() {"Include", "n/a"})
         Me.cmbBoxTransport.Location = New System.Drawing.Point(230, 78)
         Me.cmbBoxTransport.Name = "cmbBoxTransport"
         Me.cmbBoxTransport.Size = New System.Drawing.Size(136, 36)

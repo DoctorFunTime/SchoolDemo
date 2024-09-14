@@ -23,22 +23,23 @@ Partial Class Homepage
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.prgIndicatorBar = New Guna.UI2.WinForms.Guna2ProgressIndicator()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Homepage))
         Me.pnlDockParent = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.pnlUsersInner = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.picBoxUserAccounts = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.lblAccounts = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.btnChangeUsername = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnChangePassword = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnAccountSettings = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.pnlAttendaceRecords = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.lblStudentAvailable = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblDate = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblPresent = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblPresentValue = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.prgPresent = New Guna.UI2.WinForms.Guna2ProgressBar()
+        Me.lblAbesent = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblAbsentValue = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.prgAbsent = New Guna.UI2.WinForms.Guna2ProgressBar()
         Me.pnlSchoolTerm = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.lblTerm = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblSchoolTerm = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnTerm = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnAdjustTerm = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.pnlTopControls = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnSignOut = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnConnectivity = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnNotifications = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnAboutUs = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnHome = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -70,6 +71,8 @@ Partial Class Homepage
         Me.OpeningTransition = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.btnCloseDatabase = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.lblConnectedUser = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.btnActivateKey = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.lblActivationKey = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.picBoxLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.btnBanking = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnMinimize = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -80,8 +83,7 @@ Partial Class Homepage
         Me.btnControlPanel = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.picBoxUsersLogo = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlDockParent.SuspendLayout()
-        Me.pnlUsersInner.SuspendLayout()
-        CType(Me.picBoxUserAccounts, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlAttendaceRecords.SuspendLayout()
         Me.pnlSchoolTerm.SuspendLayout()
         Me.pnlTopControls.SuspendLayout()
         Me.pnlQuickAccess.SuspendLayout()
@@ -94,20 +96,10 @@ Partial Class Homepage
         CType(Me.picBoxUsersLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'prgIndicatorBar
-        '
-        Me.prgIndicatorBar.AutoStart = True
-        Me.prgIndicatorBar.BackColor = System.Drawing.Color.Transparent
-        Me.prgIndicatorBar.Location = New System.Drawing.Point(16, 652)
-        Me.prgIndicatorBar.Name = "prgIndicatorBar"
-        Me.prgIndicatorBar.Size = New System.Drawing.Size(43, 42)
-        Me.prgIndicatorBar.TabIndex = 24
-        Me.prgIndicatorBar.UseTransparentBackground = True
-        '
         'pnlDockParent
         '
         Me.pnlDockParent.BackColor = System.Drawing.Color.Transparent
-        Me.pnlDockParent.Controls.Add(Me.pnlUsersInner)
+        Me.pnlDockParent.Controls.Add(Me.pnlAttendaceRecords)
         Me.pnlDockParent.Controls.Add(Me.pnlSchoolTerm)
         Me.pnlDockParent.Controls.Add(Me.pnlTopControls)
         Me.pnlDockParent.Controls.Add(Me.pnlQuickAccess)
@@ -124,132 +116,122 @@ Partial Class Homepage
         Me.pnlDockParent.Size = New System.Drawing.Size(1072, 644)
         Me.pnlDockParent.TabIndex = 22
         '
-        'pnlUsersInner
+        'pnlAttendaceRecords
         '
-        Me.pnlUsersInner.BorderColor = System.Drawing.Color.PowderBlue
-        Me.pnlUsersInner.BorderRadius = 8
-        Me.pnlUsersInner.BorderThickness = 1
-        Me.pnlUsersInner.Controls.Add(Me.picBoxUserAccounts)
-        Me.pnlUsersInner.Controls.Add(Me.lblAccounts)
-        Me.pnlUsersInner.Controls.Add(Me.btnChangeUsername)
-        Me.pnlUsersInner.Controls.Add(Me.btnChangePassword)
-        Me.pnlUsersInner.Controls.Add(Me.btnAccountSettings)
-        Me.pnlUsersInner.FillColor = System.Drawing.Color.PowderBlue
-        Me.pnlUsersInner.FillColor2 = System.Drawing.Color.PowderBlue
-        Me.pnlUsersInner.Location = New System.Drawing.Point(301, 313)
-        Me.pnlUsersInner.Name = "pnlUsersInner"
-        Me.pnlUsersInner.ShadowDecoration.BorderRadius = 8
-        Me.pnlUsersInner.ShadowDecoration.Color = System.Drawing.Color.White
-        Me.pnlUsersInner.Size = New System.Drawing.Size(360, 294)
-        Me.pnlUsersInner.TabIndex = 19
+        Me.pnlAttendaceRecords.BorderRadius = 8
+        Me.pnlAttendaceRecords.Controls.Add(Me.lblStudentAvailable)
+        Me.pnlAttendaceRecords.Controls.Add(Me.lblDate)
+        Me.pnlAttendaceRecords.Controls.Add(Me.lblPresent)
+        Me.pnlAttendaceRecords.Controls.Add(Me.lblPresentValue)
+        Me.pnlAttendaceRecords.Controls.Add(Me.prgPresent)
+        Me.pnlAttendaceRecords.Controls.Add(Me.lblAbesent)
+        Me.pnlAttendaceRecords.Controls.Add(Me.lblAbsentValue)
+        Me.pnlAttendaceRecords.Controls.Add(Me.prgAbsent)
+        Me.pnlAttendaceRecords.FillColor = System.Drawing.Color.PowderBlue
+        Me.pnlAttendaceRecords.FillColor2 = System.Drawing.Color.PowderBlue
+        Me.pnlAttendaceRecords.Location = New System.Drawing.Point(279, 313)
+        Me.pnlAttendaceRecords.Name = "pnlAttendaceRecords"
+        Me.pnlAttendaceRecords.Size = New System.Drawing.Size(404, 295)
+        Me.pnlAttendaceRecords.TabIndex = 13
         '
-        'picBoxUserAccounts
+        'lblStudentAvailable
         '
-        Me.picBoxUserAccounts.BackgroundImage = Global.SchoolDemo.My.Resources.Resources.desklight
-        Me.picBoxUserAccounts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.picBoxUserAccounts.FillColor = System.Drawing.Color.Transparent
-        Me.picBoxUserAccounts.ImageRotate = 0!
-        Me.picBoxUserAccounts.Location = New System.Drawing.Point(146, 62)
-        Me.picBoxUserAccounts.Name = "picBoxUserAccounts"
-        Me.picBoxUserAccounts.Size = New System.Drawing.Size(73, 78)
-        Me.picBoxUserAccounts.TabIndex = 18
-        Me.picBoxUserAccounts.TabStop = False
+        Me.lblStudentAvailable.BackColor = System.Drawing.Color.Transparent
+        Me.lblStudentAvailable.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.lblStudentAvailable.ForeColor = System.Drawing.Color.DimGray
+        Me.lblStudentAvailable.Location = New System.Drawing.Point(12, 45)
+        Me.lblStudentAvailable.Name = "lblStudentAvailable"
+        Me.lblStudentAvailable.Size = New System.Drawing.Size(169, 23)
+        Me.lblStudentAvailable.TabIndex = 13
+        Me.lblStudentAvailable.Text = "Student Attendance"
         '
-        'lblAccounts
+        'lblDate
         '
-        Me.lblAccounts.BackColor = System.Drawing.Color.Transparent
-        Me.lblAccounts.Font = New System.Drawing.Font("Century Gothic", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAccounts.ForeColor = System.Drawing.Color.DimGray
-        Me.lblAccounts.Location = New System.Drawing.Point(137, 12)
-        Me.lblAccounts.Name = "lblAccounts"
-        Me.lblAccounts.Size = New System.Drawing.Size(89, 25)
-        Me.lblAccounts.TabIndex = 6
-        Me.lblAccounts.Text = "Accounts"
+        Me.lblDate.BackColor = System.Drawing.Color.Transparent
+        Me.lblDate.Font = New System.Drawing.Font("Century Gothic", 16.0!)
+        Me.lblDate.ForeColor = System.Drawing.Color.DimGray
+        Me.lblDate.Location = New System.Drawing.Point(13, 9)
+        Me.lblDate.Name = "lblDate"
+        Me.lblDate.Size = New System.Drawing.Size(129, 26)
+        Me.lblDate.TabIndex = 12
+        Me.lblDate.Text = "Todays Date"
         '
-        'btnChangeUsername
+        'lblPresent
         '
-        Me.btnChangeUsername.Animated = True
-        Me.btnChangeUsername.BorderColor = System.Drawing.Color.PowderBlue
-        Me.btnChangeUsername.BorderThickness = 1
-        Me.btnChangeUsername.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnChangeUsername.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnChangeUsername.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnChangeUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnChangeUsername.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnChangeUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnChangeUsername.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnChangeUsername.FillColor = System.Drawing.Color.PowderBlue
-        Me.btnChangeUsername.FillColor2 = System.Drawing.Color.PowderBlue
-        Me.btnChangeUsername.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.btnChangeUsername.ForeColor = System.Drawing.Color.Black
-        Me.btnChangeUsername.Image = Global.SchoolDemo.My.Resources.Resources._884
-        Me.btnChangeUsername.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnChangeUsername.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnChangeUsername.Location = New System.Drawing.Point(0, 174)
-        Me.btnChangeUsername.Name = "btnChangeUsername"
-        Me.btnChangeUsername.Size = New System.Drawing.Size(360, 40)
-        Me.btnChangeUsername.TabIndex = 3
-        Me.btnChangeUsername.Text = "Change Username                                                            >"
-        Me.btnChangeUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.lblPresent.BackColor = System.Drawing.Color.Transparent
+        Me.lblPresent.Font = New System.Drawing.Font("Century Gothic", 11.0!)
+        Me.lblPresent.ForeColor = System.Drawing.Color.DimGray
+        Me.lblPresent.Location = New System.Drawing.Point(13, 132)
+        Me.lblPresent.Name = "lblPresent"
+        Me.lblPresent.Size = New System.Drawing.Size(57, 22)
+        Me.lblPresent.TabIndex = 11
+        Me.lblPresent.Text = "Present"
         '
-        'btnChangePassword
+        'lblPresentValue
         '
-        Me.btnChangePassword.Animated = True
-        Me.btnChangePassword.BorderColor = System.Drawing.Color.PowderBlue
-        Me.btnChangePassword.BorderThickness = 1
-        Me.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnChangePassword.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnChangePassword.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnChangePassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnChangePassword.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnChangePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnChangePassword.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnChangePassword.FillColor = System.Drawing.Color.PowderBlue
-        Me.btnChangePassword.FillColor2 = System.Drawing.Color.PowderBlue
-        Me.btnChangePassword.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.btnChangePassword.ForeColor = System.Drawing.Color.Black
-        Me.btnChangePassword.Image = Global.SchoolDemo.My.Resources.Resources._397
-        Me.btnChangePassword.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnChangePassword.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnChangePassword.Location = New System.Drawing.Point(0, 214)
-        Me.btnChangePassword.Name = "btnChangePassword"
-        Me.btnChangePassword.Size = New System.Drawing.Size(360, 40)
-        Me.btnChangePassword.TabIndex = 2
-        Me.btnChangePassword.Text = "Change Password                                                            >"
-        Me.btnChangePassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.lblPresentValue.BackColor = System.Drawing.Color.Transparent
+        Me.lblPresentValue.Font = New System.Drawing.Font("Century Gothic", 14.0!)
+        Me.lblPresentValue.Location = New System.Drawing.Point(308, 120)
+        Me.lblPresentValue.Name = "lblPresentValue"
+        Me.lblPresentValue.Size = New System.Drawing.Size(76, 24)
+        Me.lblPresentValue.TabIndex = 10
+        Me.lblPresentValue.Text = "26 / 300"
         '
-        'btnAccountSettings
+        'prgPresent
         '
-        Me.btnAccountSettings.Animated = True
-        Me.btnAccountSettings.BorderColor = System.Drawing.Color.PowderBlue
-        Me.btnAccountSettings.BorderThickness = 1
-        Me.btnAccountSettings.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAccountSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAccountSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAccountSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAccountSettings.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAccountSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAccountSettings.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnAccountSettings.FillColor = System.Drawing.Color.PowderBlue
-        Me.btnAccountSettings.FillColor2 = System.Drawing.Color.PowderBlue
-        Me.btnAccountSettings.Font = New System.Drawing.Font("Century Gothic", 9.0!)
-        Me.btnAccountSettings.ForeColor = System.Drawing.Color.Black
-        Me.btnAccountSettings.Image = Global.SchoolDemo.My.Resources.Resources._108
-        Me.btnAccountSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnAccountSettings.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnAccountSettings.Location = New System.Drawing.Point(0, 254)
-        Me.btnAccountSettings.Name = "btnAccountSettings"
-        Me.btnAccountSettings.Size = New System.Drawing.Size(360, 40)
-        Me.btnAccountSettings.TabIndex = 7
-        Me.btnAccountSettings.Text = "Account Settings                                                              >"
-        Me.btnAccountSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.prgPresent.BorderRadius = 5
+        Me.prgPresent.FillColor = System.Drawing.Color.Transparent
+        Me.prgPresent.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal
+        Me.prgPresent.Location = New System.Drawing.Point(12, 157)
+        Me.prgPresent.Name = "prgPresent"
+        Me.prgPresent.Size = New System.Drawing.Size(391, 10)
+        Me.prgPresent.TabIndex = 9
+        Me.prgPresent.Text = "Guna2ProgressBar2"
+        Me.prgPresent.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.prgPresent.UseTransparentBackground = True
+        '
+        'lblAbesent
+        '
+        Me.lblAbesent.BackColor = System.Drawing.Color.Transparent
+        Me.lblAbesent.Font = New System.Drawing.Font("Century Gothic", 11.0!)
+        Me.lblAbesent.ForeColor = System.Drawing.Color.DimGray
+        Me.lblAbesent.Location = New System.Drawing.Point(12, 218)
+        Me.lblAbesent.Name = "lblAbesent"
+        Me.lblAbesent.Size = New System.Drawing.Size(54, 22)
+        Me.lblAbesent.TabIndex = 8
+        Me.lblAbesent.Text = "Absent"
+        '
+        'lblAbsentValue
+        '
+        Me.lblAbsentValue.BackColor = System.Drawing.Color.Transparent
+        Me.lblAbsentValue.Font = New System.Drawing.Font("Century Gothic", 14.0!)
+        Me.lblAbsentValue.Location = New System.Drawing.Point(307, 206)
+        Me.lblAbsentValue.Name = "lblAbsentValue"
+        Me.lblAbsentValue.Size = New System.Drawing.Size(76, 24)
+        Me.lblAbsentValue.TabIndex = 7
+        Me.lblAbsentValue.Text = "26 / 300"
+        '
+        'prgAbsent
+        '
+        Me.prgAbsent.BorderRadius = 5
+        Me.prgAbsent.FillColor = System.Drawing.Color.Transparent
+        Me.prgAbsent.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal
+        Me.prgAbsent.Location = New System.Drawing.Point(11, 243)
+        Me.prgAbsent.Name = "prgAbsent"
+        Me.prgAbsent.ProgressColor = System.Drawing.Color.SeaGreen
+        Me.prgAbsent.ProgressColor2 = System.Drawing.Color.SlateBlue
+        Me.prgAbsent.Size = New System.Drawing.Size(391, 10)
+        Me.prgAbsent.TabIndex = 0
+        Me.prgAbsent.Text = "Guna2ProgressBar1"
+        Me.prgAbsent.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.prgAbsent.UseTransparentBackground = True
         '
         'pnlSchoolTerm
         '
         Me.pnlSchoolTerm.BorderColor = System.Drawing.Color.PowderBlue
         Me.pnlSchoolTerm.BorderRadius = 8
         Me.pnlSchoolTerm.BorderThickness = 1
-        Me.pnlSchoolTerm.Controls.Add(Me.lblTerm)
+        Me.pnlSchoolTerm.Controls.Add(Me.lblSchoolTerm)
         Me.pnlSchoolTerm.Controls.Add(Me.btnTerm)
         Me.pnlSchoolTerm.Controls.Add(Me.btnAdjustTerm)
         Me.pnlSchoolTerm.FillColor = System.Drawing.Color.PowderBlue
@@ -260,16 +242,16 @@ Partial Class Homepage
         Me.pnlSchoolTerm.TabIndex = 6
         Me.pnlSchoolTerm.UseTransparentBackground = True
         '
-        'lblTerm
+        'lblSchoolTerm
         '
-        Me.lblTerm.BackColor = System.Drawing.Color.Transparent
-        Me.lblTerm.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTerm.ForeColor = System.Drawing.Color.DimGray
-        Me.lblTerm.Location = New System.Drawing.Point(53, 13)
-        Me.lblTerm.Name = "lblTerm"
-        Me.lblTerm.Size = New System.Drawing.Size(97, 21)
-        Me.lblTerm.TabIndex = 5
-        Me.lblTerm.Text = "School Term"
+        Me.lblSchoolTerm.BackColor = System.Drawing.Color.Transparent
+        Me.lblSchoolTerm.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSchoolTerm.ForeColor = System.Drawing.Color.DimGray
+        Me.lblSchoolTerm.Location = New System.Drawing.Point(53, 14)
+        Me.lblSchoolTerm.Name = "lblSchoolTerm"
+        Me.lblSchoolTerm.Size = New System.Drawing.Size(97, 21)
+        Me.lblSchoolTerm.TabIndex = 6
+        Me.lblSchoolTerm.Text = "School Term"
         '
         'btnTerm
         '
@@ -322,8 +304,6 @@ Partial Class Homepage
         'pnlTopControls
         '
         Me.pnlTopControls.Controls.Add(Me.btnSignOut)
-        Me.pnlTopControls.Controls.Add(Me.btnConnectivity)
-        Me.pnlTopControls.Controls.Add(Me.txtSearch)
         Me.pnlTopControls.Controls.Add(Me.btnNotifications)
         Me.pnlTopControls.Controls.Add(Me.btnAboutUs)
         Me.pnlTopControls.Controls.Add(Me.btnHome)
@@ -352,61 +332,11 @@ Partial Class Homepage
         Me.btnSignOut.ForeColor = System.Drawing.Color.White
         Me.btnSignOut.Image = Global.SchoolDemo.My.Resources.Resources.leftload
         Me.btnSignOut.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnSignOut.Location = New System.Drawing.Point(1021, 3)
+        Me.btnSignOut.Location = New System.Drawing.Point(116, 4)
         Me.btnSignOut.Name = "btnSignOut"
         Me.btnSignOut.Size = New System.Drawing.Size(40, 36)
         Me.btnSignOut.TabIndex = 31
         Me.btnSignOut.UseTransparentBackground = True
-        '
-        'btnConnectivity
-        '
-        Me.btnConnectivity.Animated = True
-        Me.btnConnectivity.BackColor = System.Drawing.Color.Transparent
-        Me.btnConnectivity.BorderRadius = 8
-        Me.btnConnectivity.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnConnectivity.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnConnectivity.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnConnectivity.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnConnectivity.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnConnectivity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnConnectivity.FillColor = System.Drawing.Color.Empty
-        Me.btnConnectivity.FillColor2 = System.Drawing.Color.Empty
-        Me.btnConnectivity.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.btnConnectivity.ForeColor = System.Drawing.Color.White
-        Me.btnConnectivity.Image = Global.SchoolDemo.My.Resources.Resources._114
-        Me.btnConnectivity.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnConnectivity.Location = New System.Drawing.Point(909, 3)
-        Me.btnConnectivity.Name = "btnConnectivity"
-        Me.btnConnectivity.ShadowDecoration.Color = System.Drawing.Color.PowderBlue
-        Me.btnConnectivity.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnConnectivity.Size = New System.Drawing.Size(40, 36)
-        Me.btnConnectivity.TabIndex = 30
-        Me.btnConnectivity.UseTransparentBackground = True
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Animated = True
-        Me.txtSearch.BackColor = System.Drawing.Color.Transparent
-        Me.txtSearch.BorderRadius = 6
-        Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearch.DefaultText = ""
-        Me.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.ForeColor = System.Drawing.Color.Black
-        Me.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSearch.IconLeft = Global.SchoolDemo.My.Resources.Resources._539
-        Me.txtSearch.Location = New System.Drawing.Point(12, 6)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtSearch.PlaceholderForeColor = System.Drawing.Color.DarkGray
-        Me.txtSearch.PlaceholderText = "Search here ...."
-        Me.txtSearch.SelectedText = ""
-        Me.txtSearch.Size = New System.Drawing.Size(200, 32)
-        Me.txtSearch.TabIndex = 20
         '
         'btnNotifications
         '
@@ -425,7 +355,7 @@ Partial Class Homepage
         Me.btnNotifications.ForeColor = System.Drawing.Color.White
         Me.btnNotifications.Image = Global.SchoolDemo.My.Resources.Resources._564
         Me.btnNotifications.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnNotifications.Location = New System.Drawing.Point(853, 3)
+        Me.btnNotifications.Location = New System.Drawing.Point(60, 4)
         Me.btnNotifications.Name = "btnNotifications"
         Me.btnNotifications.Size = New System.Drawing.Size(40, 36)
         Me.btnNotifications.TabIndex = 25
@@ -448,11 +378,12 @@ Partial Class Homepage
         Me.btnAboutUs.ForeColor = System.Drawing.Color.White
         Me.btnAboutUs.Image = Global.SchoolDemo.My.Resources.Resources._787
         Me.btnAboutUs.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnAboutUs.Location = New System.Drawing.Point(965, 3)
+        Me.btnAboutUs.Location = New System.Drawing.Point(229, 4)
         Me.btnAboutUs.Name = "btnAboutUs"
         Me.btnAboutUs.Size = New System.Drawing.Size(40, 36)
         Me.btnAboutUs.TabIndex = 26
         Me.btnAboutUs.UseTransparentBackground = True
+        Me.btnAboutUs.Visible = False
         '
         'btnHome
         '
@@ -471,7 +402,7 @@ Partial Class Homepage
         Me.btnHome.ForeColor = System.Drawing.Color.White
         Me.btnHome.Image = Global.SchoolDemo.My.Resources.Resources._612
         Me.btnHome.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnHome.Location = New System.Drawing.Point(797, 3)
+        Me.btnHome.Location = New System.Drawing.Point(4, 4)
         Me.btnHome.Name = "btnHome"
         Me.btnHome.Size = New System.Drawing.Size(40, 36)
         Me.btnHome.TabIndex = 29
@@ -522,14 +453,14 @@ Partial Class Homepage
         Me.btnStudentDetails.FillColor2 = System.Drawing.Color.PowderBlue
         Me.btnStudentDetails.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.btnStudentDetails.ForeColor = System.Drawing.Color.Black
-        Me.btnStudentDetails.Image = Global.SchoolDemo.My.Resources.Resources.booksopen
-        Me.btnStudentDetails.ImageOffset = New System.Drawing.Point(28, -15)
+        Me.btnStudentDetails.Image = Global.SchoolDemo.My.Resources.Resources.browsernews
+        Me.btnStudentDetails.ImageOffset = New System.Drawing.Point(12, -15)
         Me.btnStudentDetails.ImageSize = New System.Drawing.Size(60, 60)
         Me.btnStudentDetails.Location = New System.Drawing.Point(492, 0)
         Me.btnStudentDetails.Name = "btnStudentDetails"
         Me.btnStudentDetails.Size = New System.Drawing.Size(123, 160)
         Me.btnStudentDetails.TabIndex = 10
-        Me.btnStudentDetails.Text = "Student Details"
+        Me.btnStudentDetails.Text = "Events"
         Me.btnStudentDetails.TextOffset = New System.Drawing.Point(-15, 40)
         '
         'btnEnroll
@@ -574,15 +505,15 @@ Partial Class Homepage
         Me.btnFeesStatement.FillColor2 = System.Drawing.Color.PowderBlue
         Me.btnFeesStatement.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.btnFeesStatement.ForeColor = System.Drawing.Color.Black
-        Me.btnFeesStatement.Image = Global.SchoolDemo.My.Resources.Resources.dollaract
-        Me.btnFeesStatement.ImageOffset = New System.Drawing.Point(28, -15)
-        Me.btnFeesStatement.ImageSize = New System.Drawing.Size(60, 60)
+        Me.btnFeesStatement.Image = Global.SchoolDemo.My.Resources.Resources.teacherletters
+        Me.btnFeesStatement.ImageOffset = New System.Drawing.Point(15, -15)
+        Me.btnFeesStatement.ImageSize = New System.Drawing.Size(70, 70)
         Me.btnFeesStatement.Location = New System.Drawing.Point(246, 0)
         Me.btnFeesStatement.Name = "btnFeesStatement"
         Me.btnFeesStatement.Size = New System.Drawing.Size(123, 160)
         Me.btnFeesStatement.TabIndex = 8
-        Me.btnFeesStatement.Text = "Fees Statement"
-        Me.btnFeesStatement.TextOffset = New System.Drawing.Point(-15, 40)
+        Me.btnFeesStatement.Text = "Register"
+        Me.btnFeesStatement.TextOffset = New System.Drawing.Point(-18, 40)
         '
         'btnFeesPayments
         '
@@ -913,14 +844,14 @@ Partial Class Homepage
         Me.btnRunDignostics.FillColor2 = System.Drawing.Color.PowderBlue
         Me.btnRunDignostics.Font = New System.Drawing.Font("Century Gothic", 10.0!)
         Me.btnRunDignostics.ForeColor = System.Drawing.Color.Black
-        Me.btnRunDignostics.Image = Global.SchoolDemo.My.Resources.Resources._96
+        Me.btnRunDignostics.Image = Global.SchoolDemo.My.Resources.Resources._870
         Me.btnRunDignostics.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnRunDignostics.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnRunDignostics.Location = New System.Drawing.Point(0, 243)
         Me.btnRunDignostics.Name = "btnRunDignostics"
         Me.btnRunDignostics.Size = New System.Drawing.Size(333, 60)
         Me.btnRunDignostics.TabIndex = 0
-        Me.btnRunDignostics.Text = "Run Diagnostics"
+        Me.btnRunDignostics.Text = "Restore Data"
         '
         'notPaint
         '
@@ -978,6 +909,43 @@ Partial Class Homepage
         Me.lblConnectedUser.Size = New System.Drawing.Size(123, 21)
         Me.lblConnectedUser.TabIndex = 32
         Me.lblConnectedUser.Text = "Keith Madzamba"
+        '
+        'btnActivateKey
+        '
+        Me.btnActivateKey.Animated = True
+        Me.btnActivateKey.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnActivateKey.BorderThickness = 1
+        Me.btnActivateKey.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnActivateKey.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnActivateKey.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnActivateKey.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnActivateKey.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnActivateKey.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnActivateKey.FillColor = System.Drawing.Color.Empty
+        Me.btnActivateKey.FillColor2 = System.Drawing.Color.Empty
+        Me.btnActivateKey.Font = New System.Drawing.Font("Century Gothic", 10.0!)
+        Me.btnActivateKey.ForeColor = System.Drawing.Color.Black
+        Me.btnActivateKey.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.btnActivateKey.HoverState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.btnActivateKey.HoverState.ForeColor = System.Drawing.Color.White
+        Me.btnActivateKey.Location = New System.Drawing.Point(413, 10)
+        Me.btnActivateKey.Name = "btnActivateKey"
+        Me.btnActivateKey.PressedColor = System.Drawing.Color.PowderBlue
+        Me.btnActivateKey.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnActivateKey.Size = New System.Drawing.Size(98, 27)
+        Me.btnActivateKey.TabIndex = 33
+        Me.btnActivateKey.Text = "Activate"
+        '
+        'lblActivationKey
+        '
+        Me.lblActivationKey.BackColor = System.Drawing.Color.Transparent
+        Me.lblActivationKey.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblActivationKey.ForeColor = System.Drawing.Color.DimGray
+        Me.lblActivationKey.Location = New System.Drawing.Point(524, 14)
+        Me.lblActivationKey.Name = "lblActivationKey"
+        Me.lblActivationKey.Size = New System.Drawing.Size(106, 18)
+        Me.lblActivationKey.TabIndex = 34
+        Me.lblActivationKey.Text = "Active Key Date"
         '
         'picBoxLogo
         '
@@ -1038,6 +1006,7 @@ Partial Class Homepage
         Me.btnMinimize.Image = Global.SchoolDemo.My.Resources.Resources._995
         Me.btnMinimize.Location = New System.Drawing.Point(1163, 0)
         Me.btnMinimize.Name = "btnMinimize"
+        Me.btnMinimize.PressedColor = System.Drawing.Color.PowderBlue
         Me.btnMinimize.Size = New System.Drawing.Size(40, 36)
         Me.btnMinimize.TabIndex = 17
         Me.btnMinimize.UseTransparentBackground = True
@@ -1090,6 +1059,7 @@ Partial Class Homepage
         Me.btnClose.ImageSize = New System.Drawing.Size(13, 13)
         Me.btnClose.Location = New System.Drawing.Point(1204, 0)
         Me.btnClose.Name = "btnClose"
+        Me.btnClose.PressedColor = System.Drawing.Color.PowderBlue
         Me.btnClose.Size = New System.Drawing.Size(40, 36)
         Me.btnClose.TabIndex = 15
         Me.btnClose.UseTransparentBackground = True
@@ -1201,10 +1171,11 @@ Partial Class Homepage
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1244, 701)
+        Me.Controls.Add(Me.lblActivationKey)
+        Me.Controls.Add(Me.btnActivateKey)
         Me.Controls.Add(Me.lblConnectedUser)
         Me.Controls.Add(Me.picBoxLogo)
         Me.Controls.Add(Me.btnCloseDatabase)
-        Me.Controls.Add(Me.prgIndicatorBar)
         Me.Controls.Add(Me.pnlDockParent)
         Me.Controls.Add(Me.btnBanking)
         Me.Controls.Add(Me.btnMinimize)
@@ -1217,15 +1188,15 @@ Partial Class Homepage
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.Name = "Homepage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "School Name"
         Me.pnlDockParent.ResumeLayout(False)
-        Me.pnlUsersInner.ResumeLayout(False)
-        Me.pnlUsersInner.PerformLayout()
-        CType(Me.picBoxUserAccounts, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlAttendaceRecords.ResumeLayout(False)
+        Me.pnlAttendaceRecords.PerformLayout()
         Me.pnlSchoolTerm.ResumeLayout(False)
         Me.pnlSchoolTerm.PerformLayout()
         Me.pnlTopControls.ResumeLayout(False)
@@ -1247,11 +1218,9 @@ Partial Class Homepage
     End Sub
     Friend WithEvents btnAboutUs As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnNotifications As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents prgIndicatorBar As Guna.UI2.WinForms.Guna2ProgressIndicator
     Friend WithEvents pnlDockParent As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents notPaint As Guna.UI2.WinForms.Guna2NotificationPaint
     Friend WithEvents OpeningTransition As Guna.UI2.WinForms.Guna2BorderlessForm
-    Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents btnBanking As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnMinimize As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnReports As Guna.UI2.WinForms.Guna2GradientButton
@@ -1285,7 +1254,6 @@ Partial Class Homepage
     Friend WithEvents pnlQuickAccessControls As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnCashbook As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents pnlTopControls As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents btnConnectivity As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnEnroll As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents picBoxStats As Guna.UI2.WinForms.Guna2PictureBox
@@ -1293,13 +1261,18 @@ Partial Class Homepage
     Friend WithEvents btnStudentDetails As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnFeesPayments As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents pnlSchoolTerm As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents lblTerm As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnTerm As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnAdjustTerm As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents picBoxUserAccounts As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents pnlUsersInner As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents lblAccounts As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents btnChangeUsername As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents btnChangePassword As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents btnAccountSettings As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents lblSchoolTerm As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblActivationKey As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents btnActivateKey As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents pnlAttendaceRecords As Guna.UI2.WinForms.Guna2GradientPanel
+    Friend WithEvents lblAbesent As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblAbsentValue As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents prgAbsent As Guna.UI2.WinForms.Guna2ProgressBar
+    Friend WithEvents lblDate As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblPresent As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblPresentValue As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents prgPresent As Guna.UI2.WinForms.Guna2ProgressBar
+    Friend WithEvents lblStudentAvailable As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

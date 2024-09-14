@@ -5,6 +5,7 @@ Imports MyEncapsulation
 Imports Newtonsoft.Json.Linq
 Imports Frond_End_Design
 Imports Guna.UI2.WinForms
+Imports SQLUpdateStatements
 
 Public Class FrmRegister
     Private selectStatement As New SelectStats
@@ -13,14 +14,30 @@ Public Class FrmRegister
     Private _term As String
     Private design As New Design
     Private _darkmode As Boolean
-    Public Sub New(message As String, term As String, darkmode As Boolean)
+    Private _conn As String
+    Private _date As DateTime
+    Private _editTerm As String
+    Private _clause As String
+    Private _frm As Homepage
+    Public Sub New(message As String, clause As String, tdate As DateTime, editTerm As String, term As String, darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        lblHeading.Text = $"{message} Class Register - {Date.Today.ToString("dddd-MMM-yyyy")}."
+        _frm = frm
+        _clause = clause
+        _date = tdate
+        _editTerm = editTerm
+
+        If _clause = "Update Register" Then
+            lblHeading.Text = $"{message} Class Register Edit- {tdate.ToString("dddd-MMM-yyyy")}."
+        Else
+            lblHeading.Text = $"{message} Class Register - {Date.Today.ToString("dddd-MMM-yyyy")}."
+        End If
+
         _messsage = message
+        _conn = conn
         _term = term
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
@@ -33,43 +50,62 @@ Public Class FrmRegister
 
         DKMgrid()
 
-        Dim cr_date As New DataGridViewTextBoxColumn() With {
-            .Name = "cr_date",
-            .HeaderText = "Date",
-            .DataPropertyName = "Date",
-            .ValueType = GetType(DateTime)
-        }
+        Select Case _clause
 
-        Dim cr_term As New DataGridViewTextBoxColumn() With {
-            .Name = "cr_term",
-            .HeaderText = "Term",
-            .DataPropertyName = "String",
-            .ValueType = GetType(String)
-        }
+            Case "Update Register"
+                DataGridView.DataSource = selectStatement.GetClassesForRegisterUpdates(_date, _editTerm, _messsage, _conn)
 
-        DataGridView.Columns.Add(cr_date)
-        DataGridView.Columns.Add(cr_term)
+                Dim readOnlyCol As String() = {"date", "id", "term", "class", "name", "surname"}
+                For Each col As String In readOnlyCol
+                    DataGridView.Columns(col).ReadOnly = True
+                Next
 
-        DataGridView.DataSource = selectStatement.GetClassesForRegister(_messsage)
+            Case Else
+                Dim cr_date As New DataGridViewTextBoxColumn() With {
+                    .Name = "date",
+                    .HeaderText = "Date",
+                    .DataPropertyName = "Date",
+                    .ValueType = GetType(DateTime),
+                    .[ReadOnly] = True
+                }
 
-        Dim chkBxColumn As New DataGridViewCheckBoxColumn() With {
-         .HeaderText = "student_present",
-         .Name = "student_present"
-        }
+                Dim cr_term As New DataGridViewTextBoxColumn() With {
+                    .Name = "term",
+                    .HeaderText = "Term",
+                    .DataPropertyName = "String",
+                    .ValueType = GetType(String),
+                    .[ReadOnly] = True
+                }
 
-        DataGridView.Columns.Add(chkBxColumn)
+                DataGridView.Columns.Add(cr_date)
+                DataGridView.Columns.Add(cr_term)
 
-        For Each row In DataGridView.Rows
-            row.cells("cr_date").value = DateTime.Today
-        Next
+                DataGridView.DataSource = selectStatement.GetClassesForRegister(_messsage, _conn)
+                Dim readOnlyCol As String() = {"id", "class", "name", "surname"}
+                For Each col As String In readOnlyCol
+                    DataGridView.Columns(col).ReadOnly = True
+                Next
 
-        For Each row In DataGridView.Rows
-            row.cells("student_present").value = True
-        Next
+                Dim chkBxColumn As New DataGridViewCheckBoxColumn() With {
+                     .HeaderText = "status",
+                     .Name = "status"
+                }
 
-        For Each row In DataGridView.Rows
-            row.cells("cr_term").value = _term
-        Next
+                DataGridView.Columns.Add(chkBxColumn)
+
+                For Each row In DataGridView.Rows
+                    row.cells("date").value = DateTime.Today
+                Next
+
+                For Each row In DataGridView.Rows
+                    row.cells("status").value = True
+                Next
+
+                For Each row In DataGridView.Rows
+                    row.cells("term").value = _term
+                Next
+
+        End Select
 
     End Sub
 
@@ -92,37 +128,56 @@ Public Class FrmRegister
             End If
         Next
 
-        Dim selection As New List(Of Register)
+        If _clause = "Update Register" Then
+            Dim selection As New List(Of Register)
 
-        For Each row In dt.Rows
-            Dim studentID As Integer = row("student_id")
-            Dim studentClass As String = row("student_class")
-            Dim studentName As String = row("student_name")
-            Dim studentSurname As String = row("student_surname")
-            Dim studentPresent As Boolean = row("student_present")
-            Dim term As String = row("cr_term")
+            For Each row In dt.Rows
 
-            Dim newselection As New Register(Date.Today, studentID, studentClass, studentName, studentSurname, studentPresent, term)
-            selection.Add(newselection)
+                Dim studentDate As DateTime = row("date")
+                Dim studentID As Integer = row("id")
+                Dim studentClass As String = row("class")
+                Dim studentName As String = row("name")
+                Dim studentSurname As String = row("surname")
+                Dim studentPresent As Boolean = row("status")
+                Dim term As String = row("term")
 
-        Next
+                Dim newselection As New Register(studentDate, studentID, studentClass, studentName, studentSurname, studentPresent, term)
+                selection.Add(newselection)
 
-        Dim isMarked As DataTable = selectStatement.GetRegisterState(_messsage, Date.Today)
+                UpdateStatements.UpdateClassRegister(_frm.lblConnectedUser.Text, selection, _conn)
 
-        If isMarked.Rows.Count > 0 Then
-            design.messagboxInfo("Marked", $"The register for the {_messsage} class has already been completed for the day.", Me)
+            Next
+
+
         Else
-            SQLLine.InsertRegister(selection)
+
+            Dim selection As New List(Of Register)
+
+            For Each row In dt.Rows
+                Dim studentID As Integer = row("id")
+                Dim studentClass As String = row("class")
+                Dim studentName As String = row("name")
+                Dim studentSurname As String = row("surname")
+                Dim studentPresent As Boolean = row("status")
+                Dim term As String = row("term")
+
+                Dim newselection As New Register(Date.Today, studentID, studentClass, studentName, studentSurname, studentPresent, term)
+                selection.Add(newselection)
+
+            Next
+
+            Dim isMarked As DataTable = selectStatement.GetRegisterState(_messsage, Date.Today, _conn)
+
+            If isMarked.Rows.Count > 0 Then
+                design.messagboxInfo("Marked", $"The register for the {_messsage} class has already been completed for the day.", Me)
+            Else
+                SQLLine.InsertRegister(_frm.lblConnectedUser.Text, selection, _conn)
+            End If
+
         End If
 
         Close()
 
-    End Sub
-
-    Private Sub DataGridView_Click(sender As Object, e As EventArgs) Handles DataGridView.Click
-        For Each row In DataGridView.Rows
-            row.cells("cr_date").value = DateTime.Today
-        Next
     End Sub
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
@@ -186,5 +241,9 @@ Public Class FrmRegister
             DataGridView.RowsDefaultCellStyle.ForeColor = Color.Black
             DataGridView.GridColor = Color.FromArgb(231, 229, 255)
         End If
+    End Sub
+
+    Private Sub FrmRegister_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
+        _frm.Updates()
     End Sub
 End Class

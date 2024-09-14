@@ -13,14 +13,18 @@ Public Class FrmPayment
     Private design As New Design
     Private _docNumber As Integer
     Private _darkmode As Boolean
-    Public Sub New(darkmode As Boolean)
+    Private _conn As String
+    Private _frm As Homepage
+    Public Sub New(darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         dtePickerDate.Value = DateTime.Today
-        _docNumber = selectStatement.GetDocNumber("Expense").Compute("MAX(dc_number)", String.Empty) + 1
+        _frm = frm
+        _conn = conn
+        _docNumber = selectStatement.GetDocNumber("Expense", _conn).Compute("MAX(dc_number)", String.Empty) + 1
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
@@ -39,8 +43,8 @@ Public Class FrmPayment
                     If Integer.TryParse(txtDocAmount.Text.Trim(), value) Then
                         Dim newEntry As New ReceiptsPayment(dtePickerDate.Value, txtDocDescription.Text, 0, value, cmbBoxDocCurrency.Text, "CR", cmbBoxDocPaymentType.Text, txtDocDocNumber.Text)
                         selection.Add(newEntry)
-                        SQLLine.InsertReceiptPayment(selection)
-                        SQLLine.InsertDocNumber(_docNumber, "Expense")
+                        SQLLine.InsertReceiptPayment(_frm.lblConnectedUser.Text, selection, _conn)
+                        SQLLine.InsertDocNumber(_docNumber, "Expense", _conn)
                         Popup.ShowNotification("Ok", "Successful", "Payment was processed successfully.", Me)
                         Close()
                     End If
@@ -50,7 +54,7 @@ Public Class FrmPayment
     End Sub
 
     Private Sub FrmPayment_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim effRate As DataTable = selectStatement.GetDaysRate(Date.Today)
+        Dim effRate As DataTable = selectStatement.GetDaysRate(Date.Today, _conn)
 
         For Each row In effRate.Rows
             Dim baseRate As Decimal = row("exchange_rate")

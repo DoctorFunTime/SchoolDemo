@@ -15,8 +15,10 @@ Public Class FrmUploadExam
     Private _fillClause As String
     Private _exam As String
     Private _darkmode As Boolean
+    Private _conn As String
+    Private _frm As Homepage
 
-    Public Sub New(message As String, term As String, exam As String, fillClause As String, darkmode As Boolean)
+    Public Sub New(message As String, term As String, exam As String, fillClause As String, darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
@@ -24,7 +26,8 @@ Public Class FrmUploadExam
         ' Add any initialization after the InitializeComponent() call.
         lblHeading.Text = $"{message} Exam/Test Register - {Date.Today.ToString("dddd-MMM-yyyy")}."
         dtePickerDate.Value = Date.Today
-
+        _frm = frm
+        _conn = conn
         _message = message
         _term = term
         _exam = exam
@@ -63,7 +66,7 @@ Public Class FrmUploadExam
 
                     Next
 
-                    SQLLine.InsertExamTestMarks(selection)
+                    SQLLine.InsertExamTestMarks(_frm.lblConnectedUser.Text, selection, _conn)
                     Popup.ShowNotification("Ok", "Successful", $"{_message} {cmbBoxExamTest.Text} marks were successfully processed.", Me)
                     Close()
                 Else
@@ -77,7 +80,7 @@ Public Class FrmUploadExam
                 If verified Then
                     pnlControls.Width = 35
 
-                    Dim filteredExamDetails As DataTable = selectStatement.GetFilteredExamPrepDetails(cmbBoxSubject.Text, _message)
+                    Dim filteredExamDetails As DataTable = selectStatement.GetFilteredExamPrepDetails(cmbBoxSubject.Text, _message, _conn)
                     DataGridView.Columns.Clear()
                     DataGridView.DataSource = filteredExamDetails
                     AddColumn()
@@ -99,7 +102,7 @@ Public Class FrmUploadExam
 
         DKMgrid()
 
-        Dim subjectList As DataTable = selectStatement.GetSubjects()
+        Dim subjectList As DataTable = selectStatement.GetSubjects(_conn)
 
         For Each row As DataRow In subjectList.Rows
             Dim subject As String = row("s_subject").ToString
@@ -107,13 +110,13 @@ Public Class FrmUploadExam
         Next
 
         If _fillClause = "Manage Exams" Then
-            Dim adjustableStudentExam As DataTable = selectStatement.GetStudentGrades(_message, _term, _exam)
+            Dim adjustableStudentExam As DataTable = selectStatement.GetStudentGrades(_message, _term, _exam, _conn)
             DataGridView.DataSource = adjustableStudentExam
             cmbBoxSubject.Text = _message
             txtDescription.Text = _exam
             btnValidateAndFinalise.Text = "Update Changes"
         Else
-            Dim studentExamDetails As DataTable = selectStatement.GetExamPrepDetails(_message)
+            Dim studentExamDetails As DataTable = selectStatement.GetExamPrepDetails(_message, _conn)
             DataGridView.DataSource = studentExamDetails
             AddColumn()
         End If

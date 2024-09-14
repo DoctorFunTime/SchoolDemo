@@ -11,15 +11,17 @@ Public Class FrmFaculty
     Private Popup As New NotificationBubble
     Public newFmID As Integer
     Private _darkmode As Boolean
+    Private _conn As String
+    Private _frm As Homepage
 
-    Public Sub New(darkmode As Boolean, _newFmId As Integer)
+    Public Sub New(darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
         InitializeComponent()
 
         dtePickerDateOfBirth.Value = Date.Today
-        newFmID = _newFmId
-        'load faculty page
+        _frm = frm
+        _conn = conn
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
@@ -91,13 +93,14 @@ Public Class FrmFaculty
 
                     SQLLine.InsertFacultyDetails(txtFirstName.Text, txtSurname.Text, cmbBoxClass.Text,
                                                  dtePickerDateOfBirth.Value, txtBirthIDNumber.Text,
-                                                 txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text,
-                                                 cmbBoxOtherRoles.Text, txtFrequency.Text, txtAllegies.Text,
+                                                 txtAddress.Text, txtPhoneNumber.Text, txtEmailAddress.Text, txtAllegies.Text,
                                                  txtRequiredTreatment.Text, txtMedications.Text, txtDosage.Text,
                                                  txtSchedule.Text, txtDisabilities.Text, txtPhysician.Text,
-                                                 txtPhysicianContacts.Text, Date.Today)
+                                                 txtPhysicianContacts.Text, Date.Today, _frm.lblConnectedUser.Text, _conn)
 
-                    Dim facultySelection As New FrmSelectStudent("New Faculty", _darkmode, Me)
+                    Dim facultySelection As New FrmSelectStudent("New Faculty", _darkmode, Me, _conn) With {
+                        ._frm = _frm
+                    }
                     facultySelection.ShowDialog()
 
                     Dim selectedSubjects As New List(Of String)
@@ -107,9 +110,10 @@ Public Class FrmFaculty
                         End If
                     Next
 
-                    SQLLine.InsertEducatorSubjects(newFmID, selectedSubjects)
+                    SQLLine.InsertEducatorSubjects(newFmID, _frm.lblConnectedUser.Text, selectedSubjects, _conn)
                     Popup.ShowNotification("Ok", "Successful", "Faculty member was successfully added.", Me)
                     Close()
+                    _frm.Updates()
                 End If
 
         End Select
@@ -185,9 +189,9 @@ Public Class FrmFaculty
     Private Sub FrmFaculty_Load(sender As Object, e As EventArgs) Handles Me.Load
         'add subjects to listbox
 
-        Dim subjects As DataTable = selectStatement.GetSubjects()
-        Dim classes As DataTable = selectStatement.GetClasses()
-        Dim OtherRoles As DataTable = selectStatement.GetOtherRoles()
+        Dim subjects As DataTable = selectStatement.GetSubjects(_conn)
+        Dim classes As DataTable = selectStatement.GetClasses(_conn)
+        Dim OtherRoles As DataTable = selectStatement.GetOtherRoles(_conn)
 
         For Each row In subjects.Rows
             Dim subject As String = row("s_subject").ToString
@@ -199,16 +203,11 @@ Public Class FrmFaculty
             cmbBoxClass.Items.Add(sclass)
         Next
 
-        For Each row In OtherRoles.Rows
-            Dim otherRole As String = row("or_description").ToString
-            cmbBoxOtherRoles.Items.Add(otherRole)
-        Next
-
         design.loadPnl(pnlFaculty)
         btnFaculty.PerformClick()
     End Sub
 
-    Private Sub chkBoxNotApplicable_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxRolesNotApplicable.CheckedChanged, chkBoxMedicalsNotApplicable.CheckedChanged, chkBoxFacultyNotApplicable.CheckedChanged
+    Private Sub chkBoxNotApplicable_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxMedicalsNotApplicable.CheckedChanged, chkBoxFacultyNotApplicable.CheckedChanged
         Select Case sender.name
 
             Case "chkBoxRolesNotApplicable"
@@ -285,9 +284,7 @@ Public Class FrmFaculty
             lblDisabilities,
             lblAllegies,
             lblSelection,
-            lblOtherRoles,
             lblHeadingOne,
-            lblFrequency,
             lblClass,
             lblArrow,
             lblAdd,
@@ -321,7 +318,6 @@ Public Class FrmFaculty
             txtDosage,
             txtDisabilities,
             txtAllegies,
-            txtFrequency,
             txtEmailAddress,
             txtPhoneNumber,
             txtAddress,
@@ -334,8 +330,6 @@ Public Class FrmFaculty
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
-            cmbBoxOtherRoles,
-            cmbBoxClass,
             cmbBoxClass
         }
         Return placeholder
@@ -343,7 +337,6 @@ Public Class FrmFaculty
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox) From {
-            chkBoxRolesNotApplicable,
             chkBoxMedicalsNotApplicable,
             chkBoxFacultyNotApplicable
             }

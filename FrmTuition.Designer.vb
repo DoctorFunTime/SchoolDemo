@@ -87,7 +87,7 @@ Partial Class FrmTuition
         Me.dtePickerDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.dtePickerDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.dtePickerDate.Name = "dtePickerDate"
-        Me.dtePickerDate.Size = New System.Drawing.Size(217, 35)
+        Me.dtePickerDate.Size = New System.Drawing.Size(315, 35)
         Me.dtePickerDate.TabIndex = 70
         Me.dtePickerDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.dtePickerDate.Value = New Date(2024, 7, 21, 0, 0, 0, 0)
