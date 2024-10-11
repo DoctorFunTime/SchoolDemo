@@ -23,6 +23,7 @@ Partial Class FrmTuition
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTuition))
         Me.cmbBoxDocCurrency = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lblCurrency = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.dtePickerDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -298,7 +299,7 @@ Partial Class FrmTuition
         Me.txtDocStudentID.Location = New System.Drawing.Point(419, 9)
         Me.txtDocStudentID.Name = "txtDocStudentID"
         Me.txtDocStudentID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtDocStudentID.PlaceholderText = "Student ID"
+        Me.txtDocStudentID.PlaceholderText = "ID"
         Me.txtDocStudentID.ReadOnly = True
         Me.txtDocStudentID.SelectedText = ""
         Me.txtDocStudentID.Size = New System.Drawing.Size(51, 30)
@@ -411,9 +412,10 @@ Partial Class FrmTuition
         Me.Controls.Add(Me.lblAmount)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmTuition"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmTuition"
+        Me.Text = "Student Fees"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

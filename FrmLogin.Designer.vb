@@ -23,6 +23,7 @@ Partial Class FrmLogin
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogin))
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.picBoxSignIn = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.pnlUnderlineUsername = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -33,6 +34,7 @@ Partial Class FrmLogin
         Me.pnlUnderlinePassword = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.OpeningTransition = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.btnActivateKey = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.lblConnectedUser = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.picBoxSignIn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -179,7 +181,7 @@ Partial Class FrmLogin
         Me.txtUsername.Location = New System.Drawing.Point(46, 179)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtUsername.PlaceholderText = "Username"
+        Me.txtUsername.PlaceholderText = ""
         Me.txtUsername.SelectedText = ""
         Me.txtUsername.Size = New System.Drawing.Size(293, 45)
         Me.txtUsername.TabIndex = 1
@@ -230,12 +232,24 @@ Partial Class FrmLogin
         Me.btnActivateKey.TabIndex = 61
         Me.btnActivateKey.Text = "Activate"
         '
+        'lblConnectedUser
+        '
+        Me.lblConnectedUser.BackColor = System.Drawing.Color.Transparent
+        Me.lblConnectedUser.Font = New System.Drawing.Font("Century Gothic", 8.5!, System.Drawing.FontStyle.Italic)
+        Me.lblConnectedUser.ForeColor = System.Drawing.Color.PowderBlue
+        Me.lblConnectedUser.Location = New System.Drawing.Point(7, 427)
+        Me.lblConnectedUser.Name = "lblConnectedUser"
+        Me.lblConnectedUser.Size = New System.Drawing.Size(186, 17)
+        Me.lblConnectedUser.TabIndex = 62
+        Me.lblConnectedUser.Text = "Powered by Four Tear Developers"
+        '
         'FrmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(385, 450)
+        Me.Controls.Add(Me.lblConnectedUser)
         Me.Controls.Add(Me.btnActivateKey)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.picBoxSignIn)
@@ -247,11 +261,13 @@ Partial Class FrmLogin
         Me.Controls.Add(Me.pnlUnderlinePassword)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmLogin"
+        Me.Text = "Login"
         CType(Me.picBoxSignIn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents txtPassword As Guna.UI2.WinForms.Guna2TextBox
@@ -264,4 +280,5 @@ Partial Class FrmLogin
     Friend WithEvents pnlUnderlinePassword As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents OpeningTransition As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents btnActivateKey As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents lblConnectedUser As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

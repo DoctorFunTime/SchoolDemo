@@ -23,6 +23,7 @@ Partial Class FrmPayment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPayment))
         Me.openingTranstionPayments = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.cmbBoxDocCurrency = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lblCurrency = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -370,9 +371,10 @@ Partial Class FrmPayment
         Me.Controls.Add(Me.lblAmount)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmPayment"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmPayment"
+        Me.Text = "Payments"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

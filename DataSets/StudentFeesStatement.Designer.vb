@@ -305,6 +305,14 @@ Partial Public Class StudentFeesStatement
         
         Private columnfs_doc_number As Global.System.Data.DataColumn
         
+        Private columnschool_name As Global.System.Data.DataColumn
+        
+        Private columncontacts As Global.System.Data.DataColumn
+        
+        Private columnaddress As Global.System.Data.DataColumn
+        
+        Private columnslogan As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -429,6 +437,38 @@ Partial Public Class StudentFeesStatement
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property school_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnschool_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncontacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property addressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaddress
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sloganColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnslogan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -465,9 +505,9 @@ Partial Public Class StudentFeesStatement
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtFeesStatementRow(ByVal fs_date As Date, ByVal fs_description As String, ByVal fs_currency_code As String, ByVal fs_debit As Decimal, ByVal fs_credit As Decimal, ByVal fs_adjusted_amount As Decimal, ByVal fs_running_balance As Decimal, ByVal std_name As String, ByVal std_surname As String, ByVal std_class As String, ByVal fs_doc_number As String) As dtFeesStatementRow
+        Public Overloads Function AdddtFeesStatementRow(ByVal fs_date As Date, ByVal fs_description As String, ByVal fs_currency_code As String, ByVal fs_debit As Decimal, ByVal fs_credit As Decimal, ByVal fs_adjusted_amount As Decimal, ByVal fs_running_balance As Decimal, ByVal std_name As String, ByVal std_surname As String, ByVal std_class As String, ByVal fs_doc_number As String, ByVal school_name As String, ByVal contacts As String, ByVal address As String, ByVal slogan As String) As dtFeesStatementRow
             Dim rowdtFeesStatementRow As dtFeesStatementRow = CType(Me.NewRow,dtFeesStatementRow)
-            Dim columnValuesArray() As Object = New Object() {fs_date, fs_description, fs_currency_code, fs_debit, fs_credit, fs_adjusted_amount, fs_running_balance, std_name, std_surname, std_class, fs_doc_number}
+            Dim columnValuesArray() As Object = New Object() {fs_date, fs_description, fs_currency_code, fs_debit, fs_credit, fs_adjusted_amount, fs_running_balance, std_name, std_surname, std_class, fs_doc_number, school_name, contacts, address, slogan}
             rowdtFeesStatementRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtFeesStatementRow)
             Return rowdtFeesStatementRow
@@ -501,6 +541,10 @@ Partial Public Class StudentFeesStatement
             Me.columnstd_surname = MyBase.Columns("std_surname")
             Me.columnstd_class = MyBase.Columns("std_class")
             Me.columnfs_doc_number = MyBase.Columns("fs_doc_number")
+            Me.columnschool_name = MyBase.Columns("school_name")
+            Me.columncontacts = MyBase.Columns("contacts")
+            Me.columnaddress = MyBase.Columns("address")
+            Me.columnslogan = MyBase.Columns("slogan")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -528,6 +572,14 @@ Partial Public Class StudentFeesStatement
             MyBase.Columns.Add(Me.columnstd_class)
             Me.columnfs_doc_number = New Global.System.Data.DataColumn("fs_doc_number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfs_doc_number)
+            Me.columnschool_name = New Global.System.Data.DataColumn("school_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschool_name)
+            Me.columncontacts = New Global.System.Data.DataColumn("contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncontacts)
+            Me.columnaddress = New Global.System.Data.DataColumn("address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaddress)
+            Me.columnslogan = New Global.System.Data.DataColumn("slogan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnslogan)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -839,6 +891,66 @@ Partial Public Class StudentFeesStatement
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property school_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.school_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_name' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.school_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'contacts' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.addressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'address' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.addressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property slogan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtFeesStatement.sloganColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'slogan' in table 'dtFeesStatement' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtFeesStatement.sloganColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Isfs_dateNull() As Boolean
             Return Me.IsNull(Me.tabledtFeesStatement.fs_dateColumn)
         End Function
@@ -967,6 +1079,54 @@ Partial Public Class StudentFeesStatement
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setfs_doc_numberNull()
             Me(Me.tabledtFeesStatement.fs_doc_numberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isschool_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.school_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setschool_nameNull()
+            Me(Me.tabledtFeesStatement.school_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IscontactsNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetcontactsNull()
+            Me(Me.tabledtFeesStatement.contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsaddressNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.addressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetaddressNull()
+            Me(Me.tabledtFeesStatement.addressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IssloganNull() As Boolean
+            Return Me.IsNull(Me.tabledtFeesStatement.sloganColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetsloganNull()
+            Me(Me.tabledtFeesStatement.sloganColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

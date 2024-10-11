@@ -23,6 +23,7 @@ Partial Class FrmEnrollment
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEnrollment))
         Me.openingTranstionEnrollment = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.lblHeadingOne = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlDock = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -1806,9 +1807,10 @@ Partial Class FrmEnrollment
         Me.Controls.Add(Me.btnMedicals)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmEnrollment"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmEnrollment"
+        Me.Text = "Enrollment"
         Me.pnlDock.ResumeLayout(False)
         Me.pnlPayments.ResumeLayout(False)
         Me.pnlPayments.PerformLayout()

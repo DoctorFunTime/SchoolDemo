@@ -16,41 +16,6 @@
           </Border>
         </Style>
       </Image>
-      <Textbox Name="Textbox17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>School name</Value>
-                <Style>
-                  <FontFamily>century Gothic</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.50348in</Top>
-        <Left>1.24052in</Left>
-        <Height>0.27083in</Height>
-        <Width>2.64583in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox20">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -58,7 +23,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>User Activity Log</Value>
+                <Value>User Activity Logs</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -72,15 +37,20 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.84376in</Top>
-        <Left>1.24052in</Left>
-        <Height>0.33506in</Height>
-        <Width>2.64583in</Width>
-        <ZIndex>2</ZIndex>
+        <Top>1.71876in</Top>
+        <Left>0.24052in</Left>
+        <Height>0.306in</Height>
+        <Width>1.79166in</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -98,7 +68,6 @@
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
                   <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
                   <Format>D</Format>
                 </Style>
               </TextRun>
@@ -109,11 +78,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.84376in</Top>
+        <Top>1.71876in</Top>
         <Left>4.36364in</Left>
         <Height>0.27083in</Height>
         <Width>3.15625in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -128,13 +97,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.35417in</Width>
+              <Width>1.97963in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.28125in</Width>
+              <Width>2.55162in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.77083in</Width>
+              <Width>1.45833in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -158,7 +127,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -195,7 +164,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -232,7 +201,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -273,7 +242,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -307,7 +276,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -341,7 +310,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -373,14 +342,14 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!action.Value</Value>
+                              <Value>=iif(Fields!action.Value = "INSERT","Added an entry",iif(Fields!action.Value = "DELETE","Deleted an entry","Made changes to an entry"))</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -408,14 +377,14 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!affected_table.Value</Value>
+                              <Value>=iif(Fields!affected_table.Value = "cashbook","Cashbook Transactions", iif(Fields!affected_table.Value = "class_register","Class Registers", iif(Fields!affected_table.Value = "classes","Fees Structures", iif(Fields!affected_table.Value = "conversions","Conversion Rates",iif(Fields!affected_table.Value = "educator_selection","Educator's Subject Selections",iif(Fields!affected_table.Value = "events","Events Calendar",iif(Fields!affected_table.Value = "examinations","Examination Marks and Details",iif(Fields!affected_table.Value = "faculty_member","Faculty Members",iif(Fields!affected_table.Value = "fees_statement","Student's Fees Statement",iif(Fields!affected_table.Value = "medicals","Student's Medical Details",iif(Fields!affected_table.Value = "miscellaneous_costs","Student's miscellaneous Costs ",iif(Fields!affected_table.Value = "school_details","School Details",iif(Fields!affected_table.Value = "student_costs","Student's Additional Costs",iif(Fields!affected_table.Value = "students_table","Student's Details",iif(Fields!affected_table.Value = "subject_selection","Student's Subject Selection",iif(Fields!affected_table.Value = "subjects","School's Subject Offers",iif(Fields!affected_table.Value = "school_details","School Details","")))))))))))))))))</Value>
                               <Style>
                                 <FontFamily>Century Gothic</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -451,7 +420,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -468,7 +437,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -486,7 +454,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1.87312in</Size>
+                <Size>1.41479in</Size>
                 <CellContents>
                   <Textbox Name="Textbox18">
                     <CanGrow>true</CanGrow>
@@ -540,7 +508,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1.87312in</Size>
+                <Size>1.41479in</Size>
                 <CellContents>
                   <Textbox Name="username1">
                     <CanGrow>true</CanGrow>
@@ -567,10 +535,10 @@
                         <Color>LightGrey</Color>
                         <Style>Solid</Style>
                       </Border>
-                      <VerticalAlign>Middle</VerticalAlign>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingTop>10pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
@@ -588,17 +556,189 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>UserActivity</DataSetName>
-        <Top>1.9675in</Top>
-        <Left>0.24052in</Left>
+        <Top>2.7175in</Top>
+        <Left>0.11552in</Left>
         <Height>0.92708in</Height>
-        <Width>7.27937in</Width>
-        <ZIndex>4</ZIndex>
+        <Width>7.40437in</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Line Name="Line4">
+        <Top>1.53125in</Top>
+        <Left>0.06817in</Left>
+        <Height>0in</Height>
+        <Width>7.56062in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>Dotted</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!address.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.31771in</Top>
+        <Left>5.70739in</Left>
+        <Height>0.94444in</Height>
+        <Width>1.8125in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox28">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Contacts : </Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!contacts.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>1.05382in</Top>
+        <Left>1.20833in</Left>
+        <Height>0.25in</Height>
+        <Width>2.94396in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!slogan.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.76215in</Top>
+        <Left>1.20833in</Left>
+        <Height>0.25in</Height>
+        <Width>2.94396in</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!school_name.Value</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.39411in</Top>
+        <Left>1.20833in</Left>
+        <Height>0.2986in</Height>
+        <Width>4.27083in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>4.5625in</Height>
     <Style />
@@ -606,7 +746,7 @@
   <Width>7.69697in</Width>
   <Page>
     <PageFooter>
-      <Height>0.57292in</Height>
+      <Height>0.42709in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -639,8 +779,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.18055in</Top>
-          <Left>5.12406in</Left>
+          <Top>0.08333in</Top>
+          <Left>5.13401in</Left>
           <Height>0.25in</Height>
           <Width>2.46875in</Width>
           <Style>
@@ -673,8 +813,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.18055in</Top>
-          <Left>0.04214in</Left>
+          <Top>0.08333in</Top>
+          <Left>0.05209in</Left>
           <Height>0.25in</Height>
           <Width>2.53125in</Width>
           <ZIndex>1</ZIndex>
@@ -696,7 +836,7 @@
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
-              <Style>Solid</Style>
+              <Style>Dotted</Style>
             </Border>
           </Style>
         </Line>
@@ -747,6 +887,22 @@
         <Field Name="time">
           <DataField>time</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="school_name">
+          <DataField>school_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="contacts">
+          <DataField>contacts</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="address">
+          <DataField>address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="slogan">
+          <DataField>slogan</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

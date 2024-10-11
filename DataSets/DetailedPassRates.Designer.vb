@@ -291,6 +291,30 @@ Partial Public Class DetailedPassRates
         
         Private columnmark As Global.System.Data.DataColumn
         
+        Private columnschool_name As Global.System.Data.DataColumn
+        
+        Private columncontacts As Global.System.Data.DataColumn
+        
+        Private columnaddress As Global.System.Data.DataColumn
+        
+        Private columnslogan As Global.System.Data.DataColumn
+        
+        Private columneducator_name As Global.System.Data.DataColumn
+        
+        Private columneducator_surname As Global.System.Data.DataColumn
+        
+        Private columna_count As Global.System.Data.DataColumn
+        
+        Private columnb_count As Global.System.Data.DataColumn
+        
+        Private columnc_count As Global.System.Data.DataColumn
+        
+        Private columnd_count As Global.System.Data.DataColumn
+        
+        Private columne_count As Global.System.Data.DataColumn
+        
+        Private columnf_count As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -359,6 +383,102 @@ Partial Public Class DetailedPassRates
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property school_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnschool_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncontacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property addressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaddress
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sloganColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnslogan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property educator_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columneducator_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property educator_surnameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columneducator_surname
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property a_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columna_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property b_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnb_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property c_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnc_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property d_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnd_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property e_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columne_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property f_countColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnf_count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -395,9 +515,25 @@ Partial Public Class DetailedPassRates
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtDetailedPassRatesRow(ByVal term As String, ByVal _Class As String, ByVal subject As String, ByVal mark As Decimal) As dtDetailedPassRatesRow
+        Public Overloads Function AdddtDetailedPassRatesRow( _
+                    ByVal term As String,  _
+                    ByVal _Class As String,  _
+                    ByVal subject As String,  _
+                    ByVal mark As Decimal,  _
+                    ByVal school_name As String,  _
+                    ByVal contacts As String,  _
+                    ByVal address As String,  _
+                    ByVal slogan As String,  _
+                    ByVal educator_name As String,  _
+                    ByVal educator_surname As String,  _
+                    ByVal a_count As String,  _
+                    ByVal b_count As String,  _
+                    ByVal c_count As String,  _
+                    ByVal d_count As String,  _
+                    ByVal e_count As String,  _
+                    ByVal f_count As String) As dtDetailedPassRatesRow
             Dim rowdtDetailedPassRatesRow As dtDetailedPassRatesRow = CType(Me.NewRow,dtDetailedPassRatesRow)
-            Dim columnValuesArray() As Object = New Object() {term, _Class, subject, mark}
+            Dim columnValuesArray() As Object = New Object() {term, _Class, subject, mark, school_name, contacts, address, slogan, educator_name, educator_surname, a_count, b_count, c_count, d_count, e_count, f_count}
             rowdtDetailedPassRatesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtDetailedPassRatesRow)
             Return rowdtDetailedPassRatesRow
@@ -421,9 +557,21 @@ Partial Public Class DetailedPassRates
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnterm = MyBase.Columns("term")
-            Me.columnClass = MyBase.Columns("Class")
+            Me.columnClass = MyBase.Columns("class")
             Me.columnsubject = MyBase.Columns("subject")
             Me.columnmark = MyBase.Columns("mark")
+            Me.columnschool_name = MyBase.Columns("school_name")
+            Me.columncontacts = MyBase.Columns("contacts")
+            Me.columnaddress = MyBase.Columns("address")
+            Me.columnslogan = MyBase.Columns("slogan")
+            Me.columneducator_name = MyBase.Columns("educator_name")
+            Me.columneducator_surname = MyBase.Columns("educator_surname")
+            Me.columna_count = MyBase.Columns("a_count")
+            Me.columnb_count = MyBase.Columns("b_count")
+            Me.columnc_count = MyBase.Columns("c_count")
+            Me.columnd_count = MyBase.Columns("d_count")
+            Me.columne_count = MyBase.Columns("e_count")
+            Me.columnf_count = MyBase.Columns("f_count")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -431,15 +579,40 @@ Partial Public Class DetailedPassRates
         Private Sub InitClass()
             Me.columnterm = New Global.System.Data.DataColumn("term", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnterm)
-            Me.columnClass = New Global.System.Data.DataColumn("Class", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnClass = New Global.System.Data.DataColumn("class", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnClass.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "_Class")
             Me.columnClass.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ClassColumn")
             Me.columnClass.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnClass")
-            Me.columnClass.ExtendedProperties.Add("Generator_UserColumnName", "Class")
+            Me.columnClass.ExtendedProperties.Add("Generator_UserColumnName", "class")
             MyBase.Columns.Add(Me.columnClass)
             Me.columnsubject = New Global.System.Data.DataColumn("subject", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnsubject)
             Me.columnmark = New Global.System.Data.DataColumn("mark", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmark)
+            Me.columnschool_name = New Global.System.Data.DataColumn("school_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschool_name)
+            Me.columncontacts = New Global.System.Data.DataColumn("contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncontacts)
+            Me.columnaddress = New Global.System.Data.DataColumn("address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaddress)
+            Me.columnslogan = New Global.System.Data.DataColumn("slogan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnslogan)
+            Me.columneducator_name = New Global.System.Data.DataColumn("educator_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columneducator_name)
+            Me.columneducator_surname = New Global.System.Data.DataColumn("educator_surname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columneducator_surname)
+            Me.columna_count = New Global.System.Data.DataColumn("a_count", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columna_count)
+            Me.columnb_count = New Global.System.Data.DataColumn("b_count", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnb_count)
+            Me.columnc_count = New Global.System.Data.DataColumn("c_count", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnc_count)
+            Me.columnd_count = New Global.System.Data.DataColumn("d_count", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnd_count)
+            Me.columne_count = New Global.System.Data.DataColumn("e_count", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columne_count)
+            Me.columnf_count = New Global.System.Data.DataColumn("f_count", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnf_count)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -606,7 +779,7 @@ Partial Public Class DetailedPassRates
                 Try 
                     Return CType(Me(Me.tabledtDetailedPassRates.ClassColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Class' in table 'dtDetailedPassRates' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'class' in table 'dtDetailedPassRates' is DBNull.", e)
                 End Try
             End Get
             Set
@@ -641,6 +814,187 @@ Partial Public Class DetailedPassRates
             End Get
             Set
                 Me(Me.tabledtDetailedPassRates.markColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property school_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.school_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_name' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.school_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'contacts' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.addressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'address' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.addressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property slogan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.sloganColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'slogan' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.sloganColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property educator_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.educator_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'educator_name' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.educator_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property educator_surname() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.educator_surnameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'educator_surname' in table 'dtDetailedPassRates' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.educator_surnameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property a_count() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.a_countColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'a_count' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.a_countColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property b_count() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.b_countColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'b_count' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.b_countColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property c_count() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.c_countColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'c_count' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.c_countColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property d_count() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.d_countColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'd_count' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.d_countColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property e_count() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.e_countColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'e_count' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.e_countColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property f_count() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDetailedPassRates.f_countColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'f_count' in table 'dtDetailedPassRates' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDetailedPassRates.f_countColumn) = value
             End Set
         End Property
         
@@ -690,6 +1044,150 @@ Partial Public Class DetailedPassRates
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetmarkNull()
             Me(Me.tabledtDetailedPassRates.markColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isschool_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.school_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setschool_nameNull()
+            Me(Me.tabledtDetailedPassRates.school_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IscontactsNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetcontactsNull()
+            Me(Me.tabledtDetailedPassRates.contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsaddressNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.addressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetaddressNull()
+            Me(Me.tabledtDetailedPassRates.addressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IssloganNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.sloganColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetsloganNull()
+            Me(Me.tabledtDetailedPassRates.sloganColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iseducator_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.educator_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Seteducator_nameNull()
+            Me(Me.tabledtDetailedPassRates.educator_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Iseducator_surnameNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.educator_surnameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Seteducator_surnameNull()
+            Me(Me.tabledtDetailedPassRates.educator_surnameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isa_countNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.a_countColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Seta_countNull()
+            Me(Me.tabledtDetailedPassRates.a_countColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isb_countNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.b_countColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setb_countNull()
+            Me(Me.tabledtDetailedPassRates.b_countColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isc_countNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.c_countColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setc_countNull()
+            Me(Me.tabledtDetailedPassRates.c_countColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isd_countNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.d_countColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setd_countNull()
+            Me(Me.tabledtDetailedPassRates.d_countColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Ise_countNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.e_countColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Sete_countNull()
+            Me(Me.tabledtDetailedPassRates.e_countColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isf_countNull() As Boolean
+            Return Me.IsNull(Me.tabledtDetailedPassRates.f_countColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setf_countNull()
+            Me(Me.tabledtDetailedPassRates.f_countColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

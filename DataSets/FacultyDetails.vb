@@ -1,8 +1,5 @@
-﻿
-
-Partial Public Class FacultyDetails
+﻿Partial Public Class FacultyDetails
 End Class
-
 
 Partial Public Class FacultyDetails
 End Class

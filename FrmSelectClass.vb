@@ -1,11 +1,17 @@
-﻿Imports System.Drawing.Text
+﻿Imports System.Diagnostics.Eventing.Reader
+Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports DatabaseSelectStatements
-Imports Guna.UI2.WinForms
 Imports Frond_End_Design
+Imports Functionality
+Imports Guna.UI2.WinForms
+Imports Guna.UI2.WinForms.Suite.Descriptions
 Imports MyEncapsulation
 
 Public Class FrmSelectClass
+    Private dragger As New SystemFunctions
     Private selctStatement As New SelectStats
+    Private WithEvents helperTimer As System.Windows.Forms.Timer
     Private design As New Design
     Private classList As DataTable
     Private examList As DataTable
@@ -15,6 +21,7 @@ Public Class FrmSelectClass
     Private _conn As String
     Private _frm As Homepage
     Public notifications As New List(Of Notifications)
+
     Public Sub New(message As String, darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
@@ -28,18 +35,21 @@ Public Class FrmSelectClass
         _darkmode = darkmode
         design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
 
     Private Sub FrmSelectClass_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        dragger.EnableDrag(Me, pnlTopBar)
         DKMflowPanel()
 
-        If _message = "Manage Exams" Then
+        If _message = "Manage Exams" Or _message = "View Exams" Or _message = "Add Student Marks" Then
 
             cmbBoxClass.Visible = True
             lblHeading.Text = "Exam Selection"
+            helper()
 
             For Each row In classList.Rows
                 Dim sclass As String = row("cl_class").ToString
@@ -65,7 +75,28 @@ Public Class FrmSelectClass
         Next
 
     End Sub
+    Private Sub helper()
 
+        helperTimer = New Timer With {
+            .Interval = 1000
+        }
+
+        Dim ticks As Integer = 0
+
+        helperTimer.Start()
+
+        AddHandler helperTimer.Tick, Sub(sender As Object, e As EventArgs)
+                                         If Not ticks = 5 Then
+                                             ticks += 1
+                                         Else
+                                             If String.IsNullOrEmpty(cmbBoxClass.Text) Then
+                                                 btnHelper.Visible = True
+                                             End If
+                                             helperTimer.Stop()
+                                         End If
+                                     End Sub
+
+    End Sub
     Private Sub classButton(message As String)
 
         Dim color1 As Color
@@ -110,6 +141,7 @@ Public Class FrmSelectClass
         pnlFlwClasses.Controls.Add(classButton)
 
     End Sub
+
     Private Sub classButton(message As String, subjectName As String)
 
         Dim color1 As Color
@@ -170,7 +202,6 @@ Public Class FrmSelectClass
 
         AddHandler classButton.Click, AddressOf classButtonClicked
 
-
         pnlDock.Controls.Add(classButton)
         pnlDock.Controls.Add(subject)
         pnlFlwClasses.Controls.Add(pnlDock)
@@ -195,36 +226,61 @@ Public Class FrmSelectClass
                 Dim frm As New FrmUploadExam($"{sender.tag}", _term, $"{sender.text}", _message, _darkmode, _frm, _conn)
                 frm.ShowDialog()
 
+            Case "Add Student Marks"
+
+                Dim frm As New FrmUploadExam($"{sender.tag}", _term, $"{sender.text}", _message, _darkmode, _frm, _conn)
+                frm.ShowDialog()
+
+            Case "View Exams"
+                Dim datatable As DataTable = selctStatement.GetStudentMarksForView(sender.tag, _term, sender.text, _conn)
+
+                Dim reportForm As New FrmStudentReport(datatable, "ExamMarks", "ExamMarks", _darkmode)
+                reportForm.Show()
+
             Case "Notifications"
 
                 Select Case sender.text
                     Case "Complete Registers"
                         Dim FormID As String = "Class Register"
                         Dim frm As New FrmSelectClass(FormID, _darkmode, _frm, _conn)
-                        frm.ShowDialog()
+                        frm.Show()
 
                     Case "Activation Key"
                         _frm.btnActivateKey.PerformClick()
                         _frm.notifications.Clear()
                         _frm.notificationUpdate()
 
-                    Case "Incoming Events (Next 7 Days)"
+                    Case "Incoming Event(s) (Next 7 Days)"
                         Dim frm As New FrmEventsPlanner(_darkmode, _frm, _conn)
-                        frm.ShowDialog()
+                        frm.Show()
 
                     Case "Students Not Invoiced"
                         Dim formID As String = "Invoice Students"
                         Dim selectStudent As New FrmRegisterSelection(_darkmode, formID, _term, _frm, _conn)
                         selectStudent.ShowDialog()
 
-
                 End Select
                 Close()
+
+            Case "Select Class"
+                Dim datatable As DataTable = selctStatement.GetClassRegister(sender.text, _conn)
+
+                Dim reportForm As New FrmStudentReport(datatable, "ClassList", "ClassList", _darkmode)
+                reportForm.Show()
+
+            Case "Student Remarks"
+                Dim frm As New FrmAdjustments("Student Remarks", _darkmode, _conn, _frm, 1) With {
+                    ._class = sender.text
+                }
+                frm.ShowDialog()
+
         End Select
 
     End Sub
 
     Private Sub cmbBoxClass_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbBoxClass.SelectedValueChanged
+
+        btnHelper.Visible = False
         examList = selctStatement.GetStudentGradesSubjectSelection(sender.text, _term, _conn)
 
         pnlFlwClasses.Controls.Clear()
@@ -236,16 +292,19 @@ Public Class FrmSelectClass
         Next
 
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton)
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
@@ -253,6 +312,7 @@ Public Class FrmSelectClass
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -260,16 +320,19 @@ Public Class FrmSelectClass
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -277,16 +340,22 @@ Public Class FrmSelectClass
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
     Private Sub DKMflowPanel()
         If _darkmode Then
             pnlFlwClasses.BackColor = Color.FromArgb(40, 30, 90)
         Else
             pnlFlwClasses.BackColor = Color.White
         End If
+    End Sub
+
+    Private Sub cmbBoxClass_MouseHover(sender As Object, e As EventArgs)
+
     End Sub
 End Class

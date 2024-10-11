@@ -2,40 +2,6 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Textbox Name="Textbox17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>School name</Value>
-                <Style>
-                  <FontFamily>century Gothic</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.41667in</Top>
-        <Left>1.14207in</Left>
-        <Height>0.27083in</Height>
-        <Width>2.64583in</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox19">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -57,15 +23,19 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.74306in</Top>
-        <Left>1.14207in</Left>
+        <Top>1.54167in</Top>
+        <Left>0.125in</Left>
         <Height>0.34375in</Height>
-        <Width>3.33333in</Width>
-        <ZIndex>1</ZIndex>
+        <Width>2.76041in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -82,7 +52,6 @@
                 <Value>=Fields!fm_name.Value &amp; " " &amp; Fields!fm_surname.Value</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -92,11 +61,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.125in</Top>
-        <Left>4.88356in</Left>
+        <Top>1.54167in</Top>
+        <Left>4.91479in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -117,14 +86,12 @@
                 <Value>Educator ID : </Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>=Fields!fm_id.Value</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -134,11 +101,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.46644in</Top>
-        <Left>4.88356in</Left>
+        <Top>1.88311in</Top>
+        <Left>4.91479in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -159,14 +126,12 @@
                 <Value>Class : </Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>=Fields!fm_class.Value</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -176,11 +141,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.80788in</Top>
-        <Left>4.88356in</Left>
+        <Top>2.22455in</Top>
+        <Left>4.91479in</Left>
         <Height>0.27083in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -212,11 +177,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.17644in</Top>
+        <Top>3.42644in</Top>
         <Left>1.45583in</Left>
         <Height>0.27083in</Height>
         <Width>1.84469in</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -254,11 +219,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.681in</Top>
+        <Top>3.88412in</Top>
         <Left>0.23961in</Left>
         <Height>0.27083in</Height>
         <Width>3.10511in</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -296,11 +261,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>3.73178in</Top>
+        <Top>4.79949in</Top>
         <Left>0.23961in</Left>
         <Height>0.27083in</Height>
         <Width>3.10511in</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -338,11 +303,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>3.20639in</Top>
+        <Top>4.3418in</Top>
         <Left>0.23961in</Left>
         <Height>0.27083in</Height>
         <Width>3.10511in</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -380,11 +345,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>4.25717in</Top>
+        <Top>5.25717in</Top>
         <Left>0.23961in</Left>
         <Height>0.27083in</Height>
         <Width>3.10511in</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -401,9 +366,9 @@
         <Sizing>FitProportional</Sizing>
         <Top>0.13542in</Top>
         <Left>0.12504in</Left>
-        <Height>1.10996in</Height>
-        <Width>1.00314in</Width>
-        <ZIndex>10</ZIndex>
+        <Height>1.06829in</Height>
+        <Width>1.07606in</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -431,11 +396,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>1.60939in</Top>
+        <Top>2.98439in</Top>
         <Left>0.125in</Left>
         <Height>0.29166in</Height>
         <Width>2.91716in</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -473,11 +438,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>1.5984in</Top>
+        <Top>2.9734in</Top>
         <Left>3.69561in</Left>
         <Height>0.29166in</Height>
         <Width>2.91716in</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -501,7 +466,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Allegies                           : </Value>
+                <Value>Allergies                           : </Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
                   <FontSize>9pt</FontSize>
@@ -521,11 +486,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.16545in</Top>
+        <Top>3.41545in</Top>
         <Left>3.82061in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -563,11 +528,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.68935in</Top>
+        <Top>3.88251in</Top>
         <Left>3.82061in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -605,11 +570,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>3.73716in</Top>
+        <Top>4.81662in</Top>
         <Left>3.81018in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>15</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -647,11 +612,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>3.21326in</Top>
+        <Top>4.34957in</Top>
         <Left>3.82061in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -689,11 +654,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>4.26106in</Top>
+        <Top>5.28368in</Top>
         <Left>3.82061in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -731,11 +696,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>4.78497in</Top>
+        <Top>5.75074in</Top>
         <Left>3.8206in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -773,11 +738,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>5.30887in</Top>
+        <Top>6.2178in</Top>
         <Left>3.82061in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -815,11 +780,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>5.83277in</Top>
+        <Top>6.68486in</Top>
         <Left>3.8206in</Left>
         <Height>0.27083in</Height>
         <Width>3.41808in</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -851,11 +816,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>4.87234in</Top>
+        <Top>6.12234in</Top>
         <Left>0.125in</Left>
         <Height>0.29166in</Height>
         <Width>2.91716in</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -947,11 +912,11 @@
           </Tablix>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
-        <Top>5.30887in</Top>
+        <Top>6.55887in</Top>
         <Left>0.38542in</Left>
-        <Height>3.73409in</Height>
+        <Height>2.32784in</Height>
         <Width>3.09469in</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -978,11 +943,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.17644in</Top>
+        <Top>3.42644in</Top>
         <Left>0.23961in</Left>
         <Height>0.27083in</Height>
         <Width>1.18844in</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1003,7 +968,6 @@
                 <Value>Joined : </Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                   <Format>D</Format>
                 </Style>
               </TextRun>
@@ -1011,7 +975,6 @@
                 <Value>=Fields!fm_join_date.Value</Value>
                 <Style>
                   <FontFamily>century Gothic</FontFamily>
-                  <FontWeight>Bold</FontWeight>
                   <Format>D</Format>
                 </Style>
               </TextRun>
@@ -1022,11 +985,183 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>1.14932in</Top>
-        <Left>4.39398in</Left>
+        <Top>2.56599in</Top>
+        <Left>4.42521in</Left>
         <Height>0.27083in</Height>
         <Width>3.13541in</Width>
+        <ZIndex>23</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line5">
+        <Top>1.35071in</Top>
+        <Left>0.04689in</Left>
+        <Height>0in</Height>
+        <Width>7.56062in</Width>
         <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Style>Dotted</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox24">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!address.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.2176in</Top>
+        <Left>5.63072in</Left>
+        <Height>0.94444in</Height>
+        <Width>1.8125in</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox25">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Contacts : </Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!contacts.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.95371in</Top>
+        <Left>1.2011in</Left>
+        <Height>0.25in</Height>
+        <Width>2.94396in</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox26">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!slogan.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.66204in</Top>
+        <Left>1.2011in</Left>
+        <Height>0.25in</Height>
+        <Width>2.94396in</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!school_name.Value</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.294in</Top>
+        <Left>1.2011in</Left>
+        <Height>0.2986in</Height>
+        <Width>4.13541in</Width>
+        <ZIndex>28</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1068,7 +1203,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.06944in</Top>
+          <Top>0.09722in</Top>
           <Height>0.25in</Height>
           <Width>2.53125in</Width>
           <Style>
@@ -1110,7 +1245,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.06944in</Top>
+          <Top>0.09722in</Top>
           <Left>5.55021in</Left>
           <Height>0.25in</Height>
           <Width>2.07291in</Width>
@@ -1125,6 +1260,17 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line4">
+          <Top>0.02778in</Top>
+          <Height>0in</Height>
+          <Width>7.56062in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>Dotted</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -1231,6 +1377,22 @@
         </Field>
         <Field Name="es_subjects">
           <DataField>es_subjects</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="school_name">
+          <DataField>school_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="contacts">
+          <DataField>contacts</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="address">
+          <DataField>address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="slogan">
+          <DataField>slogan</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -1,16 +1,12 @@
-﻿
-Imports Frond_End_Design
-Imports System.Windows.Forms.DataVisualization.Charting
-Imports Guna.UI2.WinForms
-Imports SQLStatements
+﻿Imports bubble
 Imports DatabaseSelectStatements
+Imports Frond_End_Design
+Imports Guna.UI2.WinForms
 Imports MyEncapsulation
-Imports System.Globalization
-Imports bubble
+Imports SQLStatements
 
 Public Class FrmEnrollment
     Private selctStatement As New SelectStats
-    Private popUp As New NotificationBubble
     Private subjectList As DataTable
     Private classList As DataTable
     Public newStdID As Integer
@@ -23,6 +19,7 @@ Public Class FrmEnrollment
     Private _darkmode As Boolean
     Private _conn As String
     Private _frm As Homepage
+
     Public Sub New(darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
@@ -46,7 +43,7 @@ Public Class FrmEnrollment
         'clear opened panels
         design.clearPanels(pnlDock)
 
-        'Add buttons to collection 
+        'Add buttons to collection
         addToButtonCollection()
 
         'Remove styling on all buttons
@@ -96,6 +93,7 @@ Public Class FrmEnrollment
         Next
 
     End Sub
+
     'creating chips from listbox
     Private Sub ListBoxSubjects_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListBoxSubjects.MouseDoubleClick
 
@@ -123,6 +121,7 @@ Public Class FrmEnrollment
         cntrlCtrlSelection.Controls.Add(GCHips)
 
     End Sub
+
     'validation buttons
     Private Sub btnValidation_Click(sender As Object, e As EventArgs) Handles btnValidateStudentDetails.Click, btnValidateSubjects.Click, btnValidateGuardians.Click, btnValidateMedicals.Click, btnValidateAndFinalise.Click
 
@@ -228,6 +227,7 @@ Public Class FrmEnrollment
 
                         selectStudent.ShowDialog()
 
+                        SQLLine.InsertComments("He/She has made very good progress and must maintain the standard. Keep it up!", newStdID, _frm.lblConnectedUser.Text, _conn)
                         SQLLine.InsertStudentMedicals(newStdID, txtAllegies.Text, txtRequiredTreatment.Text, txtMedications.Text, txtDosage.Text, txtSchedule.Text, txtDisabilities.Text, txtPhysician.Text, txtPhysicianContacts.Text, _frm.lblConnectedUser.Text, _conn)
 
                         Dim selectedSubjects As New List(Of String)
@@ -242,13 +242,14 @@ Public Class FrmEnrollment
 
                         Dim selection As New List(Of DataSelection)
                         addCostsToCollection()
+                        Dim monthComp As String = "INV"
 
                         For Each item In sCosts
                             If Not item.text = "0" Then
                                 Dim value As Integer
                                 If Integer.TryParse(item.Text.Trim(), value) Then
 
-                                    Dim newselection As New DataSelection(Date.Today, item.tag, value, 0, cmbBoxCurrency.Text, "DR", cmbBoxPaymentType.Text, newStdID, txtDocNumber.Text)
+                                    Dim newselection As New DataSelection(Date.Today, monthComp & "-" & item.tag, value, 0, cmbBoxCurrency.Text, "DR", cmbBoxPaymentType.Text, newStdID, txtDocNumber.Text)
                                     selection.Add(newselection)
 
                                 End If
@@ -259,9 +260,7 @@ Public Class FrmEnrollment
                         SQLLine.InsertDocNumber(_docNumber, "Invoice", _conn)
 
                         Dim frm As New FrmTuition(txtFirstName.Text, newStdID, _darkmode, _frm, _conn)
-                        popUp.ShowNotification("Make Payment", "Successful", "Student was enrolled successfully. Click the button below to make a payment.", frm)
                         btnClose.PerformClick()
-                        _frm.Updates()
                     End If
                 End If
 
@@ -306,6 +305,7 @@ Public Class FrmEnrollment
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
+
     'Add side button list to collection
     Public Sub addToButtonCollection()
         'Empty Collection
@@ -335,6 +335,7 @@ Public Class FrmEnrollment
         sCosts.Add(txtMiscellaneousCost)
 
     End Sub
+
     Private Sub chkBoxStudentNotApplicable_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxStudentNotApplicable.CheckedChanged, chkBoxGuardiansNotApplicable.CheckedChanged, chkBoxMedicalsNotApplicable.CheckedChanged, chkBoxPaymentsNotApplicable.CheckedChanged
 
         Select Case sender.name
@@ -444,7 +445,6 @@ Public Class FrmEnrollment
                     txtUniformCost.Text = 0
                 End If
 
-
             Case "cmbTextBooks"
                 Dim vTest As Boolean = False
 
@@ -532,11 +532,13 @@ Public Class FrmEnrollment
         }
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
@@ -549,6 +551,7 @@ Public Class FrmEnrollment
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -590,6 +593,7 @@ Public Class FrmEnrollment
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -603,6 +607,7 @@ Public Class FrmEnrollment
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
@@ -637,6 +642,7 @@ Public Class FrmEnrollment
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -651,6 +657,7 @@ Public Class FrmEnrollment
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox) From {
@@ -662,7 +669,4 @@ Public Class FrmEnrollment
         Return placeholder
     End Function
 
-    Private Sub FrmEnrollment_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
-        _frm.Updates()
-    End Sub
 End Class

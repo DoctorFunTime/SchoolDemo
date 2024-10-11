@@ -1,14 +1,14 @@
-﻿Imports Frond_End_Design
-Imports Guna.UI2.WinForms
+﻿Imports bubble
 Imports DatabaseSelectStatements
+Imports Frond_End_Design
+Imports Guna.UI2.WinForms
 Imports SQLStatements
-Imports bubble
+
 Public Class FrmFaculty
 
     Dim design As New Design
     Dim selectStatement As New SelectStats
     Private buttonList As New Collection
-    Private Popup As New NotificationBubble
     Public newFmID As Integer
     Private _darkmode As Boolean
     Private _conn As String
@@ -25,6 +25,7 @@ Public Class FrmFaculty
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
@@ -111,9 +112,7 @@ Public Class FrmFaculty
                     Next
 
                     SQLLine.InsertEducatorSubjects(newFmID, _frm.lblConnectedUser.Text, selectedSubjects, _conn)
-                    Popup.ShowNotification("Ok", "Successful", "Faculty member was successfully added.", Me)
                     Close()
-                    _frm.Updates()
                 End If
 
         End Select
@@ -124,7 +123,7 @@ Public Class FrmFaculty
         'clear opened panels
         design.clearPanels(pnlDock)
 
-        'Add buttons to collection 
+        'Add buttons to collection
         addToButtonCollection()
 
         'Remove styling on all buttons
@@ -147,6 +146,7 @@ Public Class FrmFaculty
 
         End Select
     End Sub
+
     Private Sub ListBoxSubjects_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles ListBoxSubjects.MouseDoubleClick
 
         Dim GCHips As New Guna2Chip With {
@@ -248,6 +248,7 @@ Public Class FrmFaculty
 
         End Select
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton) From {
@@ -257,11 +258,13 @@ Public Class FrmFaculty
         }
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
@@ -272,6 +275,7 @@ Public Class FrmFaculty
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -298,6 +302,7 @@ Public Class FrmFaculty
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -307,6 +312,7 @@ Public Class FrmFaculty
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
@@ -327,6 +333,7 @@ Public Class FrmFaculty
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -334,6 +341,7 @@ Public Class FrmFaculty
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox) From {

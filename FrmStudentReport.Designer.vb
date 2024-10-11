@@ -23,6 +23,7 @@ Partial Class FrmStudentReport
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmStudentReport))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.OpeningTransition = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.ConStrpExport = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
@@ -104,11 +105,11 @@ Partial Class FrmStudentReport
         '
         Me.rv1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rv1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.rv1.Location = New System.Drawing.Point(0, 35)
+        Me.rv1.Location = New System.Drawing.Point(0, 33)
         Me.rv1.Name = "rv1"
         Me.rv1.ServerReport.BearerToken = Nothing
         Me.rv1.ShowToolBar = False
-        Me.rv1.Size = New System.Drawing.Size(760, 535)
+        Me.rv1.Size = New System.Drawing.Size(760, 667)
         Me.rv1.TabIndex = 59
         '
         'pnlReportControls
@@ -248,14 +249,15 @@ Partial Class FrmStudentReport
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(760, 570)
+        Me.ClientSize = New System.Drawing.Size(760, 700)
         Me.Controls.Add(Me.pnlReportControls)
         Me.Controls.Add(Me.rv1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmStudentReport"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmStudentReport"
+        Me.Text = "Report Viewer"
         Me.ConStrpExport.ResumeLayout(False)
         Me.pnlReportControls.ResumeLayout(False)
         Me.ResumeLayout(False)

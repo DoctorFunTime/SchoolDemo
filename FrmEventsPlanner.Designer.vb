@@ -23,6 +23,7 @@ Partial Class FrmEventsPlanner
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEventsPlanner))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.pnlTopBar = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnAddEvent = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -163,9 +164,10 @@ Partial Class FrmEventsPlanner
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmEventsPlanner"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmEventsPlanner"
+        Me.Text = "Event Planner"
         Me.pnlTopBar.ResumeLayout(False)
         Me.pnlTopBar.PerformLayout()
         Me.ResumeLayout(False)

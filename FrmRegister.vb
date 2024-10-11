@@ -1,13 +1,13 @@
-﻿Imports System.ComponentModel.Design.ObjectSelectorEditor
-Imports DatabaseSelectStatements
-Imports SQLStatements
-Imports MyEncapsulation
-Imports Newtonsoft.Json.Linq
+﻿Imports DatabaseSelectStatements
 Imports Frond_End_Design
+Imports Functionality
 Imports Guna.UI2.WinForms
+Imports MyEncapsulation
+Imports SQLStatements
 Imports SQLUpdateStatements
 
 Public Class FrmRegister
+    Private dragger As New SystemFunctions
     Private selectStatement As New SelectStats
     Private sqlline As New SQLLine
     Private _messsage As String
@@ -19,6 +19,7 @@ Public Class FrmRegister
     Private _editTerm As String
     Private _clause As String
     Private _frm As Homepage
+
     Public Sub New(message As String, clause As String, tdate As DateTime, editTerm As String, term As String, darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
@@ -29,7 +30,6 @@ Public Class FrmRegister
         _clause = clause
         _date = tdate
         _editTerm = editTerm
-
         If _clause = "Update Register" Then
             lblHeading.Text = $"{message} Class Register Edit- {tdate.ToString("dddd-MMM-yyyy")}."
         Else
@@ -42,12 +42,15 @@ Public Class FrmRegister
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
 
     Private Sub FrmRegister_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+
+        dragger.EnableDrag(Me, pnlTopBar)
         DKMgrid()
 
         Select Case _clause
@@ -147,8 +150,6 @@ Public Class FrmRegister
                 UpdateStatements.UpdateClassRegister(_frm.lblConnectedUser.Text, selection, _conn)
 
             Next
-
-
         Else
 
             Dim selection As New List(Of Register)
@@ -179,16 +180,19 @@ Public Class FrmRegister
         Close()
 
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton)
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
@@ -196,6 +200,7 @@ Public Class FrmRegister
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -203,6 +208,7 @@ Public Class FrmRegister
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -210,21 +216,25 @@ Public Class FrmRegister
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
     Private Sub DKMgrid()
         If _darkmode Then
             DataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(40, 30, 90)
@@ -246,4 +256,5 @@ Public Class FrmRegister
     Private Sub FrmRegister_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
         _frm.Updates()
     End Sub
+
 End Class

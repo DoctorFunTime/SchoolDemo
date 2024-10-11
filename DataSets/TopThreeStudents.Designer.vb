@@ -293,6 +293,14 @@ Partial Public Class TopThreeStudents
         
         Private columnclass As Global.System.Data.DataColumn
         
+        Private columnschool_name As Global.System.Data.DataColumn
+        
+        Private columncontacts As Global.System.Data.DataColumn
+        
+        Private columnaddress As Global.System.Data.DataColumn
+        
+        Private columnslogan As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -369,6 +377,38 @@ Partial Public Class TopThreeStudents
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property school_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnschool_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncontacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property addressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaddress
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sloganColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnslogan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -405,9 +445,9 @@ Partial Public Class TopThreeStudents
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtTopThreeStudentsRow(ByVal subject As String, ByVal average_mark As Decimal, ByVal name As String, ByVal surname As String, ByVal _class As String) As dtTopThreeStudentsRow
+        Public Overloads Function AdddtTopThreeStudentsRow(ByVal subject As String, ByVal average_mark As Decimal, ByVal name As String, ByVal surname As String, ByVal _class As String, ByVal school_name As String, ByVal contacts As String, ByVal address As String, ByVal slogan As String) As dtTopThreeStudentsRow
             Dim rowdtTopThreeStudentsRow As dtTopThreeStudentsRow = CType(Me.NewRow,dtTopThreeStudentsRow)
-            Dim columnValuesArray() As Object = New Object() {subject, average_mark, name, surname, _class}
+            Dim columnValuesArray() As Object = New Object() {subject, average_mark, name, surname, _class, school_name, contacts, address, slogan}
             rowdtTopThreeStudentsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtTopThreeStudentsRow)
             Return rowdtTopThreeStudentsRow
@@ -435,6 +475,10 @@ Partial Public Class TopThreeStudents
             Me.columnname = MyBase.Columns("name")
             Me.columnsurname = MyBase.Columns("surname")
             Me.columnclass = MyBase.Columns("class")
+            Me.columnschool_name = MyBase.Columns("school_name")
+            Me.columncontacts = MyBase.Columns("contacts")
+            Me.columnaddress = MyBase.Columns("address")
+            Me.columnslogan = MyBase.Columns("slogan")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -453,6 +497,14 @@ Partial Public Class TopThreeStudents
             Me.columnclass.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnclass")
             Me.columnclass.ExtendedProperties.Add("Generator_UserColumnName", "class")
             MyBase.Columns.Add(Me.columnclass)
+            Me.columnschool_name = New Global.System.Data.DataColumn("school_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschool_name)
+            Me.columncontacts = New Global.System.Data.DataColumn("contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncontacts)
+            Me.columnaddress = New Global.System.Data.DataColumn("address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaddress)
+            Me.columnslogan = New Global.System.Data.DataColumn("slogan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnslogan)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -674,6 +726,66 @@ Partial Public Class TopThreeStudents
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property school_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtTopThreeStudents.school_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_name' in table 'dtTopThreeStudents' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtTopThreeStudents.school_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtTopThreeStudents.contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'contacts' in table 'dtTopThreeStudents' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtTopThreeStudents.contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtTopThreeStudents.addressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'address' in table 'dtTopThreeStudents' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtTopThreeStudents.addressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property slogan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtTopThreeStudents.sloganColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'slogan' in table 'dtTopThreeStudents' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtTopThreeStudents.sloganColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IssubjectNull() As Boolean
             Return Me.IsNull(Me.tabledtTopThreeStudents.subjectColumn)
         End Function
@@ -730,6 +842,54 @@ Partial Public Class TopThreeStudents
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Set_classNull()
             Me(Me.tabledtTopThreeStudents.classColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isschool_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtTopThreeStudents.school_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setschool_nameNull()
+            Me(Me.tabledtTopThreeStudents.school_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IscontactsNull() As Boolean
+            Return Me.IsNull(Me.tabledtTopThreeStudents.contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetcontactsNull()
+            Me(Me.tabledtTopThreeStudents.contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsaddressNull() As Boolean
+            Return Me.IsNull(Me.tabledtTopThreeStudents.addressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetaddressNull()
+            Me(Me.tabledtTopThreeStudents.addressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IssloganNull() As Boolean
+            Return Me.IsNull(Me.tabledtTopThreeStudents.sloganColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetsloganNull()
+            Me(Me.tabledtTopThreeStudents.sloganColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

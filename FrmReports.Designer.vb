@@ -22,6 +22,7 @@ Partial Class FrmReports
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmReports))
         Me.lblAddtionalInfoReports = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlFlowMain = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlStudentReportsDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -29,13 +30,12 @@ Partial Class FrmReports
         Me.btnStudentGradeReport = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnStudentReports = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.pnlKPIsDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.btnKPIClassPassRate = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnKPIPassRates = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnStudentPasses = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnKPIExamGrowth = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnKPIClassPassRate = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnKPI = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.pnlDropTopPerformers = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.btnHighestGPA = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.btnTopStudents = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnHighAchievers = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnAttendacy = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnFaculty = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -159,16 +159,17 @@ Partial Class FrmReports
         Me.btnStudentReports.Name = "btnStudentReports"
         Me.btnStudentReports.Size = New System.Drawing.Size(753, 45)
         Me.btnStudentReports.TabIndex = 25
-        Me.btnStudentReports.Tag = "View student reports."
+        Me.btnStudentReports.Tag = "View a student's reports."
         Me.btnStudentReports.Text = "Student Reports"
         Me.btnStudentReports.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'pnlKPIsDrop
         '
         Me.pnlKPIsDrop.BackColor = System.Drawing.Color.Transparent
-        Me.pnlKPIsDrop.Controls.Add(Me.btnKPIClassPassRate)
         Me.pnlKPIsDrop.Controls.Add(Me.btnKPIPassRates)
+        Me.pnlKPIsDrop.Controls.Add(Me.btnStudentPasses)
         Me.pnlKPIsDrop.Controls.Add(Me.btnKPIExamGrowth)
+        Me.pnlKPIsDrop.Controls.Add(Me.btnKPIClassPassRate)
         Me.pnlKPIsDrop.Controls.Add(Me.btnKPI)
         Me.pnlKPIsDrop.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlKPIsDrop.Location = New System.Drawing.Point(3, 54)
@@ -176,34 +177,6 @@ Partial Class FrmReports
         Me.pnlKPIsDrop.Size = New System.Drawing.Size(753, 45)
         Me.pnlKPIsDrop.TabIndex = 42
         Me.pnlKPIsDrop.UseTransparentBackground = True
-        '
-        'btnKPIClassPassRate
-        '
-        Me.btnKPIClassPassRate.Animated = True
-        Me.btnKPIClassPassRate.BorderColor = System.Drawing.Color.Empty
-        Me.btnKPIClassPassRate.BorderRadius = 10
-        Me.btnKPIClassPassRate.BorderThickness = 1
-        Me.btnKPIClassPassRate.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnKPIClassPassRate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnKPIClassPassRate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnKPIClassPassRate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnKPIClassPassRate.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnKPIClassPassRate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnKPIClassPassRate.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnKPIClassPassRate.FillColor = System.Drawing.Color.SlateBlue
-        Me.btnKPIClassPassRate.FillColor2 = System.Drawing.Color.SlateBlue
-        Me.btnKPIClassPassRate.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.btnKPIClassPassRate.ForeColor = System.Drawing.Color.White
-        Me.btnKPIClassPassRate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnKPIClassPassRate.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnKPIClassPassRate.Location = New System.Drawing.Point(0, 135)
-        Me.btnKPIClassPassRate.Name = "btnKPIClassPassRate"
-        Me.btnKPIClassPassRate.Size = New System.Drawing.Size(753, 45)
-        Me.btnKPIClassPassRate.TabIndex = 25
-        Me.btnKPIClassPassRate.Tag = ""
-        Me.btnKPIClassPassRate.Text = "Class pass rates."
-        Me.btnKPIClassPassRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnKPIClassPassRate.TextOffset = New System.Drawing.Point(50, 0)
         '
         'btnKPIPassRates
         '
@@ -224,7 +197,7 @@ Partial Class FrmReports
         Me.btnKPIPassRates.ForeColor = System.Drawing.Color.White
         Me.btnKPIPassRates.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPIPassRates.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnKPIPassRates.Location = New System.Drawing.Point(0, 90)
+        Me.btnKPIPassRates.Location = New System.Drawing.Point(0, 180)
         Me.btnKPIPassRates.Name = "btnKPIPassRates"
         Me.btnKPIPassRates.Size = New System.Drawing.Size(753, 45)
         Me.btnKPIPassRates.TabIndex = 24
@@ -232,6 +205,34 @@ Partial Class FrmReports
         Me.btnKPIPassRates.Text = "Subject pass rates."
         Me.btnKPIPassRates.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPIPassRates.TextOffset = New System.Drawing.Point(50, 0)
+        '
+        'btnStudentPasses
+        '
+        Me.btnStudentPasses.Animated = True
+        Me.btnStudentPasses.BorderColor = System.Drawing.Color.Empty
+        Me.btnStudentPasses.BorderRadius = 10
+        Me.btnStudentPasses.BorderThickness = 1
+        Me.btnStudentPasses.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnStudentPasses.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnStudentPasses.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnStudentPasses.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnStudentPasses.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnStudentPasses.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnStudentPasses.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnStudentPasses.FillColor = System.Drawing.Color.SlateBlue
+        Me.btnStudentPasses.FillColor2 = System.Drawing.Color.SlateBlue
+        Me.btnStudentPasses.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.btnStudentPasses.ForeColor = System.Drawing.Color.White
+        Me.btnStudentPasses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnStudentPasses.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnStudentPasses.Location = New System.Drawing.Point(0, 135)
+        Me.btnStudentPasses.Name = "btnStudentPasses"
+        Me.btnStudentPasses.Size = New System.Drawing.Size(753, 45)
+        Me.btnStudentPasses.TabIndex = 26
+        Me.btnStudentPasses.Tag = ""
+        Me.btnStudentPasses.Text = "Student passes."
+        Me.btnStudentPasses.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnStudentPasses.TextOffset = New System.Drawing.Point(50, 0)
         '
         'btnKPIExamGrowth
         '
@@ -252,14 +253,42 @@ Partial Class FrmReports
         Me.btnKPIExamGrowth.ForeColor = System.Drawing.Color.White
         Me.btnKPIExamGrowth.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPIExamGrowth.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnKPIExamGrowth.Location = New System.Drawing.Point(0, 45)
+        Me.btnKPIExamGrowth.Location = New System.Drawing.Point(0, 90)
         Me.btnKPIExamGrowth.Name = "btnKPIExamGrowth"
         Me.btnKPIExamGrowth.Size = New System.Drawing.Size(753, 45)
         Me.btnKPIExamGrowth.TabIndex = 23
         Me.btnKPIExamGrowth.Tag = ""
-        Me.btnKPIExamGrowth.Text = "Student growth based on marks."
+        Me.btnKPIExamGrowth.Text = "Student growth statistics."
         Me.btnKPIExamGrowth.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnKPIExamGrowth.TextOffset = New System.Drawing.Point(50, 0)
+        '
+        'btnKPIClassPassRate
+        '
+        Me.btnKPIClassPassRate.Animated = True
+        Me.btnKPIClassPassRate.BorderColor = System.Drawing.Color.Empty
+        Me.btnKPIClassPassRate.BorderRadius = 10
+        Me.btnKPIClassPassRate.BorderThickness = 1
+        Me.btnKPIClassPassRate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnKPIClassPassRate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnKPIClassPassRate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnKPIClassPassRate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnKPIClassPassRate.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnKPIClassPassRate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnKPIClassPassRate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnKPIClassPassRate.FillColor = System.Drawing.Color.SlateBlue
+        Me.btnKPIClassPassRate.FillColor2 = System.Drawing.Color.SlateBlue
+        Me.btnKPIClassPassRate.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.btnKPIClassPassRate.ForeColor = System.Drawing.Color.White
+        Me.btnKPIClassPassRate.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnKPIClassPassRate.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnKPIClassPassRate.Location = New System.Drawing.Point(0, 45)
+        Me.btnKPIClassPassRate.Name = "btnKPIClassPassRate"
+        Me.btnKPIClassPassRate.Size = New System.Drawing.Size(753, 45)
+        Me.btnKPIClassPassRate.TabIndex = 25
+        Me.btnKPIClassPassRate.Tag = ""
+        Me.btnKPIClassPassRate.Text = "Detailed pass rates."
+        Me.btnKPIClassPassRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnKPIClassPassRate.TextOffset = New System.Drawing.Point(50, 0)
         '
         'btnKPI
         '
@@ -283,15 +312,13 @@ Partial Class FrmReports
         Me.btnKPI.Name = "btnKPI"
         Me.btnKPI.Size = New System.Drawing.Size(753, 45)
         Me.btnKPI.TabIndex = 24
-        Me.btnKPI.Tag = "Student performances based on various factors."
+        Me.btnKPI.Tag = "Analyze student performances based on various factors."
         Me.btnKPI.Text = "Student's Key Performance Indicators"
         Me.btnKPI.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'pnlDropTopPerformers
         '
         Me.pnlDropTopPerformers.BackColor = System.Drawing.Color.Transparent
-        Me.pnlDropTopPerformers.Controls.Add(Me.btnHighestGPA)
-        Me.pnlDropTopPerformers.Controls.Add(Me.btnTopStudents)
         Me.pnlDropTopPerformers.Controls.Add(Me.btnHighAchievers)
         Me.pnlDropTopPerformers.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlDropTopPerformers.Location = New System.Drawing.Point(3, 105)
@@ -299,62 +326,6 @@ Partial Class FrmReports
         Me.pnlDropTopPerformers.Size = New System.Drawing.Size(753, 45)
         Me.pnlDropTopPerformers.TabIndex = 45
         Me.pnlDropTopPerformers.UseTransparentBackground = True
-        '
-        'btnHighestGPA
-        '
-        Me.btnHighestGPA.Animated = True
-        Me.btnHighestGPA.BorderColor = System.Drawing.Color.Empty
-        Me.btnHighestGPA.BorderRadius = 10
-        Me.btnHighestGPA.BorderThickness = 1
-        Me.btnHighestGPA.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnHighestGPA.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnHighestGPA.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnHighestGPA.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnHighestGPA.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnHighestGPA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnHighestGPA.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnHighestGPA.FillColor = System.Drawing.Color.SlateBlue
-        Me.btnHighestGPA.FillColor2 = System.Drawing.Color.SlateBlue
-        Me.btnHighestGPA.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.btnHighestGPA.ForeColor = System.Drawing.Color.White
-        Me.btnHighestGPA.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnHighestGPA.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnHighestGPA.Location = New System.Drawing.Point(0, 90)
-        Me.btnHighestGPA.Name = "btnHighestGPA"
-        Me.btnHighestGPA.Size = New System.Drawing.Size(753, 45)
-        Me.btnHighestGPA.TabIndex = 38
-        Me.btnHighestGPA.Tag = ""
-        Me.btnHighestGPA.Text = "Top students with highest GPAs"
-        Me.btnHighestGPA.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnHighestGPA.TextOffset = New System.Drawing.Point(50, 0)
-        '
-        'btnTopStudents
-        '
-        Me.btnTopStudents.Animated = True
-        Me.btnTopStudents.BorderColor = System.Drawing.Color.Empty
-        Me.btnTopStudents.BorderRadius = 10
-        Me.btnTopStudents.BorderThickness = 1
-        Me.btnTopStudents.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnTopStudents.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnTopStudents.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnTopStudents.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnTopStudents.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnTopStudents.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnTopStudents.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnTopStudents.FillColor = System.Drawing.Color.SlateBlue
-        Me.btnTopStudents.FillColor2 = System.Drawing.Color.SlateBlue
-        Me.btnTopStudents.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.btnTopStudents.ForeColor = System.Drawing.Color.White
-        Me.btnTopStudents.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnTopStudents.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnTopStudents.Location = New System.Drawing.Point(0, 45)
-        Me.btnTopStudents.Name = "btnTopStudents"
-        Me.btnTopStudents.Size = New System.Drawing.Size(753, 45)
-        Me.btnTopStudents.TabIndex = 37
-        Me.btnTopStudents.Tag = ""
-        Me.btnTopStudents.Text = "Highest performance per subject."
-        Me.btnTopStudents.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnTopStudents.TextOffset = New System.Drawing.Point(50, 0)
         '
         'btnHighAchievers
         '
@@ -404,7 +375,7 @@ Partial Class FrmReports
         Me.btnAttendacy.Name = "btnAttendacy"
         Me.btnAttendacy.Size = New System.Drawing.Size(753, 45)
         Me.btnAttendacy.TabIndex = 41
-        Me.btnAttendacy.Tag = "Track student's attendacy records."
+        Me.btnAttendacy.Tag = "Track a student's attendace records."
         Me.btnAttendacy.Text = "Attendance"
         Me.btnAttendacy.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnAttendacy.TextOffset = New System.Drawing.Point(-9, 0)
@@ -445,8 +416,9 @@ Partial Class FrmReports
         Me.Controls.Add(Me.lblAddtionalInfoReports)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmReports"
-        Me.Text = "FrmReports"
+        Me.Text = "Reports"
         Me.pnlFlowMain.ResumeLayout(False)
         Me.pnlStudentReportsDrop.ResumeLayout(False)
         Me.pnlKPIsDrop.ResumeLayout(False)
@@ -467,9 +439,8 @@ Partial Class FrmReports
     Friend WithEvents btnKPIExamGrowth As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnKPI As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents pnlDropTopPerformers As Guna.UI2.WinForms.Guna2GradientPanel
-    Friend WithEvents btnHighestGPA As Guna.UI2.WinForms.Guna2GradientButton
-    Friend WithEvents btnTopStudents As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnHighAchievers As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnAttendacy As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnFaculty As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnStudentPasses As Guna.UI2.WinForms.Guna2GradientButton
 End Class

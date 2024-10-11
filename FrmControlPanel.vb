@@ -1,6 +1,6 @@
-﻿Imports Guna.UI2.WinForms
+﻿Imports DatabaseSelectStatements
 Imports Frond_End_Design
-Imports DatabaseSelectStatements
+Imports Guna.UI2.WinForms
 
 Public Class FrmControlPanel
     Dim selectStatement As New SelectStats
@@ -8,6 +8,7 @@ Public Class FrmControlPanel
     Private design As New Design
     Private _conn As String
     Private _UpdateForm As Homepage
+
     Public Sub New(darkmode As Boolean, conn As String, openedForm As Form)
 
         ' This call is required by the designer.
@@ -19,6 +20,7 @@ Public Class FrmControlPanel
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub FrmControlPanel_Load(sender As Object, e As EventArgs) Handles Me.Load
         If _darkmode Then
             pnlFlowMain.BackColor = Color.FromArgb(40, 30, 50)
@@ -27,11 +29,12 @@ Public Class FrmControlPanel
         End If
 
     End Sub
-    Private Sub btnRates_MouseHover(sender As Object, e As EventArgs) Handles btnUserAccounts.MouseHover, btnTerm.MouseHover, btnStudentDetails.MouseHover, btnRates.MouseHover, btnConfiguration.MouseHover, btnClassFees.MouseHover, btnAttendancy.MouseHover
+
+    Private Sub btnRates_MouseHover(sender As Object, e As EventArgs) Handles btnUserAccounts.MouseHover, btnTerm.MouseHover, btnStudentDetails.MouseHover, btnRates.MouseHover, btnConfiguration.MouseHover, btnClassFees.MouseHover, btnAttendancy.MouseHover, btnFaculty.MouseHover, btnMiscellanousCosts.MouseHover
         lblAddtionalInfoAdmissions.Text = sender.Tag
     End Sub
 
-    Private Sub btn_Click_1(sender As Object, e As EventArgs) Handles btnUserAccounts.Click, btnTerm.Click, btnStudentDetails.Click, btnRates.Click, btnConfiguration.Click, btnClassFees.Click, btnAttendancy.Click, btnFaculty.Click
+    Private Sub btn_Click_1(sender As Object, e As EventArgs) Handles btnUserAccounts.Click, btnTerm.Click, btnStudentDetails.Click, btnRates.Click, btnConfiguration.Click, btnClassFees.Click, btnAttendancy.Click, btnFaculty.Click, btnMiscellanousCosts.Click
         Select Case sender.name
 
             Case "btnTerm"
@@ -70,9 +73,17 @@ Public Class FrmControlPanel
                     Dim frm As New FrmConfigurations(_darkmode, _UpdateForm, _conn)
                     frm.ShowDialog()
                 Else
+                    MessageBox.Show("This account cannot access this option.", "Restricted Access", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
+            Case "btnMiscellanousCosts"
+                Dim message As String = "Miscellanous Costs"
+                Dim frm As New FrmAdjustments(message, _darkmode, _conn, _UpdateForm, 0)
+                frm.Show()
+
         End Select
     End Sub
+
     Private Sub btn_Click(sender As Object, e As EventArgs) Handles btnUserActivity.Click, btnStudentSubjects.Click, btnStudentPersonalDetails.Click, btnStudentMedicalDetails.Click, btnRemoveUser.Click, btnRemoveStudent.Click, btnGuardianDetails.Click, btnRemoveFaculty.Click, btnFacultyPersonalDetails.Click, btnFacultySubjects.Click
 
         Select Case sender.name
@@ -80,7 +91,6 @@ Public Class FrmControlPanel
                 Dim message As String = "Student Subject Details"
                 Dim frm As New FrmSelectStudent(message, _darkmode, _UpdateForm, _conn)
                 frm.Show()
-
 
             Case "btnStudentMedicalDetails"
                 Dim message As String = "Student Medical Details"
@@ -105,7 +115,7 @@ Public Class FrmControlPanel
 
             Case "btnFacultySubjects"
                 Dim facultySelection As New FrmSelectStudent("Faculty Subjects", _darkmode, _UpdateForm, _conn)
-                facultySelection.ShowDialog()
+                facultySelection.Show()
 
             Case "btnRemoveUser"
                 Dim frm As New FrmRegisterSelection(_darkmode, "New User", _UpdateForm.lblConnectedUser.Text, _UpdateForm, _conn)
@@ -113,36 +123,40 @@ Public Class FrmControlPanel
 
             Case "btnRemoveFaculty"
                 Dim facultySelection As New FrmSelectStudent("Remove Faculty", _darkmode, _UpdateForm, _conn)
-                facultySelection.ShowDialog()
+                facultySelection.Show()
 
             Case "btnFacultyPersonalDetails"
                 Dim facultySelection As New FrmSelectStudent("Faculty Personal Details", _darkmode, _UpdateForm, _conn)
-                facultySelection.ShowDialog()
+                facultySelection.Show()
 
             Case "btnUserActivity"
                 Dim datatable As DataTable = selectStatement.GetUserActivity(_conn)
 
                 Dim reportForm As New FrmStudentReport(datatable, "UserActivity", "UserActivity", _darkmode)
-                reportForm.ShowDialog()
+                reportForm.Show()
 
         End Select
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton)
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -150,6 +164,7 @@ Public Class FrmControlPanel
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -161,21 +176,25 @@ Public Class FrmControlPanel
             btnUserAccounts,
             btnClassFees,
             btnUserAccounts,
-            btnConfiguration
+            btnConfiguration,
+            btnMiscellanousCosts
         }
 
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)

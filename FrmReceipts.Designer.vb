@@ -23,6 +23,7 @@ Partial Class FrmReceipts
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmReceipts))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.txtDocAmount = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblAmount = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -360,9 +361,10 @@ Partial Class FrmReceipts
         Me.Controls.Add(Me.lblAmount)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmReceipts"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmReceipts"
+        Me.Text = "Receipts"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

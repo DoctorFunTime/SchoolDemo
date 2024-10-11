@@ -303,6 +303,14 @@ Partial Public Class Cashbook
         
         Private columncb_zig_amount As Global.System.Data.DataColumn
         
+        Private columnsd_name As Global.System.Data.DataColumn
+        
+        Private columnsd_contacts As Global.System.Data.DataColumn
+        
+        Private columnsd_address As Global.System.Data.DataColumn
+        
+        Private columnsd_slogan As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -419,6 +427,38 @@ Partial Public Class Cashbook
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_contacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_addressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_address
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_sloganColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_slogan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -455,9 +495,9 @@ Partial Public Class Cashbook
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtCashbookRow(ByVal cb_date As Date, ByVal cb_description As String, ByVal cb_currency_code As String, ByVal cb_debit As Decimal, ByVal cb_credit As Decimal, ByVal cb_adjusted_amount As Decimal, ByVal cb_running_balance As Decimal, ByVal cb_doc_number As String, ByVal cb_usd_amount As String, ByVal cb_zig_amount As String) As dtCashbookRow
+        Public Overloads Function AdddtCashbookRow(ByVal cb_date As Date, ByVal cb_description As String, ByVal cb_currency_code As String, ByVal cb_debit As Decimal, ByVal cb_credit As Decimal, ByVal cb_adjusted_amount As Decimal, ByVal cb_running_balance As Decimal, ByVal cb_doc_number As String, ByVal cb_usd_amount As String, ByVal cb_zig_amount As String, ByVal sd_name As String, ByVal sd_contacts As String, ByVal sd_address As String, ByVal sd_slogan As String) As dtCashbookRow
             Dim rowdtCashbookRow As dtCashbookRow = CType(Me.NewRow,dtCashbookRow)
-            Dim columnValuesArray() As Object = New Object() {cb_date, cb_description, cb_currency_code, cb_debit, cb_credit, cb_adjusted_amount, cb_running_balance, cb_doc_number, cb_usd_amount, cb_zig_amount}
+            Dim columnValuesArray() As Object = New Object() {cb_date, cb_description, cb_currency_code, cb_debit, cb_credit, cb_adjusted_amount, cb_running_balance, cb_doc_number, cb_usd_amount, cb_zig_amount, sd_name, sd_contacts, sd_address, sd_slogan}
             rowdtCashbookRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtCashbookRow)
             Return rowdtCashbookRow
@@ -490,6 +530,10 @@ Partial Public Class Cashbook
             Me.columncb_doc_number = MyBase.Columns("cb_doc_number")
             Me.columncb_usd_amount = MyBase.Columns("cb_usd_amount")
             Me.columncb_zig_amount = MyBase.Columns("cb_zig_amount")
+            Me.columnsd_name = MyBase.Columns("sd_name")
+            Me.columnsd_contacts = MyBase.Columns("sd_contacts")
+            Me.columnsd_address = MyBase.Columns("sd_address")
+            Me.columnsd_slogan = MyBase.Columns("sd_slogan")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -515,6 +559,14 @@ Partial Public Class Cashbook
             MyBase.Columns.Add(Me.columncb_usd_amount)
             Me.columncb_zig_amount = New Global.System.Data.DataColumn("cb_zig_amount", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncb_zig_amount)
+            Me.columnsd_name = New Global.System.Data.DataColumn("sd_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_name)
+            Me.columnsd_contacts = New Global.System.Data.DataColumn("sd_contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_contacts)
+            Me.columnsd_address = New Global.System.Data.DataColumn("sd_address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_address)
+            Me.columnsd_slogan = New Global.System.Data.DataColumn("sd_slogan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_slogan)
             Me.columncb_date.Caption = "fs_date"
             Me.columncb_description.Caption = "fs_description"
             Me.columncb_currency_code.Caption = "fs_currency_code"
@@ -819,6 +871,66 @@ Partial Public Class Cashbook
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.sd_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_name' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.sd_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.sd_contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_contacts' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.sd_contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.sd_addressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_address' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.sd_addressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_slogan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtCashbook.sd_sloganColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_slogan' in table 'dtCashbook' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtCashbook.sd_sloganColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Iscb_dateNull() As Boolean
             Return Me.IsNull(Me.tabledtCashbook.cb_dateColumn)
         End Function
@@ -935,6 +1047,54 @@ Partial Public Class Cashbook
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setcb_zig_amountNull()
             Me(Me.tabledtCashbook.cb_zig_amountColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.sd_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_nameNull()
+            Me(Me.tabledtCashbook.sd_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_contactsNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.sd_contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_contactsNull()
+            Me(Me.tabledtCashbook.sd_contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_addressNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.sd_addressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_addressNull()
+            Me(Me.tabledtCashbook.sd_addressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_sloganNull() As Boolean
+            Return Me.IsNull(Me.tabledtCashbook.sd_sloganColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_sloganNull()
+            Me(Me.tabledtCashbook.sd_sloganColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

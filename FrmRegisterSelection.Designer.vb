@@ -23,11 +23,35 @@ Partial Class FrmRegisterSelection
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRegisterSelection))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.pnlTopBar = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlMainControls = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.pnlSchoolDetails = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.lblID = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.lblBankDetails = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtBankingDetails = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblSchoolEmail = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtEmail = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.txtSchoolName = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblSlogan = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtBubText = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblAddress = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtAddress = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblSchoolContacts = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtContacts = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblSchoolName = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.pnlUserAccounts = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.lblCPassword = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtCPassword = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblPassword = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.cmbAccountType = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.lblUsername = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblAccountType = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlInvoicingStudents = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.cmbBoxPaymentType = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lblPaymentType = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -63,20 +87,12 @@ Partial Class FrmRegisterSelection
         Me.cmbClass = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.dtePickerDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.btnValidateAndFinalise = New Guna.UI2.WinForms.Guna2GradientButton()
-        Me.pnlUserAccounts = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.cmbAccountType = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.lblUsername = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtUsername = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblAccountType = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.lblPassword = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblCPassword = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtCPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.pnlTopBar.SuspendLayout()
         Me.pnlMainControls.SuspendLayout()
+        Me.pnlSchoolDetails.SuspendLayout()
+        Me.pnlUserAccounts.SuspendLayout()
         Me.pnlInvoicingStudents.SuspendLayout()
         Me.pnlRegisterFilters.SuspendLayout()
-        Me.pnlUserAccounts.SuspendLayout()
         Me.SuspendLayout()
         '
         'openingTranstionReceipts
@@ -132,6 +148,7 @@ Partial Class FrmRegisterSelection
         '
         'pnlMainControls
         '
+        Me.pnlMainControls.Controls.Add(Me.pnlSchoolDetails)
         Me.pnlMainControls.Controls.Add(Me.pnlUserAccounts)
         Me.pnlMainControls.Controls.Add(Me.pnlInvoicingStudents)
         Me.pnlMainControls.Controls.Add(Me.pnlRegisterFilters)
@@ -140,6 +157,358 @@ Partial Class FrmRegisterSelection
         Me.pnlMainControls.Name = "pnlMainControls"
         Me.pnlMainControls.Size = New System.Drawing.Size(576, 434)
         Me.pnlMainControls.TabIndex = 60
+        '
+        'pnlSchoolDetails
+        '
+        Me.pnlSchoolDetails.Controls.Add(Me.lblID)
+        Me.pnlSchoolDetails.Controls.Add(Me.lblBankDetails)
+        Me.pnlSchoolDetails.Controls.Add(Me.txtBankingDetails)
+        Me.pnlSchoolDetails.Controls.Add(Me.lblSchoolEmail)
+        Me.pnlSchoolDetails.Controls.Add(Me.txtEmail)
+        Me.pnlSchoolDetails.Controls.Add(Me.txtSchoolName)
+        Me.pnlSchoolDetails.Controls.Add(Me.lblSlogan)
+        Me.pnlSchoolDetails.Controls.Add(Me.txtBubText)
+        Me.pnlSchoolDetails.Controls.Add(Me.lblAddress)
+        Me.pnlSchoolDetails.Controls.Add(Me.txtAddress)
+        Me.pnlSchoolDetails.Controls.Add(Me.lblSchoolContacts)
+        Me.pnlSchoolDetails.Controls.Add(Me.txtContacts)
+        Me.pnlSchoolDetails.Controls.Add(Me.lblSchoolName)
+        Me.pnlSchoolDetails.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlSchoolDetails.Location = New System.Drawing.Point(0, 30)
+        Me.pnlSchoolDetails.Name = "pnlSchoolDetails"
+        Me.pnlSchoolDetails.Size = New System.Drawing.Size(576, 404)
+        Me.pnlSchoolDetails.TabIndex = 61
+        Me.pnlSchoolDetails.Visible = False
+        '
+        'lblID
+        '
+        Me.lblID.BackColor = System.Drawing.Color.Transparent
+        Me.lblID.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblID.Location = New System.Drawing.Point(545, 9)
+        Me.lblID.Name = "lblID"
+        Me.lblID.Size = New System.Drawing.Size(15, 19)
+        Me.lblID.TabIndex = 101
+        Me.lblID.Text = "id"
+        '
+        'lblBankDetails
+        '
+        Me.lblBankDetails.BackColor = System.Drawing.Color.Transparent
+        Me.lblBankDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBankDetails.Location = New System.Drawing.Point(109, 290)
+        Me.lblBankDetails.Name = "lblBankDetails"
+        Me.lblBankDetails.Size = New System.Drawing.Size(109, 19)
+        Me.lblBankDetails.TabIndex = 100
+        Me.lblBankDetails.Text = "Banking Details :"
+        '
+        'txtBankingDetails
+        '
+        Me.txtBankingDetails.Animated = True
+        Me.txtBankingDetails.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtBankingDetails.DefaultText = ""
+        Me.txtBankingDetails.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtBankingDetails.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtBankingDetails.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtBankingDetails.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtBankingDetails.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtBankingDetails.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBankingDetails.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtBankingDetails.Location = New System.Drawing.Point(250, 285)
+        Me.txtBankingDetails.Name = "txtBankingDetails"
+        Me.txtBankingDetails.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtBankingDetails.PlaceholderText = ""
+        Me.txtBankingDetails.SelectedText = ""
+        Me.txtBankingDetails.Size = New System.Drawing.Size(218, 103)
+        Me.txtBankingDetails.TabIndex = 99
+        '
+        'lblSchoolEmail
+        '
+        Me.lblSchoolEmail.BackColor = System.Drawing.Color.Transparent
+        Me.lblSchoolEmail.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSchoolEmail.Location = New System.Drawing.Point(172, 237)
+        Me.lblSchoolEmail.Name = "lblSchoolEmail"
+        Me.lblSchoolEmail.Size = New System.Drawing.Size(46, 19)
+        Me.lblSchoolEmail.TabIndex = 98
+        Me.lblSchoolEmail.Text = "Email :"
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Animated = True
+        Me.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtEmail.DefaultText = ""
+        Me.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtEmail.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtEmail.Location = New System.Drawing.Point(250, 232)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtEmail.PlaceholderText = ""
+        Me.txtEmail.SelectedText = ""
+        Me.txtEmail.Size = New System.Drawing.Size(218, 30)
+        Me.txtEmail.TabIndex = 97
+        '
+        'txtSchoolName
+        '
+        Me.txtSchoolName.Animated = True
+        Me.txtSchoolName.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSchoolName.DefaultText = ""
+        Me.txtSchoolName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSchoolName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSchoolName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSchoolName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSchoolName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSchoolName.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSchoolName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtSchoolName.Location = New System.Drawing.Point(250, 20)
+        Me.txtSchoolName.Name = "txtSchoolName"
+        Me.txtSchoolName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSchoolName.PlaceholderText = ""
+        Me.txtSchoolName.SelectedText = ""
+        Me.txtSchoolName.Size = New System.Drawing.Size(218, 30)
+        Me.txtSchoolName.TabIndex = 96
+        '
+        'lblSlogan
+        '
+        Me.lblSlogan.BackColor = System.Drawing.Color.Transparent
+        Me.lblSlogan.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSlogan.Location = New System.Drawing.Point(160, 184)
+        Me.lblSlogan.Name = "lblSlogan"
+        Me.lblSlogan.Size = New System.Drawing.Size(58, 19)
+        Me.lblSlogan.TabIndex = 95
+        Me.lblSlogan.Text = "SubText :"
+        '
+        'txtBubText
+        '
+        Me.txtBubText.Animated = True
+        Me.txtBubText.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtBubText.DefaultText = ""
+        Me.txtBubText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtBubText.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtBubText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtBubText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtBubText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtBubText.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBubText.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtBubText.Location = New System.Drawing.Point(250, 179)
+        Me.txtBubText.Name = "txtBubText"
+        Me.txtBubText.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtBubText.PlaceholderText = ""
+        Me.txtBubText.SelectedText = ""
+        Me.txtBubText.Size = New System.Drawing.Size(218, 30)
+        Me.txtBubText.TabIndex = 94
+        '
+        'lblAddress
+        '
+        Me.lblAddress.BackColor = System.Drawing.Color.Transparent
+        Me.lblAddress.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAddress.Location = New System.Drawing.Point(158, 131)
+        Me.lblAddress.Name = "lblAddress"
+        Me.lblAddress.Size = New System.Drawing.Size(60, 19)
+        Me.lblAddress.TabIndex = 93
+        Me.lblAddress.Text = "Address :"
+        '
+        'txtAddress
+        '
+        Me.txtAddress.Animated = True
+        Me.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtAddress.DefaultText = ""
+        Me.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtAddress.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtAddress.Location = New System.Drawing.Point(250, 126)
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtAddress.PlaceholderText = ""
+        Me.txtAddress.SelectedText = ""
+        Me.txtAddress.Size = New System.Drawing.Size(218, 30)
+        Me.txtAddress.TabIndex = 92
+        '
+        'lblSchoolContacts
+        '
+        Me.lblSchoolContacts.BackColor = System.Drawing.Color.Transparent
+        Me.lblSchoolContacts.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSchoolContacts.Location = New System.Drawing.Point(147, 78)
+        Me.lblSchoolContacts.Name = "lblSchoolContacts"
+        Me.lblSchoolContacts.Size = New System.Drawing.Size(71, 19)
+        Me.lblSchoolContacts.TabIndex = 90
+        Me.lblSchoolContacts.Text = "Contacts  :"
+        '
+        'txtContacts
+        '
+        Me.txtContacts.Animated = True
+        Me.txtContacts.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtContacts.DefaultText = ""
+        Me.txtContacts.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtContacts.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtContacts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtContacts.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtContacts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtContacts.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContacts.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtContacts.Location = New System.Drawing.Point(250, 73)
+        Me.txtContacts.Name = "txtContacts"
+        Me.txtContacts.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtContacts.PlaceholderText = ""
+        Me.txtContacts.SelectedText = ""
+        Me.txtContacts.Size = New System.Drawing.Size(218, 30)
+        Me.txtContacts.TabIndex = 89
+        '
+        'lblSchoolName
+        '
+        Me.lblSchoolName.BackColor = System.Drawing.Color.Transparent
+        Me.lblSchoolName.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSchoolName.Location = New System.Drawing.Point(120, 25)
+        Me.lblSchoolName.Name = "lblSchoolName"
+        Me.lblSchoolName.Size = New System.Drawing.Size(98, 19)
+        Me.lblSchoolName.TabIndex = 88
+        Me.lblSchoolName.Text = "School Name  :"
+        '
+        'pnlUserAccounts
+        '
+        Me.pnlUserAccounts.Controls.Add(Me.lblCPassword)
+        Me.pnlUserAccounts.Controls.Add(Me.txtCPassword)
+        Me.pnlUserAccounts.Controls.Add(Me.lblPassword)
+        Me.pnlUserAccounts.Controls.Add(Me.txtPassword)
+        Me.pnlUserAccounts.Controls.Add(Me.cmbAccountType)
+        Me.pnlUserAccounts.Controls.Add(Me.lblUsername)
+        Me.pnlUserAccounts.Controls.Add(Me.txtUsername)
+        Me.pnlUserAccounts.Controls.Add(Me.lblAccountType)
+        Me.pnlUserAccounts.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlUserAccounts.Location = New System.Drawing.Point(0, 20)
+        Me.pnlUserAccounts.Name = "pnlUserAccounts"
+        Me.pnlUserAccounts.Size = New System.Drawing.Size(576, 10)
+        Me.pnlUserAccounts.TabIndex = 60
+        Me.pnlUserAccounts.Visible = False
+        '
+        'lblCPassword
+        '
+        Me.lblCPassword.BackColor = System.Drawing.Color.Transparent
+        Me.lblCPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCPassword.Location = New System.Drawing.Point(140, 266)
+        Me.lblCPassword.Name = "lblCPassword"
+        Me.lblCPassword.Size = New System.Drawing.Size(128, 19)
+        Me.lblCPassword.TabIndex = 87
+        Me.lblCPassword.Text = "Confirm Password  :"
+        '
+        'txtCPassword
+        '
+        Me.txtCPassword.Animated = True
+        Me.txtCPassword.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtCPassword.DefaultText = ""
+        Me.txtCPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtCPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtCPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtCPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtCPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtCPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtCPassword.Location = New System.Drawing.Point(300, 258)
+        Me.txtCPassword.Name = "txtCPassword"
+        Me.txtCPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.txtCPassword.PlaceholderText = ""
+        Me.txtCPassword.SelectedText = ""
+        Me.txtCPassword.Size = New System.Drawing.Size(136, 30)
+        Me.txtCPassword.TabIndex = 86
+        Me.txtCPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtCPassword.UseSystemPasswordChar = True
+        '
+        'lblPassword
+        '
+        Me.lblPassword.BackColor = System.Drawing.Color.Transparent
+        Me.lblPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPassword.Location = New System.Drawing.Point(196, 213)
+        Me.lblPassword.Name = "lblPassword"
+        Me.lblPassword.Size = New System.Drawing.Size(72, 19)
+        Me.lblPassword.TabIndex = 85
+        Me.lblPassword.Text = "Password  :"
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Animated = True
+        Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtPassword.DefaultText = ""
+        Me.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPassword.Location = New System.Drawing.Point(300, 206)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.txtPassword.PlaceholderText = ""
+        Me.txtPassword.SelectedText = ""
+        Me.txtPassword.Size = New System.Drawing.Size(136, 30)
+        Me.txtPassword.TabIndex = 84
+        Me.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtPassword.UseSystemPasswordChar = True
+        '
+        'cmbAccountType
+        '
+        Me.cmbAccountType.BackColor = System.Drawing.Color.Transparent
+        Me.cmbAccountType.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.cmbAccountType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAccountType.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbAccountType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbAccountType.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.cmbAccountType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbAccountType.ItemHeight = 30
+        Me.cmbAccountType.Items.AddRange(New Object() {"Admin", "Standard"})
+        Me.cmbAccountType.Location = New System.Drawing.Point(300, 96)
+        Me.cmbAccountType.Name = "cmbAccountType"
+        Me.cmbAccountType.Size = New System.Drawing.Size(136, 36)
+        Me.cmbAccountType.TabIndex = 83
+        Me.cmbAccountType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblUsername
+        '
+        Me.lblUsername.BackColor = System.Drawing.Color.Transparent
+        Me.lblUsername.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.Location = New System.Drawing.Point(194, 160)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(74, 19)
+        Me.lblUsername.TabIndex = 82
+        Me.lblUsername.Text = "Username  :"
+        '
+        'txtUsername
+        '
+        Me.txtUsername.Animated = True
+        Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtUsername.DefaultText = ""
+        Me.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtUsername.Location = New System.Drawing.Point(300, 154)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtUsername.PlaceholderText = ""
+        Me.txtUsername.SelectedText = ""
+        Me.txtUsername.Size = New System.Drawing.Size(136, 30)
+        Me.txtUsername.TabIndex = 81
+        Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblAccountType
+        '
+        Me.lblAccountType.BackColor = System.Drawing.Color.Transparent
+        Me.lblAccountType.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAccountType.Location = New System.Drawing.Point(170, 107)
+        Me.lblAccountType.Name = "lblAccountType"
+        Me.lblAccountType.Size = New System.Drawing.Size(98, 19)
+        Me.lblAccountType.TabIndex = 80
+        Me.lblAccountType.Text = "Account Type  :"
         '
         'pnlInvoicingStudents
         '
@@ -714,145 +1083,6 @@ Partial Class FrmRegisterSelection
         Me.btnValidateAndFinalise.TabIndex = 49
         Me.btnValidateAndFinalise.Text = "Validate and Finalise"
         '
-        'pnlUserAccounts
-        '
-        Me.pnlUserAccounts.Controls.Add(Me.lblCPassword)
-        Me.pnlUserAccounts.Controls.Add(Me.txtCPassword)
-        Me.pnlUserAccounts.Controls.Add(Me.lblPassword)
-        Me.pnlUserAccounts.Controls.Add(Me.txtPassword)
-        Me.pnlUserAccounts.Controls.Add(Me.cmbAccountType)
-        Me.pnlUserAccounts.Controls.Add(Me.lblUsername)
-        Me.pnlUserAccounts.Controls.Add(Me.txtUsername)
-        Me.pnlUserAccounts.Controls.Add(Me.lblAccountType)
-        Me.pnlUserAccounts.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlUserAccounts.Location = New System.Drawing.Point(0, 20)
-        Me.pnlUserAccounts.Name = "pnlUserAccounts"
-        Me.pnlUserAccounts.Size = New System.Drawing.Size(576, 414)
-        Me.pnlUserAccounts.TabIndex = 60
-        '
-        'cmbAccountType
-        '
-        Me.cmbAccountType.BackColor = System.Drawing.Color.Transparent
-        Me.cmbAccountType.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.cmbAccountType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbAccountType.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbAccountType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbAccountType.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.cmbAccountType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.cmbAccountType.ItemHeight = 30
-        Me.cmbAccountType.Items.AddRange(New Object() {"Admin", "Standard"})
-        Me.cmbAccountType.Location = New System.Drawing.Point(300, 96)
-        Me.cmbAccountType.Name = "cmbAccountType"
-        Me.cmbAccountType.Size = New System.Drawing.Size(136, 36)
-        Me.cmbAccountType.TabIndex = 83
-        Me.cmbAccountType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'lblUsername
-        '
-        Me.lblUsername.BackColor = System.Drawing.Color.Transparent
-        Me.lblUsername.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsername.Location = New System.Drawing.Point(194, 160)
-        Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(74, 19)
-        Me.lblUsername.TabIndex = 82
-        Me.lblUsername.Text = "Username  :"
-        '
-        'txtUsername
-        '
-        Me.txtUsername.Animated = True
-        Me.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtUsername.DefaultText = ""
-        Me.txtUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtUsername.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtUsername.Location = New System.Drawing.Point(300, 154)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtUsername.PlaceholderText = ""
-        Me.txtUsername.SelectedText = ""
-        Me.txtUsername.Size = New System.Drawing.Size(136, 30)
-        Me.txtUsername.TabIndex = 81
-        Me.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'lblAccountType
-        '
-        Me.lblAccountType.BackColor = System.Drawing.Color.Transparent
-        Me.lblAccountType.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAccountType.Location = New System.Drawing.Point(170, 107)
-        Me.lblAccountType.Name = "lblAccountType"
-        Me.lblAccountType.Size = New System.Drawing.Size(98, 19)
-        Me.lblAccountType.TabIndex = 80
-        Me.lblAccountType.Text = "Account Type  :"
-        '
-        'lblPassword
-        '
-        Me.lblPassword.BackColor = System.Drawing.Color.Transparent
-        Me.lblPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPassword.Location = New System.Drawing.Point(196, 213)
-        Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(72, 19)
-        Me.lblPassword.TabIndex = 85
-        Me.lblPassword.Text = "Password  :"
-        '
-        'txtPassword
-        '
-        Me.txtPassword.Animated = True
-        Me.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPassword.DefaultText = ""
-        Me.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPassword.Location = New System.Drawing.Point(300, 206)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txtPassword.PlaceholderText = ""
-        Me.txtPassword.SelectedText = ""
-        Me.txtPassword.Size = New System.Drawing.Size(136, 30)
-        Me.txtPassword.TabIndex = 84
-        Me.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtPassword.UseSystemPasswordChar = True
-        '
-        'lblCPassword
-        '
-        Me.lblCPassword.BackColor = System.Drawing.Color.Transparent
-        Me.lblCPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCPassword.Location = New System.Drawing.Point(140, 266)
-        Me.lblCPassword.Name = "lblCPassword"
-        Me.lblCPassword.Size = New System.Drawing.Size(128, 19)
-        Me.lblCPassword.TabIndex = 87
-        Me.lblCPassword.Text = "Confirm Password  :"
-        '
-        'txtCPassword
-        '
-        Me.txtCPassword.Animated = True
-        Me.txtCPassword.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtCPassword.DefaultText = ""
-        Me.txtCPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtCPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtCPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtCPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtCPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtCPassword.Location = New System.Drawing.Point(300, 258)
-        Me.txtCPassword.Name = "txtCPassword"
-        Me.txtCPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txtCPassword.PlaceholderText = ""
-        Me.txtCPassword.SelectedText = ""
-        Me.txtCPassword.Size = New System.Drawing.Size(136, 30)
-        Me.txtCPassword.TabIndex = 86
-        Me.txtCPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.txtCPassword.UseSystemPasswordChar = True
-        '
         'FrmRegisterSelection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -864,18 +1094,21 @@ Partial Class FrmRegisterSelection
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmRegisterSelection"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmRegisterSelection"
+        Me.Text = "Alterations"
         Me.pnlTopBar.ResumeLayout(False)
         Me.pnlTopBar.PerformLayout()
         Me.pnlMainControls.ResumeLayout(False)
+        Me.pnlSchoolDetails.ResumeLayout(False)
+        Me.pnlSchoolDetails.PerformLayout()
+        Me.pnlUserAccounts.ResumeLayout(False)
+        Me.pnlUserAccounts.PerformLayout()
         Me.pnlInvoicingStudents.ResumeLayout(False)
         Me.pnlInvoicingStudents.PerformLayout()
         Me.pnlRegisterFilters.ResumeLayout(False)
         Me.pnlRegisterFilters.PerformLayout()
-        Me.pnlUserAccounts.ResumeLayout(False)
-        Me.pnlUserAccounts.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -929,4 +1162,18 @@ Partial Class FrmRegisterSelection
     Friend WithEvents txtCPassword As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblPassword As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtPassword As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents pnlSchoolDetails As Guna.UI2.WinForms.Guna2GradientPanel
+    Friend WithEvents txtSchoolName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblSlogan As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtBubText As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblAddress As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtAddress As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblSchoolContacts As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtContacts As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblSchoolName As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents lblBankDetails As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtBankingDetails As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblSchoolEmail As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtEmail As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblID As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

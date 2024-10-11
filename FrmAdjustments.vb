@@ -1,11 +1,13 @@
 ﻿Imports DatabaseSelectStatements
 Imports Frond_End_Design
+Imports Functionality
 Imports Guna.UI2.WinForms
 Imports SQLDeleteStatements
 Imports SQLUpdateStatements
 Imports UpdateEncapsulation
 
 Public Class FrmAdjustments
+    Private dragger As New SystemFunctions
     Private design As New Design
     Private selectStatement As New SelectStats
     Private _darkmode As Boolean
@@ -15,6 +17,7 @@ Public Class FrmAdjustments
     Private updateHomepage As Homepage
     Public _stdId As Integer
     Public _FMID As Integer
+    Public _class As String
 
     Public Sub New(message As String, darkmode As Boolean, conn As String, openedForm As Form, stdID As Integer)
 
@@ -29,8 +32,10 @@ Public Class FrmAdjustments
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub FrmAdjustments_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        dragger.EnableDrag(Me, pnlTopBar)
         DKMgrid()
 
         Select Case _message
@@ -58,6 +63,7 @@ Public Class FrmAdjustments
                 For Each colName As String In readOnlyColumns
                     DataGridView.Columns(colName).ReadOnly = True
                 Next
+                DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader
 
             Case "Student Guardian Details"
                 lblHeading.Text = $"Adjustments - {_message}"
@@ -74,6 +80,7 @@ Public Class FrmAdjustments
                 For Each colName As String In readOnlyColumns
                     DataGridView.Columns(colName).ReadOnly = True
                 Next
+                DataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader
 
             Case "Student Subject Details"
                 lblHeading.Text = $"Adjustments - {_message}"
@@ -110,11 +117,28 @@ Public Class FrmAdjustments
                     DataGridView.Columns(colName).ReadOnly = True
                 Next
 
+            Case "Miscellanous Costs"
+                lblHeading.Text = $"Adjustments - {_message}"
+                DataGridView.DataSource = selectStatement.GetMiscCosts(_conn)
+                Dim readOnlyColumns As String() = {"id", "description"}
+                For Each colName As String In readOnlyColumns
+                    DataGridView.Columns(colName).ReadOnly = True
+                Next
+
+            Case "Student Remarks"
+                lblHeading.Text = $"Adjustments - {_class} {_message}"
+                DataGridView.DataSource = selectStatement.GetStudentComments(_class, _conn)
+                Dim readOnlyColumns As String() = {"id", "student_id", "name", "surname"}
+                For Each colName As String In readOnlyColumns
+                    DataGridView.Columns(colName).ReadOnly = True
+                Next
+
         End Select
 
         _loadDate = True
 
     End Sub
+
     Private Sub comboBoxColumn()
 
         Dim subjectList As DataTable = selectStatement.GetSubjects(_conn)
@@ -124,7 +148,6 @@ Public Class FrmAdjustments
             Dim subject As String = row("s_subject").ToString
             ListBoxSubjects.Add(subject)
         Next
-
 
         Dim columnIndex As Integer = DataGridView.Columns("subjects").Index
         DataGridView.Columns.Remove("subjects")
@@ -138,6 +161,7 @@ Public Class FrmAdjustments
 
         DataGridView.Columns.Insert(columnIndex, cmbColumn)
     End Sub
+
     Private Sub btnValidateAndFinalise_Click(sender As Object, e As EventArgs) Handles btnValidateAndFinalise.Click
 
         Select Case _message
@@ -155,10 +179,12 @@ Public Class FrmAdjustments
 
                     Dim entries As New Rates(id, rDate, code, rate)
                     rates.Add(entries)
-                    UpdateStatements.UpdateRates(updateHomepage.lblConnectedUser.Text, rates, _conn)
-                    updateHomepage.Updates()
-                    Close()
                 Next
+
+                UpdateStatements.UpdateRates(updateHomepage.lblConnectedUser.Text, rates, _conn)
+                updateHomepage.Updates()
+                Close()
+
 
             Case "Term"
                 If Not String.IsNullOrEmpty(cmbTerm.Text) Then
@@ -207,7 +233,6 @@ Public Class FrmAdjustments
                 Dim contacts As String = row("contacts")
                 Dim email As String = row("email")
 
-
                 Dim newEntry As New StudentGuadian(id, name, surname, title, address, contacts, email)
                 stdGuardianDetails.Add(newEntry)
                 UpdateStatements.UpdateStudentGuardianDetails(updateHomepage.lblConnectedUser.Text, stdGuardianDetails, _conn)
@@ -228,7 +253,6 @@ Public Class FrmAdjustments
                 Dim disabilities As String = row("disabilities")
                 Dim physician As String = row("physician")
                 Dim contacts As String = row("contacts")
-
 
                 Dim newEntry As New StudentMedicals(id, allegies, rq_treatment, medications, dosage, schedule, disabilities, physician, contacts)
                 stdMedicalDetails.Add(newEntry)
@@ -255,7 +279,6 @@ Public Class FrmAdjustments
                     Dim subjects As String = row("subjects")
                     Dim subjectid As Integer = row("subject_id")
 
-
                     updatedList.Add(subjects)
                     Dim newEntry As New StudentSubjects(id, subjects, subjectid)
                     stdSubjectDetails.Add(newEntry)
@@ -274,7 +297,6 @@ Public Class FrmAdjustments
 
                 Close()
 
-
             Case "Fees Structure"
 
                 Dim feesStructure As New List(Of FeesStructure)
@@ -290,9 +312,7 @@ Public Class FrmAdjustments
                 Next
 
                 UpdateStatements.UpdateFeesStructure(updateHomepage.lblConnectedUser.Text, feesStructure, _conn)
-
                 Close()
-
 
             Case "Faculty Personal Details"
                 Dim facultyDetails As New List(Of UpdateEncapsulation.FacultyDetails)
@@ -323,7 +343,6 @@ Public Class FrmAdjustments
                 UpdateStatements.UpdateFacultyDetails(updateHomepage.lblConnectedUser.Text, facultyDetails, _conn)
                 Close()
 
-
             Case "Faculty Subjects"
                 Dim facultySubjects As New List(Of FacultySubjects)
                 Dim dt As DataTable = dtGrid()
@@ -335,21 +354,56 @@ Public Class FrmAdjustments
 
                     Dim newentry As New FacultySubjects(id, subject, subjectId)
                     facultySubjects.Add(newentry)
-                    UpdateStatements.UpdateFacultySubjects(updateHomepage.lblConnectedUser.Text, facultySubjects, _conn)
-                    Close()
                 Next
+
+                UpdateStatements.UpdateFacultySubjects(updateHomepage.lblConnectedUser.Text, facultySubjects, _conn)
+                Close()
+
+            Case "Miscellanous Costs"
+                Dim miscCosts As New List(Of UpdateMiscCosts)
+                Dim dt As DataTable = dtGrid()
+
+                For Each row In dt.Rows
+                    Dim id As Integer = row("id")
+                    Dim amount As Integer = row("usd_amount")
+
+                    Dim newEntry As New UpdateMiscCosts(id, amount)
+                    miscCosts.Add(newEntry)
+                Next
+
+                UpdateStatements.UpdateMiscCosts(updateHomepage.lblConnectedUser.Text, miscCosts, _conn)
+                Close()
+
+            Case "Student Remarks"
+                Dim stdRemarks As New List(Of UpdateStudentComments)
+                Dim dt As DataTable = dtGrid()
+
+                For Each row In dt.Rows
+                    Dim id As Integer = row("id")
+                    Dim stdID As Integer = row("student_id")
+                    Dim remark As String = row("remark")
+
+                    Dim newEntry As New UpdateStudentComments(id, stdID, remark)
+                    stdRemarks.Add(newEntry)
+                Next
+
+                UpdateStatements.UpdateStudentRemarks(updateHomepage.lblConnectedUser.Text, stdRemarks, _conn)
+                Close()
 
         End Select
 
     End Sub
+
     Private Sub dtePickerFilter_ValueChanged(sender As Object, e As EventArgs) Handles dtePickerFilter.ValueChanged
         If _loadDate Then
             DataGridView.DataSource = selectStatement.GetAllRates(dtePickerFilter.Value, _conn)
         End If
     End Sub
+
     Private Sub btnClose_Click_1(sender As Object, e As EventArgs) Handles btnClose.Click
         Close()
     End Sub
+
     Private Function dtGrid()
 
         Dim dt As New DataTable
@@ -372,16 +426,19 @@ Public Class FrmAdjustments
         Return dt
 
     End Function
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton)
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
@@ -389,6 +446,7 @@ Public Class FrmAdjustments
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -397,6 +455,7 @@ Public Class FrmAdjustments
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -404,12 +463,14 @@ Public Class FrmAdjustments
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -417,6 +478,7 @@ Public Class FrmAdjustments
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox) From {

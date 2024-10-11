@@ -23,6 +23,7 @@ Partial Class FrmConfigurations
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmConfigurations))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.pnlTopBar = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -39,6 +40,9 @@ Partial Class FrmConfigurations
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtPort = New Guna.UI2.WinForms.Guna2TextBox()
         Me.pnlControls = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.tglIPAddress = New Guna.UI2.WinForms.Guna2ToggleSwitch()
+        Me.txtIPAddress = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblIPAddress = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlTopBar.SuspendLayout()
         Me.pnlControls.SuspendLayout()
         Me.SuspendLayout()
@@ -118,7 +122,7 @@ Partial Class FrmConfigurations
         '
         Me.lblHost.BackColor = System.Drawing.Color.Transparent
         Me.lblHost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHost.Location = New System.Drawing.Point(203, 76)
+        Me.lblHost.Location = New System.Drawing.Point(195, 46)
         Me.lblHost.Name = "lblHost"
         Me.lblHost.Size = New System.Drawing.Size(39, 19)
         Me.lblHost.TabIndex = 72
@@ -128,7 +132,7 @@ Partial Class FrmConfigurations
         '
         Me.lblDatabase.BackColor = System.Drawing.Color.Transparent
         Me.lblDatabase.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDatabase.Location = New System.Drawing.Point(170, 178)
+        Me.lblDatabase.Location = New System.Drawing.Point(162, 142)
         Me.lblDatabase.Name = "lblDatabase"
         Me.lblDatabase.Size = New System.Drawing.Size(75, 19)
         Me.lblDatabase.TabIndex = 74
@@ -138,7 +142,7 @@ Partial Class FrmConfigurations
         '
         Me.lblUsername.BackColor = System.Drawing.Color.Transparent
         Me.lblUsername.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsername.Location = New System.Drawing.Point(170, 229)
+        Me.lblUsername.Location = New System.Drawing.Point(162, 190)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(74, 19)
         Me.lblUsername.TabIndex = 76
@@ -148,7 +152,7 @@ Partial Class FrmConfigurations
         '
         Me.lblPassword.BackColor = System.Drawing.Color.Transparent
         Me.lblPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPassword.Location = New System.Drawing.Point(170, 280)
+        Me.lblPassword.Location = New System.Drawing.Point(162, 238)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(72, 19)
         Me.lblPassword.TabIndex = 78
@@ -158,7 +162,7 @@ Partial Class FrmConfigurations
         '
         Me.lblPort.BackColor = System.Drawing.Color.Transparent
         Me.lblPort.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPort.Location = New System.Drawing.Point(205, 127)
+        Me.lblPort.Location = New System.Drawing.Point(197, 94)
         Me.lblPort.Name = "lblPort"
         Me.lblPort.Size = New System.Drawing.Size(37, 19)
         Me.lblPort.TabIndex = 80
@@ -176,7 +180,7 @@ Partial Class FrmConfigurations
         Me.txtHost.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtHost.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHost.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtHost.Location = New System.Drawing.Point(270, 69)
+        Me.txtHost.Location = New System.Drawing.Point(262, 39)
         Me.txtHost.Name = "txtHost"
         Me.txtHost.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtHost.PlaceholderText = "Host name"
@@ -197,7 +201,7 @@ Partial Class FrmConfigurations
         Me.txtDatabase.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtDatabase.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDatabase.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDatabase.Location = New System.Drawing.Point(270, 171)
+        Me.txtDatabase.Location = New System.Drawing.Point(262, 135)
         Me.txtDatabase.Name = "txtDatabase"
         Me.txtDatabase.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtDatabase.PlaceholderText = "Database name"
@@ -218,7 +222,7 @@ Partial Class FrmConfigurations
         Me.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtUsername.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtUsername.Location = New System.Drawing.Point(270, 222)
+        Me.txtUsername.Location = New System.Drawing.Point(262, 183)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtUsername.PlaceholderText = "Username"
@@ -239,7 +243,7 @@ Partial Class FrmConfigurations
         Me.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPassword.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPassword.Location = New System.Drawing.Point(270, 273)
+        Me.txtPassword.Location = New System.Drawing.Point(262, 231)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtPassword.PlaceholderText = "Password"
@@ -261,7 +265,7 @@ Partial Class FrmConfigurations
         Me.txtPort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPort.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPort.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPort.Location = New System.Drawing.Point(270, 120)
+        Me.txtPort.Location = New System.Drawing.Point(262, 87)
         Me.txtPort.Name = "txtPort"
         Me.txtPort.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtPort.PlaceholderText = "Port number"
@@ -272,6 +276,9 @@ Partial Class FrmConfigurations
         '
         'pnlControls
         '
+        Me.pnlControls.Controls.Add(Me.tglIPAddress)
+        Me.pnlControls.Controls.Add(Me.txtIPAddress)
+        Me.pnlControls.Controls.Add(Me.lblIPAddress)
         Me.pnlControls.Controls.Add(Me.txtPort)
         Me.pnlControls.Controls.Add(Me.lblPort)
         Me.pnlControls.Controls.Add(Me.txtPassword)
@@ -288,6 +295,55 @@ Partial Class FrmConfigurations
         Me.pnlControls.Size = New System.Drawing.Size(576, 373)
         Me.pnlControls.TabIndex = 73
         '
+        'tglIPAddress
+        '
+        Me.tglIPAddress.Animated = True
+        Me.tglIPAddress.BackColor = System.Drawing.Color.Transparent
+        Me.tglIPAddress.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.tglIPAddress.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.tglIPAddress.CheckedState.InnerBorderColor = System.Drawing.Color.White
+        Me.tglIPAddress.CheckedState.InnerColor = System.Drawing.Color.White
+        Me.tglIPAddress.Location = New System.Drawing.Point(436, 286)
+        Me.tglIPAddress.Name = "tglIPAddress"
+        Me.tglIPAddress.Size = New System.Drawing.Size(35, 20)
+        Me.tglIPAddress.TabIndex = 84
+        Me.tglIPAddress.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.tglIPAddress.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.tglIPAddress.UncheckedState.InnerBorderColor = System.Drawing.Color.White
+        Me.tglIPAddress.UncheckedState.InnerColor = System.Drawing.Color.White
+        Me.tglIPAddress.UseTransparentBackground = True
+        '
+        'txtIPAddress
+        '
+        Me.txtIPAddress.Animated = True
+        Me.txtIPAddress.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtIPAddress.DefaultText = ""
+        Me.txtIPAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtIPAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtIPAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtIPAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtIPAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtIPAddress.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIPAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtIPAddress.Location = New System.Drawing.Point(262, 279)
+        Me.txtIPAddress.Name = "txtIPAddress"
+        Me.txtIPAddress.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.txtIPAddress.PlaceholderText = "IP Address"
+        Me.txtIPAddress.SelectedText = ""
+        Me.txtIPAddress.Size = New System.Drawing.Size(136, 30)
+        Me.txtIPAddress.TabIndex = 83
+        Me.txtIPAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblIPAddress
+        '
+        Me.lblIPAddress.BackColor = System.Drawing.Color.Transparent
+        Me.lblIPAddress.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIPAddress.Location = New System.Drawing.Point(158, 286)
+        Me.lblIPAddress.Name = "lblIPAddress"
+        Me.lblIPAddress.Size = New System.Drawing.Size(75, 19)
+        Me.lblIPAddress.TabIndex = 82
+        Me.lblIPAddress.Text = "IP Address :"
+        '
         'FrmConfigurations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -298,9 +354,10 @@ Partial Class FrmConfigurations
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmConfigurations"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmConfigurations"
+        Me.Text = "Configurations"
         Me.pnlTopBar.ResumeLayout(False)
         Me.pnlTopBar.PerformLayout()
         Me.pnlControls.ResumeLayout(False)
@@ -325,4 +382,7 @@ Partial Class FrmConfigurations
     Friend WithEvents lblDatabase As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtHost As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblHost As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtIPAddress As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblIPAddress As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents tglIPAddress As Guna.UI2.WinForms.Guna2ToggleSwitch
 End Class

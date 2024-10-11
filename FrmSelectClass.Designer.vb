@@ -23,12 +23,14 @@ Partial Class FrmSelectClass
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSelectClass))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.pnlTopBar = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.btnHelper = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.cmbBoxClass = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlFlwClasses = New System.Windows.Forms.FlowLayoutPanel()
-        Me.cmbBoxClass = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.pnlTopBar.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,6 +45,7 @@ Partial Class FrmSelectClass
         '
         'pnlTopBar
         '
+        Me.pnlTopBar.Controls.Add(Me.btnHelper)
         Me.pnlTopBar.Controls.Add(Me.cmbBoxClass)
         Me.pnlTopBar.Controls.Add(Me.lblHeading)
         Me.pnlTopBar.Controls.Add(Me.btnClose)
@@ -53,6 +56,54 @@ Partial Class FrmSelectClass
         Me.pnlTopBar.Name = "pnlTopBar"
         Me.pnlTopBar.Size = New System.Drawing.Size(576, 41)
         Me.pnlTopBar.TabIndex = 59
+        '
+        'btnHelper
+        '
+        Me.btnHelper.Animated = True
+        Me.btnHelper.BackColor = System.Drawing.Color.Transparent
+        Me.btnHelper.BorderColor = System.Drawing.Color.WhiteSmoke
+        Me.btnHelper.BorderRadius = 8
+        Me.btnHelper.BorderThickness = 1
+        Me.btnHelper.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnHelper.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnHelper.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnHelper.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnHelper.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnHelper.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnHelper.FillColor = System.Drawing.Color.DeepPink
+        Me.btnHelper.FillColor2 = System.Drawing.Color.LightBlue
+        Me.btnHelper.Font = New System.Drawing.Font("Comic Sans MS", 9.0!)
+        Me.btnHelper.ForeColor = System.Drawing.Color.White
+        Me.btnHelper.Image = Global.SchoolDemo.My.Resources.Resources._922
+        Me.btnHelper.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.btnHelper.ImageOffset = New System.Drawing.Point(-2, 0)
+        Me.btnHelper.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnHelper.Location = New System.Drawing.Point(275, 6)
+        Me.btnHelper.Name = "btnHelper"
+        Me.btnHelper.Size = New System.Drawing.Size(109, 28)
+        Me.btnHelper.TabIndex = 58
+        Me.btnHelper.Text = "Start Here"
+        Me.btnHelper.TextOffset = New System.Drawing.Point(-15, 0)
+        Me.btnHelper.UseTransparentBackground = True
+        Me.btnHelper.Visible = False
+        '
+        'cmbBoxClass
+        '
+        Me.cmbBoxClass.BackColor = System.Drawing.Color.Transparent
+        Me.cmbBoxClass.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.cmbBoxClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbBoxClass.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbBoxClass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbBoxClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.cmbBoxClass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbBoxClass.ItemHeight = 30
+        Me.cmbBoxClass.Location = New System.Drawing.Point(393, 2)
+        Me.cmbBoxClass.Name = "cmbBoxClass"
+        Me.cmbBoxClass.Size = New System.Drawing.Size(136, 36)
+        Me.cmbBoxClass.TabIndex = 57
+        Me.cmbBoxClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.cmbBoxClass.Visible = False
         '
         'lblHeading
         '
@@ -94,24 +145,6 @@ Partial Class FrmSelectClass
         Me.pnlFlwClasses.Size = New System.Drawing.Size(576, 409)
         Me.pnlFlwClasses.TabIndex = 60
         '
-        'cmbBoxClass
-        '
-        Me.cmbBoxClass.BackColor = System.Drawing.Color.Transparent
-        Me.cmbBoxClass.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.cmbBoxClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbBoxClass.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbBoxClass.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbBoxClass.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.cmbBoxClass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.cmbBoxClass.ItemHeight = 30
-        Me.cmbBoxClass.Location = New System.Drawing.Point(393, 2)
-        Me.cmbBoxClass.Name = "cmbBoxClass"
-        Me.cmbBoxClass.Size = New System.Drawing.Size(136, 36)
-        Me.cmbBoxClass.TabIndex = 57
-        Me.cmbBoxClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.cmbBoxClass.Visible = False
-        '
         'FrmSelectClass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -121,9 +154,10 @@ Partial Class FrmSelectClass
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmSelectClass"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmSelectClass"
+        Me.Text = "Class Selection"
         Me.pnlTopBar.ResumeLayout(False)
         Me.pnlTopBar.PerformLayout()
         Me.ResumeLayout(False)
@@ -136,4 +170,5 @@ Partial Class FrmSelectClass
     Friend WithEvents btnClose As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlFlwClasses As FlowLayoutPanel
     Friend WithEvents cmbBoxClass As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents btnHelper As Guna.UI2.WinForms.Guna2GradientButton
 End Class

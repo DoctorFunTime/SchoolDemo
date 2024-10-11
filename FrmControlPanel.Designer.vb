@@ -22,6 +22,7 @@ Partial Class FrmControlPanel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmControlPanel))
         Me.lblAddtionalInfoAdmissions = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlFlowMain = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlUserAccountsDrop = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -42,6 +43,7 @@ Partial Class FrmControlPanel
         Me.btnFaculty = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnAttendancy = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnClassFees = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.btnMiscellanousCosts = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnRates = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnTerm = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnConfiguration = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -70,6 +72,7 @@ Partial Class FrmControlPanel
         Me.pnlFlowMain.Controls.Add(Me.pnlDropFaculty)
         Me.pnlFlowMain.Controls.Add(Me.btnAttendancy)
         Me.pnlFlowMain.Controls.Add(Me.btnClassFees)
+        Me.pnlFlowMain.Controls.Add(Me.btnMiscellanousCosts)
         Me.pnlFlowMain.Controls.Add(Me.btnRates)
         Me.pnlFlowMain.Controls.Add(Me.btnTerm)
         Me.pnlFlowMain.Controls.Add(Me.btnConfiguration)
@@ -470,7 +473,7 @@ Partial Class FrmControlPanel
         Me.btnFaculty.Name = "btnFaculty"
         Me.btnFaculty.Size = New System.Drawing.Size(753, 43)
         Me.btnFaculty.TabIndex = 29
-        Me.btnFaculty.Tag = "Adjust faculty members details."
+        Me.btnFaculty.Tag = "Adjust a faculty member's details."
         Me.btnFaculty.Text = "Faculty"
         Me.btnFaculty.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
@@ -496,7 +499,7 @@ Partial Class FrmControlPanel
         Me.btnAttendancy.Name = "btnAttendancy"
         Me.btnAttendancy.Size = New System.Drawing.Size(753, 43)
         Me.btnAttendancy.TabIndex = 27
-        Me.btnAttendancy.Tag = "Adjust a class's attendacy records."
+        Me.btnAttendancy.Tag = "Adjust a class's attendace records."
         Me.btnAttendancy.Text = "Attendance"
         Me.btnAttendancy.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
@@ -526,6 +529,32 @@ Partial Class FrmControlPanel
         Me.btnClassFees.Text = "Fees Structure"
         Me.btnClassFees.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
+        'btnMiscellanousCosts
+        '
+        Me.btnMiscellanousCosts.Animated = True
+        Me.btnMiscellanousCosts.BorderRadius = 10
+        Me.btnMiscellanousCosts.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMiscellanousCosts.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnMiscellanousCosts.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnMiscellanousCosts.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnMiscellanousCosts.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnMiscellanousCosts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnMiscellanousCosts.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnMiscellanousCosts.FillColor = System.Drawing.Color.PowderBlue
+        Me.btnMiscellanousCosts.FillColor2 = System.Drawing.Color.LightGray
+        Me.btnMiscellanousCosts.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMiscellanousCosts.ForeColor = System.Drawing.Color.Black
+        Me.btnMiscellanousCosts.Image = Global.SchoolDemo.My.Resources.Resources._266
+        Me.btnMiscellanousCosts.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnMiscellanousCosts.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnMiscellanousCosts.Location = New System.Drawing.Point(3, 248)
+        Me.btnMiscellanousCosts.Name = "btnMiscellanousCosts"
+        Me.btnMiscellanousCosts.Size = New System.Drawing.Size(753, 43)
+        Me.btnMiscellanousCosts.TabIndex = 35
+        Me.btnMiscellanousCosts.Tag = "Adjust the miscellanous costs payable per student."
+        Me.btnMiscellanousCosts.Text = "Miscellanous Costs"
+        Me.btnMiscellanousCosts.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
         'btnRates
         '
         Me.btnRates.Animated = True
@@ -544,7 +573,7 @@ Partial Class FrmControlPanel
         Me.btnRates.Image = Global.SchoolDemo.My.Resources.Resources._532
         Me.btnRates.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnRates.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnRates.Location = New System.Drawing.Point(3, 248)
+        Me.btnRates.Location = New System.Drawing.Point(3, 297)
         Me.btnRates.Name = "btnRates"
         Me.btnRates.Size = New System.Drawing.Size(753, 43)
         Me.btnRates.TabIndex = 29
@@ -570,7 +599,7 @@ Partial Class FrmControlPanel
         Me.btnTerm.Image = Global.SchoolDemo.My.Resources.Resources._98
         Me.btnTerm.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnTerm.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnTerm.Location = New System.Drawing.Point(3, 297)
+        Me.btnTerm.Location = New System.Drawing.Point(3, 346)
         Me.btnTerm.Name = "btnTerm"
         Me.btnTerm.Size = New System.Drawing.Size(753, 43)
         Me.btnTerm.TabIndex = 30
@@ -596,7 +625,7 @@ Partial Class FrmControlPanel
         Me.btnConfiguration.Image = Global.SchoolDemo.My.Resources.Resources._109
         Me.btnConfiguration.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btnConfiguration.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnConfiguration.Location = New System.Drawing.Point(3, 346)
+        Me.btnConfiguration.Location = New System.Drawing.Point(3, 395)
         Me.btnConfiguration.Name = "btnConfiguration"
         Me.btnConfiguration.Size = New System.Drawing.Size(753, 43)
         Me.btnConfiguration.TabIndex = 34
@@ -614,9 +643,10 @@ Partial Class FrmControlPanel
         Me.Controls.Add(Me.lblAddtionalInfoAdmissions)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmControlPanel"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmControlPanel"
+        Me.Text = "Control Panel"
         Me.pnlFlowMain.ResumeLayout(False)
         Me.pnlUserAccountsDrop.ResumeLayout(False)
         Me.pnlDropStudentDetails.ResumeLayout(False)
@@ -648,4 +678,5 @@ Partial Class FrmControlPanel
     Friend WithEvents btnFacultyPersonalDetails As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnRemoveFaculty As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents btnFacultySubjects As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents btnMiscellanousCosts As Guna.UI2.WinForms.Guna2GradientButton
 End Class

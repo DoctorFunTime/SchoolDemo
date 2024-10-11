@@ -25,6 +25,7 @@ Public Class FrmSplashScreen
         dtePickerDate.Value = Date.Today
         design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub FrmSplashScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim effRate As DataTable = selectStatement.GetDaysRate(Date.Today, _conn)
 
@@ -69,11 +70,13 @@ Public Class FrmSplashScreen
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel)
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -86,6 +89,7 @@ Public Class FrmSplashScreen
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -93,6 +97,7 @@ Public Class FrmSplashScreen
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
@@ -102,6 +107,7 @@ Public Class FrmSplashScreen
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -109,9 +115,11 @@ Public Class FrmSplashScreen
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
 End Class

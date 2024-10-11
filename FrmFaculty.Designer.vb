@@ -23,6 +23,7 @@ Partial Class FrmFaculty
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmFaculty))
         Me.lblHeadingOne = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnRoles = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.btnFaculty = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -925,9 +926,10 @@ Partial Class FrmFaculty
         Me.Controls.Add(Me.btnFaculty)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmFaculty"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmFaculty"
+        Me.Text = "Faculty"
         Me.pnlDock.ResumeLayout(False)
         Me.pnlMedicals.ResumeLayout(False)
         Me.pnlMedicals.PerformLayout()

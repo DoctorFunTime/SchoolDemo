@@ -1,11 +1,13 @@
-﻿Imports Frond_End_Design
+﻿Imports DatabaseSelectStatements
+Imports Frond_End_Design
+Imports Functionality
 Imports Guna.UI2.WinForms
-Imports DatabaseSelectStatements
-Imports Org.BouncyCastle.Crypto
 Imports MyEncapsulation
 Imports SQLStatements
-Imports SQLDeleteStatements
+Imports SQLUpdateStatements
+Imports UpdateEncapsulation
 Public Class FrmRegisterSelection
+    Private dragger As New SystemFunctions
     Dim selectStatement As New SelectStats
     Private cFees As New List(Of Integer)
     Private sCosts As New Collection
@@ -34,6 +36,8 @@ Public Class FrmRegisterSelection
     End Sub
     Private Sub FrmRegisterSelection_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        dragger.EnableDrag(Me, pnlTopBar)
+
         If _message = "Invoice Students" Then
             design.loadPnl(pnlInvoicingStudents, True)
             lblHeading.Text = "Invoicing Students"
@@ -42,6 +46,20 @@ Public Class FrmRegisterSelection
         ElseIf _message = "New User" Then
             design.loadPnl(pnlUserAccounts, True)
             lblHeading.Text = "New User Account"
+        ElseIf _message = "School Details" Then
+            design.loadPnl(pnlSchoolDetails, True)
+            lblHeading.Text = "School Details"
+
+            Dim schoolDetailsTable As DataTable = selectStatement.GetSchoolDetails(_conn)
+            Dim row As DataRow = schoolDetailsTable.Rows(0)
+
+            lblID.Text = row("sd_id")
+            txtSchoolName.Text = row("sd_name")
+            txtContacts.Text = row("sd_contacts")
+            txtAddress.Text = row("sd_address")
+            txtBubText.Text = row("sd_slogan")
+            txtEmail.Text = row("sd_email")
+            txtBankingDetails.Text = row("sd_bank_details")
         End If
 
         txtDocNumber.Text = $"INV00{_docNumber}"
@@ -52,7 +70,6 @@ Public Class FrmRegisterSelection
             cmbClass.Items.Add(sclass)
             cmbBoxClass.Items.Add(sclass)
         Next
-
 
     End Sub
     Private Sub btnValidateAndFinalise_Click(sender As Object, e As EventArgs) Handles btnValidateAndFinalise.Click
@@ -91,6 +108,7 @@ Public Class FrmRegisterSelection
 
                 Dim selection As New List(Of DataSelection)
                 addCostsToCollection()
+                Dim monthComp As String = "INV"
 
                 If allStudentIDs.Count = 0 Then
                     design.messagboxInfo("Ooops!", $"No students from {cmbBoxClass.Text} were found.", Me)
@@ -102,7 +120,7 @@ Public Class FrmRegisterSelection
                                 Dim value As Integer
                                 If Integer.TryParse(item.Text.Trim(), value) Then
 
-                                    Dim newselection As New DataSelection(Date.Today, item.tag, value, 0, cmbBoxCurrency.Text, "DR", cmbBoxPaymentType.Text, studentID, txtDocNumber.Text)
+                                    Dim newselection As New DataSelection(Date.Today, monthComp & "-" & item.tag, value, 0, cmbBoxCurrency.Text, "DR", cmbBoxPaymentType.Text, studentID, txtDocNumber.Text)
                                     selection.Add(newselection)
 
                                 End If
@@ -167,6 +185,23 @@ Public Class FrmRegisterSelection
                     Close()
                 End If
             End If
+
+        ElseIf pnlSchoolDetails.Visible = True Then
+            Dim verified As Boolean = design.txtboxformats(pnlSchoolDetails)
+
+            If verified Then
+                Dim updates As New List(Of UpdateSchoolDetails)
+                Dim value As Integer
+
+                If Integer.TryParse(lblID.Text.Trim(), value) Then
+                    Dim newEntry As New UpdateSchoolDetails(value, txtSchoolName.Text, txtAddress.Text, txtContacts.Text, txtBubText.Text, txtEmail.Text, txtBankingDetails.Text)
+                    updates.Add(newEntry)
+                End If
+
+                UpdateStatements.UpdateSchoolDetails(_frm.lblConnectedUser.Text, updates, _conn)
+                Close()
+            End If
+
         End If
 
     End Sub
@@ -213,7 +248,6 @@ Public Class FrmRegisterSelection
                 If Not vTest Then
                     txtUniformCost.Text = 0
                 End If
-
 
             Case "cmbTextBooks"
                 Dim vTest As Boolean = False
@@ -342,7 +376,8 @@ Public Class FrmRegisterSelection
             pnlInvoicingStudents,
             pnlRegisterFilters,
             pnlUserAccounts,
-            pnlTopBar
+            pnlTopBar,
+            pnlSchoolDetails
         }
         Return topPanels
     End Function
@@ -367,7 +402,14 @@ Public Class FrmRegisterSelection
             lblAccountType,
             lblUsername,
             lblPassword,
-            lblCPassword
+            lblCPassword,
+            lblSlogan,
+            lblSchoolName,
+            lblSchoolEmail,
+            lblSchoolContacts,
+            lblBankDetails,
+            lblAddress,
+            lblID
         }
         Return labels
     End Function
@@ -392,7 +434,13 @@ Public Class FrmRegisterSelection
             txtClassCost,
             txtUsername,
             txtPassword,
-            txtCPassword
+            txtCPassword,
+            txtSchoolName,
+            txtEmail,
+            txtContacts,
+            txtBubText,
+            txtBankingDetails,
+            txtAddress
         }
         Return placeholder
     End Function
@@ -422,4 +470,5 @@ Public Class FrmRegisterSelection
     Private Sub FrmRegisterSelection_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles Me.Closing
         _frm.Updates()
     End Sub
+
 End Class

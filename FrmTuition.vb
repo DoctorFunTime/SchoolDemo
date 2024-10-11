@@ -1,14 +1,13 @@
-﻿Imports DatabaseSelectStatements
-Imports SQLStatements
+﻿Imports bubble
+Imports DatabaseSelectStatements
 Imports Frond_End_Design
-Imports MyEncapsulation
-Imports bubble
 Imports Guna.UI2.WinForms
+Imports MyEncapsulation
+Imports SQLStatements
 
 Public Class FrmTuition
     Private selectStatement As New SelectStats
     Private design As New Design
-    Private Popup As New NotificationBubble
     Private sqlline As New SQLLine
     Private _docNumber As Integer
     Private _darkmode As Boolean
@@ -29,6 +28,7 @@ Public Class FrmTuition
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub studentSelection_Click(sender As Object, e As EventArgs) Handles btnClose.Click, btnConfirm.Click
 
         Select Case sender.name
@@ -59,8 +59,6 @@ Public Class FrmTuition
                             receiptPayment.Add(AnotherEntry)
                             SQLLine.InsertReceiptPayment(_frm.lblConnectedUser.Text, receiptPayment, _conn)
                             SQLLine.InsertDocNumber(_docNumber, "Receipt", _conn)
-                            Popup.ShowNotification("Ok", "Successful", "Student payment was processed successfully.", Me)
-
                         Else
 
                             Dim AnotherEntry As New ReceiptsPayment(dtePickerDate.Value, txtDocDescription.Text, 0, value, cmbBoxDocCurrency.Text, "CR", cmbBoxDocPaymentType.Text, txtDocDocNumber.Text)
@@ -69,7 +67,6 @@ Public Class FrmTuition
                             receiptPayment.Add(AnotherEntry)
                             SQLLine.InsertReceiptPayment(_frm.lblConnectedUser.Text, receiptPayment, _conn)
                             SQLLine.InsertDocNumber(_docNumber, "Expense", _conn)
-                            Popup.ShowNotification("Ok", "Successful", "Student payment was processed successfully.", Me)
 
                         End If
 
@@ -78,7 +75,6 @@ Public Class FrmTuition
                     End If
                 End If
         End Select
-
 
     End Sub
 
@@ -105,6 +101,7 @@ Public Class FrmTuition
         End If
 
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton)
@@ -116,11 +113,13 @@ Public Class FrmTuition
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel)
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -135,6 +134,7 @@ Public Class FrmTuition
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -142,6 +142,7 @@ Public Class FrmTuition
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
@@ -154,6 +155,7 @@ Public Class FrmTuition
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -163,6 +165,7 @@ Public Class FrmTuition
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)

@@ -20,12 +20,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("StudentGPA"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("ExamMarks"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class StudentGPA
+Partial Public Class ExamMarks
     Inherits Global.System.Data.DataSet
     
-    Private tabledtStudentGPA As dtStudentGPADataTable
+    Private tabledtExamMarks As dtExamMarksDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class StudentGPA
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("dtStudentGPA")) Is Nothing) Then
-                MyBase.Tables.Add(New dtStudentGPADataTable(ds.Tables("dtStudentGPA")))
+            If (Not (ds.Tables("dtExamMarks")) Is Nothing) Then
+                MyBase.Tables.Add(New dtExamMarksDataTable(ds.Tables("dtExamMarks")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class StudentGPA
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property dtStudentGPA() As dtStudentGPADataTable
+    Public ReadOnly Property dtExamMarks() As dtExamMarksDataTable
         Get
-            Return Me.tabledtStudentGPA
+            Return Me.tabledtExamMarks
         End Get
     End Property
     
@@ -128,7 +128,7 @@ Partial Public Class StudentGPA
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As StudentGPA = CType(MyBase.Clone,StudentGPA)
+        Dim cln As ExamMarks = CType(MyBase.Clone,ExamMarks)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -153,8 +153,8 @@ Partial Public Class StudentGPA
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("dtStudentGPA")) Is Nothing) Then
-                MyBase.Tables.Add(New dtStudentGPADataTable(ds.Tables("dtStudentGPA")))
+            If (Not (ds.Tables("dtExamMarks")) Is Nothing) Then
+                MyBase.Tables.Add(New dtExamMarksDataTable(ds.Tables("dtExamMarks")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class StudentGPA
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tabledtStudentGPA = CType(MyBase.Tables("dtStudentGPA"),dtStudentGPADataTable)
+        Me.tabledtExamMarks = CType(MyBase.Tables("dtExamMarks"),dtExamMarksDataTable)
         If (initTable = true) Then
-            If (Not (Me.tabledtStudentGPA) Is Nothing) Then
-                Me.tabledtStudentGPA.InitVars
+            If (Not (Me.tabledtExamMarks) Is Nothing) Then
+                Me.tabledtExamMarks.InitVars
             End If
         End If
     End Sub
@@ -199,18 +199,18 @@ Partial Public Class StudentGPA
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "StudentGPA"
+        Me.DataSetName = "ExamMarks"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/StudentGPA.xsd"
+        Me.Namespace = "http://tempuri.org/ExamMarks.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabledtStudentGPA = New dtStudentGPADataTable()
-        MyBase.Tables.Add(Me.tabledtStudentGPA)
+        Me.tabledtExamMarks = New dtExamMarksDataTable()
+        MyBase.Tables.Add(Me.tabledtExamMarks)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializedtStudentGPA() As Boolean
+    Private Function ShouldSerializedtExamMarks() As Boolean
         Return false
     End Function
     
@@ -225,7 +225,7 @@ Partial Public Class StudentGPA
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As StudentGPA = New StudentGPA()
+        Dim ds As ExamMarks = New ExamMarks()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -273,17 +273,19 @@ Partial Public Class StudentGPA
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub dtStudentGPARowChangeEventHandler(ByVal sender As Object, ByVal e As dtStudentGPARowChangeEvent)
+    Public Delegate Sub dtExamMarksRowChangeEventHandler(ByVal sender As Object, ByVal e As dtExamMarksRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class dtStudentGPADataTable
-        Inherits Global.System.Data.TypedTableBase(Of dtStudentGPARow)
+    Partial Public Class dtExamMarksDataTable
+        Inherits Global.System.Data.TypedTableBase(Of dtExamMarksRow)
         
-        Private columnid As Global.System.Data.DataColumn
+        Private columnstudent_id As Global.System.Data.DataColumn
+        
+        Private columndate As Global.System.Data.DataColumn
         
         Private columnterm As Global.System.Data.DataColumn
         
@@ -293,15 +295,27 @@ Partial Public Class StudentGPA
         
         Private columnclass As Global.System.Data.DataColumn
         
-        Private columnmark As Global.System.Data.DataColumn
+        Private columnsubject As Global.System.Data.DataColumn
         
-        Private columnrank As Global.System.Data.DataColumn
+        Private columndescription As Global.System.Data.DataColumn
+        
+        Private columntype As Global.System.Data.DataColumn
+        
+        Private columnschool_name As Global.System.Data.DataColumn
+        
+        Private columncontacts As Global.System.Data.DataColumn
+        
+        Private columnaddress As Global.System.Data.DataColumn
+        
+        Private columnslogan As Global.System.Data.DataColumn
+        
+        Private columnmark As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "dtStudentGPA"
+            Me.TableName = "dtExamMarks"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -334,9 +348,17 @@ Partial Public Class StudentGPA
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property student_idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnid
+                Return Me.columnstudent_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndate
             End Get
         End Property
         
@@ -374,17 +396,65 @@ Partial Public Class StudentGPA
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property markColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property subjectColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnmark
+                Return Me.columnsubject
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property rankColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property descriptionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnrank
+                Return Me.columndescription
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property typeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntype
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property school_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnschool_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncontacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property addressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaddress
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sloganColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnslogan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property markColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmark
             End Get
         End Property
         
@@ -399,44 +469,44 @@ Partial Public Class StudentGPA
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As dtStudentGPARow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As dtExamMarksRow
             Get
-                Return CType(Me.Rows(index),dtStudentGPARow)
+                Return CType(Me.Rows(index),dtExamMarksRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentGPARowChanging As dtStudentGPARowChangeEventHandler
+        Public Event dtExamMarksRowChanging As dtExamMarksRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentGPARowChanged As dtStudentGPARowChangeEventHandler
+        Public Event dtExamMarksRowChanged As dtExamMarksRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentGPARowDeleting As dtStudentGPARowChangeEventHandler
+        Public Event dtExamMarksRowDeleting As dtExamMarksRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event dtStudentGPARowDeleted As dtStudentGPARowChangeEventHandler
+        Public Event dtExamMarksRowDeleted As dtExamMarksRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AdddtStudentGPARow(ByVal row As dtStudentGPARow)
+        Public Overloads Sub AdddtExamMarksRow(ByVal row As dtExamMarksRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AdddtStudentGPARow(ByVal id As Integer, ByVal term As String, ByVal name As String, ByVal surname As String, ByVal _class As String, ByVal mark As Decimal, ByVal rank As String) As dtStudentGPARow
-            Dim rowdtStudentGPARow As dtStudentGPARow = CType(Me.NewRow,dtStudentGPARow)
-            Dim columnValuesArray() As Object = New Object() {id, term, name, surname, _class, mark, rank}
-            rowdtStudentGPARow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowdtStudentGPARow)
-            Return rowdtStudentGPARow
+        Public Overloads Function AdddtExamMarksRow(ByVal student_id As Integer, ByVal _date As Date, ByVal term As String, ByVal name As String, ByVal surname As String, ByVal _class As String, ByVal subject As String, ByVal description As String, ByVal type As String, ByVal school_name As String, ByVal contacts As String, ByVal address As String, ByVal slogan As String, ByVal mark As Decimal) As dtExamMarksRow
+            Dim rowdtExamMarksRow As dtExamMarksRow = CType(Me.NewRow,dtExamMarksRow)
+            Dim columnValuesArray() As Object = New Object() {student_id, _date, term, name, surname, _class, subject, description, type, school_name, contacts, address, slogan, mark}
+            rowdtExamMarksRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowdtExamMarksRow)
+            Return rowdtExamMarksRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As dtStudentGPADataTable = CType(MyBase.Clone,dtStudentGPADataTable)
+            Dim cln As dtExamMarksDataTable = CType(MyBase.Clone,dtExamMarksDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -444,26 +514,38 @@ Partial Public Class StudentGPA
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New dtStudentGPADataTable()
+            Return New dtExamMarksDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("id")
+            Me.columnstudent_id = MyBase.Columns("student_id")
+            Me.columndate = MyBase.Columns("date")
             Me.columnterm = MyBase.Columns("term")
             Me.columnname = MyBase.Columns("name")
             Me.columnsurname = MyBase.Columns("surname")
             Me.columnclass = MyBase.Columns("class")
+            Me.columnsubject = MyBase.Columns("subject")
+            Me.columndescription = MyBase.Columns("description")
+            Me.columntype = MyBase.Columns("type")
+            Me.columnschool_name = MyBase.Columns("school_name")
+            Me.columncontacts = MyBase.Columns("contacts")
+            Me.columnaddress = MyBase.Columns("address")
+            Me.columnslogan = MyBase.Columns("slogan")
             Me.columnmark = MyBase.Columns("mark")
-            Me.columnrank = MyBase.Columns("rank")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid)
+            Me.columnstudent_id = New Global.System.Data.DataColumn("student_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstudent_id)
+            Me.columndate = New Global.System.Data.DataColumn("date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "dateColumn")
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columndate")
+            Me.columndate.ExtendedProperties.Add("Generator_UserColumnName", "date")
+            MyBase.Columns.Add(Me.columndate)
             Me.columnterm = New Global.System.Data.DataColumn("term", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnterm)
             Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -475,36 +557,48 @@ Partial Public Class StudentGPA
             Me.columnclass.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnclass")
             Me.columnclass.ExtendedProperties.Add("Generator_UserColumnName", "class")
             MyBase.Columns.Add(Me.columnclass)
+            Me.columnsubject = New Global.System.Data.DataColumn("subject", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsubject)
+            Me.columndescription = New Global.System.Data.DataColumn("description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndescription)
+            Me.columntype = New Global.System.Data.DataColumn("type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntype)
+            Me.columnschool_name = New Global.System.Data.DataColumn("school_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnschool_name)
+            Me.columncontacts = New Global.System.Data.DataColumn("contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncontacts)
+            Me.columnaddress = New Global.System.Data.DataColumn("address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaddress)
+            Me.columnslogan = New Global.System.Data.DataColumn("slogan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnslogan)
             Me.columnmark = New Global.System.Data.DataColumn("mark", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmark)
-            Me.columnrank = New Global.System.Data.DataColumn("rank", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnrank)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewdtStudentGPARow() As dtStudentGPARow
-            Return CType(Me.NewRow,dtStudentGPARow)
+        Public Function NewdtExamMarksRow() As dtExamMarksRow
+            Return CType(Me.NewRow,dtExamMarksRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New dtStudentGPARow(builder)
+            Return New dtExamMarksRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(dtStudentGPARow)
+            Return GetType(dtExamMarksRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.dtStudentGPARowChangedEvent) Is Nothing) Then
-                RaiseEvent dtStudentGPARowChanged(Me, New dtStudentGPARowChangeEvent(CType(e.Row,dtStudentGPARow), e.Action))
+            If (Not (Me.dtExamMarksRowChangedEvent) Is Nothing) Then
+                RaiseEvent dtExamMarksRowChanged(Me, New dtExamMarksRowChangeEvent(CType(e.Row,dtExamMarksRow), e.Action))
             End If
         End Sub
         
@@ -512,8 +606,8 @@ Partial Public Class StudentGPA
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.dtStudentGPARowChangingEvent) Is Nothing) Then
-                RaiseEvent dtStudentGPARowChanging(Me, New dtStudentGPARowChangeEvent(CType(e.Row,dtStudentGPARow), e.Action))
+            If (Not (Me.dtExamMarksRowChangingEvent) Is Nothing) Then
+                RaiseEvent dtExamMarksRowChanging(Me, New dtExamMarksRowChangeEvent(CType(e.Row,dtExamMarksRow), e.Action))
             End If
         End Sub
         
@@ -521,8 +615,8 @@ Partial Public Class StudentGPA
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.dtStudentGPARowDeletedEvent) Is Nothing) Then
-                RaiseEvent dtStudentGPARowDeleted(Me, New dtStudentGPARowChangeEvent(CType(e.Row,dtStudentGPARow), e.Action))
+            If (Not (Me.dtExamMarksRowDeletedEvent) Is Nothing) Then
+                RaiseEvent dtExamMarksRowDeleted(Me, New dtExamMarksRowChangeEvent(CType(e.Row,dtExamMarksRow), e.Action))
             End If
         End Sub
         
@@ -530,14 +624,14 @@ Partial Public Class StudentGPA
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.dtStudentGPARowDeletingEvent) Is Nothing) Then
-                RaiseEvent dtStudentGPARowDeleting(Me, New dtStudentGPARowChangeEvent(CType(e.Row,dtStudentGPARow), e.Action))
+            If (Not (Me.dtExamMarksRowDeletingEvent) Is Nothing) Then
+                RaiseEvent dtExamMarksRowDeleting(Me, New dtExamMarksRowChangeEvent(CType(e.Row,dtExamMarksRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemovedtStudentGPARow(ByVal row As dtStudentGPARow)
+        Public Sub RemovedtExamMarksRow(ByVal row As dtExamMarksRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -546,7 +640,7 @@ Partial Public Class StudentGPA
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As StudentGPA = New StudentGPA()
+            Dim ds As ExamMarks = New ExamMarks()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -564,7 +658,7 @@ Partial Public Class StudentGPA
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "dtStudentGPADataTable"
+            attribute2.FixedValue = "dtExamMarksDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -611,30 +705,45 @@ Partial Public Class StudentGPA
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class dtStudentGPARow
+    Partial Public Class dtExamMarksRow
         Inherits Global.System.Data.DataRow
         
-        Private tabledtStudentGPA As dtStudentGPADataTable
+        Private tabledtExamMarks As dtExamMarksDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tabledtStudentGPA = CType(Me.Table,dtStudentGPADataTable)
+            Me.tabledtExamMarks = CType(Me.Table,dtExamMarksDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property id() As Integer
+        Public Property student_id() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentGPA.idColumn),Integer)
+                    Return CType(Me(Me.tabledtExamMarks.student_idColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'id' in table 'dtStudentGPA' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'student_id' in table 'dtExamMarks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentGPA.idColumn) = value
+                Me(Me.tabledtExamMarks.student_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property _date() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.dateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'date' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.dateColumn) = value
             End Set
         End Property
         
@@ -643,13 +752,13 @@ Partial Public Class StudentGPA
         Public Property term() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentGPA.termColumn),String)
+                    Return CType(Me(Me.tabledtExamMarks.termColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'term' in table 'dtStudentGPA' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'term' in table 'dtExamMarks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentGPA.termColumn) = value
+                Me(Me.tabledtExamMarks.termColumn) = value
             End Set
         End Property
         
@@ -658,13 +767,13 @@ Partial Public Class StudentGPA
         Public Property name() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentGPA.nameColumn),String)
+                    Return CType(Me(Me.tabledtExamMarks.nameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'name' in table 'dtStudentGPA' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'name' in table 'dtExamMarks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentGPA.nameColumn) = value
+                Me(Me.tabledtExamMarks.nameColumn) = value
             End Set
         End Property
         
@@ -673,13 +782,13 @@ Partial Public Class StudentGPA
         Public Property surname() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentGPA.surnameColumn),String)
+                    Return CType(Me(Me.tabledtExamMarks.surnameColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'surname' in table 'dtStudentGPA' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'surname' in table 'dtExamMarks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentGPA.surnameColumn) = value
+                Me(Me.tabledtExamMarks.surnameColumn) = value
             End Set
         End Property
         
@@ -688,13 +797,118 @@ Partial Public Class StudentGPA
         Public Property _class() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentGPA.classColumn),String)
+                    Return CType(Me(Me.tabledtExamMarks.classColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'class' in table 'dtStudentGPA' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'class' in table 'dtExamMarks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentGPA.classColumn) = value
+                Me(Me.tabledtExamMarks.classColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property subject() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.subjectColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'subject' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.subjectColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property description() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.descriptionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'description' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.descriptionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property type() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.typeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'type' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.typeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property school_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.school_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'school_name' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.school_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'contacts' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.addressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'address' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.addressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property slogan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtExamMarks.sloganColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'slogan' in table 'dtExamMarks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtExamMarks.sloganColumn) = value
             End Set
         End Property
         
@@ -703,113 +917,182 @@ Partial Public Class StudentGPA
         Public Property mark() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tabledtStudentGPA.markColumn),Decimal)
+                    Return CType(Me(Me.tabledtExamMarks.markColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'mark' in table 'dtStudentGPA' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'mark' in table 'dtExamMarks' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtStudentGPA.markColumn) = value
+                Me(Me.tabledtExamMarks.markColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property rank() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabledtStudentGPA.rankColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'rank' in table 'dtStudentGPA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabledtStudentGPA.rankColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsidNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.idColumn)
+        Public Function Isstudent_idNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.student_idColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetidNull()
-            Me(Me.tabledtStudentGPA.idColumn) = Global.System.Convert.DBNull
+        Public Sub Setstudent_idNull()
+            Me(Me.tabledtExamMarks.student_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Is_dateNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Set_dateNull()
+            Me(Me.tabledtExamMarks.dateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IstermNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.termColumn)
+            Return Me.IsNull(Me.tabledtExamMarks.termColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SettermNull()
-            Me(Me.tabledtStudentGPA.termColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtExamMarks.termColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsnameNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.nameColumn)
+            Return Me.IsNull(Me.tabledtExamMarks.nameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetnameNull()
-            Me(Me.tabledtStudentGPA.nameColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtExamMarks.nameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IssurnameNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.surnameColumn)
+            Return Me.IsNull(Me.tabledtExamMarks.surnameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetsurnameNull()
-            Me(Me.tabledtStudentGPA.surnameColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtExamMarks.surnameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Is_classNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.classColumn)
+            Return Me.IsNull(Me.tabledtExamMarks.classColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Set_classNull()
-            Me(Me.tabledtStudentGPA.classColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtExamMarks.classColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IssubjectNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.subjectColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetsubjectNull()
+            Me(Me.tabledtExamMarks.subjectColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsdescriptionNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.descriptionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetdescriptionNull()
+            Me(Me.tabledtExamMarks.descriptionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IstypeNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.typeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SettypeNull()
+            Me(Me.tabledtExamMarks.typeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Isschool_nameNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.school_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setschool_nameNull()
+            Me(Me.tabledtExamMarks.school_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IscontactsNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetcontactsNull()
+            Me(Me.tabledtExamMarks.contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsaddressNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.addressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetaddressNull()
+            Me(Me.tabledtExamMarks.addressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IssloganNull() As Boolean
+            Return Me.IsNull(Me.tabledtExamMarks.sloganColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetsloganNull()
+            Me(Me.tabledtExamMarks.sloganColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsmarkNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.markColumn)
+            Return Me.IsNull(Me.tabledtExamMarks.markColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetmarkNull()
-            Me(Me.tabledtStudentGPA.markColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsrankNull() As Boolean
-            Return Me.IsNull(Me.tabledtStudentGPA.rankColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetrankNull()
-            Me(Me.tabledtStudentGPA.rankColumn) = Global.System.Convert.DBNull
+            Me(Me.tabledtExamMarks.markColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -817,16 +1100,16 @@ Partial Public Class StudentGPA
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class dtStudentGPARowChangeEvent
+    Public Class dtExamMarksRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As dtStudentGPARow
+        Private eventRow As dtExamMarksRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As dtStudentGPARow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As dtExamMarksRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -834,7 +1117,7 @@ Partial Public Class StudentGPA
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As dtStudentGPARow
+        Public ReadOnly Property Row() As dtExamMarksRow
             Get
                 Return Me.eventRow
             End Get

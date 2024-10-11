@@ -1,17 +1,16 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
-Imports bubble
-Imports ColourSchemes
+Imports System.Security.Cryptography
+Imports System.Text
+Imports System.Threading
 Imports DatabaseSelectStatements
 Imports Frond_End_Design
 Imports Guna.UI2.WinForms
-Imports UpdateEncapsulation
-Imports SQLUpdateStatements
 Imports MyEncapsulation
-Imports System.Security.Cryptography
-Imports System.Text
-Imports System.Net.Sockets
+Imports Npgsql
 Imports SQLStatements
+Imports SQLUpdateStatements
+Imports UpdateEncapsulation
 
 Public Class Homepage
     Private buttonList As New Collection
@@ -24,17 +23,19 @@ Public Class Homepage
     Private pnlUnderline As New Guna2GradientPanel
     Private markedRegisters As Integer
     Private allRegisters As Integer
-    Private WithEvents studentCountTimer As Windows.Forms.Timer
-    Private WithEvents FacultyCountTimer As Windows.Forms.Timer
-    Private WithEvents circlePrgBar As Windows.Forms.Timer
-    Private WithEvents prgAbsentTimer As Windows.Forms.Timer
-    Private WithEvents prgPresntTimer As Windows.Forms.Timer
+    Private WithEvents studentCountTimer As System.Windows.Forms.Timer
+    Private WithEvents FacultyCountTimer As System.Windows.Forms.Timer
+    Private WithEvents circlePrgBar As System.Windows.Forms.Timer
+    Private WithEvents prgAbsentTimer As System.Windows.Forms.Timer
+    Private WithEvents prgPresntTimer As System.Windows.Forms.Timer
     Private UserSettings As DataTable
     Public _darkMode As Boolean
     Private _conn As String
-    Private _UserType As String
+    Public _UserType As String
+    Private _term As String
     Private _LogOut As Boolean
     Private _frmLogin As FrmLogin
+
     Public Sub New(conn As String, userType As String, username As String, loginForm As Form)
 
         ' This call is required by the designer.
@@ -50,6 +51,7 @@ Public Class Homepage
         _UserType = userType
         _LogOut = False
         _conn = conn
+
         UserSettings = selectStatement.GetUserSettings(_conn)
         If _darkMode Then btnActivateKey.ForeColor = Color.White Else btnActivateKey.ForeColor = Color.DimGray
         For Each row In UserSettings.Rows
@@ -57,6 +59,10 @@ Public Class Homepage
         Next
 
         design.darkMode(Me, _darkMode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMEmptyButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
+    End Sub
+
+    Private Sub OnNotificationReceived(message As String)
+        MessageBox.Show("Notification received: " & message)
     End Sub
     'form load
     Private Sub Homepage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -67,6 +73,7 @@ Public Class Homepage
         pnlUnderline.BackColor = Me.BackColor
 
     End Sub
+
     Public Sub Updates()
         'Get todays rate
         Dim effRate As DataTable = selectStatement.GetDaysRate(Date.Today, _conn)
@@ -81,6 +88,7 @@ Public Class Homepage
         For Each row In activeTerm.Rows
             Dim term As String = row("at_term").ToString
             btnTerm.Text = term
+            _term = term
         Next
 
         LoadCountTimers()
@@ -141,12 +149,11 @@ Public Class Homepage
             End If
         Next
 
-
-        If notifications.Any(Function(notif) notif.text = "Incoming Events (Next 7 Days)") Then
-            Dim existingNotif As Notifications = notifications.FirstOrDefault(Function(n) n.text = "Incoming Events (Next 7 Days)")
+        If notifications.Any(Function(notif) notif.text = "Incoming Event(s) (Next 7 Days)") Then
+            Dim existingNotif As Notifications = notifications.FirstOrDefault(Function(n) n.text = "Incoming Event(s) (Next 7 Days)")
             existingNotif.buttonName = $"{eventsInTheComingWeek} scheduled events."
         Else
-            notifications.Add(New Notifications(1, $"{eventsInTheComingWeek} scheduled events.", "Incoming Events (Next 7 Days)"))
+            notifications.Add(New Notifications(1, $"{eventsInTheComingWeek} scheduled event(s).", "Incoming Event(s) (Next 7 Days)"))
             notPaint.Text = notifications.Count
         End If
 
@@ -184,19 +191,23 @@ Public Class Homepage
         End If
 
     End Sub
+
     'Form closing
     Private Sub Homepage_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+
         'Update userSettings
         UserSettingsUpdates()
 
-        If _LogOut Then
 
+        If _LogOut Then
         Else
             FrmLogin.Close()
         End If
 
     End Sub
-    'Counters reloads 
+
+    'Counters reloads
     Private Sub LoadCountTimers()
 
         lblAbsentValue.Text = "0 / 0"
@@ -206,7 +217,7 @@ Public Class Homepage
         Dim studentCount As Integer = selectStatement.GetNamesFromTable(_conn).Rows.Count
         Dim SCcount As Integer = 0
 
-        studentCountTimer = New Windows.Forms.Timer
+        studentCountTimer = New System.Windows.Forms.Timer
 
         If studentCount < 50 Then
             studentCountTimer.Interval = 30
@@ -231,7 +242,7 @@ Public Class Homepage
         Dim FacultyCount As Integer = selectStatement.GetFacultyFromTable(_conn).Rows.Count
         Dim FCcount As Integer = 0
 
-        FacultyCountTimer = New Windows.Forms.Timer
+        FacultyCountTimer = New System.Windows.Forms.Timer
 
         If FacultyCount < 50 Then
             FacultyCountTimer.Interval = 30
@@ -252,7 +263,6 @@ Public Class Homepage
                                                    lblFacultyCount.Text = FCcount.ToString
                                                End If
                                            End Sub
-
 
         Dim presentCount As Integer = selectStatement.GetRegisterValue(Date.Today, True, _conn).Rows.Count
         Dim maxValue As Integer = selectStatement.GetNamesFromTable(_conn).Rows.Count
@@ -279,12 +289,12 @@ Public Class Homepage
             acount = absentValue - 100
         End If
 
-        prgPresntTimer = New Windows.Forms.Timer With {
+        prgPresntTimer = New System.Windows.Forms.Timer With {
             .Interval = 50
         }
         prgPresntTimer.Start()
 
-        prgAbsentTimer = New Windows.Forms.Timer With {
+        prgAbsentTimer = New System.Windows.Forms.Timer With {
             .Interval = 50
         }
         prgAbsentTimer.Start()
@@ -312,10 +322,11 @@ Public Class Homepage
                                         End Sub
 
     End Sub
+
     'Button Click Events
     Private Sub SideBarButtons_Click(sender As Object, e As EventArgs) Handles btnReports.Click, btnExams.Click, btnControlPanel.Click, btnBanking.Click, btnAdmissions.Click
 
-        'Add buttons to collection 
+        'Add buttons to collection
         AddToButtonCollection()
 
         'Remove styling on all buttons
@@ -338,7 +349,7 @@ Public Class Homepage
         Select Case sender.name
 
             Case "btnAdmissions"
-                Dim frm As New FrmAdmission(_darkMode, Me, _conn)
+                Dim frm As New FrmAdmission(_darkMode, _term, Me, _conn)
                 Dim openForm As New Design()
                 openForm.OpenForm(frm, pnlDockParent)
 
@@ -370,6 +381,7 @@ Public Class Homepage
         End Select
 
     End Sub
+
     Private Sub BtnMinAndClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click, btnMinimize.Click
         If sender.name = "btnMinimize" Then
             WindowState = FormWindowState.Minimized
@@ -377,15 +389,15 @@ Public Class Homepage
             _LogOut = False
             Close()
         End If
+
     End Sub
+
     Private Sub BtnControls_Click(sender As Object, e As EventArgs) Handles btnNotifications.Click, btnAboutUs.Click, btnHome.Click, btnSignOut.Click
-
-
 
         Select Case sender.name
 
             Case "btnHome"
-                'Remove the side button styling 
+                'Remove the side button styling
                 AddToButtonCollection()
 
                 For Each item In buttonList
@@ -393,7 +405,7 @@ Public Class Homepage
                     btnStyleRemove.unPressedButton(item, e, _darkMode)
                 Next item
 
-                'close any docked forms 
+                'close any docked forms
                 For Each control In pnlDockParent.Controls
                     If TypeOf control Is Form Then
                         DirectCast(control, Form).Close()
@@ -419,7 +431,6 @@ Public Class Homepage
                 }
                 frm.ShowDialog()
 
-
             Case "btnAboutUs"
 
             Case "btnSignOut"
@@ -431,11 +442,10 @@ Public Class Homepage
                 FrmLogin.txtUsername.Text = "Username"
         End Select
 
-
     End Sub
+
     'Button hover events
     Private Sub BtnOnHover_MouseHover(sender As Object, e As EventArgs) Handles btnNotifications.MouseHover, btnAboutUs.MouseHover, btnHome.MouseHover, btnSignOut.MouseHover
-
 
         Select Case sender.name
 
@@ -453,6 +463,7 @@ Public Class Homepage
 
         End Select
     End Sub
+
     'Add side button list to collection
     Public Sub AddToButtonCollection()
         'Empty Collection
@@ -466,6 +477,7 @@ Public Class Homepage
         buttonList.Add(btnControlPanel)
 
     End Sub
+
     Private Sub BtnCloseDatabase_Click(sender As Object, e As EventArgs) Handles btnCloseDatabase.Click
 
         Dim CustomMessageBox As New Guna2MessageDialog With {
@@ -484,21 +496,22 @@ Public Class Homepage
         End If
 
     End Sub
+
     'Quick access buttons
     Private Sub QuickAccess_Click(sender As Object, e As EventArgs) Handles btnStudentDetails.Click, btnFeesStatement.Click, btnFeesPayments.Click, btnEnroll.Click, btnCashbook.Click
         Select Case sender.name
             Case "btnStudentDetails"
                 Dim frm As New FrmEventsPlanner(_darkMode, Me, _conn)
-                frm.ShowDialog()
+                frm.Show()
 
             Case "btnFeesStatement"
                 Dim frm As New FrmSelectClass("Class Register", _darkMode, Me, _conn)
-                frm.ShowDialog()
+                frm.Show()
 
             Case "btnFeesPayments"
                 Dim formID As String = "FrmTuition"
                 Dim selectStudent As New FrmSelectStudent(formID, _darkMode, Me, _conn)
-                selectStudent.ShowDialog()
+                selectStudent.Show()
 
             Case "btnEnroll"
                 Dim frm As New FrmEnrollment(_darkMode, Me, _conn)
@@ -508,11 +521,12 @@ Public Class Homepage
                 Dim dt As DataTable = selectStatement.GetCashBook(_conn)
 
                 Dim reportForm As New FrmStudentReport(dt, "Cashbook", "Cashbook", _darkMode)
-                reportForm.ShowDialog()
+                reportForm.Show()
 
         End Select
 
     End Sub
+
     Private Sub QuickAccess_MouseHover(sender As Object, e As EventArgs) Handles btnStudentDetails.MouseHover, btnFeesStatement.MouseHover, btnFeesPayments.MouseHover, btnEnroll.MouseHover, btnCashbook.MouseHover
         Select Case sender.name
             Case "btnStudentDetails"
@@ -533,6 +547,7 @@ Public Class Homepage
         End Select
 
     End Sub
+
     Private Sub RecommendedSettings_Click(sender As Object, e As EventArgs) Handles btnUpdates.Click, btnRunDignostics.Click, btnDarkMode.Click, btnBackUpData.Click
         Select Case sender.name
 
@@ -587,7 +602,7 @@ Public Class Homepage
                     If errorOutput.Contains("ERROR") Or errorOutput.Contains("FATAL") Then
                         design.messagboxError("Error", errorOutput, Me)
                     Else
-                        design.messagboxInfo("Successful", "Data was restored sucessfully.", Me)
+                        design.messagboxInfo("Operation Successful", "Your data was restored sucessfully.", Me)
                     End If
                 Else
                     design.messagboxWarning("Warning!", "Access to this option is restricted", Me)
@@ -602,34 +617,40 @@ Public Class Homepage
                 End If
 
                 Dim backUpPath As String = IO.Path.Combine(documentsPath, "school_app_backup.dump")
+                Try
+                    Dim process As New Process()
+                    process.StartInfo.FileName = "C:\Program Files\PostgreSQL\16\bin\pg_dump.exe"
+                    process.StartInfo.Arguments = $"-h localhost -U postgres -F c -b -v -f ""{backUpPath}"" SchoolDemo"
+                    process.StartInfo.EnvironmentVariables.Add("PGPASSWORD", "Handwash")
+                    process.StartInfo.RedirectStandardInput = True
+                    process.StartInfo.RedirectStandardOutput = True
+                    process.StartInfo.RedirectStandardError = True
+                    process.StartInfo.UseShellExecute = False
+                    process.StartInfo.CreateNoWindow = True
 
-                Dim process As New Process()
-                process.StartInfo.FileName = "C:\Program Files\PostgreSQL\16\bin\pg_dump.exe"
-                process.StartInfo.Arguments = $"-h localhost -U postgres -F c -b -v -f ""{backUpPath}"" SchoolDemo"
-                process.StartInfo.EnvironmentVariables.Add("PGPASSWORD", "Handwash")
-                process.StartInfo.RedirectStandardInput = True
-                process.StartInfo.RedirectStandardOutput = True
-                process.StartInfo.RedirectStandardError = True
-                process.StartInfo.UseShellExecute = False
-                process.StartInfo.CreateNoWindow = True
+                    process.Start()
 
-                process.Start()
+                    process.WaitForExit()
 
-                process.WaitForExit()
+                    Dim output As String = process.StandardOutput.ReadToEnd()
+                    Dim errorOutput As String = process.StandardError.ReadToEnd()
 
-                Dim output As String = process.StandardOutput.ReadToEnd()
-                Dim errorOutput As String = process.StandardError.ReadToEnd()
+                    IO.File.WriteAllText(IO.Path.Combine(Application.StartupPath, "backup_log.txt"), output)
 
-                IO.File.WriteAllText(IO.Path.Combine(Application.StartupPath, "backup_log.txt"), output)
+                    If errorOutput.Contains("ERROR") Or errorOutput.Contains("FATAL") Then
+                        design.messagboxError("Error", errorOutput, Me)
+                    Else
+                        design.messagboxInfo("Operation Successful", "Your data was backed up successfully.", Me)
+                    End If
+                Catch ex As Exception
+                    design.messagboxError("Error", "This account cannot initiate the backup process.", Me)
+                End Try
 
-                If errorOutput.Contains("ERROR") Or errorOutput.Contains("FATAL") Then
-                    design.messagboxError("Error", errorOutput, Me)
-                Else
-                    design.messagboxInfo("Successful", "Data was backed up sucessfully.", Me)
-                End If
+
 
         End Select
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton) From {
@@ -643,6 +664,7 @@ Public Class Homepage
 
         Return sidebarButtons
     End Function
+
     Private Function DKMparentButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -663,11 +685,11 @@ Public Class Homepage
 
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
             pnlDockParent,
-            pnlTopControls,
             pnlQuickAccess,
             pnlConnectivity,
             pnlSchoolTerm,
@@ -678,6 +700,7 @@ Public Class Homepage
 
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -701,26 +724,31 @@ Public Class Homepage
 
         Return labels
     End Function
+
     Private Function DKMEmptyButtons() As List(Of Guna2GradientButton)
 
         Dim placeholder As New List(Of Guna2GradientButton)
         Return placeholder
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
     Private Sub btnAdjRate_Click(sender As Object, e As EventArgs) Handles btnAdjustTerm.Click, btnAdjRate.Click
 
         Select Case sender.name
@@ -738,6 +766,7 @@ Public Class Homepage
 
         End Select
     End Sub
+
     Private Sub DKMsettings()
         If _darkMode Then
             btnDarkMode.Text = "Light Mode"
@@ -746,6 +775,7 @@ Public Class Homepage
             btnDarkMode.Text = "Dark Mode"
         End If
     End Sub
+
     Private Sub UserSettingsUpdates()
 
         Dim UserSetUpdates As New List(Of UserSettings)
@@ -784,6 +814,7 @@ Public Class Homepage
     End Sub
 
     Private Sub Guna2GradientButton1_Click(sender As Object, e As EventArgs)
+
         Try
             Dim currentMonth As Integer = 9
             Dim currentYear As Integer = DateTime.Now.Year
@@ -792,7 +823,6 @@ Public Class Homepage
 
             Dim expiryDate As New DateTime(currentYear, currentMonth, daysInMonth)
             Dim key As String = ActivationKeys.GenerateActivationKey("SecretKeyCliffSchool", evaluationDate)
-
         Catch ex As Exception
             MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
@@ -800,6 +830,7 @@ Public Class Homepage
     End Sub
 
 End Class
+
 Public Class ActivationKeys
 
     Public Shared Function GenerateActivationKey(secret As String, activateDate As DateTime) As String
@@ -811,6 +842,7 @@ Public Class ActivationKeys
             Return BitConverter.ToString(hashBytes).Replace("-", "").Substring(0, 16)
         End Using
     End Function
+
     Public Shared Function VerifyActivationKey(providedKey As String, secret As String, activateDate As DateTime) As Boolean
 
         Dim currentMonthYear As String = activateDate.ToString("yyyyMM")

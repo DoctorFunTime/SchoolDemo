@@ -1,5 +1,4 @@
-﻿Imports System.Web.UI.Design.WebControls
-Imports DatabaseSelectStatements
+﻿Imports DatabaseSelectStatements
 Imports Frond_End_Design
 Imports Guna.UI2.WinForms
 
@@ -9,6 +8,7 @@ Public Class FrmReports
     Private _darkmode As Boolean
     Private _conn As String
     Private _term As String
+
     Public Sub New(darkmode As Boolean, conn As String)
 
         ' This call is required by the designer.
@@ -28,7 +28,7 @@ Public Class FrmReports
         Select Case sender.name
 
             Case "btnKPI"
-                If pnlKPIsDrop.Height = 237 Then pnlKPIsDrop.Height = 59 Else pnlKPIsDrop.Height = 237
+                If pnlKPIsDrop.Height = 297 Then pnlKPIsDrop.Height = 59 Else pnlKPIsDrop.Height = 297
 
             Case "btnStudentReports"
                 If pnlStudentReportsDrop.Height = 178 Then pnlStudentReportsDrop.Height = 59 Else pnlStudentReportsDrop.Height = 178
@@ -37,61 +37,59 @@ Public Class FrmReports
 
                 Dim formID As String = "Attendacy record"
                 Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me, _conn)
-                selectStudent.ShowDialog()
+                selectStudent.Show()
 
             Case "btnHighAchievers"
-                If pnlDropTopPerformers.Height = 178 Then pnlDropTopPerformers.Height = 59 Else pnlDropTopPerformers.Height = 178
+                Dim datatable As DataTable = selectStatement.GetTopThreeStudents(_term, _conn)
+
+                Dim reportForm As New FrmStudentReport(datatable, "TopThreeStudents", "TopThreeStudents", _darkmode)
+                reportForm.Show()
 
             Case "btnFaculty"
                 Dim formID As String = "Faculty Details"
                 Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me, _conn)
-                selectStudent.ShowDialog()
+                selectStudent.Show()
 
         End Select
     End Sub
 
-    Private Sub pnlDrops_Click(sender As Object, e As EventArgs) Handles btnTopStudents.Click, btnStudentGradeReport.Click, btnStudentDetailsReport.Click, btnKPIPassRates.Click, btnKPIExamGrowth.Click, btnKPIClassPassRate.Click, btnHighestGPA.Click
+    Private Sub pnlDrops_Click(sender As Object, e As EventArgs) Handles btnStudentGradeReport.Click, btnStudentDetailsReport.Click, btnKPIPassRates.Click, btnKPIExamGrowth.Click, btnKPIClassPassRate.Click, btnStudentPasses.Click
 
         Select Case sender.name
             Case "btnStudentGradeReport"
                 Dim formID As String = "Student Grades"
                 Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me, _conn)
-                selectStudent.ShowDialog()
+                selectStudent.Show()
 
             Case "btnStudentDetailsReport"
                 Dim formID As String = "Student Details"
                 Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me, _conn)
-                selectStudent.ShowDialog()
-
-            Case "btnTopStudents"
-                Dim datatable As DataTable = selectStatement.GetTopThreeStudents(_term, _conn)
-
-                Dim reportForm As New FrmStudentReport(datatable, "TopThreeStudents", "TopThreeStudents", _darkmode)
-                reportForm.ShowDialog()
-
-            Case "btnHighestGPA"
-                Dim datatable As DataTable = selectStatement.GetStudentGradePointAverages(_term, _conn)
-
-                Dim reportForm As New FrmStudentReport(datatable, "StudentGPA", "StudentGPA", _darkmode)
-                reportForm.ShowDialog()
+                selectStudent.Show()
 
             Case "btnKPIExamGrowth"
 
                 Dim formID As String = "Exam Growth"
                 Dim selectStudent As New FrmSelectStudent(formID, _darkmode, Me, _conn)
-                selectStudent.ShowDialog()
+                selectStudent.Show()
 
             Case "btnKPIPassRates"
                 Dim datatable As DataTable = selectStatement.GetSubjectPassRates(_term, _conn)
 
                 Dim reportForm As New FrmStudentReport(datatable, "PassRates", "PassRates", _darkmode)
-                reportForm.ShowDialog()
+                reportForm.Show()
 
             Case "btnKPIClassPassRate"
                 Dim datatable As DataTable = selectStatement.GetClassPassRates(_term, _conn)
 
                 Dim reportForm As New FrmStudentReport(datatable, "DetailedPassRates", "DetailedPassRates", _darkmode)
-                reportForm.ShowDialog()
+                reportForm.Show()
+
+            Case "btnStudentPasses"
+                Dim datatable As DataTable = selectStatement.GetGradesCount(_term, _conn)
+
+                Dim reportForm As New FrmStudentReport(datatable, "GradesCount", "GradesCount", _darkmode)
+                reportForm.Show()
+
         End Select
     End Sub
 
@@ -122,12 +120,14 @@ Public Class FrmReports
 
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel) From {
         }
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -135,6 +135,7 @@ Public Class FrmReports
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -147,27 +148,22 @@ Public Class FrmReports
 
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox)
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
-
-    Private Sub btnKPIClassPassRate_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub btnFaculty_Click(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

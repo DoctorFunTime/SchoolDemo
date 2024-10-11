@@ -28,6 +28,7 @@ Partial Class FrmUploadExam
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmUploadExam))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.btnValidateAndFinalise = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.DataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -36,6 +37,9 @@ Partial Class FrmUploadExam
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlControls = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.pnlContainerControls = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.btnAddStudent = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.txtName = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.txtStudentID = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnValidate = New Guna.UI2.WinForms.Guna2GradientButton()
         Me.chkBoxContributes = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.dtePickerDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -46,11 +50,9 @@ Partial Class FrmUploadExam
         Me.lblDescription = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.cmbBoxSubject = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lblSubject = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.txtTopics = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.lblTopic = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlFillSpace = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.pnlFillSpaceInSpace = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnToggleFilter = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.pnlFillSpaceInSpace = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.pnlFillspaceRight = New Guna.UI2.WinForms.Guna2GradientPanel()
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTopBar.SuspendLayout()
@@ -82,9 +84,9 @@ Partial Class FrmUploadExam
         Me.btnValidateAndFinalise.FillColor2 = System.Drawing.Color.SeaGreen
         Me.btnValidateAndFinalise.Font = New System.Drawing.Font("Century Gothic", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnValidateAndFinalise.ForeColor = System.Drawing.Color.White
-        Me.btnValidateAndFinalise.Location = New System.Drawing.Point(35, 407)
+        Me.btnValidateAndFinalise.Location = New System.Drawing.Point(36, 407)
         Me.btnValidateAndFinalise.Name = "btnValidateAndFinalise"
-        Me.btnValidateAndFinalise.Size = New System.Drawing.Size(731, 43)
+        Me.btnValidateAndFinalise.Size = New System.Drawing.Size(730, 43)
         Me.btnValidateAndFinalise.TabIndex = 65
         Me.btnValidateAndFinalise.Text = "Validate and Finalise"
         '
@@ -121,7 +123,7 @@ Partial Class FrmUploadExam
         Me.DataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DataGridView.Location = New System.Drawing.Point(35, 41)
+        Me.DataGridView.Location = New System.Drawing.Point(36, 41)
         Me.DataGridView.Name = "DataGridView"
         Me.DataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -140,7 +142,7 @@ Partial Class FrmUploadExam
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PowderBlue
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
         Me.DataGridView.RowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridView.Size = New System.Drawing.Size(731, 409)
+        Me.DataGridView.Size = New System.Drawing.Size(730, 409)
         Me.DataGridView.TabIndex = 64
         Me.DataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.DataGridView.ThemeStyle.AlternatingRowsStyle.Font = New System.Drawing.Font("Century Gothic", 9.0!)
@@ -216,11 +218,14 @@ Partial Class FrmUploadExam
         Me.pnlControls.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal
         Me.pnlControls.Location = New System.Drawing.Point(0, 41)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(35, 409)
+        Me.pnlControls.Size = New System.Drawing.Size(36, 409)
         Me.pnlControls.TabIndex = 66
         '
         'pnlContainerControls
         '
+        Me.pnlContainerControls.Controls.Add(Me.btnAddStudent)
+        Me.pnlContainerControls.Controls.Add(Me.txtName)
+        Me.pnlContainerControls.Controls.Add(Me.txtStudentID)
         Me.pnlContainerControls.Controls.Add(Me.btnValidate)
         Me.pnlContainerControls.Controls.Add(Me.chkBoxContributes)
         Me.pnlContainerControls.Controls.Add(Me.dtePickerDate)
@@ -231,16 +236,89 @@ Partial Class FrmUploadExam
         Me.pnlContainerControls.Controls.Add(Me.lblDescription)
         Me.pnlContainerControls.Controls.Add(Me.cmbBoxSubject)
         Me.pnlContainerControls.Controls.Add(Me.lblSubject)
-        Me.pnlContainerControls.Controls.Add(Me.txtTopics)
-        Me.pnlContainerControls.Controls.Add(Me.lblTopic)
         Me.pnlContainerControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlContainerControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlContainerControls.Name = "pnlContainerControls"
-        Me.pnlContainerControls.Size = New System.Drawing.Size(1, 409)
+        Me.pnlContainerControls.Size = New System.Drawing.Size(2, 409)
         Me.pnlContainerControls.TabIndex = 69
+        '
+        'btnAddStudent
+        '
+        Me.btnAddStudent.Animated = True
+        Me.btnAddStudent.BorderColor = System.Drawing.Color.PowderBlue
+        Me.btnAddStudent.BorderThickness = 1
+        Me.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddStudent.FillColor = System.Drawing.Color.SeaGreen
+        Me.btnAddStudent.FillColor2 = System.Drawing.Color.SeaGreen
+        Me.btnAddStudent.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.btnAddStudent.ForeColor = System.Drawing.Color.White
+        Me.btnAddStudent.Location = New System.Drawing.Point(232, 8)
+        Me.btnAddStudent.Name = "btnAddStudent"
+        Me.btnAddStudent.Size = New System.Drawing.Size(80, 30)
+        Me.btnAddStudent.TabIndex = 82
+        Me.btnAddStudent.Text = "Add"
+        Me.btnAddStudent.Visible = False
+        '
+        'txtName
+        '
+        Me.txtName.Animated = True
+        Me.txtName.BorderColor = System.Drawing.Color.LightGray
+        Me.txtName.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtName.DefaultText = ""
+        Me.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtName.FillColor = System.Drawing.Color.PowderBlue
+        Me.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtName.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtName.ForeColor = System.Drawing.Color.Black
+        Me.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtName.Location = New System.Drawing.Point(12, 8)
+        Me.txtName.Name = "txtName"
+        Me.txtName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtName.PlaceholderText = "Student Name"
+        Me.txtName.ReadOnly = True
+        Me.txtName.SelectedText = ""
+        Me.txtName.Size = New System.Drawing.Size(136, 30)
+        Me.txtName.TabIndex = 81
+        Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtName.Visible = False
+        '
+        'txtStudentID
+        '
+        Me.txtStudentID.Animated = True
+        Me.txtStudentID.BorderColor = System.Drawing.Color.LightGray
+        Me.txtStudentID.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtStudentID.DefaultText = ""
+        Me.txtStudentID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtStudentID.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtStudentID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtStudentID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtStudentID.FillColor = System.Drawing.Color.PowderBlue
+        Me.txtStudentID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtStudentID.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.txtStudentID.ForeColor = System.Drawing.Color.Black
+        Me.txtStudentID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtStudentID.Location = New System.Drawing.Point(164, 8)
+        Me.txtStudentID.Name = "txtStudentID"
+        Me.txtStudentID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtStudentID.PlaceholderText = "ID"
+        Me.txtStudentID.ReadOnly = True
+        Me.txtStudentID.SelectedText = ""
+        Me.txtStudentID.Size = New System.Drawing.Size(51, 30)
+        Me.txtStudentID.TabIndex = 80
+        Me.txtStudentID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtStudentID.Visible = False
         '
         'btnValidate
         '
+        Me.btnValidate.Animated = True
         Me.btnValidate.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnValidate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnValidate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
@@ -267,7 +345,7 @@ Partial Class FrmUploadExam
         Me.chkBoxContributes.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.chkBoxContributes.Cursor = System.Windows.Forms.Cursors.Hand
         Me.chkBoxContributes.Font = New System.Drawing.Font("Century Gothic", 8.25!)
-        Me.chkBoxContributes.Location = New System.Drawing.Point(474, 171)
+        Me.chkBoxContributes.Location = New System.Drawing.Point(474, 218)
         Me.chkBoxContributes.Name = "chkBoxContributes"
         Me.chkBoxContributes.Size = New System.Drawing.Size(219, 20)
         Me.chkBoxContributes.TabIndex = 78
@@ -285,7 +363,7 @@ Partial Class FrmUploadExam
         Me.dtePickerDate.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtePickerDate.ForeColor = System.Drawing.Color.White
         Me.dtePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.dtePickerDate.Location = New System.Drawing.Point(267, 36)
+        Me.dtePickerDate.Location = New System.Drawing.Point(267, 83)
         Me.dtePickerDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.dtePickerDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.dtePickerDate.Name = "dtePickerDate"
@@ -298,7 +376,7 @@ Partial Class FrmUploadExam
         '
         Me.lblDate.BackColor = System.Drawing.Color.Transparent
         Me.lblDate.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDate.Location = New System.Drawing.Point(171, 45)
+        Me.lblDate.Location = New System.Drawing.Point(171, 92)
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(43, 19)
         Me.lblDate.TabIndex = 76
@@ -317,7 +395,7 @@ Partial Class FrmUploadExam
         Me.cmbBoxExamTest.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxExamTest.ItemHeight = 30
         Me.cmbBoxExamTest.Items.AddRange(New Object() {"Exam", "Test", "Assignment"})
-        Me.cmbBoxExamTest.Location = New System.Drawing.Point(267, 161)
+        Me.cmbBoxExamTest.Location = New System.Drawing.Point(267, 208)
         Me.cmbBoxExamTest.Name = "cmbBoxExamTest"
         Me.cmbBoxExamTest.Size = New System.Drawing.Size(171, 36)
         Me.cmbBoxExamTest.TabIndex = 75
@@ -326,7 +404,7 @@ Partial Class FrmUploadExam
         '
         Me.lblExamTest.BackColor = System.Drawing.Color.Transparent
         Me.lblExamTest.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExamTest.Location = New System.Drawing.Point(140, 167)
+        Me.lblExamTest.Location = New System.Drawing.Point(140, 214)
         Me.lblExamTest.Name = "lblExamTest"
         Me.lblExamTest.Size = New System.Drawing.Size(75, 19)
         Me.lblExamTest.TabIndex = 74
@@ -345,7 +423,7 @@ Partial Class FrmUploadExam
         Me.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtDescription.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(267, 224)
+        Me.txtDescription.Location = New System.Drawing.Point(267, 271)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtDescription.PlaceholderText = ""
@@ -357,7 +435,7 @@ Partial Class FrmUploadExam
         '
         Me.lblDescription.BackColor = System.Drawing.Color.Transparent
         Me.lblDescription.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescription.Location = New System.Drawing.Point(132, 228)
+        Me.lblDescription.Location = New System.Drawing.Point(132, 275)
         Me.lblDescription.Name = "lblDescription"
         Me.lblDescription.Size = New System.Drawing.Size(83, 19)
         Me.lblDescription.TabIndex = 72
@@ -375,7 +453,7 @@ Partial Class FrmUploadExam
         Me.cmbBoxSubject.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.cmbBoxSubject.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmbBoxSubject.ItemHeight = 30
-        Me.cmbBoxSubject.Location = New System.Drawing.Point(267, 98)
+        Me.cmbBoxSubject.Location = New System.Drawing.Point(267, 145)
         Me.cmbBoxSubject.Name = "cmbBoxSubject"
         Me.cmbBoxSubject.Size = New System.Drawing.Size(171, 36)
         Me.cmbBoxSubject.Sorted = True
@@ -385,62 +463,22 @@ Partial Class FrmUploadExam
         '
         Me.lblSubject.BackColor = System.Drawing.Color.Transparent
         Me.lblSubject.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSubject.Location = New System.Drawing.Point(157, 106)
+        Me.lblSubject.Location = New System.Drawing.Point(157, 153)
         Me.lblSubject.Name = "lblSubject"
         Me.lblSubject.Size = New System.Drawing.Size(58, 19)
         Me.lblSubject.TabIndex = 59
         Me.lblSubject.Text = "Subject :"
         Me.lblSubject.Visible = False
         '
-        'txtTopics
-        '
-        Me.txtTopics.Animated = True
-        Me.txtTopics.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtTopics.DefaultText = ""
-        Me.txtTopics.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtTopics.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtTopics.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtTopics.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtTopics.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtTopics.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTopics.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtTopics.Location = New System.Drawing.Point(267, 281)
-        Me.txtTopics.Name = "txtTopics"
-        Me.txtTopics.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtTopics.PlaceholderText = ""
-        Me.txtTopics.SelectedText = ""
-        Me.txtTopics.Size = New System.Drawing.Size(274, 30)
-        Me.txtTopics.TabIndex = 64
-        '
-        'lblTopic
-        '
-        Me.lblTopic.BackColor = System.Drawing.Color.Transparent
-        Me.lblTopic.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTopic.Location = New System.Drawing.Point(156, 289)
-        Me.lblTopic.Name = "lblTopic"
-        Me.lblTopic.Size = New System.Drawing.Size(59, 19)
-        Me.lblTopic.TabIndex = 63
-        Me.lblTopic.Text = "Topic(s) :"
-        Me.lblTopic.Visible = False
-        '
         'pnlFillSpace
         '
         Me.pnlFillSpace.Controls.Add(Me.btnToggleFilter)
         Me.pnlFillSpace.Controls.Add(Me.pnlFillSpaceInSpace)
         Me.pnlFillSpace.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlFillSpace.Location = New System.Drawing.Point(1, 0)
+        Me.pnlFillSpace.Location = New System.Drawing.Point(2, 0)
         Me.pnlFillSpace.Name = "pnlFillSpace"
         Me.pnlFillSpace.Size = New System.Drawing.Size(34, 409)
         Me.pnlFillSpace.TabIndex = 69
-        '
-        'pnlFillSpaceInSpace
-        '
-        Me.pnlFillSpaceInSpace.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlFillSpaceInSpace.FillColor2 = System.Drawing.Color.White
-        Me.pnlFillSpaceInSpace.Location = New System.Drawing.Point(0, 0)
-        Me.pnlFillSpaceInSpace.Name = "pnlFillSpaceInSpace"
-        Me.pnlFillSpaceInSpace.Size = New System.Drawing.Size(34, 409)
-        Me.pnlFillSpaceInSpace.TabIndex = 0
         '
         'btnToggleFilter
         '
@@ -464,6 +502,15 @@ Partial Class FrmUploadExam
         Me.btnToggleFilter.TabIndex = 69
         Me.btnToggleFilter.UseTransparentBackground = True
         '
+        'pnlFillSpaceInSpace
+        '
+        Me.pnlFillSpaceInSpace.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlFillSpaceInSpace.FillColor2 = System.Drawing.Color.White
+        Me.pnlFillSpaceInSpace.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFillSpaceInSpace.Name = "pnlFillSpaceInSpace"
+        Me.pnlFillSpaceInSpace.Size = New System.Drawing.Size(34, 409)
+        Me.pnlFillSpaceInSpace.TabIndex = 0
+        '
         'pnlFillspaceRight
         '
         Me.pnlFillspaceRight.Dock = System.Windows.Forms.DockStyle.Right
@@ -484,9 +531,10 @@ Partial Class FrmUploadExam
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmUploadExam"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmUploadExam"
+        Me.Text = "Examinations"
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTopBar.ResumeLayout(False)
         Me.pnlTopBar.PerformLayout()
@@ -507,8 +555,6 @@ Partial Class FrmUploadExam
     Friend WithEvents pnlControls As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents pnlContainerControls As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents lblSubject As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents txtTopics As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents lblTopic As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents pnlFillSpace As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents pnlFillSpaceInSpace As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents btnToggleFilter As Guna.UI2.WinForms.Guna2GradientButton
@@ -522,4 +568,7 @@ Partial Class FrmUploadExam
     Friend WithEvents chkBoxContributes As Guna.UI2.WinForms.Guna2CheckBox
     Friend WithEvents btnValidate As Guna.UI2.WinForms.Guna2GradientButton
     Friend WithEvents pnlFillspaceRight As Guna.UI2.WinForms.Guna2GradientPanel
+    Friend WithEvents txtName As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txtStudentID As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents btnAddStudent As Guna.UI2.WinForms.Guna2GradientButton
 End Class

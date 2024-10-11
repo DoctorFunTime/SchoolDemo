@@ -28,6 +28,7 @@ Partial Class FrmSelectStudent
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSelectStudent))
         Me.DataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.pnlControls = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.pnlContainerControls = New Guna.UI2.WinForms.Guna2GradientPanel()
@@ -39,8 +40,8 @@ Partial Class FrmSelectStudent
         Me.txtSurname = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblSurname = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.pnlFillSpace = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.pnlFillSpaceInSpace = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.btnToggleFilter = New Guna.UI2.WinForms.Guna2GradientButton()
+        Me.pnlFillSpaceInSpace = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.pnlTopBar = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -276,15 +277,6 @@ Partial Class FrmSelectStudent
         Me.pnlFillSpace.Size = New System.Drawing.Size(34, 409)
         Me.pnlFillSpace.TabIndex = 69
         '
-        'pnlFillSpaceInSpace
-        '
-        Me.pnlFillSpaceInSpace.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlFillSpaceInSpace.FillColor2 = System.Drawing.Color.White
-        Me.pnlFillSpaceInSpace.Location = New System.Drawing.Point(0, 0)
-        Me.pnlFillSpaceInSpace.Name = "pnlFillSpaceInSpace"
-        Me.pnlFillSpaceInSpace.Size = New System.Drawing.Size(34, 409)
-        Me.pnlFillSpaceInSpace.TabIndex = 0
-        '
         'btnToggleFilter
         '
         Me.btnToggleFilter.Cursor = System.Windows.Forms.Cursors.Hand
@@ -306,6 +298,15 @@ Partial Class FrmSelectStudent
         Me.btnToggleFilter.Size = New System.Drawing.Size(34, 33)
         Me.btnToggleFilter.TabIndex = 69
         Me.btnToggleFilter.UseTransparentBackground = True
+        '
+        'pnlFillSpaceInSpace
+        '
+        Me.pnlFillSpaceInSpace.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlFillSpaceInSpace.FillColor2 = System.Drawing.Color.White
+        Me.pnlFillSpaceInSpace.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFillSpaceInSpace.Name = "pnlFillSpaceInSpace"
+        Me.pnlFillSpaceInSpace.Size = New System.Drawing.Size(34, 409)
+        Me.pnlFillSpaceInSpace.TabIndex = 0
         '
         'openingTranstionReceipts
         '
@@ -378,9 +379,10 @@ Partial Class FrmSelectStudent
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmSelectStudent"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmSelectStudent"
+        Me.Text = "Student Selection"
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlControls.ResumeLayout(False)
         Me.pnlContainerControls.ResumeLayout(False)

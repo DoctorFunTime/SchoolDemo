@@ -1,20 +1,18 @@
-﻿Imports DatabaseSelectStatements
+﻿Imports bubble
+Imports DatabaseSelectStatements
 Imports Frond_End_Design
-Imports MyEncapsulation
-Imports Newtonsoft.Json.Linq
-Imports SQLStatements
-Imports bubble
 Imports Guna.UI2.WinForms
-
+Imports MyEncapsulation
+Imports SQLStatements
 
 Public Class FrmPayment
     Private selectStatement As New SelectStats
-    Private Popup As New NotificationBubble
     Private design As New Design
     Private _docNumber As Integer
     Private _darkmode As Boolean
     Private _conn As String
     Private _frm As Homepage
+
     Public Sub New(darkmode As Boolean, frm As Form, conn As String)
 
         ' This call is required by the designer.
@@ -28,6 +26,7 @@ Public Class FrmPayment
         _darkmode = darkmode
         If _darkmode Then design.darkMode(Me, _darkmode, DKMsideButtons(), DKMparentButtons(), DKMlabels(), DKMpanels(), DKMFormButtons(), DKMEmptyText(), DKMEmptyCombo(), DKMEmptyCheck())
     End Sub
+
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click, btnClose.Click
         Select Case sender.name
             Case "btnClose"
@@ -45,7 +44,6 @@ Public Class FrmPayment
                         selection.Add(newEntry)
                         SQLLine.InsertReceiptPayment(_frm.lblConnectedUser.Text, selection, _conn)
                         SQLLine.InsertDocNumber(_docNumber, "Expense", _conn)
-                        Popup.ShowNotification("Ok", "Successful", "Payment was processed successfully.", Me)
                         Close()
                     End If
                 End If
@@ -64,6 +62,7 @@ Public Class FrmPayment
 
         txtDocDocNumber.Text = $"EXP00{_docNumber}"
     End Sub
+
     Private Function DKMsideButtons() As List(Of Guna2GradientButton)
 
         Dim sidebarButtons As New List(Of Guna2GradientButton)
@@ -75,11 +74,13 @@ Public Class FrmPayment
         Dim pagebuttons As New List(Of Guna2GradientButton)
         Return pagebuttons
     End Function
+
     Private Function DKMpanels() As List(Of Guna2GradientPanel)
 
         Dim topPanels As New List(Of Guna2GradientPanel)
         Return topPanels
     End Function
+
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
@@ -94,6 +95,7 @@ Public Class FrmPayment
         }
         Return labels
     End Function
+
     Private Function DKMFormButtons() As List(Of Guna2GradientButton)
 
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
@@ -101,6 +103,7 @@ Public Class FrmPayment
         }
         Return pagebuttons
     End Function
+
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
@@ -112,6 +115,7 @@ Public Class FrmPayment
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCombo() As List(Of Guna2ComboBox)
 
         Dim placeholder As New List(Of Guna2ComboBox) From {
@@ -120,9 +124,11 @@ Public Class FrmPayment
         }
         Return placeholder
     End Function
+
     Private Function DKMEmptyCheck() As List(Of Guna2CheckBox)
 
         Dim placeholder As New List(Of Guna2CheckBox)
         Return placeholder
     End Function
+
 End Class

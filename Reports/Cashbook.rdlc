@@ -12,7 +12,7 @@
               <Width>0.7in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55416in</Width>
+              <Width>1.46562in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.49167in</Width>
@@ -758,7 +758,7 @@
                             <TextRun>
                               <Value>=Fields!cb_debit.Value</Value>
                               <Style>
-                                <FontFamily>Century Gothic</FontFamily>
+                                <FontFamily>Arial Unicode MS</FontFamily>
                                 <FontSize>8pt</FontSize>
                                 <Format>'$'0.00;('$'0.00)</Format>
                               </Style>
@@ -795,7 +795,7 @@
                             <TextRun>
                               <Value>=Fields!cb_credit.Value</Value>
                               <Style>
-                                <FontFamily>Century Gothic</FontFamily>
+                                <FontFamily>Arial Unicode MS</FontFamily>
                                 <FontSize>8pt</FontSize>
                                 <Format>'$'0.00;('$'0.00)</Format>
                               </Style>
@@ -832,7 +832,7 @@
                             <TextRun>
                               <Value>=Fields!cb_adjusted_amount.Value</Value>
                               <Style>
-                                <FontFamily>Century Gothic</FontFamily>
+                                <FontFamily>Arial Unicode MS</FontFamily>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>'$'0.00;('$'0.00)</Format>
@@ -871,7 +871,7 @@
                             <TextRun>
                               <Value>=Fields!cb_running_balance.Value</Value>
                               <Style>
-                                <FontFamily>Century Gothic</FontFamily>
+                                <FontFamily>Arial Unicode MS</FontFamily>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>'$'0.00;('$'0.00)</Format>
                                 <Color>=IIF(Fields!cb_running_balance.Value &lt; 0 , "Red" , "RoyalBlue")</Color>
@@ -919,7 +919,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>0.77833in</Size>
+                <Size>0.86687in</Size>
                 <CellContents>
                   <Textbox Name="Textbox3">
                     <CanGrow>true</CanGrow>
@@ -973,7 +973,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>0.77833in</Size>
+                <Size>0.86687in</Size>
                 <CellContents>
                   <Textbox Name="cb_date1">
                     <CanGrow>true</CanGrow>
@@ -1022,7 +1022,7 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>Cashbook</DataSetName>
-        <Top>3.0439in</Top>
+        <Top>3.9189in</Top>
         <Left>0.0625in</Left>
         <Height>0.70834in</Height>
         <Width>7.52416in</Width>
@@ -1032,42 +1032,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>School name</Value>
-                <Style>
-                  <FontFamily>century Gothic</FontFamily>
-                  <FontSize>16pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.47918in</Top>
-        <Left>1.30635in</Left>
-        <Height>0.27083in</Height>
-        <Width>2.64583in</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox19">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1089,15 +1053,20 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.80557in</Top>
-        <Left>1.30635in</Left>
-        <Height>0.28471in</Height>
+        <Top>1.54514in</Top>
+        <Left>0.0625in</Left>
+        <Height>0.30554in</Height>
         <Width>2.64583in</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
           <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -1110,10 +1079,10 @@
         <Value>walletcard</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.125in</Top>
-        <Left>0.17361in</Left>
-        <Height>0.96528in</Height>
-        <Width>1.0876in</Width>
-        <ZIndex>3</ZIndex>
+        <Left>0.0625in</Left>
+        <Height>1.00695in</Height>
+        <Width>1.13066in</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1142,11 +1111,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox54</rd:DefaultName>
-        <Top>2.21875in</Top>
+        <Top>3.09375in</Top>
         <Left>1.36591in</Left>
         <Height>0.27083in</Height>
         <Width>1.39738in</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1186,11 +1155,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox54</rd:DefaultName>
-        <Top>1.7882in</Top>
+        <Top>2.6632in</Top>
         <Left>1.3798in</Left>
         <Height>0.27083in</Height>
         <Width>1.39738in</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1228,11 +1197,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>1.38195in</Top>
+        <Top>2.25695in</Top>
         <Left>0.14588in</Left>
         <Height>0.27083in</Height>
         <Width>1.14583in</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1263,11 +1232,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>1.7882in</Top>
+        <Top>2.6632in</Top>
         <Left>0.16453in</Left>
         <Height>0.27083in</Height>
         <Width>1.14583in</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1298,11 +1267,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.21875in</Top>
+        <Top>3.09375in</Top>
         <Left>0.16453in</Left>
         <Height>0.27083in</Height>
         <Width>1.14583in</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1335,11 +1304,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.80084in</Top>
+        <Top>3.67584in</Top>
         <Left>0.0625in</Left>
         <Height>0.22916in</Height>
         <Width>1.14583in</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1351,27 +1320,225 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Line Name="Line5">
+        <Top>1.3507in</Top>
+        <Left>0.04265in</Left>
+        <Height>0in</Height>
+        <Width>7.56062in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>Dotted</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox24">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!sd_address.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.14584in</Top>
+        <Left>5.76166in</Left>
+        <Height>0.94444in</Height>
+        <Width>1.8125in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox25">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Contacts : </Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!sd_contacts.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.88195in</Top>
+        <Left>1.2626in</Left>
+        <Height>0.25in</Height>
+        <Width>2.94396in</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox26">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!sd_slogan.Value</Value>
+                <Style>
+                  <FontFamily>century gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>0.59028in</Top>
+        <Left>1.2626in</Left>
+        <Height>0.25in</Height>
+        <Width>2.94396in</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox18">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!sd_name.Value</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>16pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>0.22224in</Top>
+        <Left>1.2626in</Left>
+        <Height>0.2986in</Height>
+        <Width>3.96875in</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Date.Today()</Value>
+                <Style>
+                  <FontFamily>century Gothic</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <Format>D</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox17</rd:DefaultName>
+        <Top>1.54514in</Top>
+        <Left>4.40437in</Left>
+        <Height>0.30554in</Height>
+        <Width>3.15625in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>4.9514in</Height>
+    <Height>5.8264in</Height>
     <Style />
   </Body>
-  <Width>7.64593in</Width>
+  <Width>7.65031in</Width>
   <Page>
     <PageFooter>
       <Height>0.46875in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Line Name="Line3">
-          <Left>0.02604in</Left>
-          <Height>0in</Height>
-          <Width>7.56062in</Width>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
-            </Border>
-          </Style>
-        </Line>
         <Textbox Name="Textbox2">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1395,7 +1562,6 @@
           <Top>0.1in</Top>
           <Height>0.25in</Height>
           <Width>2.53125in</Width>
-          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1439,7 +1605,7 @@
           <Left>5.02937in</Left>
           <Height>0.25in</Height>
           <Width>2.46875in</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1454,10 +1620,10 @@
           <Top>0.01388in</Top>
           <Height>0in</Height>
           <Width>7.56062in</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
-              <Style>Solid</Style>
+              <Style>Dotted</Style>
             </Border>
           </Style>
         </Line>
@@ -1531,6 +1697,22 @@
         </Field>
         <Field Name="cb_zig_amount">
           <DataField>cb_zig_amount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sd_name">
+          <DataField>sd_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sd_contacts">
+          <DataField>sd_contacts</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sd_address">
+          <DataField>sd_address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sd_slogan">
+          <DataField>sd_slogan</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

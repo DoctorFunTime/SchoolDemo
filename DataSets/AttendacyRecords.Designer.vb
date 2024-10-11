@@ -299,6 +299,14 @@ Partial Public Class AttendacyRecords
         
         Private columncr_isabsent As Global.System.Data.DataColumn
         
+        Private columnsd_name As Global.System.Data.DataColumn
+        
+        Private columnsd_contacts As Global.System.Data.DataColumn
+        
+        Private columnsd_address As Global.System.Data.DataColumn
+        
+        Private columnsd_slogan As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -399,6 +407,38 @@ Partial Public Class AttendacyRecords
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_contactsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_contacts
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_addressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_address
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property sd_sloganColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsd_slogan
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -435,9 +475,9 @@ Partial Public Class AttendacyRecords
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddAttendacyRecordsRow(ByVal cr_date As Date, ByVal student_class As String, ByVal student_name As String, ByVal student_surname As String, ByVal student_present As Boolean, ByVal cr_term As String, ByVal cr_ispresent As String, ByVal cr_isabsent As String) As AttendacyRecordsRow
+        Public Overloads Function AddAttendacyRecordsRow(ByVal cr_date As Date, ByVal student_class As String, ByVal student_name As String, ByVal student_surname As String, ByVal student_present As Boolean, ByVal cr_term As String, ByVal cr_ispresent As String, ByVal cr_isabsent As String, ByVal sd_name As String, ByVal sd_contacts As String, ByVal sd_address As String, ByVal sd_slogan As String) As AttendacyRecordsRow
             Dim rowAttendacyRecordsRow As AttendacyRecordsRow = CType(Me.NewRow,AttendacyRecordsRow)
-            Dim columnValuesArray() As Object = New Object() {cr_date, student_class, student_name, student_surname, student_present, cr_term, cr_ispresent, cr_isabsent}
+            Dim columnValuesArray() As Object = New Object() {cr_date, student_class, student_name, student_surname, student_present, cr_term, cr_ispresent, cr_isabsent, sd_name, sd_contacts, sd_address, sd_slogan}
             rowAttendacyRecordsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowAttendacyRecordsRow)
             Return rowAttendacyRecordsRow
@@ -468,6 +508,10 @@ Partial Public Class AttendacyRecords
             Me.columncr_term = MyBase.Columns("cr_term")
             Me.columncr_ispresent = MyBase.Columns("cr_ispresent")
             Me.columncr_isabsent = MyBase.Columns("cr_isabsent")
+            Me.columnsd_name = MyBase.Columns("sd_name")
+            Me.columnsd_contacts = MyBase.Columns("sd_contacts")
+            Me.columnsd_address = MyBase.Columns("sd_address")
+            Me.columnsd_slogan = MyBase.Columns("sd_slogan")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -489,6 +533,14 @@ Partial Public Class AttendacyRecords
             MyBase.Columns.Add(Me.columncr_ispresent)
             Me.columncr_isabsent = New Global.System.Data.DataColumn("cr_isabsent", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncr_isabsent)
+            Me.columnsd_name = New Global.System.Data.DataColumn("sd_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_name)
+            Me.columnsd_contacts = New Global.System.Data.DataColumn("sd_contacts", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_contacts)
+            Me.columnsd_address = New Global.System.Data.DataColumn("sd_address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_address)
+            Me.columnsd_slogan = New Global.System.Data.DataColumn("sd_slogan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsd_slogan)
             Me.ExtendedProperties.Add("Generator_TablePropName", "_AttendacyRecords")
             Me.ExtendedProperties.Add("Generator_UserTableName", "AttendacyRecords")
         End Sub
@@ -757,6 +809,66 @@ Partial Public Class AttendacyRecords
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAttendacyRecords.sd_nameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_name' in table 'AttendacyRecords' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAttendacyRecords.sd_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_contacts() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAttendacyRecords.sd_contactsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_contacts' in table 'AttendacyRecords' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAttendacyRecords.sd_contactsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_address() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAttendacyRecords.sd_addressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_address' in table 'AttendacyRecords' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAttendacyRecords.sd_addressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property sd_slogan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAttendacyRecords.sd_sloganColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sd_slogan' in table 'AttendacyRecords' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAttendacyRecords.sd_sloganColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function Iscr_dateNull() As Boolean
             Return Me.IsNull(Me.tableAttendacyRecords.cr_dateColumn)
         End Function
@@ -849,6 +961,54 @@ Partial Public Class AttendacyRecords
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub Setcr_isabsentNull()
             Me(Me.tableAttendacyRecords.cr_isabsentColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_nameNull() As Boolean
+            Return Me.IsNull(Me.tableAttendacyRecords.sd_nameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_nameNull()
+            Me(Me.tableAttendacyRecords.sd_nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_contactsNull() As Boolean
+            Return Me.IsNull(Me.tableAttendacyRecords.sd_contactsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_contactsNull()
+            Me(Me.tableAttendacyRecords.sd_contactsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_addressNull() As Boolean
+            Return Me.IsNull(Me.tableAttendacyRecords.sd_addressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_addressNull()
+            Me(Me.tableAttendacyRecords.sd_addressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function Issd_sloganNull() As Boolean
+            Return Me.IsNull(Me.tableAttendacyRecords.sd_sloganColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub Setsd_sloganNull()
+            Me(Me.tableAttendacyRecords.sd_sloganColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

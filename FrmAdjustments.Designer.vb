@@ -28,6 +28,7 @@ Partial Class FrmAdjustments
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAdjustments))
         Me.openingTranstionReceipts = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.lblHeading = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.btnValidateAndFinalise = New Guna.UI2.WinForms.Guna2GradientButton()
@@ -250,9 +251,10 @@ Partial Class FrmAdjustments
         Me.Controls.Add(Me.pnlTopBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmAdjustments"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmAdjustments"
+        Me.Text = "Adjustments"
         CType(Me.DataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTopBar.ResumeLayout(False)
         Me.pnlTopBar.PerformLayout()

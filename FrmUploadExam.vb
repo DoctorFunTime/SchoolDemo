@@ -1,15 +1,19 @@
-﻿Imports Frond_End_Design
+﻿Imports bubble
 Imports DatabaseSelectStatements
+Imports Frond_End_Design
+Imports Functionality
+Imports Guna.UI2.WinForms
 Imports MyEncapsulation
 Imports SQLStatements
-Imports bubble
-Imports Guna.UI2.WinForms
+Imports SQLUpdateStatements
+Imports UpdateEncapsulation
 
 Public Class FrmUploadExam
+    Private dragger As New SystemFunctions
     Private design As New Design
     Private selectStatement As New SelectStats
     Private sqlline As New SQLLine
-    Dim Popup As New NotificationBubble
+    Public stdClass As String
     Private _message As String
     Private _term As String
     Private _fillClause As String
@@ -45,54 +49,140 @@ Public Class FrmUploadExam
             Case "btnValidateAndFinalise"
                 Dim verified As Boolean = design.txtboxformats(pnlContainerControls)
 
-                If verified Then
-                    Dim dt As DataTable = dtGrid()
+                If btnValidateAndFinalise.Text = "Validate and Finalise" Then
 
-                    Dim selection As New List(Of ExamTestMarks)
+                    If verified Then
+                        Dim dt As DataTable = dtGrid()
 
-                    For Each row In dt.Rows
-                        Dim stdId As Integer = row("student_id")
-                        Dim sclass As String = row("class")
-                        Dim examMark As Decimal = row("e_result")
-                        Dim contributes As Boolean
-                        If chkBoxContributes.Checked Then
-                            contributes = True
-                        Else
-                            contributes = False
-                        End If
+                        Dim selection As New List(Of ExamTestMarks)
 
-                        Dim newEntry As New ExamTestMarks(dtePickerDate.Value, stdId, sclass, _term, cmbBoxSubject.Text, examMark, txtDescription.Text, txtTopics.Text, cmbBoxExamTest.Text, contributes)
-                        selection.Add(newEntry)
+                        For Each row In dt.Rows
+                            Dim stdId As Integer = row("student_id")
+                            Dim sclass As String = row("class")
+                            Dim examMark As Decimal = row("e_result")
+                            Dim contributes As Boolean
+                            If chkBoxContributes.Checked Then
+                                contributes = True
+                            Else
+                                contributes = False
+                            End If
 
-                    Next
+                            Dim newEntry As New ExamTestMarks(dtePickerDate.Value, stdId, sclass, _term, cmbBoxSubject.Text, examMark, txtDescription.Text, cmbBoxExamTest.Text, contributes)
+                            selection.Add(newEntry)
 
-                    SQLLine.InsertExamTestMarks(_frm.lblConnectedUser.Text, selection, _conn)
-                    Popup.ShowNotification("Ok", "Successful", $"{_message} {cmbBoxExamTest.Text} marks were successfully processed.", Me)
-                    Close()
-                Else
-                    vis()
-                    pnlControls.Width = 799
+                        Next
+
+                        SQLLine.InsertExamTestMarks(_frm.lblConnectedUser.Text, selection, _conn)
+                        Close()
+                    Else
+                        vis()
+                        pnlControls.Width = 799
+
+                    End If
+
+                ElseIf btnValidateAndFinalise.Text = "Update Changes" Then
+
+                    If verified Then
+                        Dim dt As DataTable = dtGrid()
+
+                        Dim updates As New List(Of UpdateExamTestMarks)
+
+                        For Each row In dt.Rows
+                            Dim eID As Integer = row("exam_id")
+                            Dim stdID As Integer = row("student_id")
+                            Dim sclass As String = row("class")
+                            Dim term As String = row("term")
+                            Dim edate As DateTime = dtePickerDate.Value
+                            Dim subject As String = cmbBoxSubject.Text
+                            Dim exam As String = txtDescription.Text
+                            Dim result As Decimal = row("mark")
+                            Dim type As String = cmbBoxExamTest.Text
+                            Dim contributes As Boolean
+                            If chkBoxContributes.Checked Then
+                                contributes = True
+                            ElseIf Not chkBoxContributes.Checked Then
+                                contributes = False
+                            End If
+
+                            Dim newEntry As New UpdateExamTestMarks(edate, stdID, sclass, term, subject, result, exam, type, contributes, eID)
+                            updates.Add(newEntry)
+
+                            UpdateStatements.UpdateStudentMarks(_frm.lblConnectedUser.Text, updates, _conn)
+                            Close()
+                        Next
+                    Else
+                        vis()
+                        pnlControls.Width = 799
+                    End If
+
+                ElseIf btnValidateAndFinalise.Text = "Add Student Mark" Then
+
+                    If verified Then
+                        Dim dt As DataTable = dtGrid()
+
+                        Dim selection As New List(Of ExamTestMarks)
+
+                        For Each row In dt.Rows
+                            Dim stdId As Integer
+                            If Integer.TryParse(txtStudentID.Text.Trim(), stdId) Then
+                            End If
+
+                            Dim sclass As String = stdClass
+                            Dim examMark As Decimal = row("e_result")
+                            Dim contributes As Boolean
+                            If chkBoxContributes.Checked Then
+                                contributes = True
+                            Else
+                                contributes = False
+                            End If
+
+                            Dim newEntry As New ExamTestMarks(dtePickerDate.Value, stdId, sclass, _term, cmbBoxSubject.Text, examMark, txtDescription.Text, cmbBoxExamTest.Text, contributes)
+                            selection.Add(newEntry)
+
+                        Next
+                        SQLLine.InsertExamTestMarks(_frm.lblConnectedUser.Text, selection, _conn)
+                        Close()
+                    Else
+                        vis()
+                        pnlControls.Width = 799
+                    End If
+
                 End If
 
+
             Case "btnValidate"
-                Dim verified As Boolean = design.txtboxformats(pnlContainerControls)
 
-                If verified Then
-                    pnlControls.Width = 35
+                If btnValidateAndFinalise.Text = "Validate and Finalise" Then
+                    Dim verified As Boolean = design.txtboxformats(pnlContainerControls)
 
-                    Dim filteredExamDetails As DataTable = selectStatement.GetFilteredExamPrepDetails(cmbBoxSubject.Text, _message, _conn)
-                    DataGridView.Columns.Clear()
-                    DataGridView.DataSource = filteredExamDetails
-                    AddColumn()
+                    If verified Then
+                        pnlControls.Width = 36
+
+                        Dim filteredExamDetails As DataTable = selectStatement.GetFilteredExamPrepDetails(cmbBoxSubject.Text, _message, _conn)
+                        DataGridView.Columns.Clear()
+                        DataGridView.DataSource = filteredExamDetails
+                        AddColumn()
+                    End If
+                ElseIf btnValidateAndFinalise.Text = "Add Student Mark" Then
+
+                    Dim verified As Boolean = design.txtboxformats(pnlContainerControls)
+                    If verified Then
+                        pnlControls.Width = 36
+                        studentCols()
+                        AddColumn()
+                    End If
+
+                Else
+                    btnToggleFilter.PerformClick()
                 End If
 
             Case "btnToggleFilter"
                 vis()
 
-                If pnlControls.Width = 35 Then
+                If pnlControls.Width = 36 Then
                     pnlControls.Width = 799
                 Else
-                    pnlControls.Width = 35
+                    pnlControls.Width = 36
                 End If
         End Select
 
@@ -100,6 +190,7 @@ Public Class FrmUploadExam
 
     Private Sub FrmUploadExam_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        dragger.EnableDrag(Me, pnlTopBar)
         DKMgrid()
 
         Dim subjectList As DataTable = selectStatement.GetSubjects(_conn)
@@ -110,14 +201,66 @@ Public Class FrmUploadExam
         Next
 
         If _fillClause = "Manage Exams" Then
+
+            txtName.Text = "n/a"
+            txtStudentID.Text = "n/a"
+            btnAddStudent.Text = "n/a"
+
             Dim adjustableStudentExam As DataTable = selectStatement.GetStudentGrades(_message, _term, _exam, _conn)
             DataGridView.DataSource = adjustableStudentExam
+
+            Dim readOnlyColumns As String() = {"student_id", "exam_id", "name", "surname", "date", "contributes", "type", "class", "term"}
+            For Each colName As String In readOnlyColumns
+                DataGridView.Columns(colName).ReadOnly = True
+            Next
+
+            Dim ExamRow As DataRow = adjustableStudentExam.Rows(0)
+            Dim contributes As Boolean = ExamRow("contributes")
+            Dim type As String = ExamRow("type")
+            Dim Edate As DateTime = ExamRow("date")
+
+            dtePickerDate.Value = Edate
             cmbBoxSubject.Text = _message
+            cmbBoxExamTest.Text = type
+            chkBoxContributes.Checked = contributes
             txtDescription.Text = _exam
             btnValidateAndFinalise.Text = "Update Changes"
+
+        ElseIf _fillClause = "Add Student Marks" Then
+
+            btnValidateAndFinalise.Text = "Add Student Mark"
+
+            Dim adjustableStudentExam As DataTable = selectStatement.GetStudentGrades(_message, _term, _exam, _conn)
+            Dim ExamRow As DataRow = adjustableStudentExam.Rows(0)
+            Dim contributes As Boolean = ExamRow("contributes")
+            Dim type As String = ExamRow("type")
+            Dim Edate As DateTime = ExamRow("date")
+
+            dtePickerDate.Value = Edate
+            cmbBoxSubject.Text = _message
+            cmbBoxExamTest.Text = type
+            chkBoxContributes.Checked = contributes
+            txtDescription.Text = _exam
+
+            txtName.Visible = True
+            txtStudentID.Visible = True
+            btnAddStudent.Visible = True
+
+
         Else
+
+            txtName.Text = "n/a"
+            txtStudentID.Text = "n/a"
+            btnAddStudent.Text = "n/a"
+
             Dim studentExamDetails As DataTable = selectStatement.GetExamPrepDetails(_message, _conn)
             DataGridView.DataSource = studentExamDetails
+
+            Dim readOnlyColumns As String() = {"student_id", "name", "surname", "class"}
+            For Each colName As String In readOnlyColumns
+                DataGridView.Columns(colName).ReadOnly = True
+            Next
+
             AddColumn()
         End If
 
@@ -133,33 +276,102 @@ Public Class FrmUploadExam
 
         DataGridView.Columns.Add(result)
     End Sub
+    Private Sub studentCols()
 
+        Dim stdId As Integer
+        If Integer.TryParse(txtStudentID.Text.Trim(), stdId) Then
+        End If
+        Dim studentSubject As DataTable = selectStatement.GetStudentEnrolledSubject(stdId, cmbBoxSubject.Text, _conn)
+
+        If studentSubject.Rows.Count < 1 Then
+            design.messagboxError("Ooops!", $"{txtName.Text} is not enrolled under the {cmbBoxSubject.Text} subject.", Me)
+            Exit Sub
+        Else
+            DataGridView.Columns.Clear()
+            Dim cr_date As New DataGridViewTextBoxColumn() With {
+                        .Name = "date",
+                        .HeaderText = "date",
+                        .DataPropertyName = "Date",
+                        .ValueType = GetType(DateTime),
+                        .[ReadOnly] = True
+                    }
+
+            Dim cr_term As New DataGridViewTextBoxColumn() With {
+                        .Name = "term",
+                        .HeaderText = "Term",
+                        .DataPropertyName = "String",
+                        .ValueType = GetType(String),
+                        .[ReadOnly] = True
+                    }
+
+            DataGridView.Columns.Add(cr_date)
+            DataGridView.Columns.Add(cr_term)
+
+            Dim chkBxColumn As New DataGridViewCheckBoxColumn() With {
+                         .HeaderText = "contributes",
+                         .Name = "contributes",
+                         .[ReadOnly] = True
+                    }
+
+            DataGridView.Columns.Add(chkBxColumn)
+            DataGridView.Rows.Add()
+
+            For Each row In DataGridView.Rows
+                row.cells("date").value = dtePickerDate.Value
+            Next
+
+            For Each row In DataGridView.Rows
+
+                If chkBoxContributes.Checked Then
+                    row.cells("contributes").value = True
+                ElseIf Not chkBoxContributes.Checked Then
+                    row.cells("contributes").value = False
+                End If
+
+            Next
+
+            For Each row In DataGridView.Rows
+                row.cells("term").value = _term
+            Next
+        End If
+
+    End Sub
     Private Sub vis()
         lblDate.Visible = True
         lblDescription.Visible = True
         lblSubject.Visible = True
-        lblTopic.Visible = True
         lblExamTest.Visible = True
     End Sub
-
+    Private Sub btnAddStudent_Click(sender As Object, e As EventArgs) Handles btnAddStudent.Click
+        Dim frm As New FrmSelectStudent(_fillClause, _darkmode, Me, _conn)
+        frm.Show()
+    End Sub
     Private Function dtGrid()
 
         Dim dt As New DataTable
+        Try
+            For Each column As DataGridViewColumn In DataGridView.Columns
+                Dim columnType As Type = If(column.ValueType, GetType(String))
+                dt.Columns.Add(column.Name, columnType)
+            Next
 
-        For Each column As DataGridViewColumn In DataGridView.Columns
-            Dim columnType As Type = If(column.ValueType, GetType(String))
-            dt.Columns.Add(column.Name, columnType)
-        Next
-
-        For Each row As DataGridViewRow In DataGridView.Rows
-            If Not row.IsNewRow Then
-                Dim datarow As DataRow = dt.NewRow
-                For Each column As DataGridViewColumn In DataGridView.Columns
-                    datarow(column.Name) = row.Cells(column.Name).Value
-                Next
-                dt.Rows.Add(datarow)
+            For Each row As DataGridViewRow In DataGridView.Rows
+                If Not row.IsNewRow Then
+                    Dim datarow As DataRow = dt.NewRow
+                    For Each column As DataGridViewColumn In DataGridView.Columns
+                        datarow(column.Name) = row.Cells(column.Name).Value
+                    Next
+                    dt.Rows.Add(datarow)
+                End If
+            Next
+        Catch ex As Exception
+            If ex.Message.Contains("'e_result' to be null") Then
+                design.messagboxError("Operation failed", "No student result mark could be identified.", Me)
+            Else
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-        Next
+
+        End Try
 
         Return dt
 
@@ -189,7 +401,6 @@ Public Class FrmUploadExam
     Private Function DKMlabels() As List(Of Guna2HtmlLabel)
 
         Dim labels As New List(Of Guna2HtmlLabel) From {
-            lblTopic,
             lblSubject,
             lblExamTest,
             lblDescription,
@@ -203,15 +414,17 @@ Public Class FrmUploadExam
         Dim pagebuttons As New List(Of Guna2GradientButton) From {
             btnValidateAndFinalise,
             btnValidate,
-            btnToggleFilter
+            btnToggleFilter,
+            btnAddStudent
         }
         Return pagebuttons
     End Function
     Private Function DKMEmptyText() As List(Of Guna2TextBox)
 
         Dim placeholder As New List(Of Guna2TextBox) From {
-            txtTopics,
-            txtDescription
+            txtDescription,
+            txtStudentID,
+            txtName
         }
         Return placeholder
     End Function
@@ -230,7 +443,6 @@ Public Class FrmUploadExam
         }
         Return placeholder
     End Function
-
     Private Sub DKMgrid()
         If _darkmode Then
             DataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(40, 30, 90)
